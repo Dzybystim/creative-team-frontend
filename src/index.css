@@ -13,6 +13,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+:root {
+  --bg-color: #fdf7f2;
+  --accent-color: #f59256;
+  --black-color: #111111;
+  --grey-transparent-color: rgba(17, 17, 17, 0.6);
+  --link-color: #3091eb;
+  --white-color: #ffffff;
+}
 
 ul,
 ol,
