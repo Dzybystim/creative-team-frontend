@@ -5,6 +5,7 @@
   "homepage": "https://Dzybystim.github.io/Creative-team-frontend/",
   "dependencies": {
     "@heroicons/react": "^2.0.16",
+    "@redux-devtools/extension": "^3.2.5",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -17,8 +18,8 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
-    "redux": "^4.2.1",
     "react-toastify": "^9.1.1",
+    "redux": "^4.2.1",
     "styled-components": "^5.3.9",
     "web-vitals": "^2.1.3"
   },

@@ -4,7 +4,7 @@ import { Suspense } from "react";
 export default function SharedLayout () {
     return (<>
         <nav>
-          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/" end>Header</NavLink>
           <NavLink to="/news">News</NavLink>
           <NavLink to="/notices">Find pet</NavLink>
           <NavLink to="/friends">Our Friends</NavLink>

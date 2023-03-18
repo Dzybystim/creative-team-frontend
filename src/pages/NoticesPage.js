@@ -5,7 +5,7 @@ import {NoticesSearch} from '../components/NoticesSearch/NoticesSearch'
 const NoticesPage = () => {
      return (<div>
          <h2>Find your favorite pet</h2>
-         <input><NoticesSearch/></input>
+         <NoticesSearch/>
 
 <NoticesCategoriesNav/>
 <NoticesCategoriesList/>
