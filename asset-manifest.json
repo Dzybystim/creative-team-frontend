@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Creative-team-frontend/static/css/main.33ecf20f.css",
-    "main.js": "/Creative-team-frontend/static/js/main.afcf290e.js",
+    "main.js": "/Creative-team-frontend/static/js/main.f043be43.js",
     "static/css/425.52e7ec4c.chunk.css": "/Creative-team-frontend/static/css/425.52e7ec4c.chunk.css",
     "static/js/425.730e7849.chunk.js": "/Creative-team-frontend/static/js/425.730e7849.chunk.js",
     "static/css/800.ec2b497e.chunk.css": "/Creative-team-frontend/static/css/800.ec2b497e.chunk.css",
@@ -11,7 +11,7 @@
     "static/media/pets.jpg": "/Creative-team-frontend/static/media/pets.d5c12d2f6069907fe363.jpg",
     "index.html": "/Creative-team-frontend/index.html",
     "main.33ecf20f.css.map": "/Creative-team-frontend/static/css/main.33ecf20f.css.map",
-    "main.afcf290e.js.map": "/Creative-team-frontend/static/js/main.afcf290e.js.map",
+    "main.f043be43.js.map": "/Creative-team-frontend/static/js/main.f043be43.js.map",
     "425.52e7ec4c.chunk.css.map": "/Creative-team-frontend/static/css/425.52e7ec4c.chunk.css.map",
     "425.730e7849.chunk.js.map": "/Creative-team-frontend/static/js/425.730e7849.chunk.js.map",
     "800.ec2b497e.chunk.css.map": "/Creative-team-frontend/static/css/800.ec2b497e.chunk.css.map",
@@ -21,6 +21,6 @@
   },
   "entrypoints": [
     "static/css/main.33ecf20f.css",
-    "static/js/main.afcf290e.js"
+    "static/js/main.f043be43.js"
   ]
 }
