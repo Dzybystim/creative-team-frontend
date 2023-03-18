@@ -2,13 +2,15 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    height: 80vh;
     transform: translate(-50%, -50%);
     padding: 60px 20px 40px 20px;
     /* min-height: 300px; */
     min-width: 280px;
-    /* max-width: calc(100vw - 48px);
-    max-height: calc(100vh - 24px); */
-    background-color: #fff;
+    border-radius: 20px;
+    background-color: #fff;  
+    transition: transform 250ms linear;
+    overflow-y: auto;
   }
   
   .overlay {
@@ -19,6 +21,7 @@
     height: 100vh;
     background-color: rgba(17, 17, 17, 0.6);
     z-index: 1200;
+    transition: transform 250ms linear;
   }
   
   .icon {
@@ -32,4 +35,15 @@
     background-color: rgba(253, 247, 242, 1);
   }
   
-  
+  .close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .icon:hover, :focus{
+    color:var(--white-color);
+    background-color: var(--accent-color);
+    border-color: transparent; 
+    }
