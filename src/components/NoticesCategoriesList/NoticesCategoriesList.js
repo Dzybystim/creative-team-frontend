@@ -1,5 +1,7 @@
+//import {  useEffect } from 'react';
 import { NoticeCategoryItem } from "../NoticeCategoryItem/NoticeCategoryItem";
-    
+//import { getNotices } from "../../API/fetchNotice";
+
 const items = [
         {
         id:1,
@@ -32,9 +34,11 @@ const items = [
 const NoticesCategoriesList = ({ item }) => {
    // const location = useLocation();
 
+const category = "sell";
+
     // useEffect(() => {
-    //   Analytics.send(location);
-    // }, [location]);
+    //     getNotices(category);
+    // }, [category]);
 
 
     return (
