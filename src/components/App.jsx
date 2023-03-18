@@ -1,8 +1,11 @@
+
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 import {SharedLayout} from "components/SharedLayout/SharedLayout"
 
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
+const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'))
+
 
 
 export const App = () => {
