@@ -28,7 +28,7 @@ export function Modal({children, onClose}) {
   return createPortal(
     <div className={css.overlay} onClick={handleBackdropClick}>
       <div className={css.container}>
-      <button class={css.icon}></button>
+      <button class={css.icon} onClick={handleBackdropClick}></button>
         {children}
       </div>
     </div>,
