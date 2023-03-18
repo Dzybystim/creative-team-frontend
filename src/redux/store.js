@@ -10,7 +10,9 @@ const initialState = {
       { id: 4, text: "Dog Two", completed: false },
     ],
     filters: {
-      status: "all",
+        sell: "sell",
+        lostFound: "lost/found",
+        inGoodHands: "inGoodHands",
     },
   };
 

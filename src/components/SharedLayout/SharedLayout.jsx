@@ -8,6 +8,7 @@ export default function SharedLayout () {
           <NavLink to="/news">News</NavLink>
           <NavLink to="/notices">Find pet</NavLink>
           <NavLink to="/friends">Our Friends</NavLink>
+          <NavLink to="/users">Users</NavLink>
         </nav> 
         <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
