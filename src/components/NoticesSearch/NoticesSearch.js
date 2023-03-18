@@ -29,7 +29,7 @@ export function NoticesSearch({ onSubmit }) {
           type="text"
           name="searchQuery"
           value={searchQuery}
-          autocomplete="off"
+          autoComplete="off"
           autoFocus
           placeholder="Search"
           onChange={handleQueryChange}
