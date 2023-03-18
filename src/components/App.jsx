@@ -4,6 +4,7 @@ import SharedLayout from "components/SharedLayout/SharedLayout"
 
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'))
+const NoticesCategoriesList = lazy(() => import('../components/NoticesCategoriesList/NoticesCategoriesList'))
 
 
 export const App = () => {
@@ -13,6 +14,14 @@ export const App = () => {
         <Route index element={<div>Header</div>} />
         <Route path="news" element={<div>NewsPage</div>} />
         <Route path="notices" element={<NoticesPage />} >
+
+          <Route path="sell" element={<NoticesCategoriesList/>} />
+          <Route path="lost-found" element={<NoticesCategoriesList/>} />
+          <Route path="for-free" element={<NoticesCategoriesList/>} />
+          <Route path="favorite" element={<NoticesCategoriesList/>} />
+          <Route path="own" element={<NoticesCategoriesList/>} />
+        </Route>
+
            <Route path="title" element={<div>Title</div>} />
            <Route path="category" element={<div>Category</div>} />
            <Route path="selected" element={<div>Selected</div>} />

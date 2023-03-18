@@ -1,8 +1,6 @@
 import { NoticeCategoryItem } from "../NoticeCategoryItem/NoticeCategoryItem";
-
-export const NoticesCategoriesList = ({ item }) => {
-
-    const items = [
+    
+const items = [
         {
         id:1,
         category: "sell",
@@ -31,6 +29,14 @@ export const NoticesCategoriesList = ({ item }) => {
         }
 ]
 
+const NoticesCategoriesList = ({ item }) => {
+   // const location = useLocation();
+
+    // useEffect(() => {
+    //   Analytics.send(location);
+    // }, [location]);
+
+
     return (
         <>
         <button type="button">Add pet</button>
@@ -42,3 +48,6 @@ export const NoticesCategoriesList = ({ item }) => {
         </> 
     )
 };
+
+
+export default NoticesCategoriesList;
