@@ -1,7 +1,7 @@
 
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
-import {SharedLayout} from "components/SharedLayout/SharedLayout"
+import SharedLayout from "components/SharedLayout/SharedLayout"
 
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'))
@@ -12,15 +12,15 @@ export const App = () => {
   return (
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path="news" element={<NewsPage />} />
+        <Route index element={<div>Home</div>} />
+        <Route path="news" element={<div>NewsPage</div>} />
         <Route path="notices" element={<NoticesPage />} />
         <Route path="friends" element={<OurFriendsPage />} />
-        <Route path="users" element={<Users />}>
-           <Route path="signup" element={<Signup />} />
-           <Route path="login" element={<Login />} />
+        <Route path="users" element={<div>Users</div>}>
+           <Route path="signup" element={<div>Signup</div>} />
+           <Route path="login" element={<div>Login</div>} />
         </Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<div>NotFound</div>} />
         </Route>
       </Routes>
 
