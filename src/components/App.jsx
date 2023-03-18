@@ -20,7 +20,7 @@ export const App = () => {
           <Route path="for-free" element={<NoticesCategoriesList/>} />
           <Route path="favorite" element={<NoticesCategoriesList/>} />
           <Route path="own" element={<NoticesCategoriesList/>} />
-        </Route>
+
 
            <Route path="title" element={<div>Title</div>} />
            <Route path="category" element={<div>Category</div>} />
