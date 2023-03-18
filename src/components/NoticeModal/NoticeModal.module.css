@@ -1,0 +1,14 @@
+.img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: white;
+    }
+    
+    .item {
+        font-weight: 600;
+        font-size: 20px;
+    
+    }
+    
