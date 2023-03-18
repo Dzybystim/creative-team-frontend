@@ -1,7 +1,14 @@
-
+import { Modal } from "../Modal/Modal";
+import { useState } from "react";
+import { NoticeModal } from "components/NoticeModal/NoticeModal";
 
 export const NoticeCategoryItem = ({ item }) => {
 
+    const [showModal, setShowModal] = useState(false);
+
+    const toggleModal = () => {
+      setShowModal(!showModal);
+    };
 
     return (
 <>
@@ -21,12 +28,21 @@ export const NoticeCategoryItem = ({ item }) => {
                { item.price ? <p>Price: {item.price}$</p> : null}
             </div>
 
-            <button type="button">LearnMore</button>
+            <button type="button" onClick={toggleModal}>LearnMore</button>
             <button type="button">Delete</button>
 
         </li>
 
-            
+        {showModal && (
+        <Modal
+          key={item.id}
+          onClose={toggleModal}
+        ><NoticeModal item={item}/></Modal>
+      )}      
 </>
     )
 };
+
+
+
+
