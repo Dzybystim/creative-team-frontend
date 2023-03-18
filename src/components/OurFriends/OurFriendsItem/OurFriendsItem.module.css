@@ -1,0 +1,14 @@
+.textContainer > p {
+  font-size: 12px;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16.39px;
+}
+
+.image {
+  width: 52.91px;
+  height: 66.86px;
+}
