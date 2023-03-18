@@ -5,8 +5,8 @@ import BurgerMenu from './BurgerMenu';
 const OurFriendsIcons = () => {
   return (
     <div className={css.iconContainer}>
-      <p>
-        pe<span>t</span>ly
+      <p className={css.logo}>
+        pe<span className={css.letter}>t</span>ly
       </p>
       <BurgerMenu />
     </div>

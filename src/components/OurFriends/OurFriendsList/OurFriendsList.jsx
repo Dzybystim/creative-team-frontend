@@ -94,7 +94,7 @@ const OurFriendsList = () => {
           wrapperClass="dna-wrapper"
         />
       )}
-      <ul>
+      <ul className={CSS.list}>
         {tempFriends.length > 0 &&
           tempFriends
             .sort((a, b) => a.name.localeCompare(b.name))
