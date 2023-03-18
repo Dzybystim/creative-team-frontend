@@ -1,28 +1,26 @@
-
-import { Routes, Route } from "react-router-dom";
-import { lazy } from "react";
-import {SharedLayout} from "components/SharedLayout/SharedLayout"
+import { Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
+import Login from 'pages/Login/Login';
+import SignUp from 'pages/SignUp/SignUp';
+import SharedLayout from './SharedLayout/SharedLayout';
 
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
-const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'))
-
-
+const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 
 export const App = () => {
   return (
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
         <Route path="news" element={<NewsPage />} />
         <Route path="notices" element={<NoticesPage />} />
         <Route path="friends" element={<OurFriendsPage />} />
         <Route path="users" element={<Users />}>
-           <Route path="signup" element={<Signup />} />
-           <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<Login />} />
         </Route>
         <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-
+      </Route>
+    </Routes>
   );
 };
