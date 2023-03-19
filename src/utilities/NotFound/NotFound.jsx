@@ -1,10 +1,18 @@
-import css from "./NotFound.modules.css";
-const image = "https://img.freepik.com/premium-vector/modern-minimal-of-404-error-page-for-website-404-error-the-page-not-found-with-dead-ghost-concept_599740-702.jpg?w=996"
+import { FcHighPriority } from "react-icons/fc";
+import { IconContext } from "react-icons";
+import css from './NotFound.module.css';
+
+
 
 export default function NotFound(){
     
-    return (<div className={css.notFoundContainer} >
-           <img src={image} alt="404 Error"></img>
-            </div>
+    return (
+        <IconContext.Provider value={{ size: "200px" }}>
+          <div className={css.not_found_container}>
+            <h1 className={css.not_found_header} >Not Found</h1>
+            <h2 className={css.not_found_header_two}>Error 404</h2>
+            <FcHighPriority />
+          </div>
+        </IconContext.Provider>
     )
   }

@@ -1,0 +1,16 @@
+.not_found_header {
+    font-size: 32px;
+    text-align: center;
+}
+
+.not_found_header_two {
+    font-size: 26px;
+    text-align: center;
+}
+
+.not_found_container {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
