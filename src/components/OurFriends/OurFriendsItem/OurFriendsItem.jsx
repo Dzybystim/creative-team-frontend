@@ -66,7 +66,7 @@ const OurFriendsItem = ({
       </h4>
       <div className={css.container}>
         <div className={css.imageContainer}>
-          <img src={image} alt={title} className={css.image} />
+          <img src={image} alt={image} className={css.image} />
         </div>
 
         <div className={css.textContainer}>
