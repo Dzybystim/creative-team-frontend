@@ -83,7 +83,7 @@ const OurFriendsItem = ({
 
           <p className={css.text}>
             Adress:{' '}
-            {adress ? (
+           <span className={css.text_span}> {adress ? (
               <a
                 href={adressUrl}
                 rel={'noreferrer'}
@@ -95,26 +95,29 @@ const OurFriendsItem = ({
             ) : (
               '----------------------------------'
             )}
+            </span>
           </p>
           <p className={css.text}>
             Email:
-            {email ? (
+            <span className={css.text_span}> {email ? (
               <a href={`mailto:${email}`} className={css.link}>
                 {email}
               </a>
             ) : (
               '----------------------------------'
             )}
+            </span>
           </p>
           <p className={css.text}>
             Phone:
-            {phone ? (
+            <span className={css.text_span}> {phone ? (
               <a href={`tel:${phone}`} className={css.link}>
                 {phone}
               </a>
             ) : (
               '----------------------------------'
             )}
+            </span>
           </p>
         </div>
       </div>
