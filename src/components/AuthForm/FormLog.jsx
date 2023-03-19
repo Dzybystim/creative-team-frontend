@@ -1,29 +1,48 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { Link } from 'react-router-dom';
 import { ErrorMessage, Form, Formik } from 'formik';
+// import { useTranslation } from 'react-i18next';
 import css from './AuthForm.module.css';
+import { useLogInMutation } from 'redux/fetchUser';
 import { InputForm } from 'components/Input/Input';
-import Button from 'components/Button/Button';
 import { user } from 'service';
+import Button from 'components/Button/Button';
 
-export const AuthFormFirstPage = props => {
+const initialValues = {
+  email: '',
+  password: '',
+};
+
+export const LoginForm = props => {
+  const [login] = useLogInMutation();
+  const [isError, setIsError] = useState(null);
   const [passwordShow, setPasswordShow] = useState(false);
-  const [passwordConfirm, setPasswordConfirm] = useState(false);
+  const navigate = useNavigate();
+  //   const { t } = useTranslation();
 
   const togglePassword = () => setPasswordShow(prevState => !prevState);
-  const togglePasswordConfirm = () =>
-    setPasswordConfirm(prevState => !prevState);
-  const handleSubmit = values => {
-    props.next(values, true);
+
+  const handleSubmit = async (formData, { resetForm }) => {
+    const { error } = await login(formData);
+    if (error) {
+      setIsError({
+        message: error.data.message,
+        additionalInfo: error.data.additionalInfo,
+      });
+      resetForm();
+    } else {
+      navigate('/user');
+    }
   };
 
   return (
     <div className={css.container}>
       <Formik
-        validationSchema={user.stepOneValidationSchema}
-        initialValues={props.data}
+        validationSchema={user.loginValidationSchema}
+        initialValues={initialValues}
         onSubmit={handleSubmit}
       >
         {() => (
@@ -35,14 +54,16 @@ export const AuthFormFirstPage = props => {
                 name="email"
                 type="email"
                 placeholder="Email"
+                autoComplete="off"
               />
               <ErrorMessage name="email" component="p" className={css.error} />
             </div>
-            <div className={css.input__wrapper}>
+            <div className={css.input__wrapper_last}>
               <InputForm
                 name="password"
                 type={passwordShow ? 'text' : 'password'}
                 placeholder="Password"
+                autoComplete="off"
               />
               <span
                 id="visibilityBtn"
@@ -57,36 +78,28 @@ export const AuthFormFirstPage = props => {
                 className={css.error__password}
               />
             </div>
-            <div className={css.input__wrapper_last}>
-              <InputForm
-                name="confirmPassword"
-                type={passwordConfirm ? 'text' : 'password'}
-                placeholder="Confirm Password"
-              />
-              <span
-                id="visibilityBtn"
-                className={css.IconPassword}
-                onClick={togglePasswordConfirm}
-              >
-                {passwordConfirm ? <VisibilityIcon /> : <VisibilityOffIcon />}
-              </span>
-              <ErrorMessage
-                name="confirmPassword"
-                component="p"
-                className={css.error__password}
-              />
-            </div>
+
             <div className={css.button__container}>
               <Button
                 type="submit"
                 className={css.button__auth}
-                buttonName={'Next'}
+                // buttonName={t('Login')}
               ></Button>
             </div>
+
+            {isError && <p className={css.error__login}>{isError.message}</p>}
+            {isError && (
+              <p className={css.error__login}>{isError.additionalInfo}</p>
+            )}
             <p className={css.redirect__auth}>
-              {'Already have an account?'}
-              <Link to="/login" className={css.redirect_link__auth}>
-                {'Login'}
+              {/* {t('no accaunt?')} */}
+              <Link to="/register" className={css.redirect_link__auth}>
+                {/* {t('Register')} */}
+              </Link>
+            </p>
+            <p className={css.redirect__auth}>
+              <Link to="/forgot-password" className={css.redirect_link__auth}>
+                {/* {t('Forgot password?')} */}
               </Link>
             </p>
           </Form>
