@@ -10,7 +10,7 @@
     object-fit: cover;
     border-radius: 0px 0px 40px 40px;
     overflow: hidden;
-    background: green;
+    background: var(--white-transparent-color);
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 16px;
@@ -57,6 +57,9 @@
 
   
     font-size: 14px;
+        
+    }
+.item:not(:last-child){
         margin-bottom: 8px;
     }
 
@@ -73,11 +76,15 @@ font-weight: 500;
     margin-bottom: 40px;  
 }
 
+.btn_item:not(:last-child){
+    margin-bottom: 12px;
+}
+
 .btn{
     display: block;
     width: 240px;
-height: 40px;
-    margin-bottom: 12px;
+align-items: center;
+    
     background-color: var(--white-color);
 border-radius: 40px;
 border-color: var(--accent-color); 
