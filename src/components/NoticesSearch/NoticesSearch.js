@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import css from './NoticesSearch.module.css';
+import { MdClear } from "react-icons/md";
 
 export function NoticesSearch({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -21,6 +22,10 @@ export function NoticesSearch({ onSubmit }) {
     setSearchQuery('');
   };
 
+  const onClickClear = () => {
+    setSearchQuery('');
+  }
+  
   return (  
       <div className={css.SearchForm} onSubmit={handlSubmit}>
         
@@ -34,9 +39,10 @@ export function NoticesSearch({ onSubmit }) {
           placeholder="Search"
           onChange={handleQueryChange}
       ></input>
-            <button type="button">
-                 <FaSearch className={css.ButtonIcon } />
-            </button>
+            <div >
+        {searchQuery.length > 0 ? (<button type="button" onClickClear={onClickClear}><MdClear className={css.ClearIcon}/></button>):
+                                  (<FaSearch className={css.SearchIcon} />)}
+            </div>
       </div>
   );
 }
