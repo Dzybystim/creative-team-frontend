@@ -1,15 +1,16 @@
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
-const NoticesCategoriesList = lazy(() =>
-  import('../components/NoticesCategoriesList/NoticesCategoriesList')
-);
+const NoticesCategoriesList = lazy(() => import('../components/NoticesCategoriesList/NoticesCategoriesList'));
+const NotFound = lazy(() => import('../utilities/NotFound/NotFound'))
 
 export const App = () => {
-  return (
+  return (<>
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<div>Header</div>} />
@@ -42,8 +43,10 @@ export const App = () => {
           <Route path="edit" element={<div>Edit</div>} />
           <Route path="logout" element={<div>Logout</div>} />
         </Route>
-        <Route path="*" element={<div>NotFound</div>} />
+        <Route path="*" element={<NotFound/>} />
       </Route>
     </Routes>
+    <ToastContainer />
+    </>
   );
 };
