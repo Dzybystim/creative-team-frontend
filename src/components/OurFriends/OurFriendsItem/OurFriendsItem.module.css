@@ -3,11 +3,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   border-radius: 20px;
   background: var(--white-color);
   padding-top: 14px;
   padding-bottom: 12px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .item:not(:last-child) {
@@ -40,15 +41,30 @@
   line-height: 1.37;
 }
 
-.image {
-  height: 52.91px;
-  width: 66.86px;
+.imageContainer {
   margin-right: 12px;
+  /* width: 110px;
+  height: 76px; */
+  height: auto;
+  width: auto;
+}
+
+.image {
+  height: auto;
+  width: auto;
+  /* height: 60.91px;
+  width: 66.86px; */
 }
 
 .adressLink {
   text-decoration: none;
   color: var(--black-color);
+}
+
+.adressLink:hover,
+.adressLink:focus {
+  color: var(--link-color);
+  cursor: pointer;
 }
 
 .text {
@@ -67,4 +83,31 @@
 .link {
   text-decoration: none;
   color: var(--black-color);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--link-color);
+  cursor: pointer;
+}
+
+.isOpen:hover,
+.isOpen:focus {
+  color: var(--link-color);
+  cursor: pointer;
+}
+
+.statusOpened {
+  font-family: 'Manrope', sans-serif;
+  font-style: italic;
+  font-size: 8px;
+  color: #03c03c;
+}
+
+.statusClosed {
+  font-family: 'Manrope', sans-serif;
+  font-style: italic;
+  font-size: 10px;
+  font-weight: 700;
+  color: #f40009;
 }

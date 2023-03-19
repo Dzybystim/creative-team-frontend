@@ -20,7 +20,7 @@ const WorkingDaysMenu = ({ onClose, daysList, workdays }) => {
     <div className={css.overlay} onClick={handleBackdropClick}>
       <ul className={css.menu}>
         {daysList.map((el, idx) => (
-          <li className={css.item}>
+          <li className={css.item} key={idx}>
             {workdays[idx].isOpen
               ? `${el}${' '}${workdays[idx].from} - ${workdays[idx].to}`
               : `${el} is closed`}

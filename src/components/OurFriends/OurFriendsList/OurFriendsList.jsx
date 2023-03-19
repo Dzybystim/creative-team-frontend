@@ -46,6 +46,7 @@ const OurFriendsList = () => {
               idx
             ) => (
               <OurFriendsItem
+                key={idx}
                 id={idx}
                 adress={address}
                 adressUrl={addressUrl}
