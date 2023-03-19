@@ -83,38 +83,47 @@ const OurFriendsItem = ({
 
           <p className={css.text}>
             Adress:{' '}
-            {adress ? (
-              <a
-                href={adressUrl}
-                rel={'noreferrer'}
-                target={'_blank'}
-                className={css.adressLink}
-              >
-                {adress}
-              </a>
-            ) : (
-              '----------------------------------'
-            )}
+            <span className={css.text_span}>
+              {' '}
+              {adress ? (
+                <a
+                  href={adressUrl}
+                  rel={'noreferrer'}
+                  target={'_blank'}
+                  className={css.adressLink}
+                >
+                  {adress}
+                </a>
+              ) : (
+                '----------------------------------'
+              )}
+            </span>
           </p>
           <p className={css.text}>
             Email:
-            {email ? (
-              <a href={`mailto:${email}`} className={css.link}>
-                {email}
-              </a>
-            ) : (
-              '----------------------------------'
-            )}
+            <span className={css.text_span}>
+              {' '}
+              {email ? (
+                <a href={`mailto:${email}`} className={css.link}>
+                  {email}
+                </a>
+              ) : (
+                '----------------------------------'
+              )}
+            </span>
           </p>
           <p className={css.text}>
             Phone:
-            {phone ? (
-              <a href={`tel:${phone}`} className={css.link}>
-                {phone}
-              </a>
-            ) : (
-              '----------------------------------'
-            )}
+            <span className={css.text_span}>
+              {' '}
+              {phone ? (
+                <a href={`tel:${phone}`} className={css.link}>
+                  {phone}
+                </a>
+              ) : (
+                '----------------------------------'
+              )}
+            </span>
           </p>
         </div>
       </div>

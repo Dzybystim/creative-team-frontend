@@ -14,10 +14,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgba(253, 247, 242, 1);
   line-height: 1.4;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-top: 16px;
-  padding-bottom: 16px;
 }
 :root {
   --bg-color: #fdf7f2;
@@ -27,6 +23,10 @@ body {
   --link-color: #3091eb;
   --white-color: #ffffff;
   --white-transparent-color: rgba(255, 255, 255, 0.6);
+}
+
+.react-icons {
+  vertical-align: middle;
 }
 
 ul,

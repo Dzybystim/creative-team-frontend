@@ -7,8 +7,8 @@
   background: var(--white-color);
   padding-top: 14px;
   padding-bottom: 12px;
-  padding-left: 4px;
-  padding-right: 4px;
+  /*padding-left: 4px;
+  padding-right: 4px;*/
 }
 
 .item:not(:last-child) {
@@ -22,10 +22,16 @@
 
 .textContainer {
   text-align: left;
+  width: 150px;
+  margin-right: 4px;
 }
 
 .textContainer > p {
   font-size: 12px;
+}
+
+.text_span {
+  display: block;
 }
 
 .title {
@@ -42,16 +48,19 @@
 }
 
 .imageContainer {
-  margin-right: 8px;
+  margin-right: 12px;
+  margin-left: 4px;
   /* width: 110px;
   height: 76px; */
-  height: auto;
-  width: auto;
+  height: 78px;
+  width: 110px;
 }
 
 .image {
-  height: auto;
-  width: auto;
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
   /* height: 60.91px;
   width: 66.86px; */
 }
