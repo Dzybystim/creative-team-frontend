@@ -22,8 +22,13 @@
     letter-spacing: 0.04em;
 }
 
-.ButtonIcon {
+.SearchIcon {
     width: 17.49px;
     height: 17.49px;
     background-color:#111111;
+}
+
+.ClearIcon {
+    width: 6px;
+    height:6px;
 }
