@@ -1,8 +1,9 @@
 //import {  useEffect } from 'react';
 import { NoticeCategoryItem } from '../NoticeCategoryItem/NoticeCategoryItem';
 //import { getNotices } from "../../API/fetchNotice";
+import { AddNoticeButton } from "../AddNoticeButton/AddNoticeButton";
 import css from "./NoticesCategoriesList.module.css";
-import { AiOutlinePlus } from "react-icons/ai";
+
 
 const items = [
   {
@@ -48,7 +49,7 @@ const NoticesCategoriesList = ({ item }) => {
     
     return (
         <>
-        <button className={css.add_btn} type="button"><AiOutlinePlus size={32}/>Add pet</button>
+      <AddNoticeButton/> 
 <ul className={css.list}>
 
         {items.map(item => {
