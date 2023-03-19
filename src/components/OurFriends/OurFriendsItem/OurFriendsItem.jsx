@@ -27,8 +27,7 @@ const OurFriendsItem = ({
     ? (index = 6)
     : (index = getCurrentDate.getDay() - 1);
 
-  // let currentDay = daysList[index];
-
+  const currentHour = getCurrentDate.getHours();
   const isOpenNow = () => {
     if (workdays === null) {
       return <p> ----------------------------------</p>;
@@ -40,6 +39,12 @@ const OurFriendsItem = ({
             className={css.isOpen}
             onClick={toggleModal}
           >{`${workdays[index].from} : ${workdays[index].to}`}</p>
+          {currentHour >= workdays[index].from.split(':')[0] &&
+          currentHour < workdays[index].to.split(':')[0] ? (
+            <span className={css.statusOpened}>is Opened now</span>
+          ) : (
+            <span className={css.statusClosed}>is Closed now</span>
+          )}
         </>
       );
     }
@@ -60,7 +65,9 @@ const OurFriendsItem = ({
         </a>
       </h4>
       <div className={css.container}>
-        <img src={image} alt={title} className={css.image} />
+        <div className={css.imageContainer}>
+          <img src={image} alt={image} className={css.image} />
+        </div>
 
         <div className={css.textContainer}>
           <h4 className={css.text}>
@@ -91,15 +98,23 @@ const OurFriendsItem = ({
           </p>
           <p className={css.text}>
             Email:
-            <a href={`mailto:${email}`} className={css.link}>
-              {email ? email : '----------------------------------'}
-            </a>
+            {email ? (
+              <a href={`mailto:${email}`} className={css.link}>
+                {email}
+              </a>
+            ) : (
+              '----------------------------------'
+            )}
           </p>
           <p className={css.text}>
             Phone:
-            <a href={`tel:${phone}`} className={css.link}>
-              {phone ? phone : '----------------------------------'}
-            </a>
+            {phone ? (
+              <a href={`tel:${phone}`} className={css.link}>
+                {phone}
+              </a>
+            ) : (
+              '----------------------------------'
+            )}
           </p>
         </div>
       </div>

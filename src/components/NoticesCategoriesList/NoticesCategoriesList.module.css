@@ -1,38 +1,5 @@
-
-
 .list {
-    position: relative;
-    margin-right: auto;
-    margin-left: auto;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
 }
-
-.add_btn {
-    top: 40px;
-
-
-    right: 0;
-    z-index: 10;
-    position: fixed;
-    
-    width: 80px;
-   height: 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--accent-color);
-        border-radius: 50%;
-        border: 2px solid transparent; 
-        color:var(--white-color);
-      
-font-weight: 500;
-font-size: 12px;
-line-height: 1.33;
- } 
-
- .add_btn:hover, :focus{
-    color:var(--accent-color);
-    background-color: var(--white-color);
-    border-color: var(--accent-color); 
-    }
-  

@@ -1,8 +1,8 @@
 //import {  useEffect } from 'react';
 import { NoticeCategoryItem } from '../NoticeCategoryItem/NoticeCategoryItem';
 //import { getNotices } from "../../API/fetchNotice";
-import css from "./NoticesCategoriesList.module.css";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AddNoticeButton } from '../AddNoticeButton/AddNoticeButton';
+import css from './NoticesCategoriesList.module.css';
 
 const items = [
   {
@@ -36,21 +36,16 @@ const items = [
 const NoticesCategoriesList = ({ item }) => {
   // const location = useLocation();
 
-
-//const category = "sell";
-
-
+  //const category = "sell";
 
   // useEffect(() => {
   //     getNotices(category);
   // }, [category]);
 
-    
-    return (
-        <>
-        <button className={css.add_btn} type="button"><AiOutlinePlus size={32}/>Add pet</button>
-<ul className={css.list}>
-
+  return (
+    <>
+      <AddNoticeButton />
+      <ul className={css.list}>
         {items.map(item => {
           return <NoticeCategoryItem key={item.id} item={item} />;
         })}
