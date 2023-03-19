@@ -27,7 +27,7 @@ const OurFriendsItem = ({
     ? (index = 6)
     : (index = getCurrentDate.getDay() - 1);
 
-  let currentDay = daysList[index];
+  // let currentDay = daysList[index];
 
   const isOpenNow = () => {
     if (workdays === null) {
