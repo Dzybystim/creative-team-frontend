@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Creative-team-frontend/static/css/main.1ca9d821.css",
+    "main.css": "/Creative-team-frontend/static/css/main.c8e653c6.css",
     "main.js": "/Creative-team-frontend/static/js/main.63e3992d.js",
     "static/css/389.2cdc2035.chunk.css": "/Creative-team-frontend/static/css/389.2cdc2035.chunk.css",
     "static/js/389.7dba9b88.chunk.js": "/Creative-team-frontend/static/js/389.7dba9b88.chunk.js",
@@ -13,7 +13,7 @@
     "static/js/954.fb9f5ecf.chunk.js": "/Creative-team-frontend/static/js/954.fb9f5ecf.chunk.js",
     "static/media/white-cat-and-dog.jpg": "/Creative-team-frontend/static/media/white-cat-and-dog.c835978faf1384f2d6e9.jpg",
     "index.html": "/Creative-team-frontend/index.html",
-    "main.1ca9d821.css.map": "/Creative-team-frontend/static/css/main.1ca9d821.css.map",
+    "main.c8e653c6.css.map": "/Creative-team-frontend/static/css/main.c8e653c6.css.map",
     "main.63e3992d.js.map": "/Creative-team-frontend/static/js/main.63e3992d.js.map",
     "389.2cdc2035.chunk.css.map": "/Creative-team-frontend/static/css/389.2cdc2035.chunk.css.map",
     "389.7dba9b88.chunk.js.map": "/Creative-team-frontend/static/js/389.7dba9b88.chunk.js.map",
@@ -26,7 +26,7 @@
     "954.fb9f5ecf.chunk.js.map": "/Creative-team-frontend/static/js/954.fb9f5ecf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ca9d821.css",
+    "static/css/main.c8e653c6.css",
     "static/js/main.63e3992d.js"
   ]
 }
