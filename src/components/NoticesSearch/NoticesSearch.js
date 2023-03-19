@@ -38,9 +38,9 @@ export function NoticesSearch({ onSubmit }) {
           autoFocus
           placeholder="Search"
           onChange={handleQueryChange}
-      ></input>
+      />
             <div >
-        {searchQuery.length > 0 ? (<button type="button" onClickClear={onClickClear}><MdClear className={css.ClearIcon}/></button>):
+        {searchQuery.length > 0 ? (<button type="button"  onClick={onClickClear}><MdClear className={css.ClearIcon}/></button>):
                                   (<FaSearch className={css.SearchIcon} />)}
             </div>
       </div>
