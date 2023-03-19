@@ -28,22 +28,27 @@
 }
 
 .title {
+  margin-bottom: 10px;
+}
+
+.titleLink {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-family: 'Manrope', sans-serif;
   font-size: 12px;
   font-weight: 700;
   line-height: 1.37;
-  margin-bottom: 10px;
-  font-family: 'Manrope', sans-serif;
-  color: var(--accent-color);
 }
-
-/* .imageContainer {
- 
-} */
 
 .image {
   height: 52.91px;
   width: 66.86px;
   margin-right: 12px;
+}
+
+.adressLink {
+  text-decoration: none;
+  color: var(--black-color);
 }
 
 .text {
