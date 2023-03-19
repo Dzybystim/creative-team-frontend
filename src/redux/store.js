@@ -15,7 +15,7 @@ const initialState = {
         inGoodHands: "inGoodHands",
     },
   };
-
+  
   const rootReducer = (state = initialState, action) => {
     return state;
   };

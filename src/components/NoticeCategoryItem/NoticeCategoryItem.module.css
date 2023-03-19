@@ -1,0 +1,137 @@
+
+.item {
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 12px;
+    box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+    border-radius: 0px 0px 20px 20px;
+    background-color: var(--white-color);
+    width: 280px;
+  }
+
+.item:not(:last-child) {
+    margin-bottom: 32px;
+
+  }
+
+  .img {
+    position: relative;
+    display: block;
+    width: 280px;
+    min-height: 288px;
+    object-fit: cover;
+    overflow: hidden;
+    background: var(--white-transparent-color);
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    background-image: url(../../components/white-cat-and-dog.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+
+  .category {
+    z-index: 10;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 60%;
+    padding: 6px;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    border-radius: 0px 60px 60px 0px;
+    color:var(--black-color);
+    background-color: var(--white-transparent-color);
+    }
+    
+
+ .icon {
+    z-index: 10;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+       width: 44px;
+       height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--white-transparent-color);
+        border-radius: 50%;
+        border: 1px solid transparent; 
+        color:var(--accent-color);
+        
+ } 
+
+ .icon:hover, :focus{
+    color:var(--white-color);
+    background-color: var(--accent-color);
+    border-color: transparent; 
+    }
+    
+
+ .title {
+  padding: 0 20px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px; 
+    }
+
+.info{
+  padding: 0 20px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.info_item{
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.text{
+width: 50%;
+font-weight: 500;
+font-size: 16px;
+}
+
+
+.btn_cover{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 88px;
+
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+width: 248px;
+padding: 8px;
+font-weight: 500;
+font-size: 16px;
+letter-spacing: 0.04em;
+background-color: var(--white-color);
+border-radius: 40px;
+border:2px solid var(--accent-color); 
+color:var(--accent-color);
+}
+
+.btn:hover, :focus{
+color:var(--white-color);
+background-color: var(--accent-color);
+border-color: transparent; 
+}
+
+
+      

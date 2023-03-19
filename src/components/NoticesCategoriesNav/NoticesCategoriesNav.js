@@ -1,21 +1,23 @@
 import { NavLink } from "react-router-dom";
+import css from "./NoticesCategoriesNav.module.css";
+
 export const NoticesCategoriesNav = ({ item }) => {
   //  let isLoggin = useSelector();
 
   return (
 
-    <>
-                <li><NavLink  to="sell">sell</NavLink></li>
-                <li><NavLink  to="lost-found">lost/found</NavLink></li>
-                <li><NavLink  to="for-free">in good hands</NavLink></li>
+    <ul className={css.list}>
+                <li className={css.item}><NavLink className={css.link} to="sell">sell</NavLink></li>
+                <li className={css.item}><NavLink className={css.link} to="lost-found">lost/found</NavLink></li>
+                <li className={css.item}><NavLink className={css.link} to="for-free">in good hands</NavLink></li>
           
                {/* {isLoggin ? ( */}
               <>
-                <li><NavLink  to="favorite">favorite ads</NavLink></li>
-                <li><NavLink  to="own">my ads</NavLink></li>
+                <li className={css.item}><NavLink className={css.link} to="favorite">favorite ads</NavLink></li>
+                <li className={css.item}><NavLink className={css.link} to="own">my ads</NavLink></li>
               </>
             {/* ) : null} */}
                 
-    </>
+    </ul>
   )
 };

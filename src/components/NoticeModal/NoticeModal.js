@@ -39,9 +39,9 @@ export const NoticeModal = ({item}
             <p className={css.comments}>Comments: {item.comments}</p>
 
           <ul >
-            <li><button className={css.btn} type="button">Contact</button></li>
-            <li><button className={css.btn} type="button">Add to </button></li>
-            <li><button className={css.btn} type="button">Remove from </button></li>
+            <li className={css.btn_item}><button className={css.btn} type="button">Contact</button></li>
+            <li className={css.btn_item}><button className={css.btn} type="button">Add to </button></li>
+            <li className={css.btn_item}><button className={css.btn} type="button">Remove from </button></li>
             {/* <li>{ isFavorite ?  <button type="button">Add to </button> : 
                       <button type="button">Remove from </button>}</li> */}
           </ul>
