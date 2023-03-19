@@ -12,6 +12,8 @@ body {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(253, 247, 242, 1);
+  line-height: 1.4;
 }
 :root {
   --bg-color: #fdf7f2;
@@ -20,6 +22,7 @@ body {
   --grey-transparent-color: rgba(17, 17, 17, 0.6);
   --link-color: #3091eb;
   --white-color: #ffffff;
+  --white-transparent-color: rgba(255, 255, 255, 0.6);
 }
 
 ul,
