@@ -1,8 +1,11 @@
 .SearchForm {
     display: flex;
     align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 608px;
+    height: 44px;
     background-color: #fff;
     border-radius: 20px;
     overflow: hidden;
@@ -19,6 +22,7 @@
     outline: none;
     /*padding-left: 4px;
     padding-right: 4px;*/
+
     color:#535353;
     letter-spacing: 0.04em;
 }
@@ -39,6 +43,10 @@
 .SearchIcon {
     width: 17.49px;
     height: 17.49px;
+    padding-top: 13px;
+    padding-right: 15.51px;
+    padding-bottom: 13px;
+
 }
 
 .ClearIcon {

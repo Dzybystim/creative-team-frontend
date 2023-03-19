@@ -48,6 +48,7 @@ export function NoticesSearch({ onSubmit }) {
       : 
       <div className={css.icon_container}>
       <FaSearch />
+
       </div>
        }
          </IconContext.Provider>
