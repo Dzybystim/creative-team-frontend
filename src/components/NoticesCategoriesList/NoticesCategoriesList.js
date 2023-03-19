@@ -37,19 +37,13 @@ const NoticesCategoriesList = ({ item }) => {
   // const location = useLocation();
 
 
-const category = "sell";
+//const category = "sell";
 
 
 
   // useEffect(() => {
   //     getNotices(category);
   // }, [category]);
-
-
-  return (
-    <>
-      <button type="button">Add pet</button>
-      <ul>
 
     
     return (
