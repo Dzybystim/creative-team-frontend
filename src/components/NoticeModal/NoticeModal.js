@@ -14,7 +14,7 @@ export const NoticeModal = ({item}
     ) => {
 
     return (
-<>
+<div className={css.container}>
     
 
       
@@ -50,7 +50,7 @@ export const NoticeModal = ({item}
          
                       
             
-</>
+</div>
     )
 };
 
