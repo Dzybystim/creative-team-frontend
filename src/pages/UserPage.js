@@ -11,6 +11,7 @@ export default function UserPage() {
       </div>
 
       <h2 className={css.title}>My pets:</h2>
+
       <div className={css.container__petsdata}>
         <PetsData />
       </div>

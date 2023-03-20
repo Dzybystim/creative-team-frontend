@@ -13,7 +13,7 @@ export default function UserData(data) {
             accept=".jpg, .jpeg, .png"
             hidden
           ></input>
-          <button onclick="file.click()">Edit photo</button>
+          <button /*onclick="file.click()"*/>Edit photo</button>
         </div>
 
         <ul className={css.info}>
