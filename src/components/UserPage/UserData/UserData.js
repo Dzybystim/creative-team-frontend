@@ -9,11 +9,11 @@ export default function UserData(data) {
           <input
             className={css.input}
             type="file"
-            id="avatar"
-            name="avatar"
-            accept="image/png, image/jpeg"
+            id="file"
+            accept=".jpg, .jpeg, .png"
+            hidden
           ></input>
-          <label for="avatar">Edit photo</label>
+          <button onclick="file.click()">Edit photo</button>
         </div>
 
         <ul className={css.info}>
