@@ -12,7 +12,7 @@ export const NoticeCategoryItem = ({  item }) => {
     const toggleModal = () => {
       setShowModal(!showModal);
     };
-//console.log("key", key);
+
     return (
 <>
         <li className={css.item} >

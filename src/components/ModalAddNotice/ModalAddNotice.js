@@ -20,7 +20,7 @@ import css from "./ModalAddNotice.module.css";
     breed: '',
     sex: '',
     location: '',
-  //  photo: '',
+    file: '',
     comments: '',
     price: '',
   };

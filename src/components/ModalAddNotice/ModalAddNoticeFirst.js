@@ -46,14 +46,14 @@ export const ModalAddNoticeFirst = ({toggleModalPage, onClose}) => {
             <Field
             className={css.field}
             id="birthday"
-            type="date"
+            type="text"
               name="birthday"
               placeholder="Type date of birth"
               required
             />
             <label className={css.label} htmlFor="breed">Breed</label>
             <Field
-            className={css.field}
+            className={css.field_last}
             id="breed"
               type="text"
               name="breed"
@@ -61,9 +61,13 @@ export const ModalAddNoticeFirst = ({toggleModalPage, onClose}) => {
               required
             />
             {/* <FormError name="number" component="div" /> */}
-            <button type="submit" onClick={toggleModalPage}>Next</button>
-            <button type="submit" onClick={onClose}>Cancel</button>
-
+            <ul>
+              <li className={css.btn_item}> <button type="submit" onClick={toggleModalPage}  className={css.btn}>Next</button>
+           </li>
+              <li className={css.btn_item}><button type="submit" onClick={onClose}  className={css.btn}>Cancel</button>
+            </li>
+            </ul>
+            
 </>
 
     )
