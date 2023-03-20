@@ -1,9 +1,11 @@
 .container {
-  padding: 40px 20px;
+  padding: 0px;
+  margin-top: 61px;
 }
 
 .container__userdata {
-  padding: 10px 10px;
+  margin-bottom: 47px;
+
   width: 280px;
   height: 537px;
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
@@ -12,10 +14,15 @@
 }
 
 .container__petsdata {
-  padding: 40px 20px;
+  width: 280px;
+  height: 537px;
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+  border-radius: 20px;
 }
 
 .title {
+  margin-bottom: 18px;
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 500;
@@ -25,27 +32,4 @@
   align-items: center;
   letter-spacing: 0.04em;
   color: var(--black-color);
-}
-.avatar {
-  width: 233px;
-  height: 233px;
-}
-
-.text {
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.04em;
-}
-
-.info {
-   padding: ;
-}
-
-.info_data {
-  margin-bottom: 12px;
 }

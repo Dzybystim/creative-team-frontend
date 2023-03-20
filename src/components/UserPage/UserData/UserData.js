@@ -6,13 +6,14 @@ export default function UserData(data) {
     <>
       <div>
         <div className={css.avatar}>
-          <label for="avatar">Edit photo</label>
           <input
+            className={css.input}
             type="file"
             id="avatar"
             name="avatar"
             accept="image/png, image/jpeg"
           ></input>
+          <label for="avatar">Edit photo</label>
         </div>
 
         <ul className={css.info}>
