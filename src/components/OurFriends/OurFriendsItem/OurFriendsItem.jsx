@@ -33,27 +33,40 @@ const OurFriendsItem = ({
 
   const isOpenNow = () => {
     if (workdays === null) {
-      return <p> ----------------------------------</p>;
+      return (
+        <p className={css.empty}>
+          <span>Time: </span> ----------------------------------
+        </p>
+      );
     }
     if (workdays[index] !== undefined && workdays[index].isOpen) {
       return (
         <>
           <p
-            className={css.isOpen}
+            className={!showMenu ? css.isOpen : css.textTimeActive}
             onClick={toggleModal}
-          >{`${workdays[index].from} : ${workdays[index].to}`}</p>
+          >
+            <span>Time: </span>
+            {`${workdays[index].from} : ${workdays[index].to}`}
+          </p>
           {currentHour >= workdays[index].from.split(':')[0] &&
           currentHour < workdays[index].to.split(':')[0] ? (
             <span className={css.statusOpened}>is Opened now</span>
           ) : (
-            <span className={css.statusClosed}>is Closed now</span>
+            <p>
+              <span className={css.statusClosed}>is Closed now</span>
+            </p>
           )}
         </>
       );
     }
     return (
       <>
-        <p className={css.isClosed} onClick={toggleModal}>
+        <p
+          className={!showMenu ? css.isClosed : css.textTimeActive}
+          onClick={toggleModal}
+        >
+          <span>Time: </span>
           Is closed today
         </p>
       </>
@@ -80,7 +93,7 @@ const OurFriendsItem = ({
         <div className={css.textContainer}>
           <h4 className={!showMenu ? css.textTime : css.textTimeActive}>
             {' '}
-            Time: {isOpenNow()}
+            {isOpenNow()}
             {showMenu && (
               <WorkingDaysMenu
                 onClose={toggleModal}
@@ -90,54 +103,47 @@ const OurFriendsItem = ({
             )}
           </h4>
 
-          <p className={css.text}>
-            Adress:{' '}
-            <span className={css.text_span}>
-              {' '}
-              {adress ? (
-                <a
-                  href={adressUrl}
-                  rel={'noreferrer'}
-                  target={'_blank'}
-                  className={css.adressLink}
-                >
-                  {adress}
-                </a>
-              ) : (
-
-                <span className={css.empty}>
-                  ----------------------------------
-                </span>
-
-              )}
-            </span>
-          </p>
-          <p className={css.text}>
-            Email:
-            <span className={css.text_span}>
-              {' '}
-              {email ? (
-                <a href={`mailto:${email}`} className={css.link}>
-                  {email}
-                </a>
-              ) : (
-                '----------------------------------'
-              )}
-            </span>
-          </p>
-          <p className={css.text}>
-            Phone:
-            <span className={css.text_span}>
-              {' '}
-              {phone ? (
-                <a href={`tel:${phone}`} className={css.link}>
-                  {phone}
-                </a>
-              ) : (
-                '----------------------------------'
-              )}
-            </span>
-          </p>
+          {adress ? (
+            <p className={css.text}>
+              <span>Adress:</span>
+              <a
+                href={adressUrl}
+                rel={'noreferrer'}
+                target={'_blank'}
+                className={css.adressLink}
+              >
+                {adress}
+              </a>
+            </p>
+          ) : (
+            <p className={css.empty}>
+              Adress: <span>----------------------------------</span>
+            </p>
+          )}
+          {email ? (
+            <p className={css.text}>
+              <span> Email:</span>
+              <a href={`mailto:${email}`} className={css.link}>
+                {email}
+              </a>
+            </p>
+          ) : (
+            <p className={css.empty}>
+              Email: <span>----------------------------------</span>
+            </p>
+          )}
+          {phone ? (
+            <p className={css.text}>
+              <span> Phone:</span>
+              <a href={`tel:${phone}`} className={css.link}>
+                {phone}
+              </a>
+            </p>
+          ) : (
+            <p className={css.empty}>
+              Phone: <span>----------------------------------</span>
+            </p>
+          )}
         </div>
       </div>
     </li>
