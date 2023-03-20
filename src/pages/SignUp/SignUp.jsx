@@ -1,9 +1,11 @@
-import { AuthError } from 'components/AuthForm/AuthError';
-import { AuthFormFirstPage } from 'components/AuthForm/AuthFormFirstPage';
-import { AuthFormSecondPage } from 'components/AuthForm/AuthFormSecondPage';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRegistrationUserMutation } from 'redux/fetchUser';
+import {
+  AuthError,
+  AuthFormFirstPage,
+  AuthFormSecondPage,
+} from 'components/AuthForm';
+import { useRegistrationUserMutation } from 'redux/auth/fetchUser';
 
 const SignUp = () => {
   const [register, { isLoading, error }] = useRegistrationUserMutation();
@@ -15,27 +17,26 @@ const SignUp = () => {
     password: '',
     confirmPassword: '',
     name: '',
-    city: '',
-    phone: '',
+    cityRegion: '',
+    mobilePhone: '',
   });
 
   const [page, setPage] = useState(0);
 
   const makeRequest = async formData => {
     const { error } = await register(formData);
-    console.log(error);
     if (!error) {
-      navigate('/user');
+      navigate('/friends');
     }
   };
 
   const handleNextStep = (newData, final = false) => {
     setData(prev => ({ ...prev, ...newData }));
     setPage(prev => prev + 1);
-    const { email, password, name, city, phone } = newData;
+    const { email, password, name, cityRegion, mobilePhone } = newData;
 
     if (final & (page === 1)) {
-      makeRequest({ email, password, name, city, phone });
+      makeRequest({ email, password, name, cityRegion, mobilePhone });
       return;
     }
   };

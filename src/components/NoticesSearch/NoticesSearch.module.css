@@ -1,29 +1,33 @@
 .SearchForm {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 608px;
-    background-color: #fff;
-    border-radius: 40px;
-    overflow: hidden;
-
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 608px;
+  background-color: #fff;
+  border-radius: 40px;
+  overflow: hidden;
 }
 
 .Input {
-    display: inline-block;
-    width: 100%;
-    font: inherit;
-    font-size: 20px;
-    border: none;
-    outline: none;
-    padding-left: 4px;
-    padding-right: 4px;
-    color:#535353;
-    letter-spacing: 0.04em;
+  display: inline-block;
+  width: 100%;
+  font: inherit;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #535353;
+  letter-spacing: 0.04em;
 }
 
-.ButtonIcon {
-    width: 17.49px;
-    height: 17.49px;
-    background-color:#111111;
+.SearchIcon {
+  width: 17.49px;
+  height: 17.49px;
+  background-color: #111111;
+}
+
+.ClearIcon {
+  width: 6px;
+  height: 6px;
 }

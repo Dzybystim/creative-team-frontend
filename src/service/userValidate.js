@@ -34,11 +34,11 @@ const stepTwoValidationSchema = Yup.object({
     .required('Name is required')
     .label('Name')
     .matches(/^[a-zA-Z]+$/, 'In Latin letters'),
-  city: Yup.string()
+  cityRegion: Yup.string()
     .label('City')
     .required('City, region is required')
     .matches(/^[?!,.a-zA-Z0-9\s]+$/, 'In Latin letters'),
-  phone: Yup.string()
+  mobilePhone: Yup.string()
     .required('Mobile phone is required')
     .label('Mobile phone')
     .matches(/^\+380\d{9}$/, 'Correct format: +380981234567'),

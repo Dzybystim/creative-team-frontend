@@ -6,12 +6,7 @@ export const AuthError = ({ error, additionalInfo }) => {
       <div className={css.form}>
         <h2 className={css.title}>{error}</h2>
 
-        <p className={css.redirect__auth}>
-          {additionalInfo}
-          {/* <a className={css.redirect_link__auth} href="/login">
-					Login
-				</a> */}
-        </p>
+        <p className={css.redirect__auth}>{additionalInfo}</p>
       </div>
     </div>
   );

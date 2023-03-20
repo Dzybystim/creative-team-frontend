@@ -1,48 +1,64 @@
-import { Modal } from "../Modal/Modal";
-import { useState } from "react";
-import { NoticeModal } from "components/NoticeModal/NoticeModal";
+import { Modal } from '../../utilities/Modal/Modal';
+import { useState } from 'react';
+import { NoticeModal } from 'components/NoticeModal/NoticeModal';
+import css from './NoticeCategoryItem.module.css';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { HiTrash } from 'react-icons/hi';
 
 export const NoticeCategoryItem = ({ item }) => {
+  const [showModal, setShowModal] = useState(false);
 
-    const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
 
-    const toggleModal = () => {
-      setShowModal(!showModal);
-    };
+  return (
+    <>
+      <li className={css.item}>
+        <div className={css.img}>
+          <p className={css.category}>{item.category}</p>
+          <button className={css.icon} type="button">
+            <AiOutlineHeart size={28} />
+          </button>
+        </div>
+        <h3 className={css.title}>{item.title}</h3>
 
-    return (
-<>
-        <li>
-<p>{item.category}</p>
-        <button type="button">icon</button>
-        <div>
+        <ul className={css.info}>
+          <li className={css.info_item}>
+            <p className={css.text}>Breed: </p>
+            <p className={css.text}> {item.breed}</p>
+          </li>
+          <li className={css.info_item}>
+            <p className={css.text}>Place: </p>
+            <p className={css.text}>{item.location}</p>
+          </li>
+          <li className={css.info_item}>
+            <p className={css.text}>Age: </p>
+            <p className={css.text}>{item.age}</p>
+          </li>
 
-        </div>  
-            <h3>{item.title}</h3>
+          {item.price ? (
+            <li className={css.info_item}>
+              <p className={css.text}>Price:</p>
+              <p className={css.text}>{item.price}$</p>
+            </li>
+          ) : null}
+        </ul>
+        <div className={css.btn_cover}>
+          <button className={css.btn} type="button" onClick={toggleModal}>
+            LearnMore
+          </button>
+          <button className={css.btn} type="button">
+            Delete <HiTrash size={20} />
+          </button>
+        </div>
+      </li>
 
-            <div>
-                <p>Breed: {item.breed}</p>
-                <p>Place: {item.location}</p>
-                <p>Age: {item.age}</p>
-
-               { item.price ? <p>Price: {item.price}$</p> : null}
-            </div>
-
-            <button type="button" onClick={toggleModal}>LearnMore</button>
-            <button type="button">Delete</button>
-
-        </li>
-
-        {showModal && (
-        <Modal
-          key={item.id}
-          onClose={toggleModal}
-        ><NoticeModal item={item}/></Modal>
-      )}      
-</>
-    )
+      {showModal && (
+        <Modal key={item.id} onClose={toggleModal}>
+          <NoticeModal item={item} />
+        </Modal>
+      )}
+    </>
+  );
 };
-
-
-
-

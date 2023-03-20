@@ -30,12 +30,28 @@ export const AuthFormSecondPage = props => {
               <ErrorMessage name="name" component="p" className={css.error} />
             </div>
             <div className={css.input__wrapper}>
-              <InputForm placeholder="City, region" name="city" type="city" />
-              <ErrorMessage name="city" component="p" className={css.error} />
+              <InputForm
+                placeholder="City, region"
+                name="cityRegion"
+                type="cityRegion"
+              />
+              <ErrorMessage
+                name="cityRegion"
+                component="p"
+                className={css.error}
+              />
             </div>
             <div className={css.input__wrapper_last}>
-              <InputForm name="phone" type="phone" placeholder="Mobile phone" />
-              <ErrorMessage name="phone" component="p" className={css.error} />
+              <InputForm
+                name="mobilePhone"
+                type="mobilePhone"
+                placeholder="Mobile phone"
+              />
+              <ErrorMessage
+                name="mobilePhone"
+                component="p"
+                className={css.error}
+              />
             </div>
             <div className={css.button__container}>
               <Button

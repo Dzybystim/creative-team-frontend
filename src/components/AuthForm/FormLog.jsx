@@ -4,9 +4,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from 'react-router-dom';
 import { ErrorMessage, Form, Formik } from 'formik';
-// import { useTranslation } from 'react-i18next';
 import css from './AuthForm.module.css';
-import { useLogInMutation } from 'redux/fetchUser';
+import { useLogInMutation } from 'redux/auth/fetchUser';
 import { InputForm } from 'components/Input/Input';
 import { user } from 'service';
 import Button from 'components/Button/Button';
@@ -21,20 +20,20 @@ export const LoginForm = props => {
   const [isError, setIsError] = useState(null);
   const [passwordShow, setPasswordShow] = useState(false);
   const navigate = useNavigate();
-  //   const { t } = useTranslation();
 
   const togglePassword = () => setPasswordShow(prevState => !prevState);
 
   const handleSubmit = async (formData, { resetForm }) => {
-    const { error } = await login(formData);
+    const { error } = login(formData);
     if (error) {
       setIsError({
         message: error.data.message,
         additionalInfo: error.data.additionalInfo,
       });
       resetForm();
+      return;
     } else {
-      navigate('/user');
+      navigate('/friends');
     }
   };
 
@@ -83,7 +82,7 @@ export const LoginForm = props => {
               <Button
                 type="submit"
                 className={css.button__auth}
-                // buttonName={t('Login')}
+                buttonName={'Login'}
               ></Button>
             </div>
 
@@ -92,14 +91,9 @@ export const LoginForm = props => {
               <p className={css.error__login}>{isError.additionalInfo}</p>
             )}
             <p className={css.redirect__auth}>
-              {/* {t('no accaunt?')} */}
-              <Link to="/register" className={css.redirect_link__auth}>
-                {/* {t('Register')} */}
-              </Link>
-            </p>
-            <p className={css.redirect__auth}>
-              <Link to="/forgot-password" className={css.redirect_link__auth}>
-                {/* {t('Forgot password?')} */}
+              {'No accaunt?'}
+              <Link to="/signup" className={css.redirect_link__auth}>
+                {' Register'}
               </Link>
             </p>
           </Form>

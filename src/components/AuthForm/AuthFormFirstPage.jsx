@@ -86,7 +86,7 @@ export const AuthFormFirstPage = props => {
             <p className={css.redirect__auth}>
               {'Already have an account?'}
               <Link to="/login" className={css.redirect_link__auth}>
-                {'Login'}
+                {' Login'}
               </Link>
             </p>
           </Form>

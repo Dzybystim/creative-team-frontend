@@ -1,86 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
+import { fetchOurFriends } from 'utilities/helpers';
 import OurFriendsItem from '../OurFriendsItem/OurFriendsItem';
 
-import tempImage from './pets.jpg';
-
-const tempFriends = [
-  {
-    name: 'Awesome Pets',
-    time: '00:00 - 24:00',
-    adress: 'Highway to Heaven 777',
-    email: 'lucky777@gmail.com',
-    phone: '+380677777777',
-    image: tempImage,
-  },
-  {
-    name: 'Awesome Pets',
-    time: '00:00 - 24:00',
-    adress: 'Highway to Heaven 777',
-    email: 'lucky777@gmail.com',
-    phone: '+380677777777',
-    image: tempImage,
-  },
-  {
-    name: 'Awesome Pets',
-    time: '00:00 - 24:00',
-    adress: 'Highway to Heaven 777',
-    email: 'lucky777@gmail.com',
-    phone: '+380677777777',
-    image: tempImage,
-  },
-  {
-    name: 'Awesome Pets',
-    time: '00:00 - 24:00',
-    adress: 'Highway to Heaven 777',
-    email: 'lucky777@gmail.com',
-    phone: '+380677777777',
-    image: tempImage,
-  },
-  {
-    name: 'Awesome Pets',
-    time: '00:00 - 24:00',
-    adress: 'Highway to Heaven 777',
-    email: 'lucky777@gmail.com',
-    phone: '+380677777777',
-    image: tempImage,
-  },
-  {
-    name: 'Awesome Pets',
-    time: '00:00 - 24:00',
-    adress: 'Highway to Heaven 777',
-    email: 'lucky777@gmail.com',
-    phone: '+380677777777',
-    image: tempImage,
-  },
-  {
-    name: 'Awesome Pets',
-    time: '00:00 - 24:00',
-    adress: 'Highway to Heaven 777',
-    email: 'lucky777@gmail.com',
-    phone: '+380677777777',
-    image: tempImage,
-  },
-  {
-    name: 'Awesome Pets',
-    time: '00:00 - 24:00',
-    adress: 'Highway to Heaven 777',
-    email: 'lucky777@gmail.com',
-    phone: '+380677777777',
-    image: tempImage,
-  },
-  {
-    name: 'Awesome Pets',
-    time: '00:00 - 24:00',
-    adress: 'Highway to Heaven 777',
-    email: 'lucky777@gmail.com',
-    phone: '+380677777777',
-    image: tempImage,
-  },
-];
-
 const OurFriendsList = () => {
-  const [loading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [ourFriends, setOurFriends] = useState([]);
+  const [err, setErr] = useState('');
+
+  useEffect(() => {
+    setLoading(true);
+    fetchOurFriends()
+      .then(setOurFriends)
+      .catch(error => setErr(error.message))
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <>
@@ -94,21 +28,37 @@ const OurFriendsList = () => {
           wrapperClass="dna-wrapper"
         />
       )}
+      {err && <h1>{err}</h1>}
       <ul className={CSS.list}>
-        {tempFriends.length > 0 &&
-          tempFriends
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .map(({ name, time, adress, email, phone, image }, idx) => (
+        {ourFriends.length > 0 &&
+          ourFriends.map(
+            (
+              {
+                title,
+                addressUrl,
+                address,
+                email,
+                phone,
+                url,
+                workDays,
+                imageUrl,
+              },
+              idx
+            ) => (
               <OurFriendsItem
+                key={idx}
                 id={idx}
-                name={name}
-                time={time}
-                adress={adress}
+                adress={address}
+                adressUrl={addressUrl}
+                title={title}
                 email={email}
                 phone={phone}
-                image={image}
+                image={imageUrl}
+                workdays={workDays}
+                url={url}
               />
-            ))}
+            )
+          )}
       </ul>
     </>
   );

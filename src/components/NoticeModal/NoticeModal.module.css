@@ -1,14 +1,94 @@
 .img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: white;
-    }
-    
-    .item {
-        font-weight: 600;
-        font-size: 20px;
-    
-    }
-    
+  position: relative;
+  display: block;
+  width: 240px;
+  min-height: 240px;
+  /* width: 100%;
+    height: 100%; */
+  object-fit: cover;
+  border-radius: 0px 0px 40px 40px;
+  overflow: hidden;
+  background: var(--white-transparent-color);
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 16px;
+  background-image: url(../../components/white-cat-and-dog.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.category {
+  z-index: 10;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 60%;
+  padding: 6px;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  border-radius: 0px 60px 60px 0px;
+  color: var(--black-color);
+  background-color: var(--white-transparent-color);
+}
+
+.list {
+  margin-bottom: 28px;
+  display: block;
+}
+
+.item {
+  display: flex;
+  /*  align-items: center; */
+
+  font-size: 14px;
+}
+.item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.text {
+  width: 50%;
+  font-weight: 500;
+}
+.main_text {
+  width: 50%;
+  font-weight: 600;
+}
+
+.comments {
+  margin-bottom: 40px;
+}
+
+.btn_item:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.btn {
+  display: block;
+  width: 240px;
+  align-items: center;
+
+  background-color: var(--white-color);
+  border-radius: 40px;
+  border-color: var(--accent-color);
+  color: var(--black-color);
+}
+
+.btn:hover,
+:focus {
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border-color: transparent;
+}

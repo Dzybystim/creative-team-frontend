@@ -1,15 +1,17 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-// import { HOST } from 'config';
-const HOST = 'https://backend.petly.club/user/signup';
+import { baseURL } from '../../utilities/baseURL';
+
+const HOST = baseURL;
 
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${HOST}/api`,
+    baseUrl: `${HOST}`,
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().users.token;
-      if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
+      const accessToken = getState().users.token;
+      console.log('accessToken:', accessToken);
+      if (accessToken) {
+        headers.set('Authorization', `Bearer ${accessToken}`);
       }
       return headers;
     },
@@ -18,14 +20,14 @@ export const userApi = createApi({
   endpoints: builder => ({
     registrationUser: builder.mutation({
       query: payload => ({
-        url: '/auth/register',
+        url: '/users/signup',
         method: 'POST',
         body: payload,
       }),
     }),
     logIn: builder.mutation({
       query: payload => ({
-        url: '/auth/login',
+        url: '/users/login',
         method: 'POST',
         body: payload,
       }),
@@ -36,7 +38,7 @@ export const userApi = createApi({
     }),
     logOut: builder.mutation({
       query: () => ({
-        url: '/auth/logout',
+        url: '/users/logout',
         method: 'GET',
       }),
     }),

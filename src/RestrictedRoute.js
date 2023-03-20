@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { selectors } from 'redux/selectors';
+import { selectors } from 'redux/auth/selectors';
 
 export default function PublicRoutes() {
   const { isLogged } = selectors;
   const isLoggedIn = useSelector(isLogged);
+  console.log('isLoggedIn:', isLoggedIn);
   const location = useLocation();
 
   return !isLoggedIn ? (
