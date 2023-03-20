@@ -12,7 +12,7 @@ export const NoticeModal = ({ item }) =>
   // price }
   {
     return (
-      <>
+      <div className={css.container}>
         <div className={css.img}>
           <p className={css.category}>{item.category}</p>
         </div>
@@ -77,6 +77,6 @@ export const NoticeModal = ({ item }) =>
           {/* <li>{ isFavorite ?  <button type="button">Add to </button> : 
                       <button type="button">Remove from </button>}</li> */}
         </ul>
-      </>
+      </div>
     );
   };

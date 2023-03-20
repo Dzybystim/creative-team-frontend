@@ -10,3 +10,7 @@ export const selectors = {
   isErrorServer: state => state.users.errorServer,
   isErrorRegistration: state => state.users.errorRegistration,
 };
+export const getAuth = state => state.auth.auth;
+export const getUserName = state => state.auth.user.name;
+export const getIsFetchingCurrentUser = state =>
+  state.auth.isFetchingCurrentUser;

@@ -1,30 +1,49 @@
 .SearchForm {
   display: flex;
   align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 608px;
+  height: 44px;
   background-color: #fff;
-  border-radius: 40px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
 .Input {
   display: inline-block;
-  width: 100%;
+  width: 236px;
+  height: 38px;
   font: inherit;
   font-size: 20px;
   border: none;
   outline: none;
-  padding-left: 4px;
-  padding-right: 4px;
+  /*padding-left: 4px;
+    padding-right: 4px;*/
+
   color: #535353;
   letter-spacing: 0.04em;
+}
+
+.icon_container {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .SearchIcon {
   width: 17.49px;
   height: 17.49px;
-  background-color: #111111;
+  padding-top: 13px;
+  padding-right: 15.51px;
+  padding-bottom: 13px;
 }
 
 .ClearIcon {

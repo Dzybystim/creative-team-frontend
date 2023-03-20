@@ -1,3 +1,7 @@
+.container {
+  padding: 60px 20px 40px 20px;
+}
+
 .img {
   position: relative;
   display: block;
@@ -79,7 +83,7 @@
   display: block;
   width: 240px;
   align-items: center;
-
+  padding: 9px;
   background-color: var(--white-color);
   border-radius: 40px;
   border-color: var(--accent-color);

@@ -5,12 +5,11 @@ import { selectors } from 'redux/auth/selectors';
 export default function PublicRoutes() {
   const { isLogged } = selectors;
   const isLoggedIn = useSelector(isLogged);
-  console.log('isLoggedIn:', isLoggedIn);
   const location = useLocation();
 
   return !isLoggedIn ? (
     <Outlet />
   ) : (
-    <Navigate to="/user" state={{ location }} replace />
+    <Navigate to="/users" state={{ location }} replace />
   );
 }

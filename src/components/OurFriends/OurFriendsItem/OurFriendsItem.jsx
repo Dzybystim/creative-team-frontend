@@ -15,7 +15,9 @@ const OurFriendsItem = ({
 }) => {
   const [showMenu, setShowMenu] = useState(false);
 
-  const toggleModal = evt => setShowMenu(!showMenu);
+  const toggleModal = evt => {
+    setShowMenu(!showMenu);
+  };
 
   const getCurrentDate = new Date();
 
@@ -28,29 +30,43 @@ const OurFriendsItem = ({
     : (index = getCurrentDate.getDay() - 1);
 
   const currentHour = getCurrentDate.getHours();
+
   const isOpenNow = () => {
     if (workdays === null) {
-      return <p> ----------------------------------</p>;
+      return (
+        <p className={css.empty}>
+          <span>Time: </span> ----------------------------------
+        </p>
+      );
     }
     if (workdays[index] !== undefined && workdays[index].isOpen) {
       return (
         <>
           <p
-            className={css.isOpen}
+            className={!showMenu ? css.isOpen : css.textTimeActive}
             onClick={toggleModal}
-          >{`${workdays[index].from} : ${workdays[index].to}`}</p>
+          >
+            <span>Time: </span>
+            {`${workdays[index].from} : ${workdays[index].to}`}
+          </p>
           {currentHour >= workdays[index].from.split(':')[0] &&
           currentHour < workdays[index].to.split(':')[0] ? (
             <span className={css.statusOpened}>is Opened now</span>
           ) : (
-            <span className={css.statusClosed}>is Closed now</span>
+            <p>
+              <span className={css.statusClosed}>is Closed now</span>
+            </p>
           )}
         </>
       );
     }
     return (
       <>
-        <p className={css.isClosed} onClick={toggleModal}>
+        <p
+          className={!showMenu ? css.isClosed : css.textTimeActive}
+          onClick={toggleModal}
+        >
+          <span>Time: </span>
           Is closed today
         </p>
       </>
@@ -60,18 +76,24 @@ const OurFriendsItem = ({
   return (
     <li key={id} className={css.item}>
       <h4 className={css.title}>
-        <a href={url} className={css.titleLink}>
+        <a
+          href={url}
+          rel={'noreferrer'}
+          target={'_blank'}
+          className={css.titleLink}
+        >
           {title}
         </a>
       </h4>
       <div className={css.container}>
         <div className={css.imageContainer}>
-          <img src={image} alt={title} className={css.image} />
+          <img src={image} alt={image} className={css.image} />
         </div>
 
         <div className={css.textContainer}>
-          <h4 className={css.text}>
-            Time: {isOpenNow()}
+          <h4 className={!showMenu ? css.textTime : css.textTimeActive}>
+            {' '}
+            {isOpenNow()}
             {showMenu && (
               <WorkingDaysMenu
                 onClose={toggleModal}
@@ -81,9 +103,9 @@ const OurFriendsItem = ({
             )}
           </h4>
 
-          <p className={css.text}>
-            Adress:{' '}
-            {adress ? (
+          {adress ? (
+            <p className={css.text}>
+              <span>Adress:</span>
               <a
                 href={adressUrl}
                 rel={'noreferrer'}
@@ -92,30 +114,36 @@ const OurFriendsItem = ({
               >
                 {adress}
               </a>
-            ) : (
-              '----------------------------------'
-            )}
-          </p>
-          <p className={css.text}>
-            Email:
-            {email ? (
+            </p>
+          ) : (
+            <p className={css.empty}>
+              Adress: <span>----------------------------------</span>
+            </p>
+          )}
+          {email ? (
+            <p className={css.text}>
+              <span> Email:</span>
               <a href={`mailto:${email}`} className={css.link}>
                 {email}
               </a>
-            ) : (
-              '----------------------------------'
-            )}
-          </p>
-          <p className={css.text}>
-            Phone:
-            {phone ? (
+            </p>
+          ) : (
+            <p className={css.empty}>
+              Email: <span>----------------------------------</span>
+            </p>
+          )}
+          {phone ? (
+            <p className={css.text}>
+              <span> Phone:</span>
               <a href={`tel:${phone}`} className={css.link}>
                 {phone}
               </a>
-            ) : (
-              '----------------------------------'
-            )}
-          </p>
+            </p>
+          ) : (
+            <p className={css.empty}>
+              Phone: <span>----------------------------------</span>
+            </p>
+          )}
         </div>
       </div>
     </li>

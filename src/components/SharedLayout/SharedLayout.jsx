@@ -1,13 +1,6 @@
 import { Outlet, NavLink } from 'react-router-dom';
-import { Suspense } from 'react';
-import { selectors } from 'redux/auth/selectors';
-import { useSelector } from 'react-redux';
 
 export default function SharedLayout() {
-  const { isLogged } = selectors;
-  const isLoggedIn = useSelector(isLogged);
-  console.log('isLoggedIn:', isLoggedIn);
-
   return (
     <>
       <nav>
@@ -23,10 +16,7 @@ export default function SharedLayout() {
           <NavLink to="/login">Login</NavLink>
         </div>
       </nav>
-
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
+      <Outlet />
     </>
   );
 }

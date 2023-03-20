@@ -1,0 +1,15 @@
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+}
+
+.text {
+  margin: 0 12px 0 4px;
+  display: inline-flex;
+  align-items: center;
+}

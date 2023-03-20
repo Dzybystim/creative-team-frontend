@@ -6,7 +6,6 @@ import { userApi } from './fetchUser';
 const initialState = {
   user: {
     email: null,
-    password: null,
     name: null,
     cityRegion: null,
     mobilePhone: null,
@@ -27,7 +26,6 @@ export const authSlice = createSlice({
       userApi.endpoints.logIn.matchFulfilled,
       (state, { payload }) => {
         const { data } = payload;
-        console.log('payload:', payload);
         state.user.email = data.user;
         state.user.name = data.name;
         state.user.cityRegion = data.cityRegion;
@@ -54,14 +52,13 @@ export const authSlice = createSlice({
     builder.addMatcher(
       userApi.endpoints.registrationUser.matchFulfilled,
       (state, action) => {
-        const { user } = action.payload;
-        console.log('payloadreg:', action);
+        const { user, token } = action.payload;
         state.user.email = user.email;
         state.user.name = user.name;
         state.user.cityRegion = user.cityRegion;
         state.user.mobilePhone = user.mobilePhone;
         state.user.id = user._id;
-        state.token = user.token;
+        state.token = token;
         state.isLogged = true;
         state.loadUser = false;
       }
@@ -81,36 +78,10 @@ export const authSlice = createSlice({
         }
       }
     );
-    builder.addMatcher(
-      userApi.endpoints.getCurrentUser.matchFulfilled,
-      (state, { payload }) => {
-        const { email, name, cityRegion, mobilePhone } = payload.user;
-        state.user.email = email;
-        state.user.name = name;
-        state.user.cityRegion = cityRegion;
-        state.user.mobilePhone = mobilePhone;
-        state.isLogged = true;
-        state.loadUser = false;
-      }
-    );
-    builder.addMatcher(userApi.endpoints.getCurrentUser.matchPending, state => {
-      state.loadUser = true;
-    });
-    builder.addMatcher(
-      userApi.endpoints.getCurrentUser.matchRejected,
-      (state, { payload }) => {
-        if (
-          payload?.data.additionalInfo === 'Provide valid token' ||
-          payload?.data.additionalInfo === 'jwt'
-        ) {
-          state.token = ``;
-          state.loadUser = false;
-          state.isLogged = false;
-        }
-      }
-    );
+
     builder.addMatcher(userApi.endpoints.logOut.matchPending, state => {
       state.loadUser = true;
+      state.token = null;
     });
     builder.addMatcher(userApi.endpoints.logOut.matchFulfilled, () => {
       return { ...initialState };
@@ -118,34 +89,6 @@ export const authSlice = createSlice({
     builder.addMatcher(userApi.endpoints.logOut.matchRejected, () => {
       return { ...initialState };
     });
-    builder.addMatcher(
-      userApi.endpoints.updateUser.matchFulfilled,
-      (state, { payload }) => {
-        const { user } = payload;
-        state.user.email = user.email;
-        state.user.name = user.name;
-        state.user.cityRegion = user.cityRegion;
-        state.user.mobilePhone = user.mobilePhone;
-        state.user.id = user._id;
-
-        state.token = user.token;
-        state.isLogged = true;
-        state.loadUser = false;
-        state.errorServer = false;
-      }
-    );
-    builder.addMatcher(userApi.endpoints.updateUser.matchPending, state => {
-      state.loadUser = true;
-    });
-    builder.addMatcher(
-      userApi.endpoints.updateUser.matchRejected,
-      (state, { payload }) => {
-        if (payload?.status === 400) {
-          state.errorServer = true;
-          state.loadUser = false;
-        }
-      }
-    );
   },
 });
 

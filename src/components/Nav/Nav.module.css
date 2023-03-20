@@ -1,0 +1,26 @@
+/* import { NavLink } from 'react-router-dom';
+// import { FaAddressBook } from 'react-icons/fa'; */
+
+.logo {
+  color: seagreen;
+  width: 30px;
+  height: 30px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navLink {
+  font-size: 20px;
+
+  &.active {
+    color: green;
+  }
+
+  & + & {
+    margin-left: 12px;
+  }
+}

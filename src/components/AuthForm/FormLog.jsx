@@ -24,7 +24,7 @@ export const LoginForm = props => {
   const togglePassword = () => setPasswordShow(prevState => !prevState);
 
   const handleSubmit = async (formData, { resetForm }) => {
-    const { error } = login(formData);
+    const { error } = await login(formData);
     if (error) {
       setIsError({
         message: error.data.message,
@@ -33,7 +33,7 @@ export const LoginForm = props => {
       resetForm();
       return;
     } else {
-      navigate('/friends');
+      navigate('/users');
     }
   };
 

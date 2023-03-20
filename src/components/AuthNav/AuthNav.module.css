@@ -1,0 +1,19 @@
+/* import { NavLink } from 'react-router-dom'; */
+
+.authNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navLink {
+  font-size: 20px;
+
+  &.active {
+    color: seagreen;
+  }
+
+  & + & {
+    margin-left: 12px;
+  }
+}

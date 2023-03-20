@@ -9,7 +9,6 @@ import { useRegistrationUserMutation } from 'redux/auth/fetchUser';
 
 const SignUp = () => {
   const [register, { isLoading, error }] = useRegistrationUserMutation();
-
   const navigate = useNavigate();
 
   const [data, setData] = useState({
@@ -26,7 +25,7 @@ const SignUp = () => {
   const makeRequest = async formData => {
     const { error } = await register(formData);
     if (!error) {
-      navigate('/friends');
+      navigate('/users');
     }
   };
 
