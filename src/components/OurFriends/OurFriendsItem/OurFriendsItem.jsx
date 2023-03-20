@@ -104,9 +104,11 @@ const OurFriendsItem = ({
                   {adress}
                 </a>
               ) : (
+
                 <span className={css.empty}>
                   ----------------------------------
                 </span>
+
               )}
             </span>
           </p>
