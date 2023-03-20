@@ -102,6 +102,7 @@ const OurFriendsItem = ({
               />
             )}
           </h4>
+
           {adress ? (
             <p className={css.text}>
               <span>Adress:</span>

@@ -1,5 +1,8 @@
 import { Outlet, NavLink } from "react-router-dom";
 
+import { Suspense } from "react";
+// import { Nav } from "components/Nav/Nav"
+
 
 
 export default function SharedLayout () {
@@ -14,5 +17,6 @@ export default function SharedLayout () {
         </nav> 
         <Outlet />
       </>
+
     )
 }
