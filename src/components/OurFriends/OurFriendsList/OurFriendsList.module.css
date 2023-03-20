@@ -5,3 +5,11 @@
     gap: 32px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
