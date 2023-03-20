@@ -1,3 +1,15 @@
-.list > li:not(:last-child) {
-  margin-bottom: 12px;
+@media screen and (min-width: 768px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
 }

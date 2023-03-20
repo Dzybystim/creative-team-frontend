@@ -1,10 +1,9 @@
-
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import css from './NoticesSearch.module.css';
-import { MdClear } from "react-icons/md";
-import { IconContext } from "react-icons";
+import { MdClear } from 'react-icons/md';
+import { IconContext } from 'react-icons';
 
 export function NoticesSearch({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,13 +24,13 @@ export function NoticesSearch({ onSubmit }) {
 
   const onClickClear = () => {
     setSearchQuery('');
-  }
-  
-  return (  
-      <form className={css.SearchForm} onSubmit={handlSubmit}>
-         <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-      <input
-          className={css.Input} 
+  };
+
+  return (
+    <form className={css.SearchForm} onSubmit={handlSubmit}>
+      <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+        <input
+          className={css.Input}
           type="text"
           name="searchQuery"
           value={searchQuery}
@@ -39,20 +38,22 @@ export function NoticesSearch({ onSubmit }) {
           autoFocus
           placeholder="Search"
           onChange={handleQueryChange}
-      />
-      {searchQuery.length > 0 
-      ? 
-      <button type="button" onClick={onClickClear} className={css.icon_container}>
-      <MdClear />
-      </button>
-      : 
-      <div className={css.icon_container}>
-      <FaSearch />
-
-      </div>
-       }
-         </IconContext.Provider>
-      </form>
+        />
+        {searchQuery.length > 0 ? (
+          <button
+            type="button"
+            onClick={onClickClear}
+            className={css.icon_container}
+          >
+            <MdClear />
+          </button>
+        ) : (
+          <div className={css.icon_container}>
+            <FaSearch />
+          </div>
+        )}
+      </IconContext.Provider>
+    </form>
   );
 }
 

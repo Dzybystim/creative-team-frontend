@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NoticeCategoryItem } from '../NoticeCategoryItem/NoticeCategoryItem';
+
 import { AddNoticeButton } from "../AddNoticeButton/AddNoticeButton";
 import css from "./NoticesCategoriesList.module.css";
 import { useLocation } from 'react-router-dom';
@@ -41,7 +42,9 @@ const Status = {
   REJECTED: 'rejected',
 };
 
+
 const NoticesCategoriesList = ({ item }) => {
+
 
   let { pathname } = useLocation();
   const [notices, setNotices] = useState([]);
@@ -72,6 +75,8 @@ let category = pathname.split("/").pop();
   }
 
 
+
+
     return (
         <>
       <AddNoticeButton/> 
@@ -79,6 +84,7 @@ let category = pathname.split("/").pop();
 
         {notices.map(notice => {
           return <NoticeCategoryItem key={notice._id} item={notice} />;
+
         })}
       </ul>
     </>
