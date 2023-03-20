@@ -15,7 +15,9 @@ const OurFriendsItem = ({
 }) => {
   const [showMenu, setShowMenu] = useState(false);
 
-  const toggleModal = evt => setShowMenu(!showMenu);
+  const toggleModal = evt => {
+    setShowMenu(!showMenu);
+  };
 
   const getCurrentDate = new Date();
 
@@ -70,7 +72,8 @@ const OurFriendsItem = ({
         </div>
 
         <div className={css.textContainer}>
-          <h4 className={css.text}>
+          <h4 className={!showMenu ? css.textTime : css.textTimeActive}>
+            {' '}
             Time: {isOpenNow()}
             {showMenu && (
               <WorkingDaysMenu
@@ -83,40 +86,46 @@ const OurFriendsItem = ({
 
           <p className={css.text}>
             Adress:{' '}
-           <span className={css.text_span}> {adress ? (
-              <a
-                href={adressUrl}
-                rel={'noreferrer'}
-                target={'_blank'}
-                className={css.adressLink}
-              >
-                {adress}
-              </a>
-            ) : (
-              '----------------------------------'
-            )}
+            <span className={css.text_span}>
+              {' '}
+              {adress ? (
+                <a
+                  href={adressUrl}
+                  rel={'noreferrer'}
+                  target={'_blank'}
+                  className={css.adressLink}
+                >
+                  {adress}
+                </a>
+              ) : (
+                '----------------------------------'
+              )}
             </span>
           </p>
           <p className={css.text}>
             Email:
-            <span className={css.text_span}> {email ? (
-              <a href={`mailto:${email}`} className={css.link}>
-                {email}
-              </a>
-            ) : (
-              '----------------------------------'
-            )}
+            <span className={css.text_span}>
+              {' '}
+              {email ? (
+                <a href={`mailto:${email}`} className={css.link}>
+                  {email}
+                </a>
+              ) : (
+                '----------------------------------'
+              )}
             </span>
           </p>
           <p className={css.text}>
             Phone:
-            <span className={css.text_span}> {phone ? (
-              <a href={`tel:${phone}`} className={css.link}>
-                {phone}
-              </a>
-            ) : (
-              '----------------------------------'
-            )}
+            <span className={css.text_span}>
+              {' '}
+              {phone ? (
+                <a href={`tel:${phone}`} className={css.link}>
+                  {phone}
+                </a>
+              ) : (
+                '----------------------------------'
+              )}
             </span>
           </p>
         </div>
