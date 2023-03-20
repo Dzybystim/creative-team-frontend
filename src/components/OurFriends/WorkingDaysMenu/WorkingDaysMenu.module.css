@@ -4,6 +4,8 @@
 } */
 
 .menu {
+  position: absolute;
+  z-index: 100;
   border: 1px solid var(--accent-color);
   position: absolute;
   max-width: calc(100vw - 48px);
@@ -16,6 +18,10 @@
 }
 
 .item {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+  text-align: left;
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-style: 12px;

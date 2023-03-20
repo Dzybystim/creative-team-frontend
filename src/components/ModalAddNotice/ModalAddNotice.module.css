@@ -1,6 +1,7 @@
 
-.container{
-    padding: 40px 20px; 
+.container {
+  padding: 40px 20px;
+
 
 }
 
@@ -219,51 +220,3 @@ color: var(--black-color);
     color: var(--accent-color);
     background-color: var(--white-color);
 }
-
-
-
-.list {
-    margin-bottom: 28px;
-    display: block;
-}   
-
-.item {
-     display: flex;
-  /*  align-items: center; */
-
-  
-    font-size: 14px;
-        
-    }
-.item:not(:last-child){
-        margin-bottom: 8px;
-    }
-
-.main_text {
-    width: 50%;
-    font-weight: 600;
-}
-
-.comments {
-    margin-bottom: 40px;  
-}
-
-.img {
-    position: relative;
-    display: block;
-    width: 240px;
-    min-height: 240px;
-    /* width: 100%;
-    height: 100%; */
-    object-fit: cover;
-    border-radius: 0px 0px 40px 40px;
-    overflow: hidden;
-    background: var(--white-transparent-color);
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 16px;
-    background-image: url(../../components/white-cat-and-dog.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    }

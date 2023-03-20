@@ -22,7 +22,7 @@ const WorkingDaysMenu = ({ onClose, daysList, workdays }) => {
         {daysList.map((el, idx) => (
           <li className={css.item} key={idx}>
             {workdays[idx].isOpen
-              ? `${el}${' '}${workdays[idx].from} - ${workdays[idx].to}`
+              ? `${el}${' '}${workdays[idx].from}-${workdays[idx].to}`
               : `${el} is closed`}
           </li>
         ))}
