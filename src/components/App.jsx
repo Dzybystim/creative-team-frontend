@@ -5,7 +5,7 @@ import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
-// const Header = lazy(() => import('./Header/Header'));
+const Header = lazy(() => import('./Header/Header'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 const NoticesCategoriesList = lazy(() =>
@@ -19,7 +19,7 @@ export const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route index element={<div>Header</div>} />
+            <Route index element={<Header />} />
             <Route path="news" element={<div>NewsPage</div>} />
             <Route path="notices" element={<NoticesPage />}>
               <Route path="sell" element={<NoticesCategoriesList />} />

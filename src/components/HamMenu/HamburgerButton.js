@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { MenuContext } from '../context/navState';
+import { MenuContext } from '../../context/navState';
 
 const MenuButton = styled.button`
   display: block;
@@ -62,7 +62,7 @@ const Bar = styled.span`
   background-color: #fff;
 `;
 
-const HamburgerButton = () => {
+export const HamburgerButton = () => {
   const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
 
   const clickHandler = () => {
@@ -81,5 +81,3 @@ const HamburgerButton = () => {
     </MenuButton>
   );
 };
-
-export default HamburgerButton;

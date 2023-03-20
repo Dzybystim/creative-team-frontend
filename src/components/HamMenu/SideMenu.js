@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { MenuContext } from '../context/navState';
-import arrow from '../arrow.svg';
+import { MenuContext } from '../../context/navState';
+import arrow from '../../arrow.svg';
 
 const Menu = styled.nav`
   position: absolute;

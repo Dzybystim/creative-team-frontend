@@ -1,8 +1,8 @@
 import React, { useRef, useContext } from 'react';
 import styled from 'styled-components';
-import useOnClickOutside from '../hooks/onClickOutside';
-import { MenuContext } from '../context/navState';
-import HamburgerButton from './HamburgerButton';
+import { useOnClickOutside } from '../../hooks/onClickOutside';
+import { MenuContext } from '../../context/navState';
+import { HamburgerButton } from './HamburgerButton';
 import { SideMenu } from './SideMenu';
 
 const Navbar = styled.div`
@@ -26,7 +26,7 @@ const Navbar = styled.div`
   z-index: 500;
 `;
 
-const MainMenu = () => {
+export const MainMenu = () => {
   const node = useRef();
   const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
   useOnClickOutside(node, () => {
@@ -46,5 +46,3 @@ const MainMenu = () => {
     </header>
   );
 };
-
-export default MainMenu;
