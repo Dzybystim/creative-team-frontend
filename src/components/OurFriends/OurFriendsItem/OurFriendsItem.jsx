@@ -15,7 +15,9 @@ const OurFriendsItem = ({
 }) => {
   const [showMenu, setShowMenu] = useState(false);
 
-  const toggleModal = evt => setShowMenu(!showMenu);
+  const toggleModal = evt => {
+    setShowMenu(!showMenu);
+  };
 
   const getCurrentDate = new Date();
 
@@ -28,6 +30,7 @@ const OurFriendsItem = ({
     : (index = getCurrentDate.getDay() - 1);
 
   const currentHour = getCurrentDate.getHours();
+
   const isOpenNow = () => {
     if (workdays === null) {
       return <p> ----------------------------------</p>;
@@ -60,7 +63,12 @@ const OurFriendsItem = ({
   return (
     <li key={id} className={css.item}>
       <h4 className={css.title}>
-        <a href={url} className={css.titleLink}>
+        <a
+          href={url}
+          rel={'noreferrer'}
+          target={'_blank'}
+          className={css.titleLink}
+        >
           {title}
         </a>
       </h4>
@@ -70,7 +78,8 @@ const OurFriendsItem = ({
         </div>
 
         <div className={css.textContainer}>
-          <h4 className={css.text}>
+          <h4 className={!showMenu ? css.textTime : css.textTimeActive}>
+            {' '}
             Time: {isOpenNow()}
             {showMenu && (
               <WorkingDaysMenu
@@ -95,7 +104,11 @@ const OurFriendsItem = ({
                   {adress}
                 </a>
               ) : (
-                '----------------------------------'
+
+                <span className={css.empty}>
+                  ----------------------------------
+                </span>
+
               )}
             </span>
           </p>

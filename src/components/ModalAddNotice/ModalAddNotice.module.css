@@ -1,6 +1,104 @@
+
 .container {
   padding: 40px 20px;
+
+
 }
+
+.title {
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--black-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.text {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.radio_category {
+display: flex;
+flex-wrap: wrap;
+margin-bottom: 20px;
+}
+
+
+.radio_label {
+    padding: 8px 28px;
+        font-weight: 500;
+        font-size: 14px;
+        align-items: center;
+        letter-spacing: 0.04em;
+        display: inline-block;
+        background-color: var(--white-color);
+    border-radius: 40px;
+    border: 2px solid var(--accent-color); 
+    color:var(--black-color);
+    cursor: pointer;
+    margin-bottom: 12px;
+    
+    }
+
+    .radio_label:hover, .radio_label:focus{
+    color:var(--white-color);
+    background-color: var(--accent-color);
+    border-color: transparent; 
+    }
+
+    
+
+.radio_btn {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+
+.radio_btn:checked +.radio_label {
+        background-color:red;
+    }
+
+.label {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.44;
+    color: var(--black-color);
+    margin-bottom: 8px;
+}
+
+.field{
+display: block;
+margin-bottom: 16px;
+background: var(--bg-color);
+border: 1px solid var(--form-input-border-color);
+border-radius: 40px;
+
+font-weight: 400;
+font-size: 14px;
+padding: 12px 0 12px 14px;
+color: rgba(27, 27, 27, 0.6);
+outline-color: var(--accent-color);
+}
+
+
+
+
+
+
+
 
 .img {
   position: relative;
@@ -52,6 +150,7 @@
   display: block;
 }
 
+
 .item {
   display: flex;
   /*  align-items: center; */
@@ -62,10 +161,12 @@
   margin-bottom: 8px;
 }
 
+
 .text {
   width: 50%;
   font-weight: 500;
 }
+
 .main_text {
   width: 50%;
   font-weight: 600;
