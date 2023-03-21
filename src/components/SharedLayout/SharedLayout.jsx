@@ -12,12 +12,14 @@ export default function SharedLayout() {
         <NavLink to="/notices">Find pet</NavLink>
         <NavLink to="/friends">Our Friends</NavLink>
         <NavLink to="/users">Users</NavLink>
+
         <div>
           <NavLink to="/signup">Sign Up</NavLink>
           <NavLink to="/login">Login</NavLink>
         </div>
 
         <NavLink to="/user">User</NavLink>
+
 
       </nav>
       <Outlet />

@@ -1,12 +1,15 @@
 
-import { Modal } from "../../utilities/Modal/Modal";
-import { useState } from "react";
-import { NoticeModal } from "components/NoticeModal/NoticeModal";
-import css from "./NoticeCategoryItem.module.css";
-import { AiOutlineHeart } from "react-icons/ai";
-import { HiTrash } from "react-icons/hi";
+import { Modal } from '../../utilities/Modal/Modal';
+import { useState } from 'react';
+import { NoticeModal } from 'components/NoticeModal/NoticeModal';
+import css from './NoticeCategoryItem.module.css';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { HiTrash } from 'react-icons/hi';
 
-export const NoticeCategoryItem = ({  item }) => {
+
+export const NoticeCategoryItem = ({ item }) => {
+  const [showModal, setShowModal] = useState(false);
+
 
     const [showModal, setShowModal] = useState(false);
 
@@ -110,3 +113,4 @@ export const NoticeCategoryItem = ({  item }) => {
 //     </>
 //   );
 // };
+

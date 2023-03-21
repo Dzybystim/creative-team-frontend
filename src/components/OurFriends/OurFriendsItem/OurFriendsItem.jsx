@@ -32,13 +32,14 @@ const OurFriendsItem = ({
   const currentHour = getCurrentDate.getHours();
 
   const isOpenNow = () => {
-    if (workdays === null) {
+    if (!workdays) {
       return (
         <p className={css.empty}>
           <span>Time: </span> ----------------------------------
         </p>
       );
     }
+
     if (workdays[index] !== undefined && workdays[index].isOpen) {
       return (
         <>
@@ -60,16 +61,11 @@ const OurFriendsItem = ({
         </>
       );
     }
+
     return (
-      <>
-        <p
-          className={!showMenu ? css.isClosed : css.textTimeActive}
-          onClick={toggleModal}
-        >
-          <span>Time: </span>
-          Is closed today
-        </p>
-      </>
+      <p className={css.empty}>
+        <span>Time: </span> ----------------------------------
+      </p>
     );
   };
 
