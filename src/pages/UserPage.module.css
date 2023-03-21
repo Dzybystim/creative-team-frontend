@@ -1,0 +1,35 @@
+.container {
+  padding: 0px;
+  margin-top: 61px;
+}
+
+.container__userdata {
+  margin-bottom: 47px;
+
+  width: 280px;
+  height: 537px;
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.container__petsdata {
+  width: 280px;
+  height: 537px;
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.title {
+  margin-bottom: 18px;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: var(--black-color);
+}

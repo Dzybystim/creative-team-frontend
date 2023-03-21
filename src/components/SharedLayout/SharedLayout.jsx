@@ -1,5 +1,6 @@
 import { Outlet, NavLink } from 'react-router-dom';
 
+
 export default function SharedLayout() {
   return (
     <>
@@ -15,6 +16,9 @@ export default function SharedLayout() {
           <NavLink to="/signup">Sign Up</NavLink>
           <NavLink to="/login">Login</NavLink>
         </div>
+
+        <NavLink to="/user">User</NavLink>
+
       </nav>
       <Outlet />
     </>
