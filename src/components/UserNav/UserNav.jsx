@@ -4,11 +4,11 @@ import { authSelectors } from 'redux/auth';
 // import css from './UserNav.module.css';
 
 export const UserNav = () => {
-  const userName = useSelector(authSelectors.getUserName);
+//  const userName = useSelector(authSelectors.getUserName);
   // const dispatch = useDispatch();
   return (
     <div>
-      <div>{userName}</div>
+
       <div>Button</div>
       {/* <Button
           variant="outlined"
@@ -20,3 +20,5 @@ export const UserNav = () => {
     </div>
   );
 };
+
+// <div>{userName}</div>

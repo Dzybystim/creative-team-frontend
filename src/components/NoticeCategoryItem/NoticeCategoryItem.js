@@ -11,8 +11,6 @@ export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
 
 
-    const [showModal, setShowModal] = useState(false);
-
     const toggleModal = () => {
       setShowModal(!showModal);
     };

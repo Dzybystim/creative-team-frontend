@@ -40,7 +40,7 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
       </div>
 
 
-<>
+
 <p className={css.text}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur </p>
 
 <div className={css.radio_category}>
@@ -103,7 +103,7 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
             </li>
             </ul>
             
-</>
+            </>
 
     )
 }
