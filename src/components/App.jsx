@@ -5,12 +5,18 @@ import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
+import SignUp from 'pages/SignUp/SignUp';
+import Login from 'pages/Login/Login';
+import PublicRoutes from 'RestrictedRoute';
+
+
 const Header = lazy(() => import('./Header/Header'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 const NoticesCategoriesList = lazy(() =>
   import('../components/NoticesCategoriesList/NoticesCategoriesList')
 );
+
 const NotFound = lazy(() => import('../utilities/NotFound/NotFound'));
 
 export const App = () => {
@@ -19,7 +25,8 @@ export const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route index element={<Header />} />
+            <Route index element={<div>Header</div>} />
+            <Route path="user" element={<UserPage />} />
             <Route path="news" element={<div>NewsPage</div>} />
             <Route path="notices" element={<NoticesPage />}>
               <Route path="sell" element={<NoticesCategoriesList />} />
@@ -35,7 +42,9 @@ export const App = () => {
                 path="selected/:selectedId"
                 element={<div>Selected/selectedId</div>}
               />
-              <Route path="user" element={<div>User</div>} />
+
+              <Route path="user" element={<UserPage />} />
+
               <Route
                 path="user/:noticeId"
                 element={<div>Notice/noticeId</div>}
@@ -49,12 +58,13 @@ export const App = () => {
             <Route path="pets/:petId" element={<div>Pets/petId</div>} />
             <Route path="friends" element={<OurFriendsPage />}></Route>
             <Route path="userAndPets" element={<div>userAndPets</div>}></Route>
-            <Route path="users" element={<div>Users</div>}>
-              <Route path="signup" element={<div>Signup</div>} />
-              <Route path="login" element={<div>Login</div>} />
+            <Route element={<PublicRoutes restricted />}>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="edit" element={<div>Edit</div>} />
               <Route path="logout" element={<div>Logout</div>} />
             </Route>
+
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

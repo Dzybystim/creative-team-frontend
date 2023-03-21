@@ -1,9 +1,44 @@
-import {  ErrorMessage, Field } from 'formik';
-import css from "./ModalAddNotice.module.css";
+import { ErrorMessage, Field } from 'formik';
+import css from './ModalAddNotice.module.css';
 
-export const ModalAddNoticeFirst = ({toggleModalPage, onClose}) => {
+export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
+  return (
+    <>
+      <p className={css.text}>
+        Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
+        consectetur{' '}
+      </p>
 
-    return (
+      <div className={css.radio_category}>
+        <label className={css.radio_label}>
+          <Field
+            className={css.radio_btn}
+            type="radio"
+            name="category"
+            value="lost-found"
+          />
+          lost/found
+        </label>
+        <label className={css.radio_label}>
+          <Field
+            className={css.radio_btn}
+            type="radio"
+            name="category"
+            value="for-free"
+          />
+          in good hands
+        </label>
+        <label className={css.radio_label}>
+          <Field
+            className={css.radio_btn}
+            type="radio"
+            name="category"
+            value="sell"
+          />
+          sell
+        </label>
+      </div>
+
 
 <>
 <p className={css.text}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur </p>
@@ -72,3 +107,4 @@ export const ModalAddNoticeFirst = ({toggleModalPage, onClose}) => {
 
     )
 }
+

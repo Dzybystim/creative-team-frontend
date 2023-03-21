@@ -1,83 +1,45 @@
-
 .container {
   padding: 40px 20px;
-
-
 }
 
 .title {
-    font-weight: 500;
-    font-size: 24px;
-    color: var(--black-color);
-    margin-bottom: 20px;
-    text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--black-color);
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .text {
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: -0.01em;
-    color: var(--black-color);
-    text-align: center;
-    margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--black-color);
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .radio_category {
-display: flex;
-flex-wrap: wrap;
-margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
-
 
 .radio_label {
-    padding: 8px 28px;
-        font-weight: 500;
-        font-size: 14px;
-        align-items: center;
-        letter-spacing: 0.04em;
-        display: inline-block;
-        background-color: var(--white-color);
-    border-radius: 40px;
-    border: 2px solid var(--accent-color); 
-    color:var(--black-color);
-    cursor: pointer;
-    margin-bottom: 12px;
-    
-    }
-
-    .radio_label:hover, .radio_label:focus{
-    color:var(--white-color);
-    background-color: var(--accent-color);
-    border-color: transparent; 
-    }
-
-    
-
-.radio_btn {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
+  padding: 8px 28px;
+  font-weight: 500;
+  font-size: 14px;
+  align-items: center;
+  letter-spacing: 0.04em;
+  display: inline-block;
+  background-color: var(--white-color);
+  border-radius: 40px;
+  border: 2px solid var(--accent-color);
+  color: var(--black-color);
+  cursor: pointer;
+  margin-bottom: 12px;
 }
 
-.radio_btn:checked +.radio_label {
-        background-color:red;
-    }
-
-.label {
-    display: block;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.44;
-    color: var(--black-color);
-    margin-bottom: 8px;
-}
 
 .field{
 display: block;
@@ -129,6 +91,7 @@ outline-color: var(--accent-color);
 
 .btn_item:not(:last-child){
     margin-bottom: 12px;
+
 }
 
 .btn{
@@ -159,12 +122,27 @@ align-items: center;
 margin-bottom: 32px;
 }
 
+
 .radio_label_sex {
     width: 50%;
 }
 
 .radio_icon{
     display: block;
+
+.item {
+  display: flex;
+  /*  align-items: center; */
+
+  font-size: 14px;
+}
+.item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.text {
+  width: 50%;
+  font-weight: 500;
 }
 
 .radio_icon_text{

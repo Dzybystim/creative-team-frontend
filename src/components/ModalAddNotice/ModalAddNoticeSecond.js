@@ -4,6 +4,7 @@ import {ReactComponent as Female } from "../../images/Female.svg";
 import css from "./ModalAddNotice.module.css";
 import { useState } from 'react';
 
+
 export const ModalAddNoticeSecond = ({toggleModalPage, onSubmit}) => {
 const [fieldValue, setFieldValue] = useState();
 console.log("fieldValue", fieldValue);
@@ -93,3 +94,4 @@ console.log("fieldValue", fieldValue);
             )
 
 }
+
