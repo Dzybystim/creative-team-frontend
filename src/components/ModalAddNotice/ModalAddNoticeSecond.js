@@ -6,7 +6,8 @@ import { useState } from 'react';
 
 
 export const ModalAddNoticeSecond = ({toggleModalPage, onSubmit}) => {
-const [fieldValue, setFieldValue] = useState();
+const [fieldValue, ] = useState();
+// setFieldValue
 console.log("fieldValue", fieldValue);
     return (
         
