@@ -6,6 +6,7 @@ import Layout from 'components/Layout/Layout';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import UserPage from 'pages/UserPage';
 
+const Header = lazy(() => import('./Header/Header'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 const NoticesCategoriesList = lazy(() =>
@@ -37,7 +38,9 @@ export const App = () => {
                 path="selected/:selectedId"
                 element={<div>Selected/selectedId</div>}
               />
+
               <Route path="user" element={<UserPage />} />
+
               <Route
                 path="user/:noticeId"
                 element={<div>Notice/noticeId</div>}

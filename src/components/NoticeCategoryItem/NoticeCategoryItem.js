@@ -5,17 +5,17 @@ import css from "./NoticeCategoryItem.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiTrash } from "react-icons/hi";
 
-export const NoticeCategoryItem = ({ item }) => {
+export const NoticeCategoryItem = ({  item }) => {
 
     const [showModal, setShowModal] = useState(false);
 
     const toggleModal = () => {
       setShowModal(!showModal);
     };
-
+//console.log("key", key);
     return (
 <>
-        <li className={css.item}>
+        <li className={css.item} >
 
         
         <div className={css.img}>

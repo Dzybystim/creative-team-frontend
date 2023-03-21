@@ -1,4 +1,11 @@
 
+import css from './ModalAddNotice.module.css';
+
+export const ModalAddNotice = () => {
+  return <div className={css.container}></div>;
+};
+
+
 import { useState } from 'react';
 //import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
@@ -98,4 +105,5 @@ export const ModalAddNotice = ({onClose}) => {
 </div>
  )
  }
+
 
