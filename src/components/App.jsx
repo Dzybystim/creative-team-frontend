@@ -10,12 +10,12 @@ import Login from 'pages/Login/Login';
 import PublicRoutes from 'RestrictedRoute';
 
 
-const Header = lazy(() => import('./Header/Header'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 const NoticesCategoriesList = lazy(() =>
   import('../components/NoticesCategoriesList/NoticesCategoriesList')
 );
+const UserPage = lazy(()=> import('../pages/UserPage'))
 
 const NotFound = lazy(() => import('../utilities/NotFound/NotFound'));
 
