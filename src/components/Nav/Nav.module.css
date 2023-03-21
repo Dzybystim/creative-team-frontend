@@ -2,7 +2,7 @@
 // import { FaAddressBook } from 'react-icons/fa'; */
 
 .logo {
-  color: 	seagreen;
+  color: seagreen;
   width: 30px;
   height: 30px;
 }
@@ -13,14 +13,14 @@
   justify-content: center;
 }
 
-.navLink{
+.navLink {
   font-size: 20px;
 
   &.active {
-    color: 	green;
+    color: green;
   }
 
   & + & {
     margin-left: 12px;
-  };
+  }
 }
