@@ -4,7 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
-import UserPage from 'pages/UserPage';
+
+import SignUp from 'pages/SignUp/SignUp';
+import Login from 'pages/Login/Login';
+import PublicRoutes from 'RestrictedRoute';
+
 
 const Header = lazy(() => import('./Header/Header'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
@@ -54,12 +58,13 @@ export const App = () => {
             <Route path="pets/:petId" element={<div>Pets/petId</div>} />
             <Route path="friends" element={<OurFriendsPage />}></Route>
             <Route path="userAndPets" element={<div>userAndPets</div>}></Route>
-            <Route path="users" element={<div>Users</div>}>
-              <Route path="signup" element={<div>Signup</div>} />
-              <Route path="login" element={<div>Login</div>} />
+            <Route element={<PublicRoutes restricted />}>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="edit" element={<div>Edit</div>} />
               <Route path="logout" element={<div>Logout</div>} />
             </Route>
+
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

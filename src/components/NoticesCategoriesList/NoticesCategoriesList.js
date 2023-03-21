@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { NoticeCategoryItem } from '../NoticeCategoryItem/NoticeCategoryItem';
 
-import { AddNoticeButton } from "../AddNoticeButton/AddNoticeButton";
-import css from "./NoticesCategoriesList.module.css";
+import { AddNoticeButton } from '../AddNoticeButton/AddNoticeButton';
+import css from './NoticesCategoriesList.module.css';
 import { useLocation } from 'react-router-dom';
-import { getNoticesByCategories } from "../../utilities/helpers";
+import { getNoticesByCategories } from '../../utilities/helpers';
 import { toast } from 'react-toastify';
 
 // const items = [
@@ -42,49 +42,41 @@ const Status = {
   REJECTED: 'rejected',
 };
 
-
 const NoticesCategoriesList = ({ item }) => {
-
-
   let { pathname } = useLocation();
   const [notices, setNotices] = useState([]);
   const [status, setStatus] = useState(Status.IDLE);
 
-let category = pathname.split("/").pop();
+  let category = pathname.split('/').pop();
 
   useEffect(() => {
     if (!category && status === Status.IDLE) {
       return;
     }
     getNoticesByCategories(category)
-    .then(data => {
-      setNotices(data);
-      setStatus(Status.RESOLVED)
-    })
-    .catch(error => {
-      setStatus(Status.REJECTED)
-      console.log('Error',error);
-    })
+      .then(data => {
+        setNotices(data);
+        setStatus(Status.RESOLVED);
+      })
+      .catch(error => {
+        setStatus(Status.REJECTED);
+        console.log('Error', error);
+      });
   }, [category]);
 
- // console.log("notices",notices); 
+  // console.log("notices",notices);
 
   if (notices.length === 0 && status === Status.RESOLVED) {
     toast.error('Nothing found for your request!');
     return;
   }
 
-
-
-
-    return (
-        <>
-      <AddNoticeButton/> 
-<ul className={css.list}>
-
+  return (
+    <>
+      <AddNoticeButton />
+      <ul className={css.list}>
         {notices.map(notice => {
           return <NoticeCategoryItem key={notice._id} item={notice} />;
-
         })}
       </ul>
     </>

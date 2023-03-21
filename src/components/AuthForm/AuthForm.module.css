@@ -1,0 +1,129 @@
+.container {
+  width: 100%;
+  height: calc(100vh - 68px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding-right: 20px;
+    padding-left: 20px;
+    background-image: url('../../images/mobile/loginBg.png');
+  }
+}
+
+.form {
+  width: 100%;
+  background-color: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    background-image: url('../../images/tablet/loginBg.png');
+  }
+  .form {
+    padding: 60px 80px 40px;
+    width: 610px;
+    background: #ffffff;
+    box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+    border-radius: 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    background-image: url('../../images/desctop/loginPageBg.png');
+  }
+  .form {
+    width: 620px;
+    padding-bottom: 60px;
+  }
+}
+
+.title {
+  margin: 0 0 40px 0;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 49px;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: #111111;
+}
+
+.button__container {
+  margin-bottom: 40px;
+}
+
+.redirect__auth {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #111111;
+}
+.redirect_link__auth {
+  color: #3091eb;
+}
+
+.input__wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+.input__wrapper_last {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.IconPassword {
+  position: absolute;
+  right: 4%;
+  top: 22%;
+  color: #f59256;
+}
+
+.error {
+  position: absolute;
+  top: 25%;
+  right: 6%;
+  font-family: 'Manrope';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: red;
+}
+
+.error__password {
+  position: absolute;
+  top: 25%;
+  right: 12%;
+  font-family: 'Manrope';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: red;
+}
+
+.error__login {
+  margin-bottom: 16px;
+  font-family: 'Manrope';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: red;
+}
