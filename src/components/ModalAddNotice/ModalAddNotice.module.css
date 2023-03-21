@@ -40,102 +40,95 @@
   margin-bottom: 12px;
 }
 
-.radio_label:hover,
-.radio_label:focus {
-  color: var(--white-color);
-  background-color: var(--accent-color);
-  border-color: transparent;
+
+.field{
+display: block;
+width: 90%;
+margin-bottom: 16px;
+background: var(--bg-color);
+border: 1px solid var(--form-input-border-color);
+border-radius: 40px;
+
+font-weight: 400;
+font-size: 14px;
+padding: 12px 0 12px 14px;
+color: rgba(27, 27, 27, 0.6);
+outline-color: var(--accent-color);
 }
 
-.radio_btn {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
+.field:hover,
+.field:focus {
+    outline-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background-color: var(--white-color);
 }
 
-.radio_btn:checked + .radio_label {
-  background-color: red;
+.field_last {
+    display: block;
+width: 90%;
+margin-bottom: 16px;
+background-color: var(--bg-color);
+border: 1px solid var(--form-input-border-color);
+border-radius: 40px;
+
+font-weight: 400;
+font-size: 14px;
+padding: 12px 0 12px 14px;
+color: rgba(27, 27, 27, 0.6);
+outline-color: var(--accent-color);
+    margin-bottom: 40px;
 }
 
-.label {
-  display: block;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.44;
-  color: var(--black-color);
-  margin-bottom: 8px;
+.field_last:hover,
+.field_last:focus {
+    outline-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background-color: var(--white-color);
 }
 
-.field {
-  display: block;
-  margin-bottom: 16px;
-  background: var(--bg-color);
-  border: 1px solid var(--form-input-border-color);
-  border-radius: 40px;
 
-  font-weight: 400;
-  font-size: 14px;
-  padding: 12px 0 12px 14px;
-  color: rgba(27, 27, 27, 0.6);
-  outline-color: var(--accent-color);
+.btn_item:not(:last-child){
+    margin-bottom: 12px;
+
 }
 
-.img {
-  position: relative;
-  display: block;
-  width: 240px;
-  min-height: 240px;
-  /* width: 100%;
-    height: 100%; */
-  object-fit: cover;
-  border-radius: 0px 0px 40px 40px;
-  overflow: hidden;
-  background: var(--white-transparent-color);
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 16px;
-  background-image: url(../../components/white-cat-and-dog.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+.btn{
+    display: block;
+    width: 240px;
+align-items: center;
+    padding: 9px;
+    background-color: var(--white-color);
+border-radius: 40px;
+border:2px solid var(--accent-color); 
+color:var(--black-color);
+font-weight: 500;
+font-size: 16px;
+letter-spacing: 0.04em;
 }
 
-.title {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  margin-bottom: 16px;
+.btn:hover,
+.btn:focus{
+color:var(--white-color);
+background-color: var(--accent-color);
+border-color: transparent; 
 }
 
-.category {
-  z-index: 10;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  width: 60%;
-  padding: 6px;
-  font-weight: 500;
-  font-size: 12px;
-  text-align: center;
-  line-height: 1.33;
-  letter-spacing: 0.04em;
-  border-radius: 0px 60px 60px 0px;
-  color: var(--black-color);
-  background-color: var(--white-transparent-color);
+.radio_sex {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 32px;
 }
 
-.list {
-  margin-bottom: 28px;
-  display: block;
+
+.radio_label_sex {
+    width: 50%;
 }
+
+.radio_icon{
+    display: block;
 
 .item {
   display: flex;
@@ -152,33 +145,56 @@
   font-weight: 500;
 }
 
-.main_text {
-  width: 50%;
-  font-weight: 600;
+.radio_icon_text{
+    font-weight: 500;
+font-size: 18px;
+line-height: 1.44;
+color: var(--black-color);
 }
 
-.comments {
-  margin-bottom: 40px;
+.field_second{
+    display: block;
+    width: 90%;
+    margin-bottom: 20px;
+    border: 1px solid var(--form-input-border-color);
+    border-radius: 40px;
+    
+    font-weight: 400;
+    font-size: 14px;
+    padding: 12px 0 12px 14px;
+    color: rgba(27, 27, 27, 0.6);
+    outline-color: var(--accent-color);
+    }
+
+    .field_second:hover,
+.field_second:focus {
+    outline-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background-color: var(--white-color);
 }
 
-.btn_item:not(:last-child) {
-  margin-bottom: 12px;
+.field_photo{
+    display: block;
+    width: 116px;
+    height: 116px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: 2px solid var(--form-input-border-color);
+    outline-color: var(--accent-color);
+    cursor: pointer;
+    background-color: var(--bg-color);
+    background-image: url(../../images/akar-icons_plus.png);
+    /* background-image: url(../../images/plus.svg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
-
-.btn {
-  display: block;
-  width: 240px;
-  align-items: center;
-  padding: 9px;
-  background-color: var(--white-color);
-  border-radius: 40px;
-  border-color: var(--accent-color);
-  color: var(--black-color);
-}
-
-.btn:hover,
-:focus {
-  color: var(--white-color);
-  background-color: var(--accent-color);
-  border-color: transparent;
+    
+.field_photo:hover,
+.field_photo:focus {
+    outline-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background-color: var(--white-color);
 }

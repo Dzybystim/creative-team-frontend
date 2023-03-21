@@ -43,6 +43,42 @@
 //       onClose();
 //     };
 
+
+import css from './ModalAddNotice.module.css';
+
+export const ModalAddNotice = () => {
+  return <div className={css.container}></div>;
+};
+
+
+import { useState } from 'react';
+//import { useDispatch } from 'react-redux';
+import { Formik, Form } from 'formik';
+import { ModalAddNoticeFirst } from "./ModalAddNoticeFirst";
+import { ModalAddNoticeSecond } from "./ModalAddNoticeSecond";
+
+import css from "./ModalAddNotice.module.css";
+
+// const schema = yup.object().shape({
+//     name: yup.string().required(),
+//     number: yup.number().min(8).required(),
+//   });
+  
+  const initialValues = {
+    category: '',
+    tittle: '',
+    name: '',
+    birthday: '',
+    breed: '',
+    sex: '',
+    location: '',
+    file: '',
+    comments: '',
+    price: '',
+  };
+  
+//   const FormError = ({ name }) => {
+
 //     return (
 // <div className={css.container}>
 //         <h1 className={css.title}>Add pet</h1>
