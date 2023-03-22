@@ -10,7 +10,7 @@ const Menu = styled.nav`
   left: auto;
   right: auto;
   bottom: 0px;
-  /* z-index: 293; */
+  z-index: 293;
   display: block;
   /* width: 400px; */
   max-width: 100%;
