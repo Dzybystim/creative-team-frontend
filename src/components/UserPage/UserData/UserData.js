@@ -1,7 +1,8 @@
 import css from './UserData.module.css';
 import axios from 'axios';
-
+import { RiEdit2Fill } from 'react-icons/ri';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 //import { getUserDataById } from 'service/API';
 //import { Suspense } from "react";
 import { useState, useEffect } from 'react';
@@ -15,6 +16,7 @@ export const getUserDataById = noticeId =>
   axios.get(`${BASE_URL}userData/${noticeId}`);
 
 export default function UserData() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [userData, setUserData] = useState([]);
 
@@ -45,22 +47,72 @@ export default function UserData() {
             <li className={css.info_data}>
               <p className={css.text}>Name:</p>
               <p className={css.text}> {name}</p>
+              <button type="button" onClick={() => navigate(`/${id}`)}>
+                <RiEdit2Fill
+                  style={{
+                    color: `orange`,
+                    width: 24,
+                    height: 24,
+                  }}
+                />
+                Edit
+              </button>
             </li>
             <li className={css.info_data}>
               <p className={css.text}>Email:</p>
               <p className={css.text}>{email}</p>
+              <button type="button" onClick={() => navigate(`/${id}`)}>
+                <RiEdit2Fill
+                  style={{
+                    color: `orange`,
+                    width: 24,
+                    height: 24,
+                  }}
+                />
+                Edit
+              </button>
             </li>
             <li className={css.info_data}>
               <p className={css.text}>Birthday:</p>
               <p className={css.text}>{birthday}</p>
+              <button type="button" onClick={() => navigate(`/${id}`)}>
+                <RiEdit2Fill
+                  style={{
+                    color: `orange`,
+                    width: 24,
+                    height: 24,
+                  }}
+                />
+                Edit
+              </button>
             </li>
             <li className={css.info_data}>
               <p className={css.text}>Phone:</p>
               <p className={css.text}>{phone}</p>
+              <button type="button" onClick={() => navigate(`/${id}`)}>
+                <RiEdit2Fill
+                  style={{
+                    color: `orange`,
+                    width: 24,
+                    height: 24,
+                  }}
+                />
+                Edit
+              </button>
             </li>
             <li className={css.info_data}>
               <p className={css.text}>City:</p>
               <p className={css.text}>{city}</p>
+              <button type="button" onClick={() => navigate(`/${id}`)}>
+                <RiEdit2Fill
+                  style={{
+                    color: `orange`,
+                    width: 24,
+                    height: 24,
+                  }}
+                />
+                Edit
+              </button>
             </li>
           </ul>
         </div>
