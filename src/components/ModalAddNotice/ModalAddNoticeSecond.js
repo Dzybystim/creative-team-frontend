@@ -14,6 +14,7 @@ const [uploaded, setUploaded]= useState('');
 
 //const formik = useFormik();
     const textareaChange = () =>{
+        
         let textarea = document.querySelector('textarea');
 
     textarea.addEventListener('keyup', function(){
