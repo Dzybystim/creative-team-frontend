@@ -25,7 +25,6 @@ export const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route index element={<div>Header</div>} />
             <Route path="user" element={<UserPage />} />
             <Route path="news" element={<div>NewsPage</div>} />
             <Route path="notices" element={<NoticesPage />}>
@@ -34,30 +33,8 @@ export const App = () => {
               <Route path="for-free" element={<NoticesCategoriesList />} />
               <Route path="favorite" element={<NoticesCategoriesList />} />
               <Route path="own" element={<NoticesCategoriesList />} />
-
-              <Route path="title" element={<div>Title</div>} />
-              <Route path="category" element={<div>Category</div>} />
-              <Route path="selected" element={<div>Selected</div>} />
-              <Route
-                path="selected/:selectedId"
-                element={<div>Selected/selectedId</div>}
-              />
-
-              <Route path="user" element={<UserPage />} />
-
-              <Route
-                path="user/:noticeId"
-                element={<div>Notice/noticeId</div>}
-              />
             </Route>
-            <Route
-              path="notices/:noticeId"
-              element={<div>Notices/noticeId</div>}
-            />
-            <Route path="pets" element={<div>Pets</div>} />
-            <Route path="pets/:petId" element={<div>Pets/petId</div>} />
-            <Route path="friends" element={<OurFriendsPage />}></Route>
-            <Route path="userAndPets" element={<div>userAndPets</div>}></Route>
+            <Route path="friends" element={<OurFriendsPage />} />
             <Route element={<PublicRoutes restricted />}>
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
