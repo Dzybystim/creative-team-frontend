@@ -5,11 +5,12 @@ import { authSelectors } from 'redux/auth';
 
 export const UserNav = () => {
   const userName = useSelector(authSelectors.getUserName);
-  // const dispatch = useDispatch();
+
   return (
     <div>
       <div>{userName}</div>
       <div>Button</div>
+
       {/* <Button
           variant="outlined"
           size="small"
