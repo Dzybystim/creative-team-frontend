@@ -91,7 +91,7 @@ export const LoginForm = props => {
               <p className={css.error__login}>{isError.additionalInfo}</p>
             )}
             <p className={css.redirect__auth}>
-              {'No accaunt?'}
+              {'No account?'}
               <Link to="/signup" className={css.redirect_link__auth}>
                 {' Register'}
               </Link>
