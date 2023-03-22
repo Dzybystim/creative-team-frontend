@@ -1,13 +1,14 @@
-import { ErrorMessage, Field, useFormik } from 'formik';
+import { ErrorMessage, Field } from 'formik';
 import {ReactComponent as Male } from "../../images/Male.svg";
 import {ReactComponent as Female } from "../../images/Female.svg";
 import css from "./ModalAddNotice.module.css";
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 //import { useState } from 'react';
 
 
 export const ModalAddNoticeSecond = ({toggleModalPage, onSubmit}) => {
-const [preview, setPreview]= useState('');
+const [preview]= useState('');
+// setPreview
 const [selectedFile, setSelectedFile]= useState('');
 const [uploaded, setUploaded]= useState('');
 
@@ -23,11 +24,11 @@ const [uploaded, setUploaded]= useState('');
     });
     }
     
-    const filePicker = useRef(null);
+    // const filePicker = useRef(null);
 
-    const handlePick = ()=>{
-        filePicker.current.click();
-    }
+    // const handlePick = ()=>{
+    //    filePicker.current.click();
+    // }
     // onChange={(e)=>{
     //     let reader = new FileReader();
     //     reader.onload=()=>{
@@ -79,12 +80,12 @@ console.log("data", data);
     setUploaded(data);
 };
 
-const handleChange=(e)=>{
-    console.log(e.target.files);
-    console.log(e.target.files[0]);
-    console.log(e.target.files[0].size);
+//const handleChange=(e)=>{
+//    console.log(e.target.files);
+//    console.log(e.target.files[0]);
+//    console.log(e.target.files[0].size);
 
-    setSelectedFile(e.target.files[0]);
+//    setSelectedFile(e.target.files[0]);
 
     // if (e.target.files[0].size > 375000) {
     //     alert('you can not upload the file greater then 3 MB')
@@ -98,7 +99,7 @@ const handleChange=(e)=>{
     //     }
     // }
     // reader.readAsDataURL(e.target.files[0])
-}
+//}
 
     return (
         

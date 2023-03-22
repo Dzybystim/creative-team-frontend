@@ -58,6 +58,7 @@ export default function UserData() {
                 Edit
               </button>
             </li>
+            
             <li className={css.info_data}>
               <p className={css.text}>Email:</p>
               <p className={css.text}>{email}</p>
