@@ -1,18 +1,4 @@
 
-// import { useState } from 'react';
-// import css from './ModalAddNotice.module.css';
-
-// export const ModalAddNotice = ({onClose}) => {
-
-//     const [togglePage, setTogglePage] = useState(true);
-
-//     const toggleModalPage = () => {
-//         // if (!name || !birthday || !breed) {
-
-//         // }
-//         setTogglePage(!togglePage);
-//     };
-
 //    // const contacts = useSelector(selectContacts);
 //  //   const dispatch = useDispatch();
 
@@ -24,19 +10,6 @@
 //     //       contact => contact.name.toLowerCase() === ContactValue.toLowerCase()
 //     //     ))
 
-//     //    {
-//     //    // toast.error(`${ContactValue} is already in contacts.`);
-//     //     return;
-//     //   }
-
-//       const newPet = {
-//     name: value.name,
-//     birthday: value.birthday,
-//     breed: value.breed,
-//     photo: value.photo,
-//     comments: value.comments,
-//       };
-//       console.log("newPet ", newPet);
 
 //     //   dispatch(addContact(newContact));
 //     //   toast.success(`${ContactValue} is added to the phonebook.`);
@@ -45,39 +18,43 @@
 //     };
 
 
-
-import css from './ModalAddNotice.module.css';
-
-// export const ModalAddNotice = () => {
-//   return <div className={css.container}></div>;
-// };
-
 import { useState } from 'react';
 //import { useDispatch } from 'react-redux';
-import { Formik, Form } from 'formik';
+import * as yup from 'yup';
+import { Formik, Form, useFormik } from 'formik';
 import { ModalAddNoticeFirst } from './ModalAddNoticeFirst';
 import { ModalAddNoticeSecond } from './ModalAddNoticeSecond';
 
-// import css from "./ModalAddNotice.module.css";
+ import css from "./ModalAddNotice.module.css";
 
-// const schema = yup.object().shape({
-//     name: yup.string().required(),
-//     number: yup.number().min(8).required(),
-//   });
+const schema = yup.object().shape({
+    category: yup.string().required(),
+    title: yup.string().required(),
+    name: yup.string().required(),
+    birthdate: yup.number().min(8).required(),
+    breed: yup.number().min(8).required(),
+    sex: yup.number().min(8).required(),
+    location: yup.number().min(8).required(),
+    file: yup.number().min(8).required(),
+    comments: yup.number().min(8).required(),
+    price: yup.number().min(8).required(),
+  });
 
 
-const initialValues = {
+const initialValues= {
   category: '',
-  tittle: '',
+  title: '',
   name: '',
-  birthday: '',
+  birthdate: '',
   breed: '',
   sex: '',
   location: '',
-  //  photo: '',
+  file: '',
   comments: '',
   price: '',
-};
+}
+
+  
 
 //   const FormError = ({ name }) => {
 //     return (
@@ -102,31 +79,27 @@ export const ModalAddNotice = ({ onClose }) => {
   //   const dispatch = useDispatch();
 
   const handleSubmit = (value, { resetForm }) => {
-    // const ContactValue = value.name;
-    console.log(value);
-    //   if (
-    //     contacts.find(
-    //       contact => contact.name.toLowerCase() === ContactValue.toLowerCase()
-    //     ))
-
-    //    {
-    //    // toast.error(`${ContactValue} is already in contacts.`);
-    //     return;
-    //   }
-
+ 
     const newPet = {
+      category: value.category,
+      title: value.title,
       name: value.name,
-      birthday: value.birthday,
+      birthdate: value.birthdate,
       breed: value.breed,
-      photo: value.photo,
+      sex: value.sex,
+      location: value.location,
+      file: value.file,
       comments: value.comments,
+      price: value.price,
     };
-    console.log('newPet ', newPet);
 
-    //   dispatch(addContact(newContact));
-    //   toast.success(`${ContactValue} is added to the phonebook.`);
+    console.log('newPet ', newPet);
     resetForm();
     onClose();
+    
+    //   dispatch(addContact(newContact));
+    //   toast.success(`${ContactValue} is added to the phonebook.`);
+    
   };
 
   return (
@@ -147,6 +120,7 @@ export const ModalAddNotice = ({ onClose }) => {
             <ModalAddNoticeSecond
               toggleModalPage={toggleModalPage}
               onSubmit={handleSubmit}
+   //  formik={formik}
             />
           )}
         </Form>

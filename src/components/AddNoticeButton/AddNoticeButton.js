@@ -19,7 +19,7 @@ export const AddNoticeButton = () => {
       </button>
       {showModal && (
         <Modal onClose={toggleModal}>
-          <ModalAddNotice />
+          <ModalAddNotice onClose={toggleModal}/>
         </Modal>
       )}
     </>
