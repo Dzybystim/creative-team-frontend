@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import css from './NoticesCategoriesNav.module.css';
+import {selectors} from '../../redux/auth/selectors'
 
 export const NoticesCategoriesNav = ({ item }) => {
-  //  let isLoggin = useSelector();
+  const {isLogged} = selectors;
+  console.log('isLogged', isLogged);
 
   return (
     <ul className={css.list}>
