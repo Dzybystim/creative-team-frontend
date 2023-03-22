@@ -1,6 +1,5 @@
 import css from './UserData.module.css';
 import axios from 'axios';
-//const API_KEY = '?api_key=0fe38363eb34760457702cbb346d2d7a';
 
 import { useParams } from 'react-router-dom';
 //import { getUserDataById } from 'service/API';
@@ -8,9 +7,9 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //import { Outlet} from "react-router-dom";
 import Notiflix from 'notiflix';
-const BASE_URL = 'https://backend.petly.club';
+import NoImage from './noImag.png';
 
-//import NoImage from 'images/noImag.png';
+const BASE_URL = 'https://backend.petly.club';
 
 export const getUserDataById = noticeId =>
   axios.get(`${BASE_URL}userData/${noticeId}`);
@@ -29,13 +28,19 @@ export default function UserData() {
       );
   }, [id]);
 
-  const { name, email, birthday, phone, city } = userData;
+  const { urlAvatar, name, email, birthday, phone, city } = userData;
 
   return (
     <>
       <div>
-        <img src="" alt={name} width={'300px'} />
-        <div class={css.userinfo}>
+        <div>
+          {urlAvatar ? (
+            <img src={`${BASE_URL}/${urlAvatar}`} alt={name} width={'300px'} />
+          ) : (
+            NoImage
+          )}
+        </div>
+        <div className={css.userinfo}>
           <ul className={css.info}>
             <li className={css.info_data}>
               <p className={css.text}>Name:</p>
