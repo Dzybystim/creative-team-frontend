@@ -1,7 +1,19 @@
 import { ErrorMessage, Field } from 'formik';
+import { useState } from 'react';
 import css from './ModalAddNotice.module.css';
 
 export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
+  //   const [checked, useChecked] = useState('');
+
+  //   const onCheck = (e)=>{
+  // console.log("e", e);
+  //   }
+
+  // let radios = document.querySelectorAll('input[type=radio][name="category"]');
+  // radios.forEach(radio => radio.addEventListener('change', () => {console.log(radio.value)
+
+  // }));
+
   return (
     <>
       <p className={css.text}>
@@ -39,14 +51,14 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
         </label>
       </div>
 
-      <label htmlFor="tittle" className={css.label}>
+      <label htmlFor="title" className={css.label}>
         Tittle of ad
       </label>
       <Field
         className={css.field}
-        id="tittle"
+        id="title"
         type="text"
-        name="tittle"
+        name="title"
         placeholder="Type name pet"
         required
       />
@@ -64,14 +76,14 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
       />
       <ErrorMessage name="name" component="div" />
       {/* <FormError name="name" component="div" /> */}
-      <label className={css.label} htmlFor="birthday">
+      <label className={css.label} htmlFor="birthdate">
         Date of birth
       </label>
       <Field
         className={css.field}
-        id="birthday"
-        type="date"
-        name="birthday"
+        id="birthdate"
+        type="text"
+        name="birthdate"
         placeholder="Type date of birth"
         required
       />
@@ -79,7 +91,7 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
         Breed
       </label>
       <Field
-        className={css.field}
+        className={css.field_last}
         id="breed"
         type="text"
         name="breed"
@@ -87,12 +99,19 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
         required
       />
       {/* <FormError name="number" component="div" /> */}
-      <button type="submit" onClick={toggleModalPage}>
-        Next
-      </button>
-      <button type="submit" onClick={onClose}>
-        Cancel
-      </button>
+      <ul>
+        <li className={css.btn_item}>
+          {' '}
+          <button type="submit" onClick={toggleModalPage} className={css.btn}>
+            Next
+          </button>
+        </li>
+        <li className={css.btn_item}>
+          <button type="submit" onClick={onClose} className={css.btn}>
+            Cancel
+          </button>
+        </li>
+      </ul>
     </>
   );
 };

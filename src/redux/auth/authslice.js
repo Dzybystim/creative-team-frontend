@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 import { userApi } from './fetchUser';
@@ -26,6 +26,7 @@ export const authSlice = createSlice({
       userApi.endpoints.logIn.matchFulfilled,
       (state, { payload }) => {
         const { data } = payload;
+        console.log(payload);
         state.user.email = data.user;
         state.user.name = data.name;
         state.user.cityRegion = data.cityRegion;
@@ -52,11 +53,14 @@ export const authSlice = createSlice({
     builder.addMatcher(
       userApi.endpoints.registrationUser.matchFulfilled,
       (state, action) => {
+        console.log('state:', current(state));
+
         const { user, token } = action.payload;
-        state.user.email = user.email;
-        state.user.name = user.name;
-        state.user.cityRegion = user.cityRegion;
-        state.user.mobilePhone = user.mobilePhone;
+        const userArg = action.meta.arg.originalArgs;
+        state.user.email = userArg.email;
+        state.user.name = userArg.name;
+        state.user.cityRegion = userArg.cityRegion;
+        state.user.mobilePhone = userArg.mobilePhone;
         state.user.id = user._id;
         state.token = token;
         state.isLogged = true;
@@ -82,6 +86,7 @@ export const authSlice = createSlice({
     builder.addMatcher(userApi.endpoints.logOut.matchPending, state => {
       state.loadUser = true;
       state.token = null;
+      state.isLogged = false;
     });
     builder.addMatcher(userApi.endpoints.logOut.matchFulfilled, () => {
       return { ...initialState };

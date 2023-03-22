@@ -1,21 +1,17 @@
-import { Outlet, NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+import { selectors } from 'redux/auth/selectors';
+import { Header } from '../Header/Header';
 
 export default function SharedLayout() {
+  const value = useSelector(selectors.getToken);
+  console.log(value);
+  const tokenlocal = localStorage.getItem('persist:users');
+  console.log('tokenlocal:', JSON.parse(tokenlocal));
+
   return (
     <>
-      <nav>
-        <NavLink to="/" end>
-          Header
-        </NavLink>
-        <NavLink to="/news">News</NavLink>
-        <NavLink to="/notices">Find pet</NavLink>
-        <NavLink to="/friends">Our Friends</NavLink>
-        <NavLink to="/users">Users</NavLink>
-        <div>
-          <NavLink to="/signup">Sign Up</NavLink>
-          <NavLink to="/login">Login</NavLink>
-        </div>
-      </nav>
+      <Header />
       <Outlet />
     </>
   );

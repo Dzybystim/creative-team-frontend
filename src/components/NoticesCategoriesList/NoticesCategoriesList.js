@@ -62,7 +62,7 @@ const NoticesCategoriesList = ({ item }) => {
         setStatus(Status.REJECTED);
         console.log('Error', error);
       });
-  }, [category]);
+  }, [category, status]);
 
   // console.log("notices",notices);
 

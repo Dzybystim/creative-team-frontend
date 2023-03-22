@@ -6,13 +6,19 @@ import { Logo } from 'components/Logo/Logo';
 
 export const Nav = () => {
   return (
-    <Nav>
+    <>
       <NavLink to="/">
         <Logo />
       </NavLink>
       <NavLink to="/news">News</NavLink>
       <NavLink to="/notices">Find Pet</NavLink>
       <NavLink to="/friends">Our friends</NavLink>
-    </Nav>
+      <div>
+        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/login">Login</NavLink>
+      </div>
+
+      <NavLink to="/user">User</NavLink>
+    </>
   );
 };

@@ -8,6 +8,7 @@ import { SideMenu } from './SideMenu';
 const Navbar = styled.div`
   display: flex;
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   box-sizing: border-box;
@@ -40,7 +41,6 @@ export const MainMenu = () => {
     <header ref={node}>
       <Navbar>
         <HamburgerButton />
-        <h1>Website</h1>
       </Navbar>
       <SideMenu />
     </header>

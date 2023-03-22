@@ -65,10 +65,9 @@ SideMenu.propTypes = {
 SideMenu.defaultProps = {
   children: (
     <>
-      <MenuLink href="/">Главная</MenuLink>
-      <MenuLink href="/articles">Статьи</MenuLink>
-      <MenuLink href="/about">О сайте</MenuLink>
-      <MenuLink href="/contact">Контакт</MenuLink>
+      <MenuLink href="/news">News</MenuLink>
+      <MenuLink href="/notices">Find Pet</MenuLink>
+      <MenuLink href="/friends">Our friends</MenuLink>
     </>
   ),
 };

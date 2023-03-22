@@ -16,7 +16,7 @@ const OurFriendsList = () => {
       .catch(error => setErr(error.message))
       .finally(() => setLoading(false));
   }, []);
-
+  console.log(ourFriends);
   return (
     <>
       {loading && (

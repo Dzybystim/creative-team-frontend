@@ -42,39 +42,14 @@
 
 .radio_label:hover,
 .radio_label:focus {
+  outline-color: var(--accent-color);
   color: var(--white-color);
   background-color: var(--accent-color);
-  border-color: transparent;
-}
-
-.radio_btn {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-}
-
-.radio_btn:checked + .radio_label {
-  background-color: red;
-}
-
-.label {
-  display: block;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.44;
-  color: var(--black-color);
-  margin-bottom: 8px;
 }
 
 .field {
   display: block;
+  width: 90%;
   margin-bottom: 16px;
   background: var(--bg-color);
   border: 1px solid var(--form-input-border-color);
@@ -82,83 +57,45 @@
 
   font-weight: 400;
   font-size: 14px;
-  padding: 12px 0 12px 14px;
+  padding: 12px 14px 12px 14px;
   color: rgba(27, 27, 27, 0.6);
   outline-color: var(--accent-color);
 }
 
-.img {
-  position: relative;
+.field:hover,
+.field:focus {
+  outline-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--white-color);
+}
+
+.field_last {
   display: block;
-  width: 240px;
-  min-height: 240px;
-  /* width: 100%;
-    height: 100%; */
-  object-fit: cover;
-  border-radius: 0px 0px 40px 40px;
-  overflow: hidden;
-  background: var(--white-transparent-color);
-  margin-right: auto;
-  margin-left: auto;
+  width: 90%;
   margin-bottom: 16px;
-  background-image: url(../../components/white-cat-and-dog.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+  background-color: var(--bg-color);
+  border: 1px solid var(--form-input-border-color);
+  border-radius: 40px;
 
-.title {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  margin-bottom: 16px;
-}
-
-.category {
-  z-index: 10;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  width: 60%;
-  padding: 6px;
-  font-weight: 500;
-  font-size: 12px;
-  text-align: center;
-  line-height: 1.33;
-  letter-spacing: 0.04em;
-  border-radius: 0px 60px 60px 0px;
-  color: var(--black-color);
-  background-color: var(--white-transparent-color);
-}
-
-.list {
-  margin-bottom: 28px;
-  display: block;
-}
-
-.item {
-  display: flex;
-  /*  align-items: center; */
-
+  font-weight: 400;
   font-size: 14px;
-}
-.item:not(:last-child) {
-  margin-bottom: 8px;
-}
-
-.text {
-  width: 50%;
-  font-weight: 500;
-}
-
-.main_text {
-  width: 50%;
-  font-weight: 600;
-}
-
-.comments {
+  padding: 12px 14px 12px 14px;
+  color: rgba(27, 27, 27, 0.6);
+  outline-color: var(--accent-color);
   margin-bottom: 40px;
+
+  /* height: 16px; */
+  resize: none;
+  overflow: hidden;
+}
+
+.field_last:hover,
+.field_last:focus {
+  outline-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--white-color);
 }
 
 .btn_item:not(:last-child) {
@@ -172,13 +109,101 @@
   padding: 9px;
   background-color: var(--white-color);
   border-radius: 40px;
-  border-color: var(--accent-color);
+  border: 2px solid var(--accent-color);
   color: var(--black-color);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.04em;
 }
 
 .btn:hover,
-:focus {
+.btn:focus {
   color: var(--white-color);
   background-color: var(--accent-color);
   border-color: transparent;
+}
+
+.radio_sex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.radio_label_sex {
+  width: 50%;
+}
+
+.radio_icon {
+  display: block;
+}
+.item {
+  display: flex;
+  /*  align-items: center; */
+
+  font-size: 14px;
+}
+.item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.radio_icon_text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.44;
+  color: var(--black-color);
+}
+
+.field_second {
+  display: block;
+  width: 90%;
+  margin-bottom: 20px;
+  border: 1px solid var(--form-input-border-color);
+  border-radius: 40px;
+
+  font-weight: 400;
+  font-size: 14px;
+  padding: 12px 14px 12px 14px;
+  color: rgba(27, 27, 27, 0.6);
+  outline-color: var(--accent-color);
+}
+
+.field_second:hover,
+.field_second:focus {
+  outline-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--white-color);
+}
+
+.field_photo {
+  display: block;
+  width: 116px;
+  height: 116px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border: 2px solid var(--form-input-border-color);
+  outline-color: var(--accent-color);
+  cursor: pointer;
+  background-color: var(--bg-color);
+  background-image: url(../../images/akar-icons_plus.png);
+  /* background-image: url(../../images/plus.svg); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.field_photo:hover,
+.field_photo:focus {
+  outline-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--white-color);
+}
+
+/* .checked{
+  background: red;
+} */
+.article {
+  background: red;
 }
