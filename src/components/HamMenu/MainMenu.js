@@ -40,7 +40,6 @@ export const MainMenu = () => {
     <header ref={node}>
       <Navbar>
         <HamburgerButton />
-        <h1>Website</h1>
       </Navbar>
       <SideMenu />
     </header>
