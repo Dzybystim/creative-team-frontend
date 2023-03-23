@@ -3,9 +3,7 @@ import css from './WorkingDaysMenu.module.css';
 
 const WorkingDaysMenu = ({ onClose, daysList, workdays }) => {
   const handleBackdropClick = evt => {
-    if (evt.target !== evt.currentTarget) {
-      onClose();
-    }
+    onClose();
   };
 
   useEffect(() => {
@@ -17,7 +15,10 @@ const WorkingDaysMenu = ({ onClose, daysList, workdays }) => {
   });
 
   return (
-    <div className={css.overlay} onClick={handleBackdropClick}>
+    <div>
+      <figure className={css.overlay} onClick={handleBackdropClick}>
+        {' '}
+      </figure>
       <ul className={css.menu}>
         {daysList.map((el, idx) => (
           <li className={css.item} key={idx}>
