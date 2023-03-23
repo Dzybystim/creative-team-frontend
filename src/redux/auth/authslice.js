@@ -9,7 +9,6 @@ const initialState = {
     name: null,
     cityRegion: null,
     mobilePhone: null,
-    id: null,
   },
   token: null,
   isLogged: false,
@@ -25,13 +24,12 @@ export const authSlice = createSlice({
     builder.addMatcher(
       userApi.endpoints.logIn.matchFulfilled,
       (state, { payload }) => {
-        const { data } = payload;
-        state.user.email = data.user;
-        state.user.name = data.name;
-        state.user.cityRegion = data.cityRegion;
-        state.user.mobilePhone = data.mobilePhone;
-        state.user.id = data._id;
-        state.token = data.token;
+        const { user } = payload;
+        state.user.email = user.email;
+        state.user.name = user.name;
+        state.user.cityRegion = user.cityRegion;
+        state.user.mobilePhone = user.mobilePhone;
+        state.token = user.accessToken;
         state.isLogged = true;
         state.loadUser = false;
         state.errorServer = false;
@@ -51,14 +49,13 @@ export const authSlice = createSlice({
     );
     builder.addMatcher(
       userApi.endpoints.registrationUser.matchFulfilled,
-      (state, action) => {
-        const { user, token } = action.payload;
+      (state, { payload }) => {
+        const { user } = payload;
         state.user.email = user.email;
         state.user.name = user.name;
         state.user.cityRegion = user.cityRegion;
         state.user.mobilePhone = user.mobilePhone;
-        state.user.id = user._id;
-        state.token = token;
+        state.token = user.accessToken;
         state.isLogged = true;
         state.loadUser = false;
       }
@@ -82,6 +79,7 @@ export const authSlice = createSlice({
     builder.addMatcher(userApi.endpoints.logOut.matchPending, state => {
       state.loadUser = true;
       state.token = null;
+      state.isLogged = false;
     });
     builder.addMatcher(userApi.endpoints.logOut.matchFulfilled, () => {
       return { ...initialState };

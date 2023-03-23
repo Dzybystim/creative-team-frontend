@@ -1,45 +1,22 @@
 import { ErrorMessage, Field } from 'formik';
+//import { useState } from 'react';
 import css from './ModalAddNotice.module.css';
 
 export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
+//   const [checked, useChecked] = useState('');
+
+//   const onCheck = (e)=>{
+// console.log("e", e); 
+//   }
+
+// let radios = document.querySelectorAll('input[type=radio][name="category"]');
+// radios.forEach(radio => radio.addEventListener('change', () => {console.log(radio.value)
+  
+// }));
+
+
   return (
     <>
-      <p className={css.text}>
-        Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
-        consectetur{' '}
-      </p>
-
-      <div className={css.radio_category}>
-        <label className={css.radio_label}>
-          <Field
-            className={css.radio_btn}
-            type="radio"
-            name="category"
-            value="lost-found"
-          />
-          lost/found
-        </label>
-        <label className={css.radio_label}>
-          <Field
-            className={css.radio_btn}
-            type="radio"
-            name="category"
-            value="for-free"
-          />
-          in good hands
-        </label>
-        <label className={css.radio_label}>
-          <Field
-            className={css.radio_btn}
-            type="radio"
-            name="category"
-            value="sell"
-          />
-          sell
-        </label>
-      </div>
-
-
 
 <p className={css.text}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur </p>
 
@@ -58,11 +35,11 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
             </label>
 </div>
 
-<label htmlFor="tittle" className={css.label}>Tittle of ad</label>
+<label htmlFor="title" className={css.label}>Tittle of ad</label>
 <Field className={css.field}
-                  id="tittle"
+                  id="title"
               type="text"
-              name="tittle"
+              name="title"
               placeholder="Type name pet"
               required
             />
@@ -77,12 +54,12 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
             />
             <ErrorMessage name="name" component="div" />
             {/* <FormError name="name" component="div" /> */}
-            <label className={css.label} htmlFor="birthday">Date of birth</label>
+            <label className={css.label} htmlFor="birthdate">Date of birth</label>
             <Field
             className={css.field}
-            id="birthday"
+            id="birthdate"
             type="text"
-              name="birthday"
+              name="birthdate"
               placeholder="Type date of birth"
               required
             />

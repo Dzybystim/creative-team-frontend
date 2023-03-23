@@ -25,7 +25,7 @@ const SignUp = () => {
   const makeRequest = async formData => {
     const { error } = await register(formData);
     if (!error) {
-      navigate('/users');
+      navigate('/user');
     }
   };
 
