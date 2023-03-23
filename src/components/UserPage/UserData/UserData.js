@@ -16,7 +16,7 @@ export default function UserData({user}) {
 
   return(<>
   <UserDataItem user={user}/>
-  
+
   </>
   )
 }

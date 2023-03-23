@@ -1,6 +1,8 @@
 import PetsData from 'components/UserPage/PetsData/PetsData';
 import UserData from 'components/UserPage/UserData/UserData';
-// import Logout from 'components/UserPage/UserData/LogOut/LogOut'
+import Logout from 'components/UserPage/UserData/LogOut/LogOut'
+import UserFoto from 'components/UserPage/UserData/UserFoto/UserFoto.jsx'
+import EditFoto from 'components/UserPage/UserData/EditFoto/EditFoto.jsx'
 import css from './UserPage.module.css';
 import { useState, useEffect } from "react";
 import {fetchUserAndPets} from '../utilities/helpers'
@@ -45,8 +47,10 @@ export default function UserPage() {
     {user && <>
     <h2 className={css.title}>My information:</h2>
     <div className={css.container__userdata}>
+      <UserFoto user={user} /> 
+      <EditFoto />
       <UserData user={user}/>
-      {/* <Logout /> */}
+      <Logout />
     </div>
     </>}
 
@@ -57,7 +61,7 @@ export default function UserPage() {
       <PetsData pets={pets}/>
     </div>
     </>}
-    
+
     </div>
     }
     

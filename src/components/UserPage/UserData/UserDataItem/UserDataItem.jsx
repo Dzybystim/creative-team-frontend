@@ -1,24 +1,13 @@
-import { AiOutlineUser } from "react-icons/ai";
-import { IconContext } from 'react-icons';
 import { HiPencil } from "react-icons/hi";
 import css from './UserDataItem.module.css';
 
 export default function UserDataItem({user}) {
 
-const {birthdate, cityRegion, email, mobilePhone, name, photoURL} = user
+const {birthdate, cityRegion, email, mobilePhone, name} = user
 
 
 
 return (<>
-
-<IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-<div className={css.conteiner_foto}>
-    {photoURL ? 
-    <img src={photoURL} alt="User Foto" className={css.foto_img}></img> : 
-    <div className={css.foto_svg_container}><AiOutlineUser  className={css.foto_svg}/></div>
-    }
-</div>
-</IconContext.Provider>
 
 
 <table className={css.container_text}>

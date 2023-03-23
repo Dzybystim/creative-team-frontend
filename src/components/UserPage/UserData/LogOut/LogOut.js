@@ -1,24 +1,24 @@
-import {useLogInMutation} from "../../../../redux/auth/fetchUser"
-import { useNavigate } from 'react-router-dom';
+// import {useLogInMutation} from "../../../../redux/auth/fetchUser"
+// import { useNavigate } from 'react-router-dom';
 
 export default function UserPage() {
 
-const [logout] = useLogInMutation()
-const navigate = useNavigate();
+// const [logout] = useLogInMutation()
+// const navigate = useNavigate();
 
-const clickLogOut = async () => {
-    const { error } = await logout();
-    if(error){
-        console.log(error.message)
-        return
-    } else {
-        navigate('/')
-    }
-}
+// const clickLogOut = async () => {
+//     const { error } = await logout();
+//     if(error){
+//         console.log(error.message)
+//         return
+//     } else {
+//         navigate('/')
+//     }
+// }
 
 return(
 <>
-<button type="button" onClick={clickLogOut()}></button>
+<button type="button" >ЛогОут</button>
 </>
 )
 }

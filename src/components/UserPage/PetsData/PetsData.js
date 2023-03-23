@@ -51,7 +51,7 @@ const PetsData = ({pets}) => {
           <Text mr="7px">Add pet</Text>
         </Button>
       </Flex>
-      <PetsList />
+      <PetsList pets={pets}/>
       <Modal isOpen={isOpen} onClose={onClose} title={'Add pet'}>
         <ModalAddsPet onClose={onClose} />
       </Modal>
