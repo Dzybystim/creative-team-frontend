@@ -25,7 +25,7 @@ export const getNoticesByCategories = async category => {
 export const fetchUserAndPets = async(token) => {
   try{
 const response = await axios.get(`/userAndPets`, { headers: { Authorization: `Bearer ${token}` } })
-    return response
+    return response.data
   } catch (error) {
     console.error(error);
   }

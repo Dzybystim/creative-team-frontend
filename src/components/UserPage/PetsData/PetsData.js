@@ -11,7 +11,7 @@ import { Modal } from '../PetsData/Modal';
 import { ModalAddsPet } from 'components/UserPage/PetsData/ModalAddsPet';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 
-const PetsData = () => {
+const PetsData = ({pets}) => {
   const { onOpen, onClose, isOpen } = useDisclosure();
   return (
     <Box ml={{ xl: '32px' }} w="100%">

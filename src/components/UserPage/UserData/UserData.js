@@ -9,15 +9,13 @@
 import UserDataItem from './UserDataItem/UserDataItem'
 
 
-// const BASE_URL = 'https://backend.petly.club';
 
-// export const getUserDataById = noticeId =>
-//   axios.get(`${BASE_URL}userData/${noticeId}`);
+export default function UserData({user}) {
 
 
-export default function UserData() {
+
   return(<>
-  <UserDataItem />
+  <UserDataItem user={user}/>
   
   </>
   )

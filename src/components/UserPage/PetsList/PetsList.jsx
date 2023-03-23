@@ -6,6 +6,7 @@ import { deletePet } from 'redux/auth/operations';
 import { getUser } from 'redux/auth/selectors';
 
 const PetsList = () => {
+
   const { pets = [] } = useSelector(getUser);
 
   const dispatch = useDispatch();

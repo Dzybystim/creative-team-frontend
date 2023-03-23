@@ -1,7 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Routes, Route } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy} from 'react';
 import Layout from 'components/Layout/Layout';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
@@ -22,8 +22,6 @@ export const App = () => {
   return (
     <>
       <Layout>
-
-        <Suspense fallback={<h1>Loading page...</h1>}>
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route path="user" element={<UserPage />} />
@@ -46,7 +44,6 @@ export const App = () => {
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
-        </Suspense>
         <ToastContainer />
       </Layout>
     </>
