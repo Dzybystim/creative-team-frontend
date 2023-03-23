@@ -1,9 +1,10 @@
-/* .svg_camera {
+.svg_camera {
   width: 18px;
   height: 18px;
+  margin-right: 4px;
   stroke: var(--accent-color);
   fill: var(--white-color);
-} */
+}
 
 /* .button_edit {
   border: 0;
@@ -18,19 +19,14 @@
   width: 85px;
 }
 
-.input__file {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-}
-
 .field_photo {
-  display: block;
+  display: flex;
+  align-items: center;
   outline-color: var(--accent-color);
   cursor: pointer;
-  background-color: var(--bg-color);
-  background-image: url(../../../../images/camera.png);
-  background-repeat: no-repeat;
+  font-size: 12px;
+  /* background-image: url(../../../../images/camera.png); */
+  /* background-repeat: no-repeat; */
 }
 
 .field_photo:hover,
@@ -39,4 +35,17 @@
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
   background-color: var(--white-color);
+}
+
+.input_file {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(50%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

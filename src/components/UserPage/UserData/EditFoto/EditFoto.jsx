@@ -1,20 +1,17 @@
-// import { ErrorMessage, Field, Formik } from 'formik';
+import { HiOutlineCamera } from 'react-icons/hi2';
 import { postImageToStorage } from '../../../../utilities/helpers';
 import { useState } from 'react';
-import { selectors } from '../../../../redux/auth/selectors';
-import { useSelector } from 'react-redux';
 import css from './EditFoto.module.css';
 
 export default function EditFoto() {
   const [selectedFile, setSelectedFile] = useState('');
-  const token = useSelector(selectors.getToken);
   const handleUpload = async e => {
     setSelectedFile(e.target.files[0]);
 
     const formData = new FormData();
     formData.append('avatar', selectedFile);
 
-    postImageToStorage(formData, token)
+    postImageToStorage(formData)
       .then(data => {
         console.log(data);
       })
@@ -27,6 +24,8 @@ export default function EditFoto() {
     <>
       <div className={css.container_edit}>
         <label htmlFor="file" className={css.field_photo}>
+          <HiOutlineCamera className={css.svg_camera} />
+          Edit photo
           <input
             className={css.input_file}
             id="file"
