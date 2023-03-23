@@ -4,6 +4,7 @@ axios.defaults.baseURL = "https://backend.petly.club"
 
 
 
+
 export const fetchOurFriends = async () => {
   return await axios
     .get(`/servicesSidebar`)
@@ -22,6 +23,18 @@ export const getNoticesByCategories = async category => {
   }
 };
 
+
+export const fetchNews = async () => {
+  try {
+    const response = await axios.get(
+      `${baseURL}/news`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const fetchUserAndPets = async(token) => {
   try{
 const response = await axios.get(`/userAndPets`, { headers: { Authorization: `Bearer ${token}` } })
@@ -30,3 +43,19 @@ const response = await axios.get(`/userAndPets`, { headers: { Authorization: `Be
     console.error(error);
   }
 }
+
+
+export const postImageToStorage = async (img) => {
+  try {
+    const response = await axios.post(
+      `/uploadAvatar`, img
+    );
+    console.log("response", response);
+    console.log("response.data", response.data);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
