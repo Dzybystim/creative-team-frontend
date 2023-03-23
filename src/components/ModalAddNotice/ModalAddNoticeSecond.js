@@ -4,14 +4,25 @@ import {ReactComponent as Female } from "../../images/Female.svg";
 import css from "./ModalAddNotice.module.css";
 import { useState } from 'react';
 //import { useState } from 'react';
+import axios from 'axios';
 
 
 export const ModalAddNoticeSecond = ({toggleModalPage, onSubmit}) => {
+
 const [preview]= useState('');
 // setPreview
 const [selectedFile, setSelectedFile]= useState('');
 const [uploaded, setUploaded]= useState('');
 
+//const token = JSON.parse(localStorage.getItem("persist:auth")).token;
+//console.log('token', token)
+//const token1 = token.slice(1, token.length-1)
+const token1 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTVjM2IxNWViMWQ2NjcyNWRhYmZkMiIsImlhdCI6MTY3OTU2OTQ1MCwiZXhwIjoxNjc5NjEyNjUwfQ.kwvptBuQB_yJMuQQB361gbQ1TZ_X_nJ-AqUkJ8vwphw"
+console.log('token1', token1)
+const setAuthHeader = token => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+setAuthHeader(token1);
 //const formik = useFormik();
     const textareaChange = () =>{
         
@@ -60,7 +71,7 @@ const [uploaded, setUploaded]= useState('');
 // {
 //     "urlAvatar": "url"
 //   }
-
+// console.log("useUpdateUserAvatarMutation", useUpdateUserAvatarMutation);
 const handleUpload = async(e)=>{
     setSelectedFile(e.target.files[0]);
     console.log('selectedFile', selectedFile);
@@ -70,15 +81,36 @@ const handleUpload = async(e)=>{
     // }
 
     const formData = new FormData();
-    formData.append('urlAvatar', selectedFile);
-const URL = `https://backend.petly.club/uploadAvatar`
-    const res = await fetch(URL, {
-        method: 'POST',
-        body: formData,
-    });
-    const data = await res.json();
-console.log("data", data);
-    setUploaded(data);
+    console.log("selectedFile", selectedFile);
+    formData.append('avatar', selectedFile);
+    
+
+ const URL = `https://backend.petly.club/uploadAvatar`
+//     const res = await fetch(URL, {
+//         method: 'POST',
+//         body: formData,
+//     });
+//     const data = await res.json();
+// console.log("data", data);
+//     setUploaded(data);
+
+
+
+    try {
+        const response = await axios.post(
+          `${URL}`, formData
+        );
+        console.log("response", response);
+        console.log("response.data", response.data);
+
+        return response.data;
+      } catch (error) {
+        console.error(error);
+      }
+
+    ///  setUploaded(data);
+
+
 };
 
 //const handleChange=(e)=>{
