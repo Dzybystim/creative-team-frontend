@@ -1,19 +1,42 @@
-.svg_camera {
-    width: 18px;
-    height: 18px;
-    stroke : var(--accent-color);
-    fill: var(--white-color);
-}
+/* .svg_camera {
+  width: 18px;
+  height: 18px;
+  stroke: var(--accent-color);
+  fill: var(--white-color);
+} */
 
-.button_edit {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    background-color: var(--white-color);
-}
+/* .button_edit {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: var(--white-color);
+} */
 
 .container_edit {
-    margin-right: 24px;
-    margin-left: auto;
-    width: 85px;
+  margin-right: 24px;
+  margin-left: auto;
+  width: 85px;
+}
+
+.input__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.field_photo {
+  display: block;
+  outline-color: var(--accent-color);
+  cursor: pointer;
+  background-color: var(--bg-color);
+  background-image: url(../../../../images/camera.png);
+  background-repeat: no-repeat;
+}
+
+.field_photo:hover,
+.field_photo:focus {
+  outline-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--white-color);
 }

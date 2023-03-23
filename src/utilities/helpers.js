@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://backend.petly.club';
+axios.defaults.baseURL = 'http://backend.petly.club';
 
 export const fetchOurFriends = async () => {
   return await axios
@@ -38,9 +38,11 @@ export const fetchUserAndPets = async token => {
   }
 };
 
-export const postImageToStorage = async img => {
+export const postImageToStorage = async (img, token) => {
   try {
-    const response = await axios.post(`/uploadAvatar`, img);
+    const response = await axios.post(`/uploadAvatar`, img, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     console.log('response', response);
     console.log('response.data', response.data);
 
