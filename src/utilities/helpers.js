@@ -49,3 +49,12 @@ export const postImageToStorage = async img => {
     console.error(error);
   }
 };
+
+export const getNoticesByTitle = async title => {
+  try {
+    const response = await axios.get(`/notices/title?title=${title}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
