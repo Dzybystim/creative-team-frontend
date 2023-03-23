@@ -1,10 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import css from './NoticesCategoriesNav.module.css';
+import { useSelector } from "react-redux";
 import {selectors} from '../../redux/auth/selectors'
 
 export const NoticesCategoriesNav = ({ item }) => {
-  const {isLogged} = selectors;
-  console.log('isLogged', isLogged);
+  const isLogged = useSelector(selectors.isLogged);
+ // const logged = useSelector(selectors.users.isLogged);
+//  const token = useSelector(selectors.users.token);
+console.log('isLogged', isLogged);
+//console.log('logged', logged);
 
   return (
     <ul className={css.list}>
@@ -24,7 +28,7 @@ export const NoticesCategoriesNav = ({ item }) => {
         </NavLink>
       </li>
 
-      {/* {isLoggin ? ( */}
+      {isLogged ? (
       <>
         <li className={css.item}>
           <NavLink className={css.link} to="favorite">
@@ -37,7 +41,7 @@ export const NoticesCategoriesNav = ({ item }) => {
           </NavLink>
         </li>
       </>
-      {/* ) : null} */}
+      ) : null} 
     </ul>
   );
 };
