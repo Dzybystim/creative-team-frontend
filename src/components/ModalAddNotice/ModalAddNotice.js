@@ -17,25 +17,25 @@
 
 import { useState } from 'react';
 //import { useDispatch } from 'react-redux';
-import * as yup from 'yup';
-import { Formik, Form, useFormik } from 'formik';
+//import * as yup from 'yup';
+import { Formik, Form } from 'formik';
 import { ModalAddNoticeFirst } from './ModalAddNoticeFirst';
 import { ModalAddNoticeSecond } from './ModalAddNoticeSecond';
 
 import css from './ModalAddNotice.module.css';
 
-const schema = yup.object().shape({
-  category: yup.string().required(),
-  title: yup.string().required(),
-  name: yup.string().required(),
-  birthdate: yup.number().min(8).required(),
-  breed: yup.number().min(8).required(),
-  sex: yup.number().min(8).required(),
-  location: yup.number().min(8).required(),
-  file: yup.number().min(8).required(),
-  comments: yup.number().min(8).required(),
-  price: yup.number().min(8).required(),
-});
+// const schema = yup.object().shape({
+//     category: yup.string().required(),
+//     title: yup.string().required(),
+//     name: yup.string().required(),
+//     birthdate: yup.number().min(8).required(),
+//     breed: yup.number().min(8).required(),
+//     sex: yup.number().min(8).required(),
+//     location: yup.number().min(8).required(),
+//     file: yup.number().min(8).required(),
+//     comments: yup.number().min(8).required(),
+//     price: yup.number().min(8).required(),
+//   });
 
 const initialValues = {
   category: '',

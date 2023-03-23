@@ -7,6 +7,7 @@ import { getUser } from 'redux/auth/selectors';
 
 const PetsList = () => {
   const { pets = [] } = useSelector(getUser);
+  console.log('getUser:', getUser);
 
   const dispatch = useDispatch();
   const onDeleteBtnClick = (e, id) => {

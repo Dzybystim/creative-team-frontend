@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 import { userApi } from './fetchUser';
@@ -9,7 +9,6 @@ const initialState = {
     name: null,
     cityRegion: null,
     mobilePhone: null,
-    id: null,
   },
   token: null,
   isLogged: false,
@@ -25,14 +24,12 @@ export const authSlice = createSlice({
     builder.addMatcher(
       userApi.endpoints.logIn.matchFulfilled,
       (state, { payload }) => {
-        const { data } = payload;
-        console.log(payload);
-        state.user.email = data.user;
-        state.user.name = data.name;
-        state.user.cityRegion = data.cityRegion;
-        state.user.mobilePhone = data.mobilePhone;
-        state.user.id = data._id;
-        state.token = data.token;
+        const { user } = payload;
+        state.user.email = user.email;
+        state.user.name = user.name;
+        state.user.cityRegion = user.cityRegion;
+        state.user.mobilePhone = user.mobilePhone;
+        state.token = user.accessToken;
         state.isLogged = true;
         state.loadUser = false;
         state.errorServer = false;
@@ -52,17 +49,13 @@ export const authSlice = createSlice({
     );
     builder.addMatcher(
       userApi.endpoints.registrationUser.matchFulfilled,
-      (state, action) => {
-        console.log('state:', current(state));
-
-        const { user, token } = action.payload;
-        const userArg = action.meta.arg.originalArgs;
-        state.user.email = userArg.email;
-        state.user.name = userArg.name;
-        state.user.cityRegion = userArg.cityRegion;
-        state.user.mobilePhone = userArg.mobilePhone;
-        state.user.id = user._id;
-        state.token = token;
+      (state, { payload }) => {
+        const { user } = payload;
+        state.user.email = user.email;
+        state.user.name = user.name;
+        state.user.cityRegion = user.cityRegion;
+        state.user.mobilePhone = user.mobilePhone;
+        state.token = user.accessToken;
         state.isLogged = true;
         state.loadUser = false;
       }

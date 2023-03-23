@@ -1,5 +1,5 @@
 import { Nav } from 'components/Nav/Nav';
-//import { AuthNav } from 'components/AuthNav/AuthNav';
+import { AuthNav } from 'components/AuthNav/AuthNav';
 import { UserNav } from 'components/UserNav/UserNav';
 import React from 'react';
 import { NavState } from '../../context/navState';
@@ -15,6 +15,8 @@ export const Header = () => {
   return (
     <div>
       <Nav />
+
+      <AuthNav />
       <UserNav />
 
       <NavState>
