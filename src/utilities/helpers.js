@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://backend.petly.club"
-
-
-
+axios.defaults.baseURL = 'https://backend.petly.club';
 
 export const fetchOurFriends = async () => {
   return await axios
@@ -14,48 +11,41 @@ export const fetchOurFriends = async () => {
 
 export const getNoticesByCategories = async category => {
   try {
-    const response = await axios.get(
-      `/notices/category?category=${category}`
-    );
+    const response = await axios.get(`/notices/category?category=${category}`);
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
-
 
 export const fetchNews = async () => {
   try {
-    const response = await axios.get(
-      `${baseURL}/news`
-    );
+    const response = await axios.get(`/news`);
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const fetchUserAndPets = async(token) => {
-  try{
-const response = await axios.get(`/userAndPets`, { headers: { Authorization: `Bearer ${token}` } })
-    return response.data
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-
-export const postImageToStorage = async (img) => {
+export const fetchUserAndPets = async token => {
   try {
-    const response = await axios.post(
-      `/uploadAvatar`, img
-    );
-    console.log("response", response);
-    console.log("response.data", response.data);
-
+    const response = await axios.get(`/userAndPets`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
+export const postImageToStorage = async img => {
+  try {
+    const response = await axios.post(`/uploadAvatar`, img);
+    console.log('response', response);
+    console.log('response.data', response.data);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
