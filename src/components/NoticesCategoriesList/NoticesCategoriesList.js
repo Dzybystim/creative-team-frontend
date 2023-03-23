@@ -50,28 +50,28 @@ const NoticesCategoriesList = ({ item }) => {
   let category = pathname.split('/').pop();
 
   useEffect(() => {
-    if (!category && status === Status.IDLE) {
+    if (!category) {
       return;
     }
     getNoticesByCategories(category)
       .then(data => {
         setNotices(data);
-        setStatus(Status.RESOLVED);
+       
       })
       .catch(error => {
-        setStatus(Status.REJECTED);
+     
         console.log('Error', error);
       });
-  }, [category, status]);
+  }, [category]);
 
 
 
-  // console.log("notices",notices);
+   console.log("notices",notices);
 
-  if (notices.length === 0 && status === Status.RESOLVED) {
-    toast.error('Nothing found for your request!');
-    return;
-  }
+  // if (notices.length === 0 && status === Status.RESOLVED) {
+  //   toast.error('Nothing found for your request!');
+  //   return;
+  // }
 
   return (
     <>

@@ -18,7 +18,7 @@ const MenuButton = styled.button`
 
   :focus {
     border: medium none rgb(111, 255, 176);
-    box-shadow: rgb(111, 255, 176) 0 0 2px 2px;
+    /* box-shadow: rgb(111, 255, 176) 0 0 2px 2px; */
     outline: 0;
   }
 
@@ -38,8 +38,8 @@ const MenuButton = styled.button`
 
   &.active {
     span:nth-of-type(1) {
-      transform: rotate(45deg) translate(10px, 10px);
-      width: 40px;
+      transform: rotate(45deg) translate(8px, 8px);
+      width: 30px;
     }
 
     span:nth-of-type(2) {
@@ -48,18 +48,18 @@ const MenuButton = styled.button`
     }
 
     span:nth-of-type(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-      width: 40px;
+      transform: rotate(-45deg) translate(5px, -5px);
+      width: 30px;
     }
   }
 `;
 
 const Bar = styled.span`
   display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 7px;
-  background-color: #fff;
+  width: 30px;
+  height: 3px;
+  margin-bottom: 6px;
+  background-color: var(--black-color);
 `;
 
 export const HamburgerButton = () => {

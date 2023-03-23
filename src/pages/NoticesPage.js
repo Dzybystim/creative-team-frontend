@@ -2,7 +2,6 @@ import { NoticesCategoriesNav } from '../components/NoticesCategoriesNav/Notices
 //import { NoticesCategoriesList } from "../components/NoticesCategoriesList/NoticesCategoriesList";
 import { NoticesSearch } from '../components/NoticesSearch/NoticesSearch';
 import { Outlet } from 'react-router-dom';
-import { Suspense } from 'react';
 import css from './NoticesPage.module.css';
 
 const NoticesPage = () => {
@@ -13,9 +12,8 @@ const NoticesPage = () => {
 
       <NoticesCategoriesNav />
 
-      <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
-      </Suspense>
+      
     </div>
   );
 };

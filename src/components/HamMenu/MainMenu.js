@@ -8,21 +8,21 @@ import { SideMenu } from './SideMenu';
 const Navbar = styled.div`
   display: flex;
   position: fixed;
-  left: 0;
+  left: auto;
   right: 0;
-  box-sizing: border-box;
-  outline: currentcolor none medium;
+  /* box-sizing: border-box;
+  outline: none;
   max-width: 100%;
-  margin: 0px;
-  align-items: center;
-  background: #082bff none repeat scroll 0% 0%;
-  color: rgb(248, 248, 248);
-  min-width: 0px;
-  min-height: 0px;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 6px 60px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px;
+  margin: 0px; */
+  /* align-items: center; */
+  /* background: #082bff none repeat scroll 0% 0%; */
+  /* color: rgb(248, 248, 248); */
+  /* min-width: 0px;
+  min-height: 0px; */
+  /* flex-direction: row; */
+  /* justify-content: flex-start; */
+  /* padding: 6px 6px; */
+  /* box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px; */
   z-index: 500;
 `;
 
@@ -40,7 +40,6 @@ export const MainMenu = () => {
     <header ref={node}>
       <Navbar>
         <HamburgerButton />
-        <h1>Website</h1>
       </Navbar>
       <SideMenu />
     </header>

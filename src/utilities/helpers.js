@@ -1,10 +1,13 @@
 import axios from 'axios';
-import { baseURL } from './baseURL';
+
+axios.defaults.baseURL = "https://backend.petly.club"
+
+
 
 
 export const fetchOurFriends = async () => {
   return await axios
-    .get(`${baseURL}/servicesSidebar`)
+    .get(`/servicesSidebar`)
     .then(response => response.data)
     .catch(err => console.log(err));
 };
@@ -12,13 +15,14 @@ export const fetchOurFriends = async () => {
 export const getNoticesByCategories = async category => {
   try {
     const response = await axios.get(
-      `${baseURL}/notices/category?category=${category}`
+      `/notices/category?category=${category}`
     );
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
+
 
 export const fetchNews = async () => {
   try {
@@ -30,3 +34,13 @@ export const fetchNews = async () => {
     console.error(error);
   }
 };
+
+export const fetchUserAndPets = async(token) => {
+  try{
+const response = await axios.get(`/userAndPets`, { headers: { Authorization: `Bearer ${token}` } })
+    return response.data
+  } catch (error) {
+    console.error(error);
+  }
+}
+
