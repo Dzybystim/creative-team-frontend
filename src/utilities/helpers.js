@@ -30,3 +30,17 @@ const response = await axios.get(`/userAndPets`, { headers: { Authorization: `Be
     console.error(error);
   }
 }
+
+export const postImageToStorage = async (img) => {
+  try {
+    const response = await axios.post(
+      `/uploadAvatar`, img
+    );
+    console.log("response", response);
+    console.log("response.data", response.data);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
