@@ -36,10 +36,7 @@ export const App = () => {
               </Route>
 
               <Route path="*" element={<NotFound />} />
-
             </Route>
-
-            <Route path="*" element={<NotFound />} />
         </Routes>
         <ToastContainer />
       </Layout>
