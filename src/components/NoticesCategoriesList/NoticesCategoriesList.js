@@ -7,7 +7,6 @@ import { useLocation } from 'react-router-dom';
 import { getNoticesByCategories } from '../../utilities/helpers';
 //import { toast } from 'react-toastify';
 
-
 const NoticesCategoriesList = ({ item }) => {
   let { pathname } = useLocation();
   const [notices, setNotices] = useState([]);
@@ -27,9 +26,7 @@ const NoticesCategoriesList = ({ item }) => {
       });
   }, [category]);
 
-
-
-   console.log("notices",notices);
+  // console.log("notices",notices);
 
   // if (notices.length === 0 && status === Status.RESOLVED) {
   //   toast.error('Nothing found for your request!');

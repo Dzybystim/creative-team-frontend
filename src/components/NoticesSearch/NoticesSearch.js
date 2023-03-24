@@ -2,7 +2,8 @@
 import { FaSearch } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import css from './NoticesSearch.module.css';
-import { MdClear } from 'react-icons/md';
+import { Img } from '@chakra-ui/react';
+import CloseSearch from '../../Icon/CloseSearch.svg';
 
 export const NoticesSearch = ({ searchQuery, setSearchQuery }) => {
   const handleQueryChange = e => {
@@ -32,11 +33,13 @@ export const NoticesSearch = ({ searchQuery, setSearchQuery }) => {
         placeholder="Search"
         onChange={handleQueryChange}
       />
-      <div>
-        {{ searchQuery }.length > 0 ? (
-          <button type="button" onClick={onClickClear}>
-            <MdClear className={css.ClearIcon} />
-          </button>
+      <div className={css.Icon}>
+        {searchQuery.length > 0 ? (
+          <Img
+            src={CloseSearch}
+            onClick={onClickClear}
+            className={css.ClearIcon}
+          />
         ) : (
           <FaSearch className={css.SearchIcon} />
         )}

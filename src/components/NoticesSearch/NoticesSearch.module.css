@@ -1,7 +1,7 @@
 .SearchForm {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 608px;
@@ -13,17 +13,18 @@
 
 .Input {
   display: inline-block;
-  width: 236px;
+  max-width: 608px;
   height: 38px;
   font: inherit;
   font-size: 20px;
+  letter-spacing: 0.04em;
   border: none;
   outline: none;
   /*padding-left: 4px;
     padding-right: 4px;*/
-
   color: #535353;
   letter-spacing: 0.04em;
+  padding: 10px 64px 10px 20px;
 }
 
 .icon_container {
@@ -41,12 +42,17 @@
 .SearchIcon {
   width: 17.49px;
   height: 17.49px;
-  padding-top: 13px;
+  /* padding-top: 13px;
   padding-right: 15.51px;
-  padding-bottom: 13px;
+  padding-bottom: 13px; */
 }
 
 .ClearIcon {
-  width: 6px;
-  height: 6px;
+  width: 24px;
+  height: 24px;
+}
+
+.Icon {
+  padding-top: 3px;
+  padding-right: 13.57px;
 }
