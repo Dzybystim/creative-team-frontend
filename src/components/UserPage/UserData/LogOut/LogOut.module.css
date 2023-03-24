@@ -1,29 +1,29 @@
 .container_logOut {
-    margin-right: 12px;
-    margin-left: auto;
-    width: 89px;
-  }
+  margin-right: 12px;
+  margin-left: auto;
+  width: 89px;
+}
 
 .button_logOut {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: var(--white-color);
-    display: flex;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
 }
 
 .svg_logOut {
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
-    stroke: var(--accent-color);
-    fill: var(--white-color);
-  }
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  stroke: var(--accent-color);
+  fill: var(--white-color);
+}
 
 .text_logOut {
-    font-size: 16px;
-    font-family: 'Manrope';
-    font-weight: 500;
-    line-height: 1.4;
+  font-size: 16px;
+  font-family: 'Manrope';
+  font-weight: 500;
+  line-height: 1.4;
 }

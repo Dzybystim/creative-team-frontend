@@ -6,34 +6,15 @@
 // import { useState, useEffect } from 'react';
 // import Notiflix from 'notiflix';
 // import NoImage from './noImag.png';
-import UserDataItem from './UserDataItem/UserDataItem'
+import UserDataItem from './UserDataItem/UserDataItem';
 
-
-
-export default function UserData({user}) {
-
-
-
-  return(<>
-  <UserDataItem user={user}/>
-
-  </>
-  )
+export default function UserData({ user }) {
+  return (
+    <>
+      <UserDataItem user={user} />
+    </>
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // export default function UserData() {
 //   const navigate = useNavigate();

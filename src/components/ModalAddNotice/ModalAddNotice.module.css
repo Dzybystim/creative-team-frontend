@@ -30,18 +30,18 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 1.44;
-color: var(--black-color);
-margin-bottom: 8px;
+  color: var(--black-color);
+  margin-bottom: 8px;
 }
 
-.label_other{
+.label_other {
   display: block;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.44;
   color: var(--black-color);
   margin-bottom: 16px;
-  }
+}
 
 .radio_label {
   padding: 8px 28px;
@@ -59,7 +59,7 @@ margin-bottom: 8px;
 }
 
 .radio_label:hover,
-.radio_label:focus{
+.radio_label:focus {
   outline-color: var(--accent-color);
   color: var(--white-color);
   background-color: var(--accent-color);
@@ -79,100 +79,95 @@ margin-bottom: 8px;
   overflow: hidden;
 }
 
-.field{
-display: block;
-width: 90%;
-margin-bottom: 16px;
-background: var(--bg-color);
-border: 1px solid var(--form-input-border-color);
-border-radius: 40px;
+.field {
+  display: block;
+  width: 90%;
+  margin-bottom: 16px;
+  background: var(--bg-color);
+  border: 1px solid var(--form-input-border-color);
+  border-radius: 40px;
 
-font-weight: 400;
-font-size: 14px;
-padding: 12px 14px 12px 14px;
-color: rgba(27, 27, 27, 0.6);
-outline-color: var(--accent-color);
+  font-weight: 400;
+  font-size: 14px;
+  padding: 12px 14px 12px 14px;
+  color: rgba(27, 27, 27, 0.6);
+  outline-color: var(--accent-color);
 }
 
 .field:hover,
 .field:focus {
-    outline-color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    background-color: var(--white-color);
+  outline-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--white-color);
 }
 
 .field_last {
-    display: block;
-width: 90%;
-margin-bottom: 16px;
-background-color: var(--bg-color);
-border: 1px solid var(--form-input-border-color);
-border-radius: 40px;
+  display: block;
+  width: 90%;
+  margin-bottom: 16px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--form-input-border-color);
+  border-radius: 40px;
 
-font-weight: 400;
-font-size: 14px;
-padding: 12px 14px 12px 14px;
-color: rgba(27, 27, 27, 0.6);
-outline-color: var(--accent-color);
-    margin-bottom: 40px;
-    
-    /* height: 16px; */
-    resize: none;
-    overflow: hidden;
-    
-    
+  font-weight: 400;
+  font-size: 14px;
+  padding: 12px 14px 12px 14px;
+  color: rgba(27, 27, 27, 0.6);
+  outline-color: var(--accent-color);
+  margin-bottom: 40px;
+
+  /* height: 16px; */
+  resize: none;
+  overflow: hidden;
 }
 
 .field_last:hover,
 .field_last:focus {
-    outline-color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    background-color: var(--white-color);
+  outline-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--white-color);
 }
 
-
-.btn_item:not(:last-child){
-    margin-bottom: 12px;
-
+.btn_item:not(:last-child) {
+  margin-bottom: 12px;
 }
 
-.btn{
-    display: block;
-    width: 240px;
-align-items: center;
-    padding: 9px;
-    background-color: var(--white-color);
-border-radius: 40px;
-border:2px solid var(--accent-color); 
-color:var(--black-color);
-font-weight: 500;
-font-size: 16px;
-letter-spacing: 0.04em;
+.btn {
+  display: block;
+  width: 240px;
+  align-items: center;
+  padding: 9px;
+  background-color: var(--white-color);
+  border-radius: 40px;
+  border: 2px solid var(--accent-color);
+  color: var(--black-color);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.04em;
 }
 
 .btn:hover,
-.btn:focus{
-color:var(--white-color);
-background-color: var(--accent-color);
-border-color: transparent; 
+.btn:focus {
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border-color: transparent;
 }
 
 .radio_sex {
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
 }
-
 
 .radio_label_sex {
-    width: 50%;
+  width: 50%;
 }
 
-.radio_icon{
-    display: block;
+.radio_icon {
+  display: block;
 }
 .item {
   display: flex;
@@ -184,50 +179,47 @@ margin-bottom: 32px;
   margin-bottom: 8px;
 }
 
-
-.radio_icon_text{
-    font-weight: 500;
-font-size: 18px;
-line-height: 1.44;
-color: var(--black-color);
+.radio_icon_text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.44;
+  color: var(--black-color);
 }
 
-.field_photo{
-    display: block;
-    width: 116px;
-    height: 116px;
-    margin-bottom: 28px;
-    border-radius: 20px;
-    border: 1px solid var(--form-input-border-color);
-    outline-color: var(--accent-color);
-    cursor: pointer;
-    background-color: var(--bg-color);
-    background-image: url(../../images/akar-icons_plus.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
+.field_photo {
+  display: block;
+  width: 116px;
+  height: 116px;
+  margin-bottom: 28px;
+  border-radius: 20px;
+  border: 1px solid var(--form-input-border-color);
+  outline-color: var(--accent-color);
+  cursor: pointer;
+  background-color: var(--bg-color);
+  background-image: url(../../images/akar-icons_plus.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
 }
-    
+
 .field_photo:hover,
 .field_photo:focus {
-    outline-color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    background-color: var(--white-color);
+  outline-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--white-color);
 }
 
-.img_photo{
+.img_photo {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 /* .checked{
   background: red;
 } */
-.article{
+.article {
   background: red;
 }
-
-
