@@ -38,7 +38,7 @@ const NoticesPage = () => {
   } else {
     clearAuthHeader();
   }
-
+  // console.log(notices, `good`);
   return (
     <div className={css.container}>
       <h2>Find your favorite pet</h2>
