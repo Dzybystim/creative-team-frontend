@@ -1,13 +1,19 @@
-/* .overlay {
-  width: 100vw;
-  height: 100vh;
-} */
+.overlay {
+  /* position: absolute; */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+  z-index: 999;
+  /* background-color: aqua; */
+}
 
 .menu {
-  position: absolute;
-  z-index: 100;
   border: 1px solid var(--accent-color);
   position: absolute;
+  z-index: 999;
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
   color: var(--black-color);
@@ -18,9 +24,7 @@
 }
 
 .item {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start; */
+  position: relative;
   text-align: left;
   font-family: 'Manrope', sans-serif;
   font-weight: 500;

@@ -11,7 +11,7 @@ import { Modal } from '../PetsData/Modal';
 import { ModalAddsPet } from 'components/UserPage/PetsData/ModalAddsPet';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 
-const PetsData = () => {
+const PetsData = ({ pets }) => {
   const { onOpen, onClose, isOpen } = useDisclosure();
   return (
     <Box ml={{ xl: '32px' }} w="100%">
@@ -51,7 +51,7 @@ const PetsData = () => {
           <Text mr="7px">Add pet</Text>
         </Button>
       </Flex>
-      <PetsList />
+      <PetsList pets={pets} />
       <Modal isOpen={isOpen} onClose={onClose} title={'Add pet'}>
         <ModalAddsPet onClose={onClose} />
       </Modal>

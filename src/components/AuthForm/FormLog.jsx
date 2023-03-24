@@ -33,7 +33,7 @@ export const LoginForm = props => {
       resetForm();
       return;
     } else {
-      navigate('/users');
+      navigate('/user');
     }
   };
 

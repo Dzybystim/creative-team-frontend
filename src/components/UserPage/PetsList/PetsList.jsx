@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deletePet } from 'redux/auth/operations';
 import { getUser } from 'redux/auth/selectors';
 
-const PetsList = () => {
-  const { pets = [] } = useSelector(getUser);
+const PetsList = ({ pets }) => {
+  // const { pets = [] } = useSelector(getUser);
 
   const dispatch = useDispatch();
   const onDeleteBtnClick = (e, id) => {

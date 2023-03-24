@@ -1,13 +1,11 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import css from './NoticesSearch.module.css';
-import { MdClear } from 'react-icons/md';
-import { IconContext } from 'react-icons';
+import { Img } from '@chakra-ui/react';
+import CloseSearch from '../../Icon/CloseSearch.svg';
 
-export function NoticesSearch({ onSubmit }) {
-  const [searchQuery, setSearchQuery] = useState('');
-
+export const NoticesSearch = ({ searchQuery, setSearchQuery }) => {
   const handleQueryChange = e => {
     setSearchQuery(e.currentTarget.value);
   };
@@ -17,9 +15,6 @@ export function NoticesSearch({ onSubmit }) {
     if (searchQuery.trim() === '') {
       return toast.warn('Insert correct request');
     }
-
-    onSubmit(searchQuery);
-    setSearchQuery('');
   };
 
   const onClickClear = () => {
@@ -27,37 +22,28 @@ export function NoticesSearch({ onSubmit }) {
   };
 
   return (
-    <form className={css.SearchForm} onSubmit={handlSubmit}>
-      <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-        <input
-          className={css.Input}
-          type="text"
-          name="searchQuery"
-          value={searchQuery}
-          autoComplete="off"
-          autoFocus
-          placeholder="Search"
-          onChange={handleQueryChange}
-        />
+    <div className={css.SearchForm} onSubmit={handlSubmit}>
+      <input
+        className={css.Input}
+        type="text"
+        name="searchQuery"
+        value={searchQuery}
+        autoComplete="off"
+        autoFocus
+        placeholder="Search"
+        onChange={handleQueryChange}
+      />
+      <div className={css.Icon}>
         {searchQuery.length > 0 ? (
-          <button
-            type="button"
+          <Img
+            src={CloseSearch}
             onClick={onClickClear}
-            className={css.icon_container}
-          >
-            <MdClear />
-          </button>
+            className={css.ClearIcon}
+          />
         ) : (
-          <div className={css.icon_container}>
-            <FaSearch />
-          </div>
+          <FaSearch className={css.SearchIcon} />
         )}
-      </IconContext.Provider>
-    </form>
+      </div>
+    </div>
   );
-}
-
-//<div >
-//{searchQuery.length > 0 ? (<button type="button" onClickClear={onClickClear}><MdClear className={css.ClearIcon}/></button>):
-//                          (<FaSearch className={css.SearchIcon} />)}
-//    </div>
+};
