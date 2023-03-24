@@ -66,6 +66,7 @@ const handleChange = event => {
 
   const clickSubmit = event => {
     handleClick(event)
+    console.log(nameField)
     userEdit({name: nameField, email: emailField, birthdate: birthdayField, mobilePhone: phoneField, cityRegion:cityField})
   }
 
