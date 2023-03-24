@@ -1,12 +1,25 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-// import css from './AuthNav.module.css';
+// import Button from '@mui/material/Button';
 
-export const AuthNav = () => {
+import css from './AuthNav.module.css';
+
+export const AuthNav = ({ isMenuClicked }) => {
   return (
     <>
-      <NavLink to="/signup">Sign Up</NavLink>
-      <NavLink to="/login">Login</NavLink>
+      {!isMenuClicked && (
+        <ul className={css.auth}>
+          <NavLink className={css.linkStyled} to="/login">
+            Login
+          </NavLink>
+          <NavLink className={css.linkStyled} to="/register">
+            Registration
+          </NavLink>
+        </ul>
+      )}
     </>
   );
 };
+
+AuthNav.propTypes = { isMenuClicked: PropTypes.bool.isRequired };

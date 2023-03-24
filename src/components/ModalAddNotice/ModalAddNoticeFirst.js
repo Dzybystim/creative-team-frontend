@@ -2,12 +2,9 @@ import { ErrorMessage, Field } from 'formik';
 //import { useState } from 'react';
 import css from './ModalAddNotice.module.css';
 
-export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
+export const ModalAddNoticeFirst = ({ toggleModalPage, onClose, values }) => {
   //   const [checked, useChecked] = useState('');
-
-  //   const onCheck = (e)=>{
-  // console.log("e", e);
-  //   }
+  console.log('values', values);
 
   // let radios = document.querySelectorAll('input[type=radio][name="category"]');
   // radios.forEach(radio => radio.addEventListener('change', () => {console.log(radio.value)
@@ -62,7 +59,7 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
         placeholder="Type name pet"
         required
       />
-      <ErrorMessage name="tittle" component="div" />
+      <ErrorMessage name="title" component="div" />
       <label htmlFor="name" className={css.label}>
         Name pet
       </label>
@@ -85,6 +82,7 @@ export const ModalAddNoticeFirst = ({ toggleModalPage, onClose }) => {
         type="text"
         name="birthdate"
         placeholder="Type date of birth"
+        pattern="^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)[0-9]{2}$"
         required
       />
       <label className={css.label} htmlFor="breed">

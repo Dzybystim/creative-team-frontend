@@ -26,7 +26,7 @@ const NoticesCategoriesList = ({ item }) => {
       });
   }, [category]);
 
-  console.log('notices', notices);
+  // console.log("notices",notices);
 
   // if (notices.length === 0 && status === Status.RESOLVED) {
   //   toast.error('Nothing found for your request!');

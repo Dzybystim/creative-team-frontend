@@ -25,6 +25,24 @@
   margin-bottom: 20px;
 }
 
+.label {
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.44;
+  color: var(--black-color);
+  margin-bottom: 8px;
+}
+
+.label_other {
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.44;
+  color: var(--black-color);
+  margin-bottom: 16px;
+}
+
 .radio_label {
   padding: 8px 28px;
   font-weight: 500;
@@ -45,6 +63,20 @@
   outline-color: var(--accent-color);
   color: var(--white-color);
   background-color: var(--accent-color);
+}
+
+.radio_btn {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(50%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .field {
@@ -154,43 +186,21 @@
   color: var(--black-color);
 }
 
-.field_second {
-  display: block;
-  width: 90%;
-  margin-bottom: 20px;
-  border: 1px solid var(--form-input-border-color);
-  border-radius: 40px;
-
-  font-weight: 400;
-  font-size: 14px;
-  padding: 12px 14px 12px 14px;
-  color: rgba(27, 27, 27, 0.6);
-  outline-color: var(--accent-color);
-}
-
-.field_second:hover,
-.field_second:focus {
-  outline-color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-  color: var(--accent-color);
-  background-color: var(--white-color);
-}
-
 .field_photo {
   display: block;
   width: 116px;
   height: 116px;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
   border-radius: 20px;
-  border: 2px solid var(--form-input-border-color);
+  border: 1px solid var(--form-input-border-color);
   outline-color: var(--accent-color);
   cursor: pointer;
   background-color: var(--bg-color);
   background-image: url(../../images/akar-icons_plus.png);
-  /* background-image: url(../../images/plus.svg); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
 }
 
 .field_photo:hover,
@@ -199,6 +209,12 @@
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
   background-color: var(--white-color);
+}
+
+.img_photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* .checked{

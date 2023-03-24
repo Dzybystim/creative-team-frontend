@@ -1,7 +1,7 @@
 import { IconContext } from 'react-icons';
 import { AiOutlineUser } from 'react-icons/ai';
 import css from './UserFoto.module.css';
-export default function UserPage({ user }) {
+export default function UserFoto({ user }) {
   const { photoURL } = user;
 
   return (

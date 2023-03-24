@@ -13,17 +13,17 @@ export const NoticesCategoriesNav = ({ item }) => {
   return (
     <ul className={css.list}>
       <li className={css.item}>
-        <NavLink className={css.link} activeClassName="active" to="sell">
+        <NavLink className={css.link} to="sell">
           sell
         </NavLink>
       </li>
       <li className={css.item}>
-        <NavLink className={css.link} activeClassName="active" to="lost-found">
+        <NavLink className={css.link} to="lost-found">
           lost/found
         </NavLink>
       </li>
       <li className={css.item}>
-        <NavLink className={css.link} activeClassName="active" to="for-free">
+        <NavLink className={css.link || css.active} to="for-free">
           in good hands
         </NavLink>
       </li>
@@ -31,16 +31,12 @@ export const NoticesCategoriesNav = ({ item }) => {
       {isLogged ? (
         <>
           <li className={css.item}>
-            <NavLink
-              className={css.link}
-              activeClassName="active"
-              to="favorite"
-            >
+            <NavLink className={css.link} to="favorite">
               favorite ads
             </NavLink>
           </li>
           <li className={css.item}>
-            <NavLink className={css.link} activeClassName="active" to="own">
+            <NavLink className={css.link} to="own">
               my ads
             </NavLink>
           </li>
