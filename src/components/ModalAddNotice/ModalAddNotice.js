@@ -1,11 +1,8 @@
 import { useState } from 'react';
-//import { useDispatch } from 'react-redux';
-import * as yup from 'yup';
-import { Formik, Form } from 'formik';
-import { ModalAddNoticeFirst } from './ModalAddNoticeFirst';
-import { ModalAddNoticeSecond } from './ModalAddNoticeSecond';
 
-import css from './ModalAddNotice.module.css';
+import { PageOne } from './ModalAddNoticeFirst';
+import { PageTwo } from './ModalAddNoticeSecond';
+
 
 //  category	обовʼязково обрано 1 з 3 категорій (sell, lost-found, for-free)
 
@@ -13,6 +10,7 @@ import css from './ModalAddNotice.module.css';
 
 //  sex	обовʼязково обрано 1 тип з 2 (male, female)
 //  location	строка в форматі Місто, Область. Наприклад: Brovary, Kyiv або Akhtyrka, Sumy
+
 
 //  price	число, не повинно починатися 0
 
@@ -82,6 +80,7 @@ const initialValues = {
   price: '',
 };
 
+
 //   const FormError = ({ name }) => {
 //     return (
 //       <ErrorMessage
@@ -92,66 +91,78 @@ const initialValues = {
 //   };
 
 export const ModalAddNotice = ({ onClose }) => {
-  const [togglePage, setTogglePage] = useState(true);
 
-  const toggleModalPage = () => {
-    // if (!name || !birthday || !breed) {
+  const [data, setData] = useState({
+    category: '',
+    title: '',
+    name: '',
+    birthdate: '',
+    breed: '',
+    sex: '',
+    location: '',
+  //  imageURL: '',
+    comments: '',
+    price: '',
+  });
 
-    // }
-    setTogglePage(!togglePage);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const makeRequest = (formData) =>{
+    console.log("Form Submitted", formData);
+  }
+
+  const handleNextPage = (newData, final = false) => {
+    setData((prev)=>({...prev, ...newData}));
+
+    if (final){
+      makeRequest(newData);
+      return;
+    }
+
+    setCurrentPage((prev)=>prev + 1);
+  };
+  const handlePrevPage = (newData) => {
+    setData((prev)=>({...prev, ...newData}));
+    setCurrentPage((prev)=>prev - 1);
   };
 
-  // const contacts = useSelector(selectContacts);
-  //   const dispatch = useDispatch();
+  const pages = [
+    <PageOne next={handleNextPage} data={data} onClose={onClose}/>,
+    <PageTwo next={handleNextPage} prev={handlePrevPage} data={data} onClose={onClose}/>
+  ];
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log('values ', values);
+  console.log("data", data);
 
-    const newPet = {
-      category: values.category,
-      title: values.title,
-      name: values.name,
-      birthdate: values.birthdate,
-      breed: values.breed,
-      sex: values.sex,
-      location: values.location,
-      imageURL: values.imageURL,
-      comments: values.comments,
-      price: values.price,
-    };
+return <div>{pages[currentPage]}</div>
+}
 
-    console.log('newPet ', newPet);
-    resetForm();
-    onClose();
 
-    //   dispatch(addContact(newContact));
-    //   toast.success(`${ContactValue} is added to the phonebook.`);
-  };
 
-  return (
-    <div className={css.container}>
-      <h1 className={css.title}>Add pet</h1>
-      <Formik
-        onSubmit={handleSubmit}
-        initialValues={initialValues}
-        validationSchema={togglePage ? schema : schema}
-      >
-        <Form autoComplete="off">
-          {togglePage ? (
-            <ModalAddNoticeFirst
-              onClose={onClose}
-              toggleModalPage={toggleModalPage}
-              values={initialValues}
-            />
-          ) : (
-            <ModalAddNoticeSecond
-              toggleModalPage={toggleModalPage}
-              onSubmit={handleSubmit}
-              values={initialValues}
-            />
-          )}
-        </Form>
-      </Formik>
-    </div>
-  );
-};
+
+
+
+  // const handleSubmit = (values, { resetForm }) => {
+  //   console.log('values ', values);
+
+  //   const newPet = {
+  //     category: values.category,
+  //     title: values.title,
+  //     name: values.name,
+  //     birthdate: values.birthdate,
+  //     breed: values.breed,
+  //     sex: values.sex,
+  //     location: values.location,
+  //     imageURL: values.imageURL,
+  //     comments: values.comments,
+  //     price: values.price,
+  //   };
+
+  //   console.log('newPet ', newPet);
+  //   resetForm();
+  //   onClose();
+    
+    
+  // };
+
+
+
