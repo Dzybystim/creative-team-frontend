@@ -1,13 +1,13 @@
-// import React, {useState}  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-// import { selectors } from '../../redux/auth/selectors';
-// import { useSelector } from 'react-redux';
+import { selectors } from '../../redux/auth/selectors';
+import { useSelector } from 'react-redux';
 import css from './Burmenu.module.css';
-// import AccountCircle from '@mui/icons-material/AccountCircle';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
-  // const isLoggedIn = useSelector(selectors.isLogged);
+  const isLoggedIn = useSelector(selectors.isLogged);
 
   return (
     <div className="Wrapper" style={{ width: '100%', height: '100 hv' }}>
@@ -20,7 +20,7 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
       </nav>
       <div className={menu_class}>
         <ul className="auth">
-          {/* {!isLoggedIn ? (
+          {!isLoggedIn ? (
             <>
               <NavLink className = {css.linkLogin} to="/login" onClick={updateMenu}>
                 Login
@@ -36,7 +36,7 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
                 <div className = {css.linkUser}>Account</div>
               </NavLink>
             </li>
-          )} */}
+          )}
         </ul>
         <div className="div">
           <ul className="bgNews">
