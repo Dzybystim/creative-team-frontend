@@ -12,7 +12,7 @@ export default function UserDataItem({ user }) {
   const [nameField, setChangeNameField] = useState(name);
   const [emailField, setChangeEmailField] = useState(email);
   const [birthdayField, setChangeBirthdayField] = useState(
-    birthdate ? birthdate : '00.00.0000'
+    birthdate ? birthdate : '0000-00-00'
   );
   const [phoneField, setChangePhoneField] = useState(
     mobilePhone ? mobilePhone : '+38000000000'
@@ -72,14 +72,21 @@ export default function UserDataItem({ user }) {
 
   const clickSubmit = event => {
     handleClick(event);
-    console.log(nameField);
-    userEdit({
-      name: nameField,
-      email: emailField,
-      birthdate: birthdayField,
-      mobilePhone: phoneField,
-      cityRegion: cityField,
-    });
+    if(name!==nameField){
+        console.log(name!==nameField)
+        userEdit({name: nameField}) 
+    } else if (email !== emailField) {
+        userEdit({email: emailField})
+    } else if (birthdate !== birthdayField) {
+        userEdit({birthdate: birthdayField})
+    } else if (mobilePhone !== phoneField) {
+        userEdit({mobilePhone: phoneField})
+    } else if (cityRegion !== cityField) {
+        userEdit({cityRegion: cityField})
+    } else {
+        return
+    }
+
   };
 
 
@@ -94,7 +101,7 @@ export default function UserDataItem({ user }) {
             {clickName === false ? (
               <>
                 <td>
-                  <p className={css.text_user}>{name}</p>
+                  <p className={css.text_user}>{nameField}</p>
                 </td>
                 <td>
                   <button
@@ -140,7 +147,7 @@ export default function UserDataItem({ user }) {
             {clickEmail === false ? (
               <>
                 <td>
-                  <p className={css.text_user}>{email}</p>
+                  <p className={css.text_user}>{emailField}</p>
                 </td>
                 <td>
                   <button
@@ -186,7 +193,7 @@ export default function UserDataItem({ user }) {
               <>
                 <td>
                   <p className={css.text_user}>
-                    {birthdate ? birthdate : '00.00.0000'}
+                    {birthdayField ? birthdayField : '0000-00-00'}
                   </p>
                 </td>
                 <td>
@@ -233,7 +240,7 @@ export default function UserDataItem({ user }) {
               <>
                 <td>
                   <p className={css.text_user}>
-                    {mobilePhone ? mobilePhone : '+38000000000'}
+                    {phoneField ? phoneField : '+38000000000'}
                   </p>
                 </td>
                 <td>
@@ -280,7 +287,7 @@ export default function UserDataItem({ user }) {
             {clickCity === false ? (
               <>
                 <td>
-                  <p className={css.text_user}>{cityRegion}</p>
+                  <p className={css.text_user}>{cityField}</p>
                 </td>
                 <td>
                   <button

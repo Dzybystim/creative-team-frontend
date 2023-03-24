@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { PageOne } from './ModalAddNoticeFirst';
 import { PageTwo } from './ModalAddNoticeSecond';
-
+import * as yup from 'yup';
 
 //  category	обовʼязково обрано 1 з 3 категорій (sell, lost-found, for-free)
 

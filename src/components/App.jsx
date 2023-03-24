@@ -25,7 +25,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route path="user" element={<UserPage />} />
-              <Route path="news" element={<div>NewsPage</div>} />
+              <Route path="news" element={<NewsPage />} />
               <Route path="notices/:category" element={<NoticesPage />}/>
               <Route path="friends" element={<OurFriendsPage />} />
               <Route element={<PublicRoutes restricted />}>
@@ -40,7 +40,6 @@ export const App = () => {
             </Route>
 
             <Route path="*" element={<NotFound />} />
-          </Route>
         </Routes>
         <ToastContainer />
       </Layout>
