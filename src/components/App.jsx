@@ -19,10 +19,10 @@ const UserPage = lazy(() => import('../pages/UserPage'));
 const NotFound = lazy(() => import('../utilities/NotFound/NotFound'));
 
 export const App = () => {
+  
   return (
     <>
       <Layout>
-
         <Suspense fallback={<h1>Loading page...</h1>}>
           <Routes>
             <Route path="/" element={<SharedLayout />}>

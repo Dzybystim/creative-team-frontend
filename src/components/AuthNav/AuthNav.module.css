@@ -1,19 +1,46 @@
-/* import { NavLink } from 'react-router-dom'; */
-
-.authNavigation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.auth {
+  display: block;
 }
-
-.navLink {
-  font-size: 20px;
-
-  &.active {
-    color: seagreen;
-  }
-
-  & + & {
-    margin-left: 12px;
+@media screen and (max-width: 767px) {
+  .auth {
+    display: none;
   }
 }
+@media screen and (min-width: 768px) {
+  .ul {
+    display: flex;
+  }
+  :hover {
+    background-color: #f59256;
+    color: #ffffff;
+    cursor: pointer;
+  }
+}
+
+.linkStyled {
+  padding: 8px 28px;
+  color: #111111;
+  border-radius: 40px;
+  border: 2px solid #f59256;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;}
+
+  .linkStyled:active {
+    /* background-color: ; */
+    /* color: ; */
+  }
+
+  .linkStyled:hover {
+    color: #ffffff;
+    background-color: #f59256;
+  }
+
+  @media screen and (min-width: 768px) {
+    .linkStyled {
+    margin-right: 12px;
+    font-weight: 500;
+    font-size: 20px;
+    }
+  }
