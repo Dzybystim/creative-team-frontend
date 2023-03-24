@@ -45,16 +45,6 @@ export default function UserPage() {
 
   return (
     <>
-      {loading ? (
-        <Dna
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper"
-        />
-      ) : (
         <div className={css.container}>
           {user && (
             <>
@@ -100,7 +90,6 @@ export default function UserPage() {
             </>
           )}
         </div>
-      )}
     </>
   );
 }
