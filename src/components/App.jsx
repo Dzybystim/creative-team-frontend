@@ -10,6 +10,7 @@ import Login from 'pages/Login/Login';
 import PublicRoutes from 'RestrictedRoute';
 
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
+const NewsPage = lazy(() => import('../pages/News'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 const NoticesCategoriesList = lazy(() =>
   import('../components/NoticesCategoriesList/NoticesCategoriesList')
@@ -25,7 +26,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route path="user" element={<UserPage />} />
-              <Route path="news" element={<div>NewsPage</div>} />
+              <Route path="news" element={<NewsPage />} />
               <Route path="notices" element={<NoticesPage />}>
                 <Route path="sell" element={<NoticesCategoriesList />} />
                 <Route path="lost-found" element={<NoticesCategoriesList />} />
