@@ -11,7 +11,7 @@ import { Modal } from '../PetsData/Modal';
 import { ModalAddsPet } from 'components/UserPage/PetsData/ModalAddsPet';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 
-const PetsData = ({pets}) => {
+const PetsData = ({ pets }) => {
   const { onOpen, onClose, isOpen } = useDisclosure();
   return (
     <Box ml={{ xl: '32px' }} w="100%">
@@ -21,7 +21,7 @@ const PetsData = ({pets}) => {
         pt={{ base: '40px', md: '20px', xl: '0px' }}
         mb={{ base: '26px', md: '22px', xl: '24px' }}
       >
-        <Heading
+        {/* <Heading
           as="h2"
           my="auto"
           fontSize={{ base: '20px', md: '28px' }}
@@ -29,7 +29,7 @@ const PetsData = ({pets}) => {
           fontWeight={{ base: '500' }}
         >
           My pets:
-        </Heading>
+        </Heading> */}
         <Button
           aria-label="add pet"
           onClick={onOpen}
@@ -51,7 +51,7 @@ const PetsData = ({pets}) => {
           <Text mr="7px">Add pet</Text>
         </Button>
       </Flex>
-      <PetsList pets={pets}/>
+      <PetsList pets={pets} />
       <Modal isOpen={isOpen} onClose={onClose} title={'Add pet'}>
         <ModalAddsPet onClose={onClose} />
       </Modal>
