@@ -21,22 +21,17 @@ export const App = () => {
   return (
     <>
       <Layout>
-
-          <Routes>
-            <Route path="/" element={<SharedLayout />}>
-              <Route path="user" element={<UserPage />} />
-              <Route path="news" element={<div>NewsPage</div>} />
-              <Route path="notices/:category" element={<NoticesPage />}/>
-              <Route path="friends" element={<OurFriendsPage />} />
-              <Route element={<PublicRoutes restricted />}>
-                <Route path="login" element={<Login />} />
-                <Route path="signup" element={<SignUp />} />
-                <Route path="edit" element={<div>Edit</div>} />
-                <Route path="logout" element={<div>Logout</div>} />
-              </Route>
-
-              <Route path="*" element={<NotFound />} />
-
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route path="user" element={<UserPage />} />
+            <Route path="news" element={<div>NewsPage</div>} />
+            <Route path="notices/:category" element={<NoticesPage />} />
+            <Route path="friends" element={<OurFriendsPage />} />
+            <Route element={<PublicRoutes restricted />}>
+              <Route path="login" element={<Login />} />
+              <Route path="signup" element={<SignUp />} />
+              <Route path="edit" element={<div>Edit</div>} />
+              <Route path="logout" element={<div>Logout</div>} />
             </Route>
 
             <Route path="*" element={<NotFound />} />
