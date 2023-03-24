@@ -88,3 +88,13 @@ export const getNoticesByTitle = async title => {
   }
 };
 
+
+export const userEdit = async fieldData => {
+  try {
+    const response = await axios.patch(`/users/edit`, fieldData);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+

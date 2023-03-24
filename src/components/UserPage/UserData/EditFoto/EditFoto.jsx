@@ -1,5 +1,5 @@
 import { HiOutlineCamera } from 'react-icons/hi2';
-import { postImageToStorage } from '../../../../utilities/helpers';
+import { postImageToStorage, userEdit } from '../../../../utilities/helpers';
 import css from './EditFoto.module.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -34,7 +34,7 @@ export default function EditFoto() {
 
     postImageToStorage(formData)
       .then(data => {
-        console.log(data);
+        userEdit({ photoURL: data.urlAvatar });
       })
       .catch(error => {
         console.log('Error', error);
