@@ -1,20 +1,46 @@
 import { ErrorMessage, Field } from 'formik';
-//import { useState } from 'react';
 import css from './ModalAddNotice.module.css';
+import * as yup from 'yup';
+import { Formik, Form } from 'formik';
 
-export const ModalAddNoticeFirst = ({ toggleModalPage, onClose, values }) => {
-//   const [checked, useChecked] = useState('');
-console.log('values', values); 
+const schemaPageOne = yup.object().shape({
+  category: yup.string()
+            .oneOf(['lost-found', 'for-free', 'sell'], 'Be sure to choose 1 of the 3 categories!')
+            .required('Be sure to choose 1 of the 3 categories!'),
+  title: yup.string()
+            .min(2, "Minimum 2 characters!")
+            .max(48, 'Maximum 48 characters!')
+            .required('Required field!'),
+  name: yup.string().min(2, "Minimum 2 characters!")
+            .max(16, 'Maximum 16 characters!')
+            .required('Required field!'),
+  birthdate: yup.string()
+            //.matches(/^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)[0-9]{2}$/, 'Only numbers and dots.')
+            .max(new Date(), 'Date must be in the past.')
+            .required('Required field!'),
+  breed: yup.string()
+            .min(2, "Minimum 2 characters!")
+            .max(24, 'Maximum 24 characters!')
+            .required('Required field!'),
+});
 
-// let radios = document.querySelectorAll('input[type=radio][name="category"]');
-// radios.forEach(radio => radio.addEventListener('change', () => {console.log(radio.value)
-  
-// }));
+export const PageOne = (props) => {
+  const handleSubmit = (values) => {
+    props.next(values);
+    console.log('values ', values);
+  }
 
   return (
-    <>
+    <div className={css.container}>
+    <h1 className={css.title}>Add pet</h1>
+    <Formik
+      onSubmit={handleSubmit}
+      initialValues={props.data}
+      validationSchema={schemaPageOne}
+    >
+      <Form autoComplete="off">
 
-<p className={css.text}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur </p>
+      <p className={css.text}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur </p>
 
 <div className={css.radio_category}>
 <label className={css.radio_label}>
@@ -30,7 +56,7 @@ console.log('values', values);
               sell
             </label>
 </div>
-
+<ErrorMessage name="category" component="div" />
 <label htmlFor="title" className={css.label}>Tittle of ad</label>
 <Field className={css.field}
                   id="title"
@@ -49,7 +75,7 @@ console.log('values', values);
               required
             />
             <ErrorMessage name="name" component="div" />
-            {/* <FormError name="name" component="div" /> */}
+
             <label className={css.label} htmlFor="birthdate">Date of birth</label>
             <Field
             className={css.field}
@@ -57,7 +83,7 @@ console.log('values', values);
             type="text"
               name="birthdate"
               placeholder="Type date of birth"
-              pattern="^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)[0-9]{2}$"
+           //   pattern="^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)[0-9]{2}$"
               required
             />
             <label className={css.label} htmlFor="breed">Breed</label>
@@ -69,16 +95,16 @@ console.log('values', values);
               placeholder="Type breed"
               required
             />
-            {/* <FormError name="number" component="div" /> */}
+            <ErrorMessage name="breed" component="div" />
             <ul>
-              <li className={css.btn_item}> <button type="submit" onClick={toggleModalPage}  className={css.btn}>Next</button>
+              <li className={css.btn_item}> <button type="submit" className={css.btn}>Next</button>
            </li>
-              <li className={css.btn_item}><button type="submit" onClick={onClose}  className={css.btn}>Cancel</button>
+              <li className={css.btn_item}><button type="button" onClick={props.onClose} className={css.btn}>Cancel</button>
             </li>
             </ul>
-            
-            </>
-
-    )
+     
+      </Form>
+    </Formik>
+  </div>
+  )
 }
-

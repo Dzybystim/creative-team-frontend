@@ -1,47 +1,61 @@
 import { NavLink } from 'react-router-dom';
 import css from './NoticesCategoriesNav.module.css';
-import { useSelector } from "react-redux";
-import {selectors} from '../../redux/auth/selectors'
+import { useSelector } from 'react-redux';
+import { selectors } from '../../redux/auth/selectors';
+import { useLocation } from 'react-router-dom';
 
-export const NoticesCategoriesNav = ({ item }) => {
+export const NoticesCategoriesNav = () => {
   const isLogged = useSelector(selectors.isLogged);
- // const logged = useSelector(selectors.users.isLogged);
-//  const token = useSelector(selectors.users.token);
-console.log('isLogged', isLogged);
-//console.log('logged', logged);
+  const location = useLocation();
+
+  const onlyPublicCategories = [
+    { sell: 'sell' },
+    { 'lost-found': 'lost/found' },
+    { 'for-free': 'in good hands' },
+  ];
+  const allCategories = [
+    { sell: 'sell' },
+    { 'lost-found': 'lost/found' },
+    { 'for-free': 'in good hands' },
+    { favorite: 'favorite ads' },
+    { own: 'my ads' },
+  ];
 
   return (
-    <ul className={css.list}>
-      <li className={css.item}>
-        <NavLink className={css.link} to="sell">
-          sell
-        </NavLink>
-      </li>
-      <li className={css.item}>
-        <NavLink className={css.link} to="lost-found">
-          lost/found
-        </NavLink>
-      </li>
-      <li className={css.item}>
-        <NavLink className={css.link} to="for-free">
-          in good hands
-        </NavLink>
-      </li>
-
-      {isLogged ? (
-      <>
-        <li className={css.item}>
-          <NavLink className={css.link} to="favorite">
-            favorite ads
-          </NavLink>
-        </li>
-        <li className={css.item}>
-          <NavLink className={css.link} to="own">
-            my ads
-          </NavLink>
-        </li>
-      </>
-      ) : null} 
-    </ul>
+    <>
+      {!isLogged ? (
+        <ul className={css.list}>
+          {onlyPublicCategories.map(category => {
+            return (
+              <li className={css.item} key={Object.keys(category)}>
+                <NavLink
+                  className={css.link}
+                  to={`/notices/${Object.keys(category)}`}
+                  state={{ from: location }}
+                >
+                  {Object.values(category)}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <ul className={css.list}>
+          {allCategories.map(category => {
+            return (
+              <li className={css.item} key={Object.keys(category)}>
+                <NavLink
+                  className={css.link}
+                  to={`/notices/${Object.keys(category)}`}
+                  state={{ from: location }}
+                >
+                  {Object.values(category)}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </>
   );
 };
