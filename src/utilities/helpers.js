@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://backend.petly.club"
+axios.defaults.baseURL = "http://backend.petly.club"
 
 
 
@@ -27,7 +27,7 @@ export const getNoticesByCategories = async category => {
 export const fetchNews = async () => {
   try {
     const response = await axios.get(
-      `${baseURL}/news`
+      `/news`
     );
     return response.data;
   } catch (error) {
@@ -58,4 +58,27 @@ export const postImageToStorage = async (img) => {
     console.error(error);
   }
 };
+
+
+export const passTokenToHeadersAxios = () => {
+  const setAuthHeader = token => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+ //   console.log('token', token)
+  }
+const clearAuthHeader = () => {
+    axios.defaults.headers.common.Authorization = '';
+ //   console.log('clear')
+  };
+
+  const tokenFromLocalStorage = localStorage.getItem("persist:users");
+  if (tokenFromLocalStorage !== null) {
+    const tokenParse = JSON.parse(tokenFromLocalStorage).token;
+    const token = tokenParse.slice(1, tokenParse.length-1);
+  setAuthHeader(token);
+
+  } 
+  else {
+    clearAuthHeader();
+  }
+}
 
