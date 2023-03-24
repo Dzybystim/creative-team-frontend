@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://backend.petly.club//';
+const BASE_URL = 'http://backend.petly.club//';
 
 const instance = axios.create({
   baseURL: BASE_URL,

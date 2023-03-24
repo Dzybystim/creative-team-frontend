@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://backend.petly.club';
+axios.defaults.baseURL = 'http://backend.petly.club';
 
 export const fetchOurFriends = async () => {
   return await axios
