@@ -1,24 +1,16 @@
-// import {useLogInMutation} from "../../../../redux/auth/fetchUser"
-// import { useNavigate } from 'react-router-dom';
+import { IoLogOutOutline } from "react-icons/io5";
+import css from './LogOut.module.css';
 
 export default function UserPage() {
 
-// const [logout] = useLogInMutation()
-// const navigate = useNavigate();
-
-// const clickLogOut = async () => {
-//     const { error } = await logout();
-//     if(error){
-//         console.log(error.message)
-//         return
-//     } else {
-//         navigate('/')
-//     }
-// }
 
 return(
 <>
-<button type="button" >ЛогОут</button>
+<div className={css.container_logOut}>
+<button type="button" className={css.button_logOut}>
+    <IoLogOutOutline className={css.svg_logOut}/>
+    <span className={css.text_logOut}>Log Out</span></button>
+</div>
 </>
 )
 }
