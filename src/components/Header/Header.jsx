@@ -8,6 +8,7 @@ import { AuthNav } from 'components/AuthNav/AuthNav';
 import { UserNav } from 'components/UserNav/UserNav';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../redux/auth/selectors';
+// import { getIsRefreshing } from '../../redux/auth/selectors'
 
 export const Header = () => {
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked');

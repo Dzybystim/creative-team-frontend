@@ -25,7 +25,7 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
               <NavLink className = {css.linkLogin} to="/login" onClick={updateMenu}>
                 Login
               </NavLink>
-              <NavLink className = {css.linkRegister} to="/register" onClick={updateMenu}>
+              <NavLink className = {css.linkRegister} to="/signup" onClick={updateMenu}>
                 Registration
               </NavLink>
             </>
