@@ -2,10 +2,12 @@ import { HiPencil } from 'react-icons/hi';
 import { BsCheck } from 'react-icons/bs';
 import { useState } from 'react';
 import { userEdit } from '../../../../utilities/helpers';
+
 import css from './UserDataItem.module.css';
 
 export default function UserDataItem({ user }) {
   const { birthdate, cityRegion, email, mobilePhone, name } = user;
+
 
   const [nameField, setChangeNameField] = useState(name);
   const [emailField, setChangeEmailField] = useState(email);
@@ -80,6 +82,7 @@ export default function UserDataItem({ user }) {
     });
   };
 
+
   return (
     <>
       <table className={css.container_text}>
@@ -128,6 +131,7 @@ export default function UserDataItem({ user }) {
                 </td>
               </>
             )}
+
           </tr>
           <tr>
             <td>
@@ -267,6 +271,7 @@ export default function UserDataItem({ user }) {
                 </td>
               </>
             )}
+
           </tr>
           <tr>
             <td>
@@ -312,6 +317,7 @@ export default function UserDataItem({ user }) {
                 </td>
               </>
             )}
+
           </tr>
         </tbody>
       </table>
