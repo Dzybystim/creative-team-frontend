@@ -1,4 +1,5 @@
-import NewsList from 'components/News/NewsList';
+import NewsList from 'components/News/NewsList.jsx';
+import NewsFormSearch from 'components/News/NewsFormSearch.jsx';
 
 function NewsPage() {
   return (
