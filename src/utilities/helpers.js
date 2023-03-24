@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-
-axios.defaults.baseURL = "http://backend.petly.club"
-
+axios.defaults.baseURL = 'http://backend.petly.club';
 
 export const fetchOurFriends = async () => {
   return await axios
@@ -22,7 +20,6 @@ export const getNoticesByCategories = async category => {
 
 export const fetchNews = async () => {
   try {
-
     const response = await axios.get(`/news`);
 
     return response.data;
@@ -54,30 +51,25 @@ export const postImageToStorage = async img => {
   }
 };
 
-
-
 export const passTokenToHeadersAxios = () => {
   const setAuthHeader = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
- //   console.log('token', token)
-  }
-const clearAuthHeader = () => {
+    //   console.log('token', token)
+  };
+  const clearAuthHeader = () => {
     axios.defaults.headers.common.Authorization = '';
- //   console.log('clear')
+    //   console.log('clear')
   };
 
-  const tokenFromLocalStorage = localStorage.getItem("persist:users");
+  const tokenFromLocalStorage = localStorage.getItem('persist:users');
   if (tokenFromLocalStorage !== null) {
     const tokenParse = JSON.parse(tokenFromLocalStorage).token;
-    const token = tokenParse.slice(1, tokenParse.length-1);
-  setAuthHeader(token);
-
-  } 
-  else {
+    const token = tokenParse.slice(1, tokenParse.length - 1);
+    setAuthHeader(token);
+  } else {
     clearAuthHeader();
   }
-}
-
+};
 
 export const getNoticesByTitle = async title => {
   try {
@@ -88,7 +80,6 @@ export const getNoticesByTitle = async title => {
   }
 };
 
-
 export const userEdit = async fieldData => {
   try {
     const response = await axios.patch(`/users/edit`, fieldData);
@@ -97,4 +88,3 @@ export const userEdit = async fieldData => {
     console.error(error);
   }
 };
-

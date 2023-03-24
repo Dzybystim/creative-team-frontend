@@ -6,18 +6,16 @@
 // import { useState } from "react";
 // import { useTranslation } from 'react-i18next';
 
-
 // const FormSearchNews = () => {
 //    const [valueIn, setValueIn] = useState('');
-  
+
 //    const { t } = useTranslation();
 //    const dispatch = useDispatch();
-  
-    
+
 // const onClickNews = (e) => {
 //   e.preventDefault();
 //   setValueIn('')
-  
+
 // }
 
 //   return (
@@ -29,7 +27,7 @@
 //           customStyle={css.InputNews}
 //           placeholder={'Search'}
 //         //   value
-//           label={ 
+//           label={
 //             <button className={css.buttonSearch} type="submit"
 //             >
 //               <svg>
@@ -39,7 +37,7 @@
 //         }/>
 //            </form>
 //       </div>
-        
+
 //     </div>
 //   );
 // };

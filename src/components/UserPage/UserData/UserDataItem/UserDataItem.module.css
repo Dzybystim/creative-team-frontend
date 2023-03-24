@@ -1,59 +1,83 @@
 .conteiner_foto {
-width: 233px;
-height: 233px;
-margin-left: 23px;
-margin-right: 24px;
-margin-bottom: 12px;
-margin-top: 20px;
+  width: 233px;
+  height: 233px;
+  margin-left: 23px;
+  margin-right: 24px;
+  margin-bottom: 12px;
+  margin-top: 20px;
 }
 
 .foto_img {
-    display: block;
-    height: 100%;
-    width: 100%;
-    object-fit: fill;
-    cursor: pointer;
-    border-radius: 50%;
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .foto_svg_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .foto_svg {
-    height: 85%;
-    width: 85%;
-    object-fit: fill;
-    border-radius: 50%;
+  height: 85%;
+  width: 85%;
+  object-fit: fill;
+  border-radius: 50%;
 }
 
 .text_user {
-    font-family: 'Manrope'; 
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.4;
+  font-family: 'Manrope';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .container_text {
-    margin-left: 16px;
-    margin-right: 12px;
-    margin-bottom: 12px;
-    width: 252px;
+  margin-left: 16px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  width: 252px;
 }
 
 .button_pencil {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--bg-color);
-    border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  border: 0;
 }
 
 .pencil {
-    width: 12px;
-    height: 12px;
-    fill: var(--accent-color);
-    object-fit: fill;
+  width: 12px;
+  height: 12px;
+  fill: var(--accent-color);
+  object-fit: fill;
+}
+
+.check {
+  width: 14px;
+  height: 12px;
+  fill: var(--accent-color);
+  object-fit: fill;
+}
+
+.input {
+  size: 159px;
+  background-color: var(--bg-color);
+  border: 0;
+  border-radius: 40px;
+  font-size: 12px;
+  line-height: 1.4;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  padding-left: 18px;
 }

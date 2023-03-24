@@ -4,9 +4,12 @@ import { useSelector } from 'react-redux';
 import { selectors } from '../../redux/auth/selectors';
 import { useLocation } from 'react-router-dom';
 
+
 export const NoticesCategoriesNav = () => {
   const isLogged = useSelector(selectors.isLogged);
+
   const location = useLocation();
+
 
   const onlyPublicCategories = [
     { sell: 'sell' },
@@ -20,6 +23,7 @@ export const NoticesCategoriesNav = () => {
     { favorite: 'favorite ads' },
     { own: 'my ads' },
   ];
+
 
   return (
     <>
@@ -57,5 +61,6 @@ export const NoticesCategoriesNav = () => {
         </ul>
       )}
     </>
+
   );
 };

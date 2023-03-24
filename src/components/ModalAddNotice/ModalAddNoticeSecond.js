@@ -1,7 +1,7 @@
 import { ErrorMessage, Field } from 'formik';
-import {ReactComponent as Male } from "../../images/Male.svg";
-import {ReactComponent as Female } from "../../images/Female.svg";
-import css from "./ModalAddNotice.module.css";
+import { ReactComponent as Male } from '../../images/Male.svg';
+import { ReactComponent as Female } from '../../images/Female.svg';
+import css from './ModalAddNotice.module.css';
 import { useRef, useState } from 'react';
 import { postImageToStorage } from '../../utilities/helpers';
 import { toast } from 'react-toastify';

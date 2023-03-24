@@ -1,15 +1,35 @@
-.user {
-  display: flex;
-  align-items: center;
+.userButton {
+  border-radius: 40px;
+  border: 2px solid #F59256;
+  color: #FFFFFF;
+  background: #F59256;
+  padding: 5px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 16px;
+  text-decoration: none;
   justify-content: center;
-  margin-top: 16px;
-  @media screen and (min-width: 768px) {
-    margin: 0;
-  }
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  text-decoration: none;
+  margin-right: 20px;
 }
 
-.text {
-  margin: 0 12px 0 4px;
-  display: inline-flex;
-  align-items: center;
-}
+.userLink {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+  color:#FFFFFF;
+  margin-left:10px;}
+
+
+ 

@@ -1,7 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Routes, Route } from 'react-router-dom';
-import { lazy} from 'react';
+import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
@@ -10,6 +10,7 @@ import Login from 'pages/Login/Login';
 import PublicRoutes from 'RestrictedRoute';
 
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
+const NewsPage = lazy(() => import('../pages/News'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 
 const UserPage = lazy(() => import('../pages/UserPage'));
@@ -20,6 +21,7 @@ export const App = () => {
   return (
     <>
       <Layout>
+
           <Routes>
             <Route path="/" element={<SharedLayout />}>
               <Route path="user" element={<UserPage />} />
@@ -34,8 +36,12 @@ export const App = () => {
               </Route>
 
               <Route path="*" element={<NotFound />} />
+
             </Route>
-          </Routes>
+
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
         <ToastContainer />
       </Layout>
     </>
