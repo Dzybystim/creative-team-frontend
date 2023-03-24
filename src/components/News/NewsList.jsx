@@ -7,10 +7,8 @@ import { fetchNews } from 'utilities/helpers';
 export const NewsList = () => {
   const { data } = fetchNews();
 
-
   const getVisibleNews = () => {
-    const normalizedFil = onFilter.toLocaleLowerCase();
-    return data.filter((news) => news.title.toLocaleLowerCase().includes(normalizedFil));
+    return data.filter((news) => news.title.toLocaleLowerCase());
   };
 
   return (
