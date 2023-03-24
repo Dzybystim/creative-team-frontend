@@ -22,6 +22,7 @@ import { BsFillPlusCircleFill } from 'react-icons/bs';
 export default function UserPage() {
   const [loading, setLoading] = useState(false);
   const [userAndPets, setUserAndPets] = useState([]);
+  const [userFoto, setUserFoto] = useState(null);
 
   const token = useSelector(selectors.getToken);
 
@@ -56,8 +57,8 @@ export default function UserPage() {
             <>
               <h2 className={css.title}>My information:</h2>
               <div className={css.container__userdata}>
-                <UserFoto user={user} />
-                <EditFoto />
+                <UserFoto userFoto={userFoto} user={user} />
+                <EditFoto setUserFoto={setUserFoto} />
                 <UserData user={user} />
                 <Logout />
               </div>
