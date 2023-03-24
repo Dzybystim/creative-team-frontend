@@ -1,18 +1,27 @@
 import { NavLink } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import { authSelectors } from 'redux/auth';
-import { Logo } from 'components/Logo/Logo';
-// import css from './Nav.module.css';
+import css from './Nav.module.css';
 
 export const Nav = () => {
   return (
     <>
-      <NavLink to="/">
-        <Logo />
-      </NavLink>
-      <NavLink to="/news">News</NavLink>
-      <NavLink to="/notices">Find Pet</NavLink>
-      <NavLink to="/friends">Our friends</NavLink>
+
+      <ul className={css.ul}>
+        <li className={css.navItem}>
+          <NavLink className={css.linkStyled} to="/news">
+            News
+          </NavLink>
+        </li>
+        <li className={css.navItem}>
+          <NavLink className={css.linkStyled} to="/notices">
+            Find Pet
+          </NavLink>
+        </li>
+        <li className={css.navItem}>
+          <NavLink className={css.linkStyled} to="/friends">
+            Our friends
+          </NavLink>
+        </li>
+      </ul>
     </>
   );
 };

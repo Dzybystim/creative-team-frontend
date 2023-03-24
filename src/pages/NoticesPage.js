@@ -6,11 +6,10 @@ import css from './NoticesPage.module.css';
 import axios from 'axios';
 import { useState } from 'react';
 import { getNoticesByTitle } from '../utilities/helpers';
-import { passTokenToHeadersAxios } from "../utilities/helpers";
+import { passTokenToHeadersAxios } from '../utilities/helpers';
 
 const NoticesPage = () => {
-
-passTokenToHeadersAxios();
+  passTokenToHeadersAxios();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [notices, setNotices] = useState([]);
