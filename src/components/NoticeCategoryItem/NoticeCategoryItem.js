@@ -17,7 +17,11 @@ export const NoticeCategoryItem = ({ item }) => {
       <li className={css.item}>
         <div className={css.img}>
           <p className={css.category}>{item.category}</p>
-          <button className={css.icon} type="button">
+          <button
+            className={css.icon}
+            type="button"
+            onClick={event => console.log('event')}
+          >
             <AiOutlineHeart size={28} />
           </button>
         </div>

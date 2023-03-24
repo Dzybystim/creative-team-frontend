@@ -1,0 +1,30 @@
+.conteiner_foto {
+  width: 233px;
+  height: 233px;
+  margin-left: 23px;
+  margin-right: 24px;
+  margin-bottom: 12px;
+  margin-top: 20px;
+}
+
+.foto_img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.foto_svg_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto_svg {
+  height: 85%;
+  width: 85%;
+  object-fit: fill;
+  border-radius: 50%;
+}
