@@ -5,13 +5,18 @@ import css from './NoticeCategoryItem.module.css';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { HiTrash } from 'react-icons/hi';
 
+//import { selectors } from '../../redux/auth/selectors';
 import { getNoticesById} from "../../utilities/helpers";
-
+// import {
+//   addToSelectedNotices,
+//   deleteFromSelectedNotices,
+// } from '../../utilities/helpers';
+//import { useDispatch, useSelector } from 'react-redux';
 
 export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const [notice, setNotice] = useState(null);
-
+ // const isLogged = useSelector(selectors.isLogged);
 
     const toggleModal = () => {
       setShowModal(!showModal);
@@ -28,9 +33,9 @@ export const NoticeCategoryItem = ({ item }) => {
       });
   };
 
-    return (
-<>
-        <li className={css.item} >
+//     return (
+// <>
+//         <li className={css.item} >
 
 
   return (
@@ -73,45 +78,27 @@ export const NoticeCategoryItem = ({ item }) => {
         } 
 
 
-        <ul className={css.info}>
-          <li className={css.info_item}>
-            <p className={css.text}>Breed: </p>
-            <p className={css.text}> {item.breed}</p>
-          </li>
-          <li className={css.info_item}>
-            <p className={css.text}>Place: </p>
-            <p className={css.text}>{item.location}</p>
-          </li>
-          <li className={css.info_item}>
-            <p className={css.text}>Age: </p>
-            <p className={css.text}>{item.age}</p>
-          </li>
+  // const [selected, setSelected] = useState(false);
 
-          {item.price ? (
-            <li className={css.info_item}>
-              <p className={css.text}>Price:</p>
-              <p className={css.text}>{item.price}$</p>
-            </li>
-          ) : null}
-        </ul>
-        <div className={css.btn_cover}>
-          <button className={css.btn} type="button" onClick={toggleModal}>
-            LearnMore
-          </button>
-          <button className={css.btn} type="button">
-            Delete <HiTrash size={20} />
-          </button>
-        </div>
-      </li>
+  // const toggleSelected = async (id) => {
+  //   setSelected(!selected);
 
-      {showModal && (
-        <Modal key={item.id} onClose={toggleModal}>
-          <NoticeModal
-            item={item}
-            //    onClick={()=>toggleSelected(item._id)} selected={selected}
-          />
-        </Modal>
-      )}
-    </>
-  );
-};
+  //   if(!selected){
+  //     addToSelectedNotices(id)
+  //     .then(data => {
+  //       console.log("love");
+  //       console.log("data", data);
+  //     })
+  //     .catch(error => {
+  //       console.log('Error', error);
+  //     });
+  //   }
+  //   deleteFromSelectedNotices(id)
+  //   .then(data => {
+  //     console.log("not love");
+  //     console.log("data", data);
+  //   })
+  //   .catch(error => {
+  //     console.log('Error', error);
+  //   });
+  // }

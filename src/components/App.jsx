@@ -10,7 +10,7 @@ import Login from 'pages/Login/Login';
 import PublicRoutes from 'RestrictedRoute';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
-const NoticesPage = lazy(() => import('../pages/NoticesPage'));
+const NoticesPage = lazy(() => import('../pages/NoticesPage/NoticesPage'));
 const NewsPage = lazy(() => import('../pages/News'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 const UserPage = lazy(() => import('../pages/UserPage'));

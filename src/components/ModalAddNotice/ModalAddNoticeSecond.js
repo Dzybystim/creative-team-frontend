@@ -75,6 +75,7 @@ const handleUpload = async(e)=>{
 
 
   const handleSubmit = (values) => {
+  
     props.next(values, true);
     props.onClose();
     console.log('values ', values);
@@ -127,7 +128,7 @@ const handleUpload = async(e)=>{
                    />
                    <ErrorMessage name="price" component="div" />
        
-           <label htmlFor="imageURL" className={css.label}>Load the pet’s image</label>
+           {/* <label htmlFor="imageURL" className={css.label}>Load the pet’s image</label>
        <label htmlFor="imageURL" className={css.field_photo}>
                 <Field className={css.radio_btn}
                      id="imageURL"
@@ -145,7 +146,7 @@ const handleUpload = async(e)=>{
              width={116} />
                    )}    
        </label> 
-             <ErrorMessage name="file" component="div" />
+             <ErrorMessage name="file" component="div" /> */}
        
            <label htmlFor="comments" className={css.label}>Comments</label>
        <Field as='textarea' className={css.field_last}
@@ -161,7 +162,7 @@ const handleUpload = async(e)=>{
        
        <ul>
                <li className={css.btn_item}>
-           <button type="submit" className={css.btn} onSubmit={handleSubmit}>Done</button>
+           <button type="submit" className={css.btn} onClick={handleSubmit}>Done</button>
                </li>
                <li className={css.btn_item}>
            <button 
