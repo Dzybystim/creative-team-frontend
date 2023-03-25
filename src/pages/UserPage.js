@@ -30,9 +30,7 @@ export default function UserPage() {
       <div className={css.container}>
 
         {userAndPets.user && (
-          // <div className={css.container_userInfo}>
           <>
-
             <h2 className={css.title}>My information:</h2>
             <div className={css.container__userdata}>
             <div className={css.container_tablet}>
@@ -45,7 +43,7 @@ export default function UserPage() {
             </div>
             </div>
           </>
-            // </div>
+            
             )}
 
         {userAndPets.pets && (
@@ -53,21 +51,10 @@ export default function UserPage() {
             <h2 className={css.title}>My pets:</h2>
             <div className={css.container__petsdata}>
               <PetsData pets={userAndPets.pets} />
-
             </div>
           </div>
-        </>
-        // </div>
       )}
 
-      {pets && (
-        <div className={css.container_pets}>
-          <h2 className={css.title}>My pets:</h2>
-          <div className={css.container__petsdata}>
-            <PetsData pets={pets} />
-          </div>
-        </div>
-      )}
     </div>
   );
 }
