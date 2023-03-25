@@ -8,7 +8,9 @@ import css from './UserDataItem.module.css';
 export default function UserDataItem({ user }) {
   const { birthdate, cityRegion, email, mobilePhone, name } = user;
 
+
 // Стейти полів інпутів
+
   const [nameField, setChangeNameField] = useState(name);
   const [emailField, setChangeEmailField] = useState(email);
   const [birthdayField, setChangeBirthdayField] = useState(birthdate ? birthdate : '01.01.2000');
@@ -80,6 +82,7 @@ export default function UserDataItem({ user }) {
   const clickSubmit = event => {
     event.preventDefault();
     handleClick(event);
+
     setPencilButtonActivity(false)
    
     if(nameField !== name){
@@ -113,11 +116,9 @@ export default function UserDataItem({ user }) {
         userEdit({cityRegion: cityField})
         userEdit({birthdate: birthdayField})
     } else {
-        return
+      return;
     }
-
   };
-
 
   return (
     <>
@@ -171,7 +172,6 @@ export default function UserDataItem({ user }) {
                 </td>
               </>
             )}
-
           </tr>
           <tr>
             <td>
@@ -323,7 +323,6 @@ export default function UserDataItem({ user }) {
                 </td>
               </>
             )}
-
           </tr>
           <tr>
             <td>
@@ -373,7 +372,6 @@ export default function UserDataItem({ user }) {
                 </td>
               </>
             )}
-
           </tr>
         </tbody>
       </table>

@@ -4,7 +4,7 @@ import css from './EditFoto.module.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-export default function EditFoto({setUserFoto}) {
+export default function EditFoto({ setUserFoto }) {
   const setAuthHeader = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   };
@@ -35,7 +35,7 @@ export default function EditFoto({setUserFoto}) {
     postImageToStorage(formData)
       .then(data => {
         userEdit({ photoURL: data.urlAvatar });
-        setUserFoto(data.urlAvatar)
+        setUserFoto(data.urlAvatar);
       })
       .catch(error => {
         console.log('Error', error);

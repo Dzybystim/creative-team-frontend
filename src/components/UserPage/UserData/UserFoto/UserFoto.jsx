@@ -2,11 +2,10 @@ import { IconContext } from 'react-icons';
 import { AiOutlineUser } from 'react-icons/ai';
 import css from './UserFoto.module.css';
 export default function UserFoto({ userFoto, user }) {
+  let { photoURL } = user;
 
-  let {photoURL} = user
-  
-  if(userFoto !== null){
-    photoURL=userFoto
+  if (userFoto !== null) {
+    photoURL = userFoto;
   }
 
   return (
