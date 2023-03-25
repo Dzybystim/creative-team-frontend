@@ -63,3 +63,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+p > a.active {
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border-color: transparent;
+}
