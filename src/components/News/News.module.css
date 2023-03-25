@@ -62,7 +62,7 @@
   overflow: hidden;
 }
 
-.linkNews {
+.newsLink {
   text-decoration-line: underline;
   color: #f59256;
   /* color: var(--accent-color); */
