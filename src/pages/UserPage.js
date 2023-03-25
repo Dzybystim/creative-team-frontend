@@ -25,22 +25,28 @@ export default function UserPage() {
   }, [token]);
 
   const { pets, user } = userAndPets;
+
   return (
-    <>
       <div className={css.container}>
+
         {user && (
-          <div className={css.container_userInfo}>
+          // <div className={css.container_userInfo}>
+          <>
+
             <h2 className={css.title}>My information:</h2>
             <div className={css.container__userdata}>
-              <div className={css.userPhoto}>
-                <UserFoto userFoto={userFoto} user={user} />
-                <EditFoto setUserFoto={setUserFoto} />
-              </div>
-              <UserData user={user} />
+            <div className={css.container_tablet}>
+            <UserFoto userFoto={userFoto} user={user} />
+            <EditFoto setUserFoto={setUserFoto} />
             </div>
+            <div className={css.container_tablet_tab}>
+            <UserData user={user} />
             <Logout />
-          </div>
-        )}
+            </div>
+            </div>
+          </>
+            // </div>
+            )}
 
         {pets && (
           <div className={css.container_pets}>
@@ -49,8 +55,7 @@ export default function UserPage() {
               <PetsData pets={pets} />
             </div>
           </div>
-        )}
-      </div>
-    </>
-  );
-}
+         )}
+
+    </div>)}
+
