@@ -1,12 +1,15 @@
 import { NoticesCategoriesNav } from '../components/NoticesCategoriesNav/NoticesCategoriesNav';
-import NoticesCategoriesList from '../components/NoticesCategoriesList/NoticesCategoriesList';
+import { NoticesCategoriesList } from '../components/NoticesCategoriesList/NoticesCategoriesList';
 import { NoticesSearch } from '../components/NoticesSearch/NoticesSearch';
-import { Outlet } from 'react-router-dom';
 import css from './NoticesPage.module.css';
-import axios from 'axios';
-import { useState } from 'react';
+import { toast } from 'react-toastify';
+
 import { getNoticesByTitle } from '../utilities/helpers';
 import { passTokenToHeadersAxios } from '../utilities/helpers';
+
+import { useState, useEffect } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { getNoticesByCategories } from '../utilities/helpers';
 
 const NoticesPage = () => {
   passTokenToHeadersAxios();
@@ -14,47 +17,77 @@ const NoticesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [notices, setNotices] = useState([]);
 
-  function handleSubmit(e) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  let { pathname } = useLocation();
+  let category = pathname.split('/').pop();
+
+  const handleQueryChange = e => {
+    const query = e.target.value;
+    setSearchQuery(e.target.value.toLowerCase());
+    const nextParams = query !== '' ? { query } : {};
+    setSearchParams(nextParams);
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
+    if (searchQuery.trim() === '') {
+      return toast.warn('Insert correct request');
+    }
     getNoticesByTitle(searchQuery)
       .then(data => {
-        setNotices(data);
+        const findNotices = data.filter(item => item.category === category);
+        if (findNotices.length === 0) {
+          return toast.error('Nothing found for your request!');
+        }
+        setNotices(findNotices);
       })
       .catch(error => {
         console.log('Error', error);
       });
-  }
-  const setAuthHeader = token => {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    console.log('token', token);
-  };
-  const clearAuthHeader = () => {
-    axios.defaults.headers.common.Authorization = '';
-    console.log('clear');
+    e.target.reset();
   };
 
-  const tokenFromLocalStorage = localStorage.getItem('persist:auth');
-  if (tokenFromLocalStorage !== null) {
-    const tokenParse = JSON.parse(tokenFromLocalStorage).token;
-    const token = tokenParse.slice(1, tokenParse.length - 1);
-    setAuthHeader(token);
-  } else {
-    clearAuthHeader();
-  }
-  // console.log(notices, `good`);
+  useEffect(() => {
+    const queryFromSearchParams = searchParams.get('query');
+    if (!category) {
+      return;
+    }
+    if (!queryFromSearchParams && category) {
+      getNoticesByCategories(category)
+        .then(data => {
+          setNotices(data);
+        })
+        .catch(error => {
+          console.log('Error', error);
+        });
+    }
+    if (queryFromSearchParams) {
+      getNoticesByTitle(queryFromSearchParams)
+        .then(data => {
+          const findNotices = data.filter(item => item.category === category);
+          if (findNotices.length === 0) {
+            return toast.error('Nothing found for your request!');
+          }
+          setNotices(findNotices);
+        })
+        .catch(error => {
+          console.log('Error', error);
+        });
+    }
+  }, [category, searchParams]);
 
   return (
     <div className={css.container}>
-      <h2>Find your favorite pet</h2>
+      <h2 className={css.title}>Find your favorite pet</h2>
       <NoticesSearch
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         onSubmit={handleSubmit}
+        onChange={handleQueryChange}
       />
 
       <NoticesCategoriesNav />
-      <NoticesCategoriesList arrayNotices={notices} />
-      <Outlet />
+      <NoticesCategoriesList notices={notices} />
     </div>
   );
 };

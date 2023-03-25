@@ -21,14 +21,16 @@
   border: 2px solid var(--accent-color);
   color: var(--black-color);
 }
-.active {
+
+.link:hover,
+.link:focus {
   color: var(--white-color);
   background-color: var(--accent-color);
   border-color: transparent;
 }
 
-.link:hover {
+/* .link :active {
   color: var(--white-color);
   background-color: var(--accent-color);
   border-color: transparent;
-}
+} */
