@@ -76,7 +76,7 @@ export const getNoticesByTitle = async title => {
     const response = await axios.get(`/notices/title?title=${title}`);
     return response.data;
   } catch (error) {
-    console.error(error);
+    console.error("error", error);
   }
 };
 
@@ -115,3 +115,23 @@ export const deleteFromSelectedNotices = async noticeId => {
     console.error(error);
   }
 };
+
+
+export const getNoticesById = async (noticeId) => {
+  try {
+    const response = await axios.get(`/notices/${noticeId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getAllOwnNotices = async () => {
+  try {
+    const response = await axios.get(`/notices/user`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+

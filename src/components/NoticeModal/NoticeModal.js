@@ -1,19 +1,11 @@
 import css from './NoticeModal.module.css';
 
-export const NoticeModal = ({
-  item,
-  //onClick, selected
-}) =>
-  // { category,
-  // title,
-  // name,
-  // birthdate,
-  // breed,
-  // sex,
-  // location,
-  // comments,
-  // price }
-  {
+
+export const NoticeModal = ({ item, 
+  //onClick, selected 
+}) =>{
+  
+
     return (
       <div className={css.container}>
         <div className={css.img}>
@@ -44,14 +36,17 @@ export const NoticeModal = ({
           </li>
           <li className={css.item}>
             <p className={css.main_text}>Email: </p>
-            <p className={css.text}></p>{' '}
+            <p className={css.text}>{item.email}</p>{' '}
           </li>
-          <li className={css.item}>
+         <li className={css.item}>
             <p className={css.main_text}>Phone: </p>
-            <p className={css.text}></p>{' '}
-          </li>
+            {item.mobilePhone ? 
+              (<p className={css.text}>{item.mobilePhone}</p>)
+             : (<p className={css.text}>Not provided</p>)
+            }
+          </li> 
 
-          {item.price ? (
+          {(item.category === 'sell' && item.price) ? (
             <li className={css.item}>
               <p className={css.main_text}>Price:</p>{' '}
               <p className={css.text}>{item.price}$</p>
@@ -63,9 +58,9 @@ export const NoticeModal = ({
 
         <ul>
           <li className={css.btn_item}>
-            <button className={css.btn} type="button">
+            <a className={css.btn} href={`tel:${item.mobilePhone}`}>
               Contact
-            </button>
+            </a>
           </li>
 
           {/* {!selected ? ( */}
