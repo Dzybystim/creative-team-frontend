@@ -18,6 +18,7 @@ export default function UserDataItem({ user }) {
   const [phoneField, setChangePhoneField] = useState(
     mobilePhone ? mobilePhone : '+38000000000'
   );
+
   const [cityField, setChangeCityField] = useState(cityRegion);
   // Стейти кліків на кнопки для зміни
   const [clickName, setclickName] = useState(false);
@@ -129,7 +130,7 @@ export default function UserDataItem({ user }) {
         <tbody>
           <tr>
             <td>
-              <p className={css.text_user}>Name</p>
+              <p className={css.text_user}>Name:</p>
             </td>
             {clickName === false ? (
               <>
@@ -184,7 +185,7 @@ export default function UserDataItem({ user }) {
           </tr>
           <tr>
             <td>
-              <p className={css.text_user}>Email</p>
+              <p className={css.text_user}>Email:</p>
             </td>
             {clickEmail === false ? (
               <>
@@ -239,7 +240,7 @@ export default function UserDataItem({ user }) {
           </tr>
           <tr>
             <td>
-              <p className={css.text_user}>Birthday</p>
+              <p className={css.text_user}>Birthday:</p>
             </td>
             {clickBirthdate === false ? (
               <>
@@ -296,7 +297,7 @@ export default function UserDataItem({ user }) {
           </tr>
           <tr>
             <td>
-              <p className={css.text_user}>Phone</p>
+              <p className={css.text_user}>Phone:</p>
             </td>
             {clickPhone === false ? (
               <>
@@ -353,7 +354,7 @@ export default function UserDataItem({ user }) {
           </tr>
           <tr>
             <td>
-              <p className={css.text_user}>City</p>
+              <p className={css.text_user}>City:</p>
             </td>
             {clickCity === false ? (
               <>

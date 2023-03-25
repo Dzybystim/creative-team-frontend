@@ -16,6 +16,7 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const NewsPage = lazy(() => import('../pages/News'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
+
 const UserPage = lazy(() => import('../pages/UserPage'));
 const NotFound = lazy(() => import('../utilities/NotFound/NotFound'));
 

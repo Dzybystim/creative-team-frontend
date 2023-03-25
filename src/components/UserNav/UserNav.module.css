@@ -1,3 +1,32 @@
+.div {
+  display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .div {
+    display: none;
+  }
+}
+
+.auth {
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  .auth {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .auth {
+    display: flex;
+  }
+  :hover {
+    /* background-color: #f59256; */
+    color: #ffffff;
+    cursor: pointer;
+  }
+}
+
 .userButton {
   border-radius: 40px;
   border: 2px solid #f59256;

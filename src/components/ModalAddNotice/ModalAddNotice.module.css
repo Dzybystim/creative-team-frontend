@@ -78,6 +78,14 @@
   clip: rect(0 0 0 0);
   overflow: hidden; */
 }
+/* .radio_btn {
+  display: none;
+}
+
+.radio_btn :checked + .activ {
+  background-color: var(--accent__color);
+  color: var(--bg__color);
+} */
 
 .field {
   display: block;
