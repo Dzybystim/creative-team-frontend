@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 280px;
 }
 
 .container_userInfo {
@@ -13,7 +13,7 @@
 .container__userdata {
   margin-bottom: 5px;
   width: 100%;
-  min-height: 100%;
+  height: 537px;
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   background-color: #fff;
   border-radius: 20px;
