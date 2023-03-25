@@ -9,15 +9,6 @@ import { fetchUserAndPets } from '../utilities/helpers';
 import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import { Dna } from 'react-loader-spinner';
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Text,
-  useDisclosure,
-} from '@chakra-ui/react';
-import { BsFillPlusCircleFill } from 'react-icons/bs';
 
 export default function UserPage() {
   const [loading, setLoading] = useState(false);
@@ -43,6 +34,7 @@ export default function UserPage() {
     <>
       <div className={css.container}>
         {user && (
+
           <div className={css.container_userInfo}>
             <h2 className={css.title}>My information:</h2>
             <div className={css.container__userdata}>
@@ -63,6 +55,7 @@ export default function UserPage() {
               <PetsData pets={pets} />
             </div>
           </div>
+
         )}
       </div>
     </>

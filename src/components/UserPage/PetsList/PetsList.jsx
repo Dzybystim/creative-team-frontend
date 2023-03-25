@@ -2,9 +2,10 @@ import { List, ListItem, Box, Text, Flex, Image } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import petDefaultAvatar from '../../../images/petDefaultAvatar.svg';
 import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
 import { deletePet } from 'redux/auth/operations';
+
 // import { getUser } from 'redux/auth/selectors';
+
 
 let test = [
   {

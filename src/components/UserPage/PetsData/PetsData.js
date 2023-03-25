@@ -2,7 +2,7 @@ import {
   Box,
   Button,
   Flex,
-  // Heading,
+
   Text,
   useDisclosure,
 } from '@chakra-ui/react';

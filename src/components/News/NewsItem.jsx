@@ -1,8 +1,6 @@
 import css from './News.module.css';
-import { useTranslation } from 'react-i18next';
 
 export const NewsItem = ({ url, title, description, date }) => {
-  const { t } = useTranslation();
   return (
     <li className={css.item}>
       <h3 className={css.titleList}>{title}</h3>
@@ -15,7 +13,7 @@ export const NewsItem = ({ url, title, description, date }) => {
           target="_blank"
           rel="noreferrer noopener"
         >
-          {t('read more')}
+          Read more
         </a>
       </div>
     </li>

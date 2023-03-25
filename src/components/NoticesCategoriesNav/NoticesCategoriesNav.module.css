@@ -23,14 +23,14 @@
 }
 
 .link:hover,
-:focus {
+.link:focus {
   color: var(--white-color);
   background-color: var(--accent-color);
   border-color: transparent;
 }
 
-.active {
+/* .link :active {
   color: var(--white-color);
   background-color: var(--accent-color);
   border-color: transparent;
-}
+} */

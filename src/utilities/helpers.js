@@ -19,13 +19,10 @@ export const getNoticesByCategories = async category => {
 };
 
 export const fetchNews = async () => {
-  try {
-    const response = await axios.get(`/news`);
-
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+  return await axios
+    .get(`/news`)
+    .then(response => response.data)
+    .catch(err => console.error(err));
 };
 
 export const fetchUserAndPets = async token => {
@@ -76,7 +73,7 @@ export const getNoticesByTitle = async title => {
     const response = await axios.get(`/notices/title?title=${title}`);
     return response.data;
   } catch (error) {
-    console.error(error);
+    console.error("error", error);
   }
 };
 
@@ -115,3 +112,24 @@ export const deleteFromSelectedNotices = async noticeId => {
     console.error(error);
   }
 };
+
+
+export const getNoticesById = async (noticeId) => {
+  try {
+    const response = await axios.get(`/notices/${noticeId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getAllOwnNotices = async () => {
+  try {
+    const response = await axios.get(`/notices/user`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+

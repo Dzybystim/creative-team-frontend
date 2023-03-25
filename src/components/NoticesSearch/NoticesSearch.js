@@ -1,49 +1,31 @@
-//import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { toast } from 'react-toastify';
 import css from './NoticesSearch.module.css';
-import { Img } from '@chakra-ui/react';
-import CloseSearch from '../../Icon/CloseSearch.svg';
+import { ReactComponent as CloseSearch } from '../../Icon/CloseSearch.svg';
 
-export const NoticesSearch = ({ searchQuery, setSearchQuery }) => {
-  const handleQueryChange = e => {
-    setSearchQuery(e.currentTarget.value);
-  };
-
-  const handlSubmit = e => {
-    e.preventDefault();
-    if (searchQuery.trim() === '') {
-      return toast.warn('Insert correct request');
-    }
-  };
-
-  const onClickClear = () => {
-    setSearchQuery('');
-  };
+export const NoticesSearch = ({
+  searchQuery,
+  setSearchQuery,
+  onSubmit,
+  onChange,
+}) => {
 
   return (
-    <div className={css.SearchForm} onSubmit={handlSubmit}>
+    <form className={css.SearchForm} onSubmit={onSubmit}>
       <input
         className={css.Input}
         type="text"
-        name="searchQuery"
-        value={searchQuery}
         autoComplete="off"
         autoFocus
         placeholder="Search"
-        onChange={handleQueryChange}
+        onChange={onChange}
       />
-      <div className={css.Icon}>
+      <button className={css.Icon} type="submit" >
         {searchQuery.length > 0 ? (
-          <Img
-            src={CloseSearch}
-            onClick={onClickClear}
-            className={css.ClearIcon}
-          />
+          <CloseSearch  className={css.ClearIcon}/>
         ) : (
-          <FaSearch className={css.SearchIcon} />
+          <FaSearch className={css.SearchIcon}  />
         )}
-      </div>
-    </div>
+      </button>
+    </form>
   );
 };
