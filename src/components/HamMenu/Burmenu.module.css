@@ -149,7 +149,7 @@
   display: flex;
   justify-content: space-evenly;
 }
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 768px) {
   .auth {
     display: none;
   }
@@ -164,18 +164,6 @@
     display: none;
   }
 }
-
-/* .linkNews {
-  margin-left: 35px;
-  margin-bottom: 40px;
-  color: #181c27;
-}
-@media screen and (min-width: 768px) {
-  .linkNews {
-    margin-left: 55px;
-    padding-top: 35px;
-  }
-} */
 
 .linkStyled {
   font-family: 'Manrope';
