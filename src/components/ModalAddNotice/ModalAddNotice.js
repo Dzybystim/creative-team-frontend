@@ -99,6 +99,7 @@ export const ModalAddNotice = ({ onClose }) => {
     setData(prev => ({ ...prev, ...newData }));
 
     if (final) {
+      console.log('finally');
       makeRequest(newData);
       return;
     }
