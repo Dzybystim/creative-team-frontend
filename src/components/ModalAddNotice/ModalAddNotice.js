@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import { PageOne } from './ModalAddNoticeFirst';
 import { PageTwo } from './ModalAddNoticeSecond';
 //import * as yup from 'yup';

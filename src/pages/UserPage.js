@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import { fetchUserAndPets } from '../utilities/helpers';
 import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
-import { Dna } from 'react-loader-spinner';
+// import { Dna } from 'react-loader-spinner';
 // import {
 //   Box,
 //   Button,
@@ -21,6 +21,7 @@ import { Dna } from 'react-loader-spinner';
 
 export default function UserPage() {
   const [loading, setLoading] = useState(false);
+  console.log('loading:', loading);
   const [userAndPets, setUserAndPets] = useState([]);
   const [userFoto, setUserFoto] = useState(null);
 
