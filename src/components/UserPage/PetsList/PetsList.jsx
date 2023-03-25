@@ -4,9 +4,19 @@ import petDefaultAvatar from '../../../images/petDefaultAvatar.svg';
 import { useDispatch } from 'react-redux';
 // import { useSelector } from 'react-redux';
 import { deletePet } from 'redux/auth/operations';
-import { getUser } from 'redux/auth/selectors';
+// import { getUser } from 'redux/auth/selectors';
 
-
+let test = [
+  {
+    _id: '1',
+    name: 'Rex',
+    birthday: '',
+    breed: 'breed',
+    photo:
+      'https://images.unsplash.com/photo-1586796314073-c9b40efb3d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hbGwlMjBkb2d8ZW58MHx8MHx8&w=1000&q=80',
+    comments: 'Cool',
+  },
+];
 const PetsList = ({ pets }) => {
   // const { pets = [] } = useSelector(getUser);
 
@@ -15,9 +25,9 @@ const PetsList = ({ pets }) => {
     dispatch(deletePet(id));
     e.preventDefault();
   };
-  return pets.length > 0 ? (
+  return test.length > 0 ? (
     <Box>
-      {pets.map(({ _id, name, birthday, breed, photo, comments }) => (
+      {test.map(({ _id, name, birthday, breed, photo, comments }) => (
         <Flex
           key={_id}
           bgColor="accent.white"
@@ -38,8 +48,11 @@ const PetsList = ({ pets }) => {
             <Image
               display="block"
               maxW="initial"
-              boxSize={{ base: '240px', md: '161px' }}
-              borderRadius={{ base: '40px', md: '20px' }}
+              width="150px"
+              height="150px"
+              boxSize={{ base: '30px', md: '50px' }}
+              borderRadius="25px"
+              m="2px 15px 15px 15px"
               src={photo ?? petDefaultAvatar}
               alt="pet photo"
             />
@@ -57,6 +70,7 @@ const PetsList = ({ pets }) => {
               position="absolute"
               top={{ base: '-4px', md: '0px' }}
               right="0px"
+              mr="3px"
               bg={{ base: 'transparent', md: 'accent.background' }}
               w={{ base: '20px', md: '44px' }}
               h={{ base: '20px', md: '44px' }}
@@ -65,23 +79,25 @@ const PetsList = ({ pets }) => {
               color="rgba(17, 17, 17, 0.6)"
               _hover={{
                 filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-                color: 'accent.accentOrange',
+                // color: 'accent.white',
               }}
               _focus={{
                 filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-                color: 'accent.accentOrange',
+                // color: 'accent.white',
               }}
               transitionProperty={'color, filter'}
               transitionDuration={'250ms'}
               transitionTimingFunction={'cubic-bezier(0.4, 0, 0.2, 1)'}
             >
               <DeleteIcon
-                h={{ base: '20px', md: '24px' }}
-                w={{ base: '20px', md: '24px' }}
-                color="inherit"
+                color="blackAlpha.500"
+                border="none"
+
+                // h={{ base: '20px', md: '24px' }}
+                // w={{ base: '20px', md: '24px' }}
               />
             </Box>
-            <List>
+            <List spacing="6" mt="2px">
               <ListItem
                 display="flex"
                 alignItems="center"
@@ -120,7 +136,7 @@ const PetsList = ({ pets }) => {
                 mb={{ base: '20px', xl: '22px' }}
               >
                 <Text
-                  fontSize={{ base: '14px', md: '16px' }}
+                  fontSize={{ base: '18px', md: '16px' }}
                   lineHeight={{ base: '1.35' }}
                   fontWeight="600"
                   display="block"
@@ -132,7 +148,7 @@ const PetsList = ({ pets }) => {
               </ListItem>
               <ListItem display="flex" alignItems="center">
                 <Text
-                  fontSize={{ base: '14px', md: '16px' }}
+                  fontSize={{ base: '18px', md: '16px' }}
                   lineHeight={{ base: '1.35' }}
                   fontWeight="600"
                   display="block"
@@ -163,7 +179,7 @@ const PetsList = ({ pets }) => {
       py={{ base: '40px', md: '20px', xl: '20px' }}
       w={{ base: '280px', md: '704px', xl: '821px' }}
     >
-      <Text mx="auto"> You are have no pets yet </Text>
+      <Text mx="auto"> You have no pets yet </Text>
     </Flex>
   );
 };

@@ -88,3 +88,30 @@ export const userEdit = async fieldData => {
     console.error(error);
   }
 };
+
+export const getAllSelectedNotices = async () => {
+  try {
+    const response = await axios.get(`/notices/selected/`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const addToSelectedNotices = async noticeId => {
+  try {
+    const response = await axios.post(`/notices/selected/${noticeId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const deleteFromSelectedNotices = async noticeId => {
+  try {
+    const response = await axios.delete(`/notices/selected/${noticeId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

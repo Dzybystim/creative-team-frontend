@@ -1,5 +1,5 @@
 .container_logOut {
-  margin-right: 12px;
+  margin-right: 8px;
   margin-left: auto;
   width: 89px;
 }
@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  background-color: var(--white-color);
+  /* background-color: var(--white-color); */
   display: flex;
   align-items: center;
 }
