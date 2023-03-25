@@ -8,9 +8,9 @@ import { useState, useEffect } from 'react';
 import { fetchUserAndPets } from '../utilities/helpers';
 import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
-import { Dna } from 'react-loader-spinner';
 
 export default function UserPage() {
+  // eslint-disable-next-line
   const [loading, setLoading] = useState(false);
   const [userAndPets, setUserAndPets] = useState([]);
   const [userFoto, setUserFoto] = useState(null);
