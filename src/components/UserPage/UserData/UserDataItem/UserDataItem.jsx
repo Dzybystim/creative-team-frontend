@@ -128,7 +128,7 @@ export default function UserDataItem({ user }) {
     <>
       <table className={css.container_text}>
         <tbody>
-          <tr>
+          <tr >
             <td>
               <p className={css.text_user}>Name:</p>
             </td>
@@ -183,7 +183,7 @@ export default function UserDataItem({ user }) {
               </>
             )}
           </tr>
-          <tr>
+          <tr >
             <td>
               <p className={css.text_user}>Email:</p>
             </td>
@@ -238,7 +238,7 @@ export default function UserDataItem({ user }) {
               </>
             )}
           </tr>
-          <tr>
+          <tr >
             <td>
               <p className={css.text_user}>Birthday:</p>
             </td>
@@ -295,7 +295,7 @@ export default function UserDataItem({ user }) {
               </>
             )}
           </tr>
-          <tr>
+          <tr >
             <td>
               <p className={css.text_user}>Phone:</p>
             </td>
@@ -352,7 +352,7 @@ export default function UserDataItem({ user }) {
               </>
             )}
           </tr>
-          <tr>
+          <tr >
             <td>
               <p className={css.text_user}>City:</p>
             </td>

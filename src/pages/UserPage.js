@@ -30,9 +30,11 @@ export default function UserPage() {
       <div className={css.container}>
 
         {userAndPets.user && (
-          <>
-            <h2 className={css.title}>My information:</h2>
+          <>   
+            
             <div className={css.container__userdata}>
+            <h2 className={css.title}>My information:</h2>
+            <div className={css.container_desktop}>
             <div className={css.container_tablet}>
             <UserFoto userFoto={userFoto} user={userAndPets.user} />
             <EditFoto setUserFoto={setUserFoto} />
@@ -40,6 +42,7 @@ export default function UserPage() {
             <div className={css.container_tablet_tab}>
             <UserData user={userAndPets.user} />
             <Logout />
+            </div>
             </div>
             </div>
           </>
