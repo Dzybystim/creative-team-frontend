@@ -7,16 +7,16 @@ import { useSelector } from 'react-redux';
 import { selectors } from '../redux/auth/selectors';
 
 import { getAllSelectedNotices } from '../utilities/helpers';
-import { getNoticesByTitle } from '../utilities/helpers';
+// import { getNoticesByTitle } from '../utilities/helpers';
 import { passTokenToHeadersAxios } from '../utilities/helpers';
 
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { getNoticesByCategories } from '../utilities/helpers';
-import {
-  addToSelectedNotices,
-  deleteFromSelectedNotices,
-} from '../utilities/helpers';
+// import {
+//   addToSelectedNotices,
+//   deleteFromSelectedNotices,
+// } from '../utilities/helpers';
 
 const NoticesPage = () => {
   passTokenToHeadersAxios();
@@ -93,7 +93,8 @@ const NoticesPage = () => {
           console.log('Error', error);
         });
     }
-  }, [isLogged]);
+  }, [isLogged, selectedNotices]);
+
 
   useEffect(() => {
     const queryFromSearchParams = searchParams.get('query');

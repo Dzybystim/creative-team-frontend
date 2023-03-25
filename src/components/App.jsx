@@ -38,7 +38,7 @@ export const App = () => {
               <Route path="logout" element={<div>Logout</div>} />
             </Route>
 
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
         <ToastContainer />
