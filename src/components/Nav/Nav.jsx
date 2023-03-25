@@ -12,7 +12,7 @@ export const Nav = () => {
           </NavLink>
         </li>
         <li className={css.navItem}>
-          <NavLink className={css.linkStyled} to="/notices">
+          <NavLink className={css.linkStyled} to="/notices/:category">
             Find Pet
           </NavLink>
         </li>

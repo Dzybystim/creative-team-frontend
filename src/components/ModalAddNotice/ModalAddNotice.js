@@ -11,7 +11,6 @@ import { PageTwo } from './ModalAddNoticeSecond';
 //  sex	обовʼязково обрано 1 тип з 2 (male, female)
 //  location	строка в форматі Місто, Область. Наприклад: Brovary, Kyiv або Akhtyrka, Sumy
 
-
 //  price	число, не повинно починатися 0
 
 // const schema = yup.object().shape({
@@ -67,7 +66,6 @@ import { PageTwo } from './ModalAddNoticeSecond';
 // email: yup.string().nullable().email(),
 // birthDate: yup.date().nullable().min(new Date(1900, 0, 1)),
 
-
 //   const FormError = ({ name }) => {
 //     return (
 //       <ErrorMessage
@@ -78,7 +76,6 @@ import { PageTwo } from './ModalAddNoticeSecond';
 //   };
 
 export const ModalAddNotice = ({ onClose }) => {
-
   const [data, setData] = useState({
     category: '',
     title: '',
@@ -87,69 +84,65 @@ export const ModalAddNotice = ({ onClose }) => {
     breed: '',
     sex: '',
     location: '',
-  //  imageURL: '',
+    //  imageURL: '',
     comments: '',
     price: '',
   });
 
   const [currentPage, setCurrentPage] = useState(0);
 
-  const makeRequest = (formData) =>{
-    console.log("Form Submitted", formData);
-  }
+  const makeRequest = formData => {
+    console.log('Form Submitted', formData);
+  };
 
   const handleNextPage = (newData, final = false) => {
-    setData((prev)=>({...prev, ...newData}));
+    setData(prev => ({ ...prev, ...newData }));
 
-    if (final){
+    if (final) {
       makeRequest(newData);
       return;
     }
 
-    setCurrentPage((prev)=>prev + 1);
+    setCurrentPage(prev => prev + 1);
   };
-  const handlePrevPage = (newData) => {
-    setData((prev)=>({...prev, ...newData}));
-    setCurrentPage((prev)=>prev - 1);
+  const handlePrevPage = newData => {
+    setData(prev => ({ ...prev, ...newData }));
+    setCurrentPage(prev => prev - 1);
   };
 
   const pages = [
-    <PageOne next={handleNextPage} data={data} onClose={onClose}/>,
-    <PageTwo next={handleNextPage} prev={handlePrevPage} data={data} onClose={onClose}/>
+    <PageOne next={handleNextPage} data={data} onClose={onClose} />,
+    <PageTwo
+      next={handleNextPage}
+      prev={handlePrevPage}
+      data={data}
+      onClose={onClose}
+    />,
   ];
 
-  console.log("data", data);
+  console.log('data', data);
 
-return <div>{pages[currentPage]}</div>
-}
+  return <div>{pages[currentPage]}</div>;
+};
 
+// const handleSubmit = (values, { resetForm }) => {
+//   console.log('values ', values);
 
+//   const newPet = {
+//     category: values.category,
+//     title: values.title,
+//     name: values.name,
+//     birthdate: values.birthdate,
+//     breed: values.breed,
+//     sex: values.sex,
+//     location: values.location,
+//     imageURL: values.imageURL,
+//     comments: values.comments,
+//     price: values.price,
+//   };
 
+//   console.log('newPet ', newPet);
+//   resetForm();
+//   onClose();
 
-
-
-  // const handleSubmit = (values, { resetForm }) => {
-  //   console.log('values ', values);
-
-  //   const newPet = {
-  //     category: values.category,
-  //     title: values.title,
-  //     name: values.name,
-  //     birthdate: values.birthdate,
-  //     breed: values.breed,
-  //     sex: values.sex,
-  //     location: values.location,
-  //     imageURL: values.imageURL,
-  //     comments: values.comments,
-  //     price: values.price,
-  //   };
-
-  //   console.log('newPet ', newPet);
-  //   resetForm();
-  //   onClose();
-    
-    
-  // };
-
-
-
+// };

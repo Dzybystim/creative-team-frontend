@@ -98,7 +98,7 @@ export const getAllSelectedNotices = async () => {
   }
 };
 
-export const addToSelectedNotices = async (noticeId) => {
+export const addToSelectedNotices = async noticeId => {
   try {
     const response = await axios.post(`/notices/selected/${noticeId}`);
     return response.data;
@@ -107,7 +107,7 @@ export const addToSelectedNotices = async (noticeId) => {
   }
 };
 
-export const deleteFromSelectedNotices = async (noticeId) => {
+export const deleteFromSelectedNotices = async noticeId => {
   try {
     const response = await axios.delete(`/notices/selected/${noticeId}`);
     return response.data;
@@ -115,6 +115,7 @@ export const deleteFromSelectedNotices = async (noticeId) => {
     console.error(error);
   }
 };
+
 
 export const getNoticesById = async (noticeId) => {
   try {
@@ -133,3 +134,4 @@ export const getAllOwnNotices = async () => {
     console.error(error);
   }
 };
+

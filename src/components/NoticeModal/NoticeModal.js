@@ -1,9 +1,11 @@
 import css from './NoticeModal.module.css';
 
+
 export const NoticeModal = ({ item, 
   //onClick, selected 
 }) =>{
   
+
     return (
       <div className={css.container}>
         <div className={css.img}>
@@ -62,21 +64,28 @@ export const NoticeModal = ({ item,
           </li>
 
           {/* {!selected ? ( */}
-            <li className={css.btn_item}>
-            <button className={css.btn} type="button" 
-           // onClick={onClick}
-            > Add to 
+          <li className={css.btn_item}>
+            <button
+              className={css.btn}
+              type="button"
+              // onClick={onClick}
+            >
+              {' '}
+              Add to
             </button>
           </li>
           {/* ) : (  */}
-             <li className={css.btn_item}>
-            <button className={css.btn} type="button" 
-          //  onClick={onClick}
-            > Remove from
+          <li className={css.btn_item}>
+            <button
+              className={css.btn}
+              type="button"
+              //  onClick={onClick}
+            >
+              {' '}
+              Remove from
             </button>
           </li>
           {/* )}*/}
-           
         </ul>
       </div>
     );

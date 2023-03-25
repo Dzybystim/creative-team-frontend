@@ -8,17 +8,19 @@ export default function SharedLayout() {
   return (
     <>
       <Header />
-      <Suspense fallback={
-        <div className={css.container_DNA}>
-                <Dna
-                visible={true}
-                height="150"
-                width= "150"
-                ariaLabel="dna-loading"
-                wrapperStyle={{}}
-              />
-        </div>
-      }>
+      <Suspense
+        fallback={
+          <div className={css.container_DNA}>
+            <Dna
+              visible={true}
+              height="150"
+              width="150"
+              ariaLabel="dna-loading"
+              wrapperStyle={{}}
+            />
+          </div>
+        }
+      >
         <Outlet />
       </Suspense>
     </>

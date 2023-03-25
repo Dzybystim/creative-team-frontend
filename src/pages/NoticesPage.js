@@ -6,15 +6,17 @@ import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { selectors } from '../redux/auth/selectors';
 
-import { getAllSelectedNotices } from "../utilities/helpers";
+import { getAllSelectedNotices } from '../utilities/helpers';
 import { getNoticesByTitle } from '../utilities/helpers';
 import { passTokenToHeadersAxios } from '../utilities/helpers';
-
 
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { getNoticesByCategories } from '../utilities/helpers';
-import { addToSelectedNotices, deleteFromSelectedNotices } from "../utilities/helpers";
+import {
+  addToSelectedNotices,
+  deleteFromSelectedNotices,
+} from '../utilities/helpers';
 
 const NoticesPage = () => {
   passTokenToHeadersAxios();
@@ -28,7 +30,6 @@ const NoticesPage = () => {
   let { pathname } = useLocation();
   let category = pathname.split('/').pop();
 
-
   const handleQueryChange = e => {
     const query = e.target.value;
     setSearchQuery(e.target.value.toLowerCase());
@@ -41,6 +42,7 @@ const NoticesPage = () => {
     if (searchQuery.trim() === '') {
       return toast.warn('Insert correct request');
     }
+
     e.target.reset();
     setSearchQuery('');
   };
@@ -98,35 +100,34 @@ const NoticesPage = () => {
       return;
     }
 
+
     if (category === 'favorite' && isLogged) {
       const findNotices = selectedNotices.filter(item => item.title.includes(queryFromSearchParams));
   //    console.log('findNotices', findNotices);
+
       if (findNotices.length === 0) {
         return toast.error('Nothing found for your request!');
-       }
-       setSelectedNotices(findNotices);
-
+      }
+      setSelectedNotices(findNotices);
     }
+
     if (category !== 'favorite') {
+
       getNoticesByCategories(category)
-      .then(data => {
-        setNotices(data);
-      })
-      .catch(error => {
-        console.log('Error', error);
-      });
+        .then(data => {
+          setNotices(data);
+        })
+        .catch(error => {
+          console.log('Error', error);
+        });
     }
   }, [category, searchParams, selectedNotices, isLogged]);
-
-
-
-
 
   // const [selected, setSelected] = useState(false);
 
   // const toggleSelected = async (id) => {
   //   setSelected(!selected);
-  
+
   //   if(!selected){
   //     addToSelectedNotices(id)
   //     .then(data => {
@@ -147,25 +148,6 @@ const NoticesPage = () => {
   //   });
   // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
     <div className={css.container}>
       <h2 className={css.title}>Find your favorite pet</h2>
@@ -177,7 +159,9 @@ const NoticesPage = () => {
       />
 
       <NoticesCategoriesNav />
-      <NoticesCategoriesList notices={ category === 'favorite' ? selectedNotices : notices} />
+      <NoticesCategoriesList
+        notices={category === 'favorite' ? selectedNotices : notices}
+      />
     </div>
   );
 };
