@@ -14,11 +14,7 @@
   }
 }
 
-.wrapper {
-  display: flex;
-  align-items: center;
-  gap: 80px;
-}
+
 
 .headerWrapper {
   display: flex;
@@ -30,6 +26,12 @@
   padding-top: 16px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 80px;
 }
 
 .userWrapper {
