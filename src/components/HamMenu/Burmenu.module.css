@@ -4,7 +4,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .Wrapper {
+  .wrapper {
     display: none;
   }
 }
@@ -21,6 +21,38 @@
 @media screen and (max-width: 767px) {
   .bg {
     height: 3.5em;
+  }
+}
+
+.linkSt {
+  padding: 8px 28px;
+  color: #111111;
+  border-radius: 40px;
+  border: 2px solid #f59256;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.linkSt:hover {
+  background-color: #f59256;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.linkSt:active {
+  background-color: #f59256;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .linkSt {
+    margin-right: 12px;
+    font-weight: 500;
+    font-size: 20px;
+    display: none;
   }
 }
 
@@ -54,7 +86,7 @@
   }
 }
 
-.burger-bar {
+/* .burger-bar {
   width: 40px;
   height: 6px;
   background-color: #212121;
@@ -64,7 +96,7 @@
   .burger-bar {
     height: 5px;
   }
-}
+} */
 
 .menu {
   width: 100%;
@@ -99,16 +131,6 @@
   display: none;
 }
 
-.div {
-  display: flex;
-  justify-content: center;
-}
-@media screen and (max-width: 767px) {
-  .div {
-    display: none;
-  }
-}
-
 .bgNews {
   display: flex;
   flex-direction: column;
@@ -133,17 +155,15 @@
   }
 }
 
-/* .linkNews {
-  margin-left: 35px;
-  margin-bottom: 40px;
-  color: #181c27;
+.div {
+  display: flex;
+  justify-content: center;
 }
-@media screen and (min-width: 768px) {
-  .linkNews {
-    margin-left: 55px;
-    padding-top: 35px;
+@media screen and (min-width: 1280px) {
+  .div {
+    display: none;
   }
-} */
+}
 
 .linkStyled {
   font-family: 'Manrope';
@@ -250,7 +270,7 @@
     color: #ffffff;
   } */
 
-.linkRegister {
+/* .linkRegister {
   padding: 8px 28px;
   text-decoration: none;
   color: #111111;
@@ -258,7 +278,7 @@
 
 .linkRegister:hover {
   color: #ffffff;
-}
+} */
 
 .loginBg {
   border-radius: 40px;

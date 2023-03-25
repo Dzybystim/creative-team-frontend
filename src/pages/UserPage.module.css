@@ -19,8 +19,6 @@
   border-radius: 20px;
 }
 
-
-
 .container_pets {
   margin-left: 20px;
   width: 100%;
@@ -49,7 +47,6 @@
   color: var(--black-color);
 }
 
-
 @media screen and (min-width: 768px) {
   .container__userdata {
     margin-bottom: 47px;
@@ -76,21 +73,15 @@
     margin-left: 32px;
   }
 
-
   .container {
     display: flex;
     flex-direction: column;
     width: 704px;
   }
-
-
-
 }
-
-
 
 @media only screen and (max-width: 1280) {
   .container__userdata {
-    flex-flow: column;}
+    flex-flow: column;
   }
-
+}

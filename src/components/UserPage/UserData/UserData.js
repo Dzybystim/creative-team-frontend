@@ -1,4 +1,3 @@
-
 import UserDataItem from './UserDataItem/UserDataItem';
 
 export default function UserData({ user }) {
@@ -8,4 +7,3 @@ export default function UserData({ user }) {
     </>
   );
 }
-

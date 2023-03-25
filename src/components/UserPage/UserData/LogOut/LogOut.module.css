@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
   border: 0;
- background-color: var(--white-color);
+  background-color: var(--white-color);
   display: flex;
   align-items: center;
 }

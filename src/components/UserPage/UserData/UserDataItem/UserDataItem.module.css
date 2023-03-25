@@ -61,7 +61,7 @@
 .pencil {
   width: 12px;
   height: 12px;
-  fill: var(--accent-color); 
+  fill: var(--accent-color);
   object-fit: fill;
 }
 
@@ -80,7 +80,6 @@
 }
 
 .input {
-
   width: 159px;
 
   background-color: var(--bg-color);
