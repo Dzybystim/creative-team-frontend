@@ -19,13 +19,10 @@ export const getNoticesByCategories = async category => {
 };
 
 export const fetchNews = async () => {
-  try {
-    const response = await axios.get(`/news`);
-
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+  return await axios
+    .get(`/news`)
+    .then(response => response.data)
+    .catch(err => console.error(err));
 };
 
 export const fetchUserAndPets = async token => {
