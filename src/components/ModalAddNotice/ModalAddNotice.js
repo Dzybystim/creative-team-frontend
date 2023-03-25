@@ -2,6 +2,7 @@ import { useState } from 'react';
 // import * as Yup from 'yup';
 import { PageOne } from './ModalAddNoticeFirst';
 import { PageTwo } from './ModalAddNoticeSecond';
+import { postNewNotice } from '../../utilities/helpers';
 //import * as yup from 'yup';
 
 //  category	обовʼязково обрано 1 з 3 категорій (sell, lost-found, for-free)
@@ -84,23 +85,23 @@ export const ModalAddNotice = ({ onClose }) => {
     breed: '',
     sex: '',
     location: '',
-    //  imageURL: '',
+    imageURL: '',
     comments: '',
     price: '',
   });
 
   const [currentPage, setCurrentPage] = useState(0);
 
-  const makeRequest = formData => {
-    console.log('Form Submitted', formData);
-  };
+  // const makeRequest = formData => {
+  //   console.log('Form Submitted', formData);
+  // };
 
   const handleNextPage = (newData, final = false) => {
     setData(prev => ({ ...prev, ...newData }));
 
     if (final) {
-      console.log('finally');
-      makeRequest(newData);
+      console.log('finally', newData);
+      postNewNotice(newData);
       return;
     }
 

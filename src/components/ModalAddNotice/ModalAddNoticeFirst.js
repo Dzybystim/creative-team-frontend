@@ -37,7 +37,6 @@ export const PageOne = props => {
   const handleSubmit = values => {
     console.log('values first', values);
     props.next(values);
-    console.log('values ', values);
   };
 
   return (
@@ -48,7 +47,7 @@ export const PageOne = props => {
         initialValues={props.data}
         validationSchema={schemaPageOne}
       >
-        <Form autoComplete="off">
+        <Form autoComplete="on">
           <p className={css.text}>
             Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
             consectetur{' '}

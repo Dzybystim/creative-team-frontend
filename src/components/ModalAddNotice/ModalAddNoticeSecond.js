@@ -35,8 +35,6 @@ const schemaPageTwo = yup.object().shape({
 
 export const PageTwo = props => {
   const [imageURL, setImageURL] = useState('');
-  // const filePicker = useRef(null);
-  console.log('props', props);
   const textareaChange = () => {
     let textarea = document.querySelector('textarea');
     textarea.addEventListener('keyup', function () {
@@ -46,10 +44,6 @@ export const PageTwo = props => {
       }
     });
   };
-
-  // const handlePick = () => {
-  //   filePicker.current?.click();
-  // };
 
   const handleUpload = async e => {
     if (!e.target.files[0]) {
@@ -84,9 +78,9 @@ export const PageTwo = props => {
       <Formik
         onSubmit={handleSubmit}
         initialValues={props.data}
-        validationSchema={schemaPageTwo}
+        // validationSchema={schemaPageTwo}
       >
-        <Form autoComplete="off">
+        <Form autoComplete="on">
           <label className={css.label_other}> The sex: </label>
           <div className={css.radio_sex}>
             <label className={css.radio_label_sex}>
@@ -97,7 +91,7 @@ export const PageTwo = props => {
                 className={css.radio_btn}
                 type="radio"
                 name="sex"
-                value="lost-found"
+                value="male"
               />
               <span className={css.radio_icon_text}>Male</span>
             </label>
@@ -109,7 +103,7 @@ export const PageTwo = props => {
                 className={css.radio_btn}
                 type="radio"
                 name="sex"
-                value="for-free"
+                value="female"
               />
               <span className={css.radio_icon_text}>Female</span>
             </label>
@@ -151,14 +145,12 @@ export const PageTwo = props => {
               type="file"
               name="imageURL"
               accept="image/*,.png,.jpg,.gif,.web,"
-              // ref={filePicker}
               onChange={handleUpload}
             />
             {imageURL && (
               <img
                 src={imageURL}
                 className={css.img_photo}
-                // onClick={handlePick}
                 alt="Pet"
                 height={116}
                 width={116}
@@ -185,9 +177,9 @@ export const PageTwo = props => {
 
           <ul>
             <li className={css.btn_item}>
-              {/* <button type="submit" className={css.btn}>
+              <button type="submit" className={css.btn}>
                 Done
-              </button> */}
+              </button>
             </li>
             <li className={css.btn_item}>
               <button
@@ -199,9 +191,6 @@ export const PageTwo = props => {
               </button>
             </li>
           </ul>
-          <button type="submit" className={css.btn}>
-            Done
-          </button>
         </Form>
       </Formik>
     </div>
