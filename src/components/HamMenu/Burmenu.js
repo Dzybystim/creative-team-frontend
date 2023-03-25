@@ -11,11 +11,11 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
 
   return (
     <div className={css.wrapper} style={{ width: '100%', height: '100 hv' }}>
-      <nav className={css.BG}>
+      <nav className={css.bg}>
         <div className={css.burgerMenu} onClick={updateMenu}>
-          <div className={burger_class}></div>
-          <div className={burger_class}></div>
-          <div className={burger_class}></div>
+          <div className={{ burger_class }}></div>
+          <div className={{ burger_class }}></div>
+          <div className={{ burger_class }}></div>
         </div>
       </nav>
       <div className={menu_class}>
@@ -49,17 +49,17 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
         <div className={css.div}>
           <ul className={css.bgNews}>
             <li className={css.navItem} onClick={updateMenu}>
-              <NavLink className={css.linkNews} to="/news">
+              <NavLink className={css.linkStyled} to="/news">
                 News
               </NavLink>
             </li>
             <li className={css.navItem} onClick={updateMenu}>
-              <NavLink className={css.linkNotices} to="/notices/:category">
+              <NavLink className={css.linkStyled} to="/notices/:category">
                 Find pet
               </NavLink>
             </li>
             <li className={css.navItem} onClick={updateMenu}>
-              <NavLink className={css.linkFriends} to="/friends">
+              <NavLink className={css.linkStyled} to="/friends">
                 Our friends
               </NavLink>
             </li>

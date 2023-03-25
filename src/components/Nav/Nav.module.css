@@ -13,14 +13,10 @@
   }
 }
 
-
-
 .navItem {
   font-weight: 500;
   /* font-size:  */
 }
-
-
 
 .ul {
   list-style: none;
@@ -35,4 +31,20 @@
     margin: 0;
     padding: 0;
   }
+}
+
+.linkStyled {
+  color: #111111;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.linkStyled:hover {
+  color: #f59256;
+  cursor: pointer;
+}
+
+.linkStyled:active {
+  color: #f59256;
+  cursor: pointer;
 }
