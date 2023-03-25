@@ -5,15 +5,26 @@ import { NoticeModal } from 'components/NoticeModal/NoticeModal';
 import css from './NoticeCategoryItem.module.css';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { HiTrash } from 'react-icons/hi';
-
+import { getNoticesById} from "../../utilities/helpers";
 
 export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
+  const [notice, setNotice] = useState(null);
 
     const toggleModal = () => {
       setShowModal(!showModal);
     };
 
+  const openModal = (id) => {
+      getNoticesById(id)
+      .then(data => {
+        setNotice(data);
+        setShowModal(!showModal);
+      })
+      .catch(error => {
+        console.log('Error', error);
+      });
+  };
 
     return (
 <>
@@ -36,7 +47,7 @@ export const NoticeCategoryItem = ({ item }) => {
                { item.price ? <li className={css.info_item}><p className={css.text}>Price:</p><p className={css.text}>{item.price}$</p></li> : null}
             </ul>
 <div className={css.btn_cover}>
-  <button className={css.btn} type="button" onClick={toggleModal}>LearnMore</button>
+  <button className={css.btn} type="button" onClick={()=>openModal(item._id)}>LearnMore</button>
             <button className={css.btn} type="button">Delete <HiTrash size={20}/></button>
 </div>
             
@@ -47,7 +58,7 @@ export const NoticeCategoryItem = ({ item }) => {
         <Modal
           key={item.id}
           onClose={toggleModal}
-        ><NoticeModal item={item} 
+        ><NoticeModal item={notice} 
     //    onClick={()=>toggleSelected(item._id)} selected={selected}
         /></Modal>
       )}      

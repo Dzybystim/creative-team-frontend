@@ -3,6 +3,8 @@ import { NoticesCategoriesList } from '../components/NoticesCategoriesList/Notic
 import { NoticesSearch } from '../components/NoticesSearch/NoticesSearch';
 import css from './NoticesPage.module.css';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { selectors } from '../redux/auth/selectors';
 
 import { getAllSelectedNotices } from "../utilities/helpers";
 import { getNoticesByTitle } from '../utilities/helpers';
@@ -20,6 +22,7 @@ const NoticesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [notices, setNotices] = useState([]);
   const [selectedNotices, setSelectedNotices] = useState([]);
+  const isLogged = useSelector(selectors.isLogged);
 
   const [searchParams, setSearchParams] = useSearchParams();
   let { pathname } = useLocation();
@@ -33,36 +36,60 @@ const NoticesPage = () => {
     setSearchParams(nextParams);
   };
 
-  const handleSubmit = e => {
+  const onClickClear = e => {
     e.preventDefault();
     if (searchQuery.trim() === '') {
       return toast.warn('Insert correct request');
     }
-    if (category === 'favorite' && searchQuery) {
-      
-      const findNotices = selectedNotices.filter(item => item.title.includes(searchQuery));
-      console.log('findNotices', findNotices);
-      if (findNotices.length === 0) {
-        return toast.error('Nothing found for your request!');
-       }
-       setSelectedNotices(findNotices);
-    }
-    if (category !== 'favorite' && searchQuery){
-      getNoticesByTitle(searchQuery)
+    e.target.reset();
+    setSearchQuery('');
+  };
+
+    // if (category === 'favorite' && (searchQuery)) {
+    //   if (selectedNotices.length === 0) {
+    //     setSelectedNotices('');
+    //     return toast.error('Nothing found for your request!');
+    //    }
+    //   const findNotices = selectedNotices.filter(item => item.title.includes(searchQuery));
+    //   if (findNotices.length === 0) {
+    //     setSelectedNotices('');
+    //     return toast.error('Nothing found for your request!');
+    //    }
+    //    setSelectedNotices(findNotices);
+    // }
+    // if (category !== 'favorite' && (searchQuery)){
+    //   getNoticesByTitle(searchQuery)
+    //         .then(data => {
+    //           if (data.length === 0) {
+    //             setNotices('');
+    //             return toast.error('Nothing found for your request!');
+    //            }
+    //           const findNotices = data.filter(item => item.category === category);
+    //           if (findNotices.length === 0) {
+    //             setNotices('');
+    //             return toast.error('Nothing found for your request!');
+    //           }
+    //           setNotices(findNotices);
+    //         })
+    //         .catch(error => {
+    //           console.log('Error', error);
+    //         });
+    // }
+  
+
+  useEffect(() => {
+    console.log('selectedNotices', selectedNotices);
+    if(selectedNotices.length === 0 && isLogged) {
+      console.log('selectedNotices.length === 0 && isLogged', selectedNotices.length === 0 && isLogged);
+      getAllSelectedNotices()
             .then(data => {
-              const findNotices = data.filter(item => item.category === category);
-              if (findNotices.length === 0) {
-                return toast.error('Nothing found for your request!');
-              }
-              setNotices(findNotices);
+              setSelectedNotices(data);
             })
             .catch(error => {
               console.log('Error', error);
             });
-    }
-   
-    e.target.reset();
-  };
+      }
+  },[isLogged])
 
 
   useEffect(() => {
@@ -71,19 +98,7 @@ const NoticesPage = () => {
       return;
     }
 
-    if(selectedNotices.length === 0) {
-  //    console.log('getAllSelectedNotices');
-    getAllSelectedNotices()
-          .then(data => {
-            setSelectedNotices(data);
-          })
-          .catch(error => {
-            console.log('Error', error);
-          });
-    }
-
-    if (category === 'favorite' && queryFromSearchParams) {
-  //    console.log('category === favorite');
+    if (category === 'favorite' && isLogged) {
       const findNotices = selectedNotices.filter(item => item.title.includes(queryFromSearchParams));
   //    console.log('findNotices', findNotices);
       if (findNotices.length === 0) {
@@ -92,22 +107,7 @@ const NoticesPage = () => {
        setSelectedNotices(findNotices);
 
     }
-    if (queryFromSearchParams && category !== 'favorite'){
-  //    console.log('queryFromSearchParams && category !== favorite');
-      getNoticesByTitle(queryFromSearchParams)
-      .then(data => {
-        const findNotices = data.filter(item => item.category === category);
-        if (findNotices.length === 0) {
-          return toast.error('Nothing found for your request!');
-         }
-        setNotices(findNotices);
-      })
-      .catch(error => {
-        console.log('Error', error);
-      });
-    }
-    if (!queryFromSearchParams && category) {
- //     console.log('!queryFromSearchParams && category');
+    if (category !== 'favorite') {
       getNoticesByCategories(category)
       .then(data => {
         setNotices(data);
@@ -116,7 +116,7 @@ const NoticesPage = () => {
         console.log('Error', error);
       });
     }
-  }, [category, searchParams, selectedNotices]);
+  }, [category, searchParams, selectedNotices, isLogged]);
 
 
 
@@ -172,7 +172,7 @@ const NoticesPage = () => {
       <NoticesSearch
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        onSubmit={handleSubmit}
+        onSubmit={onClickClear}
         onChange={handleQueryChange}
       />
 

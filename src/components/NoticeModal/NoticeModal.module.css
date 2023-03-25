@@ -54,8 +54,6 @@
 
 .item {
   display: flex;
-  /*  align-items: center; */
-
   font-size: 14px;
 }
 .item:not(:last-child) {
@@ -82,17 +80,26 @@
 .btn {
   display: block;
   width: 240px;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
   align-items: center;
+  letter-spacing: 0.04em;
   padding: 9px;
+  border: 2px solid var(--accent-color);
   background-color: var(--white-color);
   border-radius: 40px;
-  border-color: var(--accent-color);
   color: var(--black-color);
+  cursor: pointer;
 }
 
 .btn:hover,
-:focus {
+.btn:focus {
   color: var(--white-color);
   background-color: var(--accent-color);
   border-color: transparent;
 }
+
+
+
+
