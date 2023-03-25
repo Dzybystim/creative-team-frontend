@@ -29,8 +29,9 @@
   border-color: transparent;
 }
 
-/* .link :active {
+.active {
   color: var(--white-color);
   background-color: var(--accent-color);
   border-color: transparent;
-} */
+}
+/* className={isActive => (isActive ? css.link : css.active)} */

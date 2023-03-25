@@ -1,13 +1,13 @@
 import { Field } from 'formik';
 import scss from './Input.module.css';
 
-const InputForm = ({
+export const InputForm = ({
   type = 'text',
   name,
   customStyle,
   placeholder,
   autofocus,
-  autoComplete,
+  autoComplete = 'new-password',
   as,
 }) => {
   return (
@@ -23,7 +23,7 @@ const InputForm = ({
   );
 };
 
-const Input = ({
+export const Input = ({
   type = 'text',
   name,
   id,
@@ -51,4 +51,4 @@ const Input = ({
   );
 };
 
-export { Input, InputForm };
+// export { Input, InputForm };

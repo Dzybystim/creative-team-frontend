@@ -8,9 +8,6 @@ export const NoticesSearch = ({
   onSubmit,
   onChange,
 }) => {
-   const onClickClear = e => {
-    setSearchQuery('');
-  };
   return (
     <form className={css.SearchForm} onSubmit={onSubmit}>
       <input
@@ -21,11 +18,11 @@ export const NoticesSearch = ({
         placeholder="Search"
         onChange={onChange}
       />
-      <button className={css.Icon} type="button" onClick={onClickClear}>
+      <button className={css.Icon} type="submit">
         {searchQuery.length > 0 ? (
-          <CloseSearch  className={css.ClearIcon}/>
+          <CloseSearch className={css.ClearIcon} />
         ) : (
-          <FaSearch className={css.SearchIcon}  />
+          <FaSearch className={css.SearchIcon} />
         )}
       </button>
     </form>

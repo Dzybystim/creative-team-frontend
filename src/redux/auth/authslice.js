@@ -45,6 +45,7 @@ export const authSlice = createSlice({
           state.loadUser = false;
           state.errorServer = true;
         }
+        state.loadUser = false;
       }
     );
     builder.addMatcher(
@@ -73,6 +74,7 @@ export const authSlice = createSlice({
           state.loadUser = false;
           state.errorRegistration = true;
         }
+        state.loadUser = false;
       }
     );
 
