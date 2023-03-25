@@ -8,7 +8,6 @@ import css from './UserDataItem.module.css';
 export default function UserDataItem({ user }) {
   const { birthdate, cityRegion, email, mobilePhone, name } = user;
 
-
   // Стейти полів інпутів
 
   const [nameField, setChangeNameField] = useState(name);
@@ -88,7 +87,6 @@ export default function UserDataItem({ user }) {
     event.preventDefault();
     handleClick(event);
 
-
     setPencilButtonActivity(false);
 
     if (nameField !== name) {
@@ -97,7 +95,6 @@ export default function UserDataItem({ user }) {
       userEdit({ mobilePhone: phoneField });
       userEdit({ cityRegion: cityField });
       userEdit({ birthdate: birthdayField });
-
     } else if (emailField !== email) {
       userEdit({ name: nameField });
       userEdit({ email: emailField });
@@ -126,7 +123,6 @@ export default function UserDataItem({ user }) {
       return;
     }
   };
-
 
   return (
     <>
@@ -250,9 +246,7 @@ export default function UserDataItem({ user }) {
               <>
                 <td>
                   <p className={css.text_user}>
-
                     {birthdayField ? birthdayField : '01.01.2000'}
-
                   </p>
                 </td>
                 <td>

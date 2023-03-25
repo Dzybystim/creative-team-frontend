@@ -58,16 +58,16 @@
   color: var(--black-color);
 }
 
-
 @media only screen and (max-width: 1280) {
   .container__userdata {
-    flex-flow: column;}
+    flex-flow: column;
   }
+}
 
 @media screen and (min-width: 768px) {
   .container__userdata {
     margin-bottom: 47px;
-  
+
     width: 736px;
     height: 311px;
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
@@ -75,6 +75,5 @@
     border-radius: 20px;
     display: flex;
     margin-left: -32px;
-
   }
 }

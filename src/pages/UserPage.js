@@ -10,7 +10,6 @@ import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
 export default function UserPage() {
-
   const [userAndPets, setUserAndPets] = useState([]);
   const [userFoto, setUserFoto] = useState(null);
 
@@ -22,8 +21,7 @@ export default function UserPage() {
       setUserAndPets(response);
       return;
     };
-    fetchData()
-      .catch(console.error)
+    fetchData().catch(console.error);
   }, [token]);
 
   const { pets, user } = userAndPets;
@@ -31,7 +29,6 @@ export default function UserPage() {
     <>
       <div className={css.container}>
         {user && (
-
           <div className={css.container_userInfo}>
             <h2 className={css.title}>My information:</h2>
             <div className={css.container__userdata}>
@@ -52,7 +49,6 @@ export default function UserPage() {
               <PetsData pets={pets} />
             </div>
           </div>
-
         )}
       </div>
     </>

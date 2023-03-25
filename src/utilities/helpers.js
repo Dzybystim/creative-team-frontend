@@ -130,4 +130,3 @@ export const getAllOwnNotices = async () => {
     console.error(error);
   }
 };
-
