@@ -33,35 +33,25 @@ export default function UserPage() {
 
   return (
     <>
-      {loading ? (
-        <Dna
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper"
-        />
-      ) : (
-        <div className={css.container}>
-          {user && (
-            <>
-              <h2 className={css.title}>My information:</h2>
-              <div className={css.container__userdata}>
-                <UserFoto userFoto={userFoto} user={user} />
-                <EditFoto setUserFoto={setUserFoto} />
-                <UserData user={user} />
-                <Logout />
-              </div>
-            </>
-          )}
+      <div className={css.container}>
+        {user && (
+          <>
+            <h2 className={css.title}>My information:</h2>
+            <div className={css.container__userdata}>
+              <UserFoto userFoto={userFoto} user={user} />
+              <EditFoto setUserFoto={setUserFoto} />
+              <UserData user={user} />
+              <Logout />
+            </div>
+          </>
+        )}
 
-          {/* <h2 className={css.title}>My pets:</h2> */}
-          {pets && (
-            <>
-              <h2 className={css.title}>My pets:</h2>
+        {/* <h2 className={css.title}>My pets:</h2> */}
+        {pets && (
+          <>
+            <h2 className={css.title}>My pets:</h2>
 
-              {/* <Button
+            {/* <Button
                 aria-label="add pet"
                 onClick={onOpen}
                 rightIcon={
@@ -82,13 +72,12 @@ export default function UserPage() {
                 <Text mr="7px">Add pet</Text>
               </Button> */}
 
-              <div className={css.container__petsdata}>
-                <PetsData pets={pets} />
-              </div>
-            </>
-          )}
-        </div>
-      )}
+            <div className={css.container__petsdata}>
+              <PetsData pets={pets} />
+            </div>
+          </>
+        )}
+      </div>
     </>
   );
 }

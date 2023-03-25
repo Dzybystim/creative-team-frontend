@@ -1,6 +1,9 @@
 import css from './NoticeModal.module.css';
 
-export const NoticeModal = ({ item }) =>
+export const NoticeModal = ({
+  item,
+  //onClick, selected
+}) =>
   // { category,
   // title,
   // name,
@@ -64,18 +67,30 @@ export const NoticeModal = ({ item }) =>
               Contact
             </button>
           </li>
+
+          {/* {!selected ? ( */}
           <li className={css.btn_item}>
-            <button className={css.btn} type="button">
-              Add to{' '}
+            <button
+              className={css.btn}
+              type="button"
+              // onClick={onClick}
+            >
+              {' '}
+              Add to
             </button>
           </li>
+          {/* ) : (  */}
           <li className={css.btn_item}>
-            <button className={css.btn} type="button">
-              Remove from{' '}
+            <button
+              className={css.btn}
+              type="button"
+              //  onClick={onClick}
+            >
+              {' '}
+              Remove from
             </button>
           </li>
-          {/* <li>{ isFavorite ?  <button type="button">Add to </button> : 
-                      <button type="button">Remove from </button>}</li> */}
+          {/* )}*/}
         </ul>
       </div>
     );
