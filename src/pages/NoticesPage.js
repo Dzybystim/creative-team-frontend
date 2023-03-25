@@ -95,7 +95,6 @@ const NoticesPage = () => {
     }
   }, [isLogged, selectedNotices]);
 
-
   useEffect(() => {
     const queryFromSearchParams = searchParams.get('query');
     if (!category) {

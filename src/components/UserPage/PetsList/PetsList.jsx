@@ -6,7 +6,6 @@ import { deletePet } from 'redux/auth/operations';
 
 // import { getUser } from 'redux/auth/selectors';
 
-
 let test = [
   {
     _id: '1',

@@ -13,7 +13,7 @@ export const AuthNav = ({ isMenuClicked }) => {
           <NavLink className={css.linkStyled} to="/login">
             Login
           </NavLink>
-          <NavLink className={css.linkStyled} to="/register">
+          <NavLink className={css.linkStyled} to="/signup">
             Registration
           </NavLink>
         </ul>

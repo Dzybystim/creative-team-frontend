@@ -10,7 +10,6 @@ import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
 export default function UserPage() {
-
   const [userAndPets, setUserAndPets] = useState([]);
   const [userFoto, setUserFoto] = useState(null);
 
@@ -22,12 +21,10 @@ export default function UserPage() {
       setUserAndPets(response);
       return;
     };
-    fetchData()
-      .catch(console.error)
+    fetchData().catch(console.error);
   }, [token]);
 
   const { pets, user } = userAndPets;
-
 
   return (
       <div className={css.container}>
@@ -35,6 +32,7 @@ export default function UserPage() {
         {user && (
           // <div className={css.container_userInfo}>
           <>
+
             <h2 className={css.title}>My information:</h2>
             <div className={css.container__userdata}>
             <div className={css.container_tablet}>
@@ -60,3 +58,4 @@ export default function UserPage() {
          )}
 
     </div>)}
+

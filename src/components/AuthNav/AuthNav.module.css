@@ -1,16 +1,24 @@
 .auth {
   display: block;
 }
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .auth {
     display: none;
   }
-}
+} */
+
 @media screen and (min-width: 768px) {
   .auth {
     display: flex;
   }
 }
+
+/* @media screen and (min-width: 768px) {
+  .auth:hover {
+  background-color: #f59256;
+  color: #ffffff;
+  cursor: pointer;
+}} */
 
 .linkStyled {
   padding: 8px 28px;
@@ -23,14 +31,16 @@
   font-size: 16px;
 }
 
-.linkStyled:active {
-  /* background-color: ; */
-  /* color: ; */
+.linkStyled:hover {
+  background-color: #f59256;
+  color: #ffffff;
+  cursor: pointer;
 }
 
-.linkStyled:hover {
-  color: #ffffff;
+.linkStyled:active {
   background-color: #f59256;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

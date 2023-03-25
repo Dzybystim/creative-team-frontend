@@ -21,7 +21,7 @@ function HomePage() {
           your small pets
         </h1>
       </div>
-      <div>
+      <div className={css.container}>
         <img className={css.imageHeart} src={unionDesk} alt="heart" />
         <img className={css.frame} src={waveDesktop3} alt="frame" />
         <picture>
