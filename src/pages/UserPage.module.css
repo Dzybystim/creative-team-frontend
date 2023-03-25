@@ -33,3 +33,17 @@
   letter-spacing: 0.04em;
   color: var(--black-color);
 }
+
+@media screen and (min-width: 768px) {
+  .container__userdata {
+    margin-bottom: 47px;
+  
+    width: 736px;
+    height: 311px;
+    box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    margin-left: -32px;
+  }
+}

@@ -8,17 +8,14 @@ import { useState, useEffect } from 'react';
 import { fetchUserAndPets } from '../utilities/helpers';
 import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
-import { Dna } from 'react-loader-spinner';
 
 export default function UserPage() {
-  const [loading, setLoading] = useState(false);
   const [userAndPets, setUserAndPets] = useState([]);
   const [userFoto, setUserFoto] = useState(null);
 
   const token = useSelector(selectors.getToken);
 
   useEffect(() => {
-    setLoading(true);
     const fetchData = async () => {
       const response = await fetchUserAndPets(token);
       setUserAndPets(response);
@@ -26,7 +23,6 @@ export default function UserPage() {
     };
     fetchData()
       .catch(console.error)
-      .finally(() => setLoading(false));
   }, [token]);
 
   const { pets, user } = userAndPets;
