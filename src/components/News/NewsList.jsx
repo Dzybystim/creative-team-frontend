@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NewsItem } from './NewsItem';
 import css from './News.module.css';
 import { fetchNews } from 'utilities/helpers';
 
 export const NewsList = () => {
-  const { data } = fetchNews();
+  const [loading, setLoading] = useState(false);
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+    fetchNews()
+      .then(setNews)
+      .catch(error => console.error(error.message))
+      .finally(() => setLoading(false));
+  }, []);
 
   const getVisibleNews = () => {
-    return data.filter(news => news.title.toLocaleLowerCase());
+    return news.filter(news => news.title.toLocaleLowerCase());
   };
 
   return (
     <>
-      {!data ? (
+      {loading ? (
         <div className={css.notNewsFound}>
           <h3 className={css.notNewsFoundText}>Waiting please...</h3>
         </div>
@@ -25,19 +34,17 @@ export const NewsList = () => {
               </h3>
             </div>
           ) : (
-            getVisibleNews().map(
-              ({ url, title, description, date, linkNews }) => {
-                return (
-                  <NewsItem
-                    key={url}
-                    url={url}
-                    title={title}
-                    description={description}
-                    date={date}
-                  />
-                );
-              }
-            )
+            getVisibleNews().map(({ _id, url, title, description, date }) => {
+              return (
+                <NewsItem
+                  key={_id}
+                  url={url}
+                  title={title}
+                  description={description}
+                  date={date}
+                />
+              );
+            })
           )}
         </ul>
       )}
