@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/creative-team-frontend/static/css/main.9d2c6f7f.css",
-    "main.js": "/creative-team-frontend/static/js/main.36693c2f.js",
+    "main.css": "/creative-team-frontend/static/css/main.84118574.css",
+    "main.js": "/creative-team-frontend/static/js/main.b732353b.js",
     "static/css/490.2aaaea10.chunk.css": "/creative-team-frontend/static/css/490.2aaaea10.chunk.css",
     "static/js/490.e4012126.chunk.js": "/creative-team-frontend/static/js/490.e4012126.chunk.js",
     "static/css/32.b3018e6a.chunk.css": "/creative-team-frontend/static/css/32.b3018e6a.chunk.css",
     "static/js/32.3fb69773.chunk.js": "/creative-team-frontend/static/js/32.3fb69773.chunk.js",
-    "static/css/605.15ec1064.chunk.css": "/creative-team-frontend/static/css/605.15ec1064.chunk.css",
-    "static/js/605.c12a9410.chunk.js": "/creative-team-frontend/static/js/605.c12a9410.chunk.js",
+    "static/css/605.cd3870b1.chunk.css": "/creative-team-frontend/static/css/605.cd3870b1.chunk.css",
+    "static/js/605.d6a53374.chunk.js": "/creative-team-frontend/static/js/605.d6a53374.chunk.js",
     "static/css/870.63397a81.chunk.css": "/creative-team-frontend/static/css/870.63397a81.chunk.css",
-    "static/js/870.a6d32225.chunk.js": "/creative-team-frontend/static/js/870.a6d32225.chunk.js",
+    "static/js/870.46ab0d97.chunk.js": "/creative-team-frontend/static/js/870.46ab0d97.chunk.js",
     "static/css/109.3109a7c0.chunk.css": "/creative-team-frontend/static/css/109.3109a7c0.chunk.css",
     "static/js/109.b8c7e17b.chunk.js": "/creative-team-frontend/static/js/109.b8c7e17b.chunk.js",
     "static/css/85.806acae5.chunk.css": "/creative-team-frontend/static/css/85.806acae5.chunk.css",
@@ -40,16 +40,16 @@
     "static/media/CloseSearch.svg": "/creative-team-frontend/static/media/CloseSearch.444b3bca3d00e9ea2c051f2c88f1d582.svg",
     "static/media/bgMenu.svg": "/creative-team-frontend/static/media/bgMenu.59c8068a7f78f27b28c562d11b224a74.svg",
     "static/media/plus.svg": "/creative-team-frontend/static/media/plus.deec2b9327a6f7e779ae3cbb9fa31798.svg",
-    "main.9d2c6f7f.css.map": "/creative-team-frontend/static/css/main.9d2c6f7f.css.map",
-    "main.36693c2f.js.map": "/creative-team-frontend/static/js/main.36693c2f.js.map",
+    "main.84118574.css.map": "/creative-team-frontend/static/css/main.84118574.css.map",
+    "main.b732353b.js.map": "/creative-team-frontend/static/js/main.b732353b.js.map",
     "490.2aaaea10.chunk.css.map": "/creative-team-frontend/static/css/490.2aaaea10.chunk.css.map",
     "490.e4012126.chunk.js.map": "/creative-team-frontend/static/js/490.e4012126.chunk.js.map",
     "32.b3018e6a.chunk.css.map": "/creative-team-frontend/static/css/32.b3018e6a.chunk.css.map",
     "32.3fb69773.chunk.js.map": "/creative-team-frontend/static/js/32.3fb69773.chunk.js.map",
-    "605.15ec1064.chunk.css.map": "/creative-team-frontend/static/css/605.15ec1064.chunk.css.map",
-    "605.c12a9410.chunk.js.map": "/creative-team-frontend/static/js/605.c12a9410.chunk.js.map",
+    "605.cd3870b1.chunk.css.map": "/creative-team-frontend/static/css/605.cd3870b1.chunk.css.map",
+    "605.d6a53374.chunk.js.map": "/creative-team-frontend/static/js/605.d6a53374.chunk.js.map",
     "870.63397a81.chunk.css.map": "/creative-team-frontend/static/css/870.63397a81.chunk.css.map",
-    "870.a6d32225.chunk.js.map": "/creative-team-frontend/static/js/870.a6d32225.chunk.js.map",
+    "870.46ab0d97.chunk.js.map": "/creative-team-frontend/static/js/870.46ab0d97.chunk.js.map",
     "109.3109a7c0.chunk.css.map": "/creative-team-frontend/static/css/109.3109a7c0.chunk.css.map",
     "109.b8c7e17b.chunk.js.map": "/creative-team-frontend/static/js/109.b8c7e17b.chunk.js.map",
     "85.806acae5.chunk.css.map": "/creative-team-frontend/static/css/85.806acae5.chunk.css.map",
@@ -61,7 +61,7 @@
     "188.57047baa.chunk.js.map": "/creative-team-frontend/static/js/188.57047baa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d2c6f7f.css",
-    "static/js/main.36693c2f.js"
+    "static/css/main.84118574.css",
+    "static/js/main.b732353b.js"
   ]
 }
