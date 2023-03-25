@@ -13,20 +13,24 @@ const CustomModal = ({ isOpen, onClose, title, children, ...rest }) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay bg={'rgba(17, 17, 17, 0.6);'} />
       <ModalContent
-        w={{ base: '280px', md: '608px' }}
+        display="flex"
+        ml="30%"
+        w="40%"
+        h="550px"
         maxW={'none'}
         px={{ base: '5', md: '20' }}
         py={10}
-        borderRadius={{ base: '20px', md: '40px' }}
+        mt="10%"
+        backgroundColor="#FDF7F2"
+        borderRadius="25px"
         {...rest}
       >
         {title && (
           <ModalHeader
             mx={'auto'}
-            mb={{ base: '5', md: '10' }}
             p={'0'}
-            fontSize={{ base: '2xl', md: '4xl' }}
-            fontWeight={'medium'}
+            fontSize="30px"
+            fontWeight={'bold'}
             lineHeight={'short'}
             color={'accent.black'}
           >
@@ -34,16 +38,18 @@ const CustomModal = ({ isOpen, onClose, title, children, ...rest }) => {
           </ModalHeader>
         )}
         <ModalCloseButton
-          width={{ base: '34px', md: '44px' }}
-          height={{ base: '34px', md: '44px' }}
           top={5}
           right={5}
+          display="flex"
+          alignSelf="flex-end"
+          w="2%"
+          mr="5%"
+          border="none"
           bg={'accent.background'}
-          borderRadius={'50%'}
-          _hover={{ backgroundColor: 'accent.accentOrange' }}
-          _focus={{ backgroundColor: 'accent.accentOrange' }}
         />
-        <ModalBody p={'0'}>{children}</ModalBody>
+        <ModalBody p={'0'} display="flex" alignSelf="center" h="100%" w="200px">
+          {children}
+        </ModalBody>
       </ModalContent>
     </Modal>
   );

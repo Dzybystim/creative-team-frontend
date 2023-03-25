@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
+import './ModalAddsPet.css';
 import { Formik, Form } from 'formik';
 import { useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import moment from 'moment/moment';
-import { Text, Box, Spinner } from '@chakra-ui/react';
+import { Text, Box } from '@chakra-ui/react';
+// import { Spinner } from '@chakra-ui/react';
 import { addNewPet } from 'redux/auth/operations';
-import { getIsRefreshing } from 'redux/auth/selectors';
+// import { getIsRefreshing } from 'redux/auth/selectors';
 import { FormikControl } from '../../../FormikControl';
 import { Button } from 'components/UserPage/Button';
 import { errorToast, successToast } from 'components/Toast';
@@ -14,14 +17,13 @@ import { addPetInitialState, addPetSchema } from './index';
 
 const ModalAddsPet = ({ onClose }) => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsRefreshing);
-
+  // const isLoading = useSelector(getIsRefreshing);
+  // const isLoading = false;
   const nameId = useMemo(() => nanoid(), []);
   const birthdayId = useMemo(() => nanoid(), []);
   const breedId = useMemo(() => nanoid(), []);
   const photoId = useMemo(() => nanoid(), []);
   const commentsId = useMemo(() => nanoid(), []);
-
   const [firstStep, setFirstStep] = useState(true);
 
   function isDisabled(dirty, errors) {
@@ -38,6 +40,7 @@ const ModalAddsPet = ({ onClose }) => {
     { name, birthday, breed, photo, comments },
     { resetForm }
   ) => {
+    console.log('trigger');
     const newPet = new FormData();
     newPet.append('name', name.trim());
     newPet.append(
@@ -52,6 +55,7 @@ const ModalAddsPet = ({ onClose }) => {
         if (error) {
           return errorToast(error.message);
         }
+
         successToast('Pet successfully added');
         resetForm();
         onClose();
@@ -67,7 +71,18 @@ const ModalAddsPet = ({ onClose }) => {
       validateOnChange={true}
     >
       {({ errors, dirty }) => (
-        <Form autoComplete="off" encType="multipart/form-data">
+        <Form
+          autoComplete="off"
+          encType="multipart/form-data"
+          onSubmit={handleSubmit}
+          style={{
+            display: 'flex',
+            flexFlow: 'column',
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           {firstStep ? (
             <>
               <FormikControl
@@ -121,9 +136,10 @@ const ModalAddsPet = ({ onClose }) => {
                 display={'flex'}
                 flexDirection={{ base: 'column', md: 'row-reverse' }}
                 justifyContent={{ base: 'center', md: 'center' }}
+                gap="5px"
               >
                 <Button
-                  controle="secondary"
+                  control="secondary"
                   onClick={() => setFirstStep(false)}
                   mb={{ base: '3', md: '0' }}
                   width={{ md: '180px' }}
@@ -167,10 +183,14 @@ const ModalAddsPet = ({ onClose }) => {
               <FormikControl
                 control="file"
                 id={photoId}
-                name={'photo'}
-                size={{ base: '208px', md: '182px' }}
+                name="UPLOAD"
+                label="UPLOAD"
+                width="250px"
+                height="50px"
+                clip="unset"
+                size={{ base: '108px', md: '100px' }}
                 borderRadius={{ base: '20px', md: '40px' }}
-                plusSize={{ base: '30%', md: '40%' }}
+                plusSize={{ base: '10%', md: '20%' }}
                 errPos={'center'}
               />
               <FormikControl
@@ -196,12 +216,13 @@ const ModalAddsPet = ({ onClose }) => {
               >
                 <Button
                   type="submit"
+                  onClick={() => console.log('trigger on button')}
                   mb={{ base: '3', md: '0' }}
-                  controle="secondary"
+                  control="secondary"
                   width={{ md: '180px' }}
                   aria-label="add"
                 >
-                  {isLoading ? (
+                  {/* {isLoading ? (
                     <>
                       Adding{' '}
                       <Spinner
@@ -213,7 +234,8 @@ const ModalAddsPet = ({ onClose }) => {
                     </>
                   ) : (
                     'Done'
-                  )}
+                    )} */}
+                  Done
                 </Button>
                 <Button
                   onClick={() => setFirstStep(true)}

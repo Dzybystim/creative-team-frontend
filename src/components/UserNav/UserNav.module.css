@@ -1,8 +1,32 @@
+.div {
+  display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .div {
+    display: none;
+  }
+}
+
+.auth {
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  .auth {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .auth {
+    display: flex;
+  }
+}
+
 .userButton {
   border-radius: 40px;
-  border: 2px solid #F59256;
-  color: #FFFFFF;
-  background: #F59256;
+  border: 2px solid #f59256;
+  color: #ffffff;
+  background: #f59256;
   padding: 5px 28px;
   text-align: center;
   text-decoration: none;
@@ -28,8 +52,6 @@
   font-size: 14px;
   line-height: 19px;
   letter-spacing: 0.04em;
-  color:#FFFFFF;
-  margin-left:10px;}
-
-
- 
+  color: #ffffff;
+  margin-left: 10px;
+}

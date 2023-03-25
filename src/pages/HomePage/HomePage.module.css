@@ -35,6 +35,39 @@
   }
 }
 
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+/* .wavesDesk {
+        position: absolute;
+        width: 1338px;
+        height: 700px;
+        left: 30px;
+        top: 295px;
+        z-index: -1;}
+@media screen and (max-width: 1279px) {.wavesDesk{
+    display: none;
+}
+@media screen and (min-width: 1280px) {.wavesDesk{
+    position: absolute;
+    width: 1378px;
+    height: 701px;
+    left: 16px;
+    top: 296px;
+    z-index: -1;
+}}
+.union {
+    position: absolute;
+    right: 579px;
+    top: 295px;}
+
+@media screen and (max-width: 1279px) {.union{
+    display: none;
+}
+} */
+
 .imageHeart {
   position: absolute;
   right: 460 px;
@@ -48,16 +81,16 @@
 }
 
 .frame {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -15;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -15;
+}
+@media screen and (max-width: 1280px) {
+  .frame {
+    display: none;
   }
-  @media screen and (max-width: 1280px) {
-    .frame {
-      display: none;
-    }
-  }
+}
 /* export const ImageWrapper = styled.div` */
 
 .imageDog {

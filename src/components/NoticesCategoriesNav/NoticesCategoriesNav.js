@@ -4,12 +4,10 @@ import { useSelector } from 'react-redux';
 import { selectors } from '../../redux/auth/selectors';
 import { useLocation } from 'react-router-dom';
 
-
 export const NoticesCategoriesNav = () => {
   const isLogged = useSelector(selectors.isLogged);
 
   const location = useLocation();
-
 
   const onlyPublicCategories = [
     { sell: 'sell' },
@@ -24,7 +22,6 @@ export const NoticesCategoriesNav = () => {
     { own: 'my ads' },
   ];
 
-
   return (
     <>
       {!isLogged ? (
@@ -32,13 +29,15 @@ export const NoticesCategoriesNav = () => {
           {onlyPublicCategories.map(category => {
             return (
               <li className={css.item} key={Object.keys(category)}>
-                <NavLink
-                  className={css.link}
-                  to={`/notices/${Object.keys(category)}`}
-                  state={{ from: location }}
-                >
-                  {Object.values(category)}
-                </NavLink>
+                <p>
+                  <NavLink
+                    className={css.link}
+                    to={`/notices/${Object.keys(category)}`}
+                    state={{ from: location }}
+                  >
+                    {Object.values(category)}
+                  </NavLink>
+                </p>
               </li>
             );
           })}
@@ -48,19 +47,20 @@ export const NoticesCategoriesNav = () => {
           {allCategories.map(category => {
             return (
               <li className={css.item} key={Object.keys(category)}>
-                <NavLink
-                  className={css.link}
-                  to={`/notices/${Object.keys(category)}`}
-                  state={{ from: location }}
-                >
-                  {Object.values(category)}
-                </NavLink>
+                <p>
+                  <NavLink
+                    className={css.link}
+                    to={`/notices/${Object.keys(category)}`}
+                    state={{ from: location }}
+                  >
+                    {Object.values(category)}
+                  </NavLink>
+                </p>
               </li>
             );
           })}
         </ul>
       )}
     </>
-
   );
 };

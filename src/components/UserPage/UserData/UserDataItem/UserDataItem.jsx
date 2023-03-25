@@ -8,46 +8,50 @@ import css from './UserDataItem.module.css';
 export default function UserDataItem({ user }) {
   const { birthdate, cityRegion, email, mobilePhone, name } = user;
 
-
-// Стейти полів інпутів
+  // Стейти полів інпутів
 
   const [nameField, setChangeNameField] = useState(name);
   const [emailField, setChangeEmailField] = useState(email);
-  const [birthdayField, setChangeBirthdayField] = useState(birthdate ? birthdate : '01.01.2000');
-  const [phoneField, setChangePhoneField] = useState(mobilePhone ? mobilePhone : '+38000000000');
+  const [birthdayField, setChangeBirthdayField] = useState(
+    birthdate ? birthdate : '01.01.2000'
+  );
+  const [phoneField, setChangePhoneField] = useState(
+    mobilePhone ? mobilePhone : '+38000000000'
+  );
+
   const [cityField, setChangeCityField] = useState(cityRegion);
-// Стейти кліків на кнопки для зміни
+  // Стейти кліків на кнопки для зміни
   const [clickName, setclickName] = useState(false);
   const [clickEmail, setclickEmail] = useState(false);
   const [clickBirthdate, setclickBirthdate] = useState(false);
   const [clickPhone, setclickPhone] = useState(false);
   const [clickCity, setclickCity] = useState(false);
-// Стейт для блокування інших кнопок для змін
-  const [pencilButtonActivity, setPencilButtonActivity] = useState(false)
+  // Стейт для блокування інших кнопок для змін
+  const [pencilButtonActivity, setPencilButtonActivity] = useState(false);
 
   const handleClick = event => {
     event.preventDefault();
-    console.log(event.currentTarget.name[0].name)
-    console.log(event.currentTarget.name)
+    console.log(event.currentTarget.name[0].name);
+    console.log(event.currentTarget.name);
     switch (event.currentTarget.name[0].name || event.currentTarget.name) {
       case 'name':
-        setPencilButtonActivity(true)
+        setPencilButtonActivity(true);
         clickName ? setclickName(false) : setclickName(true);
         break;
       case 'email':
-        setPencilButtonActivity(true)
+        setPencilButtonActivity(true);
         clickEmail ? setclickEmail(false) : setclickEmail(true);
         break;
       case 'birthday':
-        setPencilButtonActivity(true)
+        setPencilButtonActivity(true);
         clickBirthdate ? setclickBirthdate(false) : setclickBirthdate(true);
         break;
       case 'phone':
-        setPencilButtonActivity(true)
+        setPencilButtonActivity(true);
         clickPhone ? setclickPhone(false) : setclickPhone(true);
         break;
       case 'city':
-        setPencilButtonActivity(true)
+        setPencilButtonActivity(true);
         clickCity ? setclickCity(false) : setclickCity(true);
         break;
       default:
@@ -83,38 +87,38 @@ export default function UserDataItem({ user }) {
     event.preventDefault();
     handleClick(event);
 
-    setPencilButtonActivity(false)
-   
-    if(nameField !== name){
-        userEdit({name: nameField}) 
-        userEdit({email: emailField})
-        userEdit({mobilePhone: phoneField})
-        userEdit({cityRegion: cityField})
-        userEdit({birthdate: birthdayField})
+    setPencilButtonActivity(false);
+
+    if (nameField !== name) {
+      userEdit({ name: nameField });
+      userEdit({ email: emailField });
+      userEdit({ mobilePhone: phoneField });
+      userEdit({ cityRegion: cityField });
+      userEdit({ birthdate: birthdayField });
     } else if (emailField !== email) {
-        userEdit({name: nameField}) 
-        userEdit({email: emailField})
-        userEdit({mobilePhone: phoneField})
-        userEdit({cityRegion: cityField})
-        userEdit({birthdate: birthdayField})
-    }  else if (phoneField !== mobilePhone) {
-        userEdit({name: nameField}) 
-        userEdit({email: emailField})
-        userEdit({mobilePhone: phoneField})
-        userEdit({cityRegion: cityField})
-        userEdit({birthdate: birthdayField})
+      userEdit({ name: nameField });
+      userEdit({ email: emailField });
+      userEdit({ mobilePhone: phoneField });
+      userEdit({ cityRegion: cityField });
+      userEdit({ birthdate: birthdayField });
+    } else if (phoneField !== mobilePhone) {
+      userEdit({ name: nameField });
+      userEdit({ email: emailField });
+      userEdit({ mobilePhone: phoneField });
+      userEdit({ cityRegion: cityField });
+      userEdit({ birthdate: birthdayField });
     } else if (cityField !== cityRegion) {
-        userEdit({name: nameField}) 
-        userEdit({email: emailField})
-        userEdit({mobilePhone: phoneField})
-        userEdit({cityRegion: cityField})
-        userEdit({birthdate: birthdayField})
+      userEdit({ name: nameField });
+      userEdit({ email: emailField });
+      userEdit({ mobilePhone: phoneField });
+      userEdit({ cityRegion: cityField });
+      userEdit({ birthdate: birthdayField });
     } else if (birthdayField !== birthdate) {
-        userEdit({name: nameField}) 
-        userEdit({email: emailField})
-        userEdit({mobilePhone: phoneField})
-        userEdit({cityRegion: cityField})
-        userEdit({birthdate: birthdayField})
+      userEdit({ name: nameField });
+      userEdit({ email: emailField });
+      userEdit({ mobilePhone: phoneField });
+      userEdit({ cityRegion: cityField });
+      userEdit({ birthdate: birthdayField });
     } else {
       return;
     }
@@ -126,7 +130,7 @@ export default function UserDataItem({ user }) {
         <tbody>
           <tr>
             <td>
-              <p className={css.text_user}>Name</p>
+              <p className={css.text_user}>Name:</p>
             </td>
             {clickName === false ? (
               <>
@@ -139,25 +143,31 @@ export default function UserDataItem({ user }) {
                     className={css.button_pencil}
                     name="name"
                     onClick={handleClick}
-                    disabled={pencilButtonActivity===false ? false : true}
+                    disabled={pencilButtonActivity === false ? false : true}
                   >
-                    <HiPencil className={pencilButtonActivity===false ? css.pencil : css.pencil_disabled} />
+                    <HiPencil
+                      className={
+                        pencilButtonActivity === false
+                          ? css.pencil
+                          : css.pencil_disabled
+                      }
+                    />
                   </button>
                 </td>
               </>
             ) : (
-              <>     
+              <>
                 <td>
-                <form id="sub_name" name="name" onSubmit={clickSubmit}>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    pattern='^[a-zA-Z]+$'
-                    value={nameField}
-                    onChange={handleChange}
-                    className={css.input}
-                  ></input>
+                  <form id="sub_name" name="name" onSubmit={clickSubmit}>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      pattern="^[a-zA-Z]+$"
+                      value={nameField}
+                      onChange={handleChange}
+                      className={css.input}
+                    ></input>
                   </form>
                 </td>
                 <td>
@@ -175,7 +185,7 @@ export default function UserDataItem({ user }) {
           </tr>
           <tr>
             <td>
-              <p className={css.text_user}>Email</p>
+              <p className={css.text_user}>Email:</p>
             </td>
             {clickEmail === false ? (
               <>
@@ -188,25 +198,31 @@ export default function UserDataItem({ user }) {
                     className={css.button_pencil}
                     name="email"
                     onClick={handleClick}
-                    disabled={pencilButtonActivity===false ? false : true}
+                    disabled={pencilButtonActivity === false ? false : true}
                   >
-                    <HiPencil className={pencilButtonActivity===false ? css.pencil : css.pencil_disabled} />
+                    <HiPencil
+                      className={
+                        pencilButtonActivity === false
+                          ? css.pencil
+                          : css.pencil_disabled
+                      }
+                    />
                   </button>
                 </td>
               </>
             ) : (
               <>
                 <td>
-                <form id="sub_email" name="email" onSubmit={clickSubmit}>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                    value={emailField}
-                    onChange={handleChange}
-                    className={css.input}
-                  ></input>
+                  <form id="sub_email" name="email" onSubmit={clickSubmit}>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                      value={emailField}
+                      onChange={handleChange}
+                      className={css.input}
+                    ></input>
                   </form>
                 </td>
                 <td>
@@ -224,7 +240,7 @@ export default function UserDataItem({ user }) {
           </tr>
           <tr>
             <td>
-              <p className={css.text_user}>Birthday</p>
+              <p className={css.text_user}>Birthday:</p>
             </td>
             {clickBirthdate === false ? (
               <>
@@ -239,25 +255,31 @@ export default function UserDataItem({ user }) {
                     className={css.button_pencil}
                     name="birthday"
                     onClick={handleClick}
-                    disabled={pencilButtonActivity===false ? false : true}
+                    disabled={pencilButtonActivity === false ? false : true}
                   >
-                    <HiPencil className={pencilButtonActivity===false ? css.pencil : css.pencil_disabled} />
+                    <HiPencil
+                      className={
+                        pencilButtonActivity === false
+                          ? css.pencil
+                          : css.pencil_disabled
+                      }
+                    />
                   </button>
                 </td>
               </>
             ) : (
               <>
                 <td>
-                <form id="sub_birt" name="birthday" onSubmit={clickSubmit}>
-                  <input
-                    type="text"
-                    name="birthday"
-                    required
-                    pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
-                    value={birthdayField}
-                    onChange={handleChange}
-                    className={css.input}
-                  ></input>
+                  <form id="sub_birt" name="birthday" onSubmit={clickSubmit}>
+                    <input
+                      type="text"
+                      name="birthday"
+                      required
+                      pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
+                      value={birthdayField}
+                      onChange={handleChange}
+                      className={css.input}
+                    ></input>
                   </form>
                 </td>
                 <td>
@@ -275,7 +297,7 @@ export default function UserDataItem({ user }) {
           </tr>
           <tr>
             <td>
-              <p className={css.text_user}>Phone</p>
+              <p className={css.text_user}>Phone:</p>
             </td>
             {clickPhone === false ? (
               <>
@@ -290,25 +312,31 @@ export default function UserDataItem({ user }) {
                     className={css.button_pencil}
                     name="phone"
                     onClick={handleClick}
-                    disabled={pencilButtonActivity===false ? false : true}
+                    disabled={pencilButtonActivity === false ? false : true}
                   >
-                    <HiPencil className={pencilButtonActivity===false ? css.pencil : css.pencil_disabled} />
+                    <HiPencil
+                      className={
+                        pencilButtonActivity === false
+                          ? css.pencil
+                          : css.pencil_disabled
+                      }
+                    />
                   </button>
                 </td>
               </>
             ) : (
               <>
                 <td>
-                <form id="sub_phone" name="phone" onSubmit={clickSubmit}>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    pattern="\+?[0-9\s\-\(\)]+"
-                    value={phoneField}
-                    onChange={handleChange}
-                    className={css.input}
-                  ></input>
+                  <form id="sub_phone" name="phone" onSubmit={clickSubmit}>
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      pattern="\+?[0-9\s\-\(\)]+"
+                      value={phoneField}
+                      onChange={handleChange}
+                      className={css.input}
+                    ></input>
                   </form>
                 </td>
                 <td>
@@ -326,7 +354,7 @@ export default function UserDataItem({ user }) {
           </tr>
           <tr>
             <td>
-              <p className={css.text_user}>City</p>
+              <p className={css.text_user}>City:</p>
             </td>
             {clickCity === false ? (
               <>
@@ -339,25 +367,31 @@ export default function UserDataItem({ user }) {
                     className={css.button_pencil}
                     name="city"
                     onClick={handleClick}
-                    disabled={pencilButtonActivity===false ? false : true}
+                    disabled={pencilButtonActivity === false ? false : true}
                   >
-                    <HiPencil className={pencilButtonActivity===false ? css.pencil : css.pencil_disabled} />
+                    <HiPencil
+                      className={
+                        pencilButtonActivity === false
+                          ? css.pencil
+                          : css.pencil_disabled
+                      }
+                    />
                   </button>
                 </td>
               </>
             ) : (
               <>
                 <td>
-                <form id="sub_city" name="city" onSubmit={clickSubmit}>
-                  <input
-                    type="text"
-                    name="city"
-                    required
-                    pattern='^[a-zA-Z]+$'
-                    value={cityField}
-                    onChange={handleChange}
-                    className={css.input}
-                  ></input>
+                  <form id="sub_city" name="city" onSubmit={clickSubmit}>
+                    <input
+                      type="text"
+                      name="city"
+                      required
+                      pattern="^[a-zA-Z]+$"
+                      value={cityField}
+                      onChange={handleChange}
+                      className={css.input}
+                    ></input>
                   </form>
                 </td>
                 <td>

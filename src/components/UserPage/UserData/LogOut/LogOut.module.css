@@ -1,5 +1,6 @@
 .container_logOut {
-  margin-right: 12px;
+  margin-top: 42px;
+  margin-right: 8px;
   margin-left: auto;
   width: 89px;
 }
@@ -26,4 +27,18 @@
   font-family: 'Manrope';
   font-weight: 500;
   line-height: 1.4;
+}
+
+.text_logOut:hover,
+.text_logOut:focus {
+  color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .container_logOut {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    width: 89px;
+  }
 }

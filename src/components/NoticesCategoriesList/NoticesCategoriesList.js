@@ -8,14 +8,13 @@ export const NoticesCategoriesList = ({ notices }) => {
     <>
       <AddNoticeButton />
 
-        {
-          notices ? (  <ul className={css.list}>
-        {notices.map(notice => {
-          return <NoticeCategoryItem key={notice._id} item={notice} />;
-        })}
-      </ul>) : null
-        }
-       
+      {notices ? (
+        <ul className={css.list}>
+          {notices.map(notice => {
+            return <NoticeCategoryItem key={notice._id} item={notice} />;
+          })}
+        </ul>
+      ) : null}
     </>
   );
 };

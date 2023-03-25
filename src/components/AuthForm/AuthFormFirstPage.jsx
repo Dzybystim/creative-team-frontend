@@ -20,7 +20,7 @@ export const AuthFormFirstPage = props => {
   };
 
   return (
-    <div className={css.container}>
+    <div className={css.containers}>
       <Formik
         validationSchema={user.stepOneValidationSchema}
         initialValues={props.data}
