@@ -16,6 +16,7 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const NewsPage = lazy(() => import('../pages/News'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
+
 const UserPage = lazy(() => import('../pages/UserPage'));
 const NotFound = lazy(() => import('../utilities/NotFound/NotFound'));
 
@@ -37,7 +38,7 @@ export const App = () => {
               <Route path="logout" element={<div>Logout</div>} />
             </Route>
 
-            <Route path="*" element={<NotFound />} />
+            {/* <Route path="*" element={<NotFound />} /> */}
           </Route>
         </Routes>
         <ToastContainer />
