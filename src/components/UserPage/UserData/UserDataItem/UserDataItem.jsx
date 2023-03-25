@@ -9,6 +9,7 @@ export default function UserDataItem({ user }) {
   const { birthdate, cityRegion, email, mobilePhone, name } = user;
 
   // Стейти полів інпутів
+
   const [nameField, setChangeNameField] = useState(name);
   const [emailField, setChangeEmailField] = useState(email);
   const [birthdayField, setChangeBirthdayField] = useState(
@@ -84,6 +85,7 @@ export default function UserDataItem({ user }) {
   const clickSubmit = event => {
     event.preventDefault();
     handleClick(event);
+
     setPencilButtonActivity(false);
 
     if (nameField !== name) {

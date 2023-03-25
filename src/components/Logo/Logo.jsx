@@ -1,11 +1,11 @@
 import css from './Logo.module.css';
+import logo from '../../images/petly.svg';
+import { NavLink } from 'react-router-dom';
 
 export const Logo = () => {
   return (
-    <div className={css.iconContainer}>
-      <p className={css.logo}>
-        pe<span className={css.letter}>t</span>ly
-      </p>
-    </div>
+    <NavLink to="/">
+      <img className={css.logoImg} src={logo} alt="Logo"></img>
+    </NavLink>
   );
 };

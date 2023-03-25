@@ -3,23 +3,23 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { selectors } from '../../redux/auth/selectors';
 import { useSelector } from 'react-redux';
-import css from './Burmenu.module.css';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import css from './Burmenu.module.css';
 
 export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
   const isLoggedIn = useSelector(selectors.isLogged);
 
   return (
-    <div className="Wrapper" style={{ width: '100%', height: '100 hv' }}>
+    <div className={css.wrapper} style={{ width: '100%', height: '100 hv' }}>
       <nav className="BG">
-        <div className="burger-menu" onClick={updateMenu}>
+        <div className={css.burgerMenu} onClick={updateMenu}>
           <div className={burger_class}></div>
           <div className={burger_class}></div>
           <div className={burger_class}></div>
         </div>
       </nav>
       <div className={menu_class}>
-        <ul className="auth">
+        <ul className={css.auth}>
           {!isLoggedIn ? (
             <>
               <NavLink
@@ -46,15 +46,15 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
             </li>
           )}
         </ul>
-        <div className="div">
-          <ul className="bgNews">
+        <div className={css.div}>
+          <ul className={css.bgNews}>
             <li className={css.navItem} onClick={updateMenu}>
-              <NavLink className={css.inkNews} to="/news">
+              <NavLink className={css.linkNews} to="/news">
                 News
               </NavLink>
             </li>
             <li className={css.navItem} onClick={updateMenu}>
-              <NavLink className={css.linkNotices} to="/notices">
+              <NavLink className={css.linkNotices} to="/notices/:category">
                 Find pet
               </NavLink>
             </li>
