@@ -1,4 +1,5 @@
-.container {
+.containers {
+  position: relative;
   width: 100%;
   height: calc(100vh - 68px);
   display: flex;
@@ -11,7 +12,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .container {
+  .containers {
     padding-right: 20px;
     padding-left: 20px;
     background-image: url('../../images/mobile/loginBg.png');
@@ -24,7 +25,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .containers {
     background-image: url('../../images/tablet/loginBg.png');
   }
   .form {
@@ -37,7 +38,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .container {
+  .containers {
     background-image: url('../../images/desctop/loginPageBg.png');
   }
   .form {
@@ -126,4 +127,14 @@
   text-align: center;
   letter-spacing: 0.04em;
   color: red;
+}
+.container_DNA {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -5,13 +5,28 @@ import cssButton from '../Button/Button.module.css';
 import { InputForm } from 'components/Input/Input';
 import Button from 'components/Button/Button';
 import { user } from 'service';
+import { selectors } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
+import { Dna } from 'react-loader-spinner';
 
 export const AuthFormSecondPage = props => {
+  const getLoad = useSelector(selectors.isLoadUser);
   const handleSubmit = values => {
     props.next(values, true);
   };
   return (
-    <div className={css.container}>
+    <div className={css.containers}>
+      <div className={css.container_DNA}>
+        {getLoad && (
+          <Dna
+            visible={true}
+            height="150"
+            width="150"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+          />
+        )}
+      </div>
       <Formik
         validationSchema={user.stepTwoValidationSchema}
         initialValues={props.data}
