@@ -1,4 +1,4 @@
-.ul {
+.navigation {
   list-style: none;
   display: flex;
   gap: 80px;
@@ -6,10 +6,10 @@
 }
 
 @media screen and (max-width: 1279px) {
-  .ul {
-    display: none;
+  .navigation {
     margin: 0;
     padding: 0;
+    display: none;
   }
 }
 
