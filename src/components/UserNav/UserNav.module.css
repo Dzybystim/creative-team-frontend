@@ -20,11 +20,6 @@
   .auth {
     display: flex;
   }
-  :hover {
-    /* background-color: #f59256; */
-    color: #ffffff;
-    cursor: pointer;
-  }
 }
 
 .userButton {
