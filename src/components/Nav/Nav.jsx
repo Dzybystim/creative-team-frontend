@@ -4,7 +4,6 @@ import css from './Nav.module.css';
 export const Nav = () => {
   return (
     <>
-
       <ul className={css.ul}>
         <li className={css.navItem}>
           <NavLink className={css.linkStyled} to="/news">

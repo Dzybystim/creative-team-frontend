@@ -9,6 +9,9 @@ import { useLogInMutation } from 'redux/auth/fetchUser';
 import { InputForm } from 'components/Input/Input';
 import { user } from 'service';
 import Button from 'components/Button/Button';
+import { Dna } from 'react-loader-spinner';
+import { useSelector } from 'react-redux';
+import { selectors } from 'redux/auth/selectors';
 
 const initialValues = {
   email: '',
@@ -20,6 +23,7 @@ export const LoginForm = props => {
   const [isError, setIsError] = useState(null);
   const [passwordShow, setPasswordShow] = useState(false);
   const navigate = useNavigate();
+  const getLoad = useSelector(selectors.isLoadUser);
 
   const togglePassword = () => setPasswordShow(prevState => !prevState);
 
@@ -38,7 +42,18 @@ export const LoginForm = props => {
   };
 
   return (
-    <div className={css.container}>
+    <div className={css.containers}>
+      <div className={css.container_DNA}>
+        {getLoad && (
+          <Dna
+            visible={true}
+            height="150"
+            width="150"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+          />
+        )}
+      </div>
       <Formik
         validationSchema={user.loginValidationSchema}
         initialValues={initialValues}
@@ -62,7 +77,7 @@ export const LoginForm = props => {
                 name="password"
                 type={passwordShow ? 'text' : 'password'}
                 placeholder="Password"
-                autoComplete="off"
+                autoComplete="on"
               />
               <span
                 id="visibilityBtn"

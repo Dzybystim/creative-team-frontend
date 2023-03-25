@@ -7,7 +7,7 @@ export const InputForm = ({
   customStyle,
   placeholder,
   autofocus,
-  autoComplete,
+  autoComplete = 'new-password',
   as,
 }) => {
   return (

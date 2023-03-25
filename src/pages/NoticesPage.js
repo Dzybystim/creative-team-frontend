@@ -47,52 +47,53 @@ const NoticesPage = () => {
     setSearchQuery('');
   };
 
-    // if (category === 'favorite' && (searchQuery)) {
-    //   if (selectedNotices.length === 0) {
-    //     setSelectedNotices('');
-    //     return toast.error('Nothing found for your request!');
-    //    }
-    //   const findNotices = selectedNotices.filter(item => item.title.includes(searchQuery));
-    //   if (findNotices.length === 0) {
-    //     setSelectedNotices('');
-    //     return toast.error('Nothing found for your request!');
-    //    }
-    //    setSelectedNotices(findNotices);
-    // }
-    // if (category !== 'favorite' && (searchQuery)){
-    //   getNoticesByTitle(searchQuery)
-    //         .then(data => {
-    //           if (data.length === 0) {
-    //             setNotices('');
-    //             return toast.error('Nothing found for your request!');
-    //            }
-    //           const findNotices = data.filter(item => item.category === category);
-    //           if (findNotices.length === 0) {
-    //             setNotices('');
-    //             return toast.error('Nothing found for your request!');
-    //           }
-    //           setNotices(findNotices);
-    //         })
-    //         .catch(error => {
-    //           console.log('Error', error);
-    //         });
-    // }
-  
+  // if (category === 'favorite' && (searchQuery)) {
+  //   if (selectedNotices.length === 0) {
+  //     setSelectedNotices('');
+  //     return toast.error('Nothing found for your request!');
+  //    }
+  //   const findNotices = selectedNotices.filter(item => item.title.includes(searchQuery));
+  //   if (findNotices.length === 0) {
+  //     setSelectedNotices('');
+  //     return toast.error('Nothing found for your request!');
+  //    }
+  //    setSelectedNotices(findNotices);
+  // }
+  // if (category !== 'favorite' && (searchQuery)){
+  //   getNoticesByTitle(searchQuery)
+  //         .then(data => {
+  //           if (data.length === 0) {
+  //             setNotices('');
+  //             return toast.error('Nothing found for your request!');
+  //            }
+  //           const findNotices = data.filter(item => item.category === category);
+  //           if (findNotices.length === 0) {
+  //             setNotices('');
+  //             return toast.error('Nothing found for your request!');
+  //           }
+  //           setNotices(findNotices);
+  //         })
+  //         .catch(error => {
+  //           console.log('Error', error);
+  //         });
+  // }
 
   useEffect(() => {
     console.log('selectedNotices', selectedNotices);
-    if(selectedNotices.length === 0 && isLogged) {
-      console.log('selectedNotices.length === 0 && isLogged', selectedNotices.length === 0 && isLogged);
+    if (selectedNotices.length === 0 && isLogged) {
+      console.log(
+        'selectedNotices.length === 0 && isLogged',
+        selectedNotices.length === 0 && isLogged
+      );
       getAllSelectedNotices()
-            .then(data => {
-              setSelectedNotices(data);
-            })
-            .catch(error => {
-              console.log('Error', error);
-            });
-      }
-  },[isLogged])
-
+        .then(data => {
+          setSelectedNotices(data);
+        })
+        .catch(error => {
+          console.log('Error', error);
+        });
+    }
+  }, [isLogged]);
 
   useEffect(() => {
     const queryFromSearchParams = searchParams.get('query');
@@ -100,10 +101,11 @@ const NoticesPage = () => {
       return;
     }
 
-
     if (category === 'favorite' && isLogged) {
-      const findNotices = selectedNotices.filter(item => item.title.includes(queryFromSearchParams));
-  //    console.log('findNotices', findNotices);
+      const findNotices = selectedNotices.filter(item =>
+        item.title.includes(queryFromSearchParams)
+      );
+      //    console.log('findNotices', findNotices);
 
       if (findNotices.length === 0) {
         return toast.error('Nothing found for your request!');
@@ -112,7 +114,6 @@ const NoticesPage = () => {
     }
 
     if (category !== 'favorite') {
-
       getNoticesByCategories(category)
         .then(data => {
           setNotices(data);

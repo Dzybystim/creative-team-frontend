@@ -8,12 +8,16 @@ import css from './AuthNav.module.css';
 export const AuthNav = ({ isMenuClicked }) => {
   return (
     <>
-    {!isMenuClicked && (
+      {!isMenuClicked && (
         <ul className={css.auth}>
-        <NavLink className = {css.linkStyled} to="/login">Login</NavLink>
-        <NavLink className = {css.linkStyled} to="/register">Registration</NavLink>
-      </ul>
-    )}
+          <NavLink className={css.linkStyled} to="/login">
+            Login
+          </NavLink>
+          <NavLink className={css.linkStyled} to="/register">
+            Registration
+          </NavLink>
+        </ul>
+      )}
     </>
   );
 };

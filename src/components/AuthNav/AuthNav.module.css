@@ -10,11 +10,6 @@
   .auth {
     display: flex;
   }
-  :hover {
-    background-color: #f59256;
-    color: #ffffff;
-    cursor: pointer;
-  }
 }
 
 .linkStyled {
@@ -25,22 +20,23 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;}
+  font-size: 16px;
+}
 
-  .linkStyled:active {
-    /* background-color: ; */
-    /* color: ; */
-  }
+.linkStyled:active {
+  /* background-color: ; */
+  /* color: ; */
+}
 
-  .linkStyled:hover {
-    color: #ffffff;
-    background-color: #f59256;
-  }
+.linkStyled:hover {
+  color: #ffffff;
+  background-color: #f59256;
+}
 
-  @media screen and (min-width: 768px) {
-    .linkStyled {
+@media screen and (min-width: 768px) {
+  .linkStyled {
     margin-right: 12px;
     font-weight: 500;
     font-size: 20px;
-    }
   }
+}

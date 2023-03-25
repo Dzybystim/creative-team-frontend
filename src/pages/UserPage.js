@@ -10,6 +10,7 @@ import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
 export default function UserPage() {
+
   const [userAndPets, setUserAndPets] = useState([]);
   const [userFoto, setUserFoto] = useState(null);
 

@@ -11,11 +11,11 @@ export const UserNav = ({ isMenuClicked }) => {
       {!isMenuClicked && (
         // <Div>
         //   <Auth>
-            <NavLink className={css.userButton} to="/user">
-              <AccountCircle sx={{ color: '#F59256' }} />
-              {/* <UserIcon/> */}
-              <div className={css.userLink} >Account</div>
-            </NavLink>
+        <NavLink className={css.userButton} to="/user">
+          <AccountCircle sx={{ color: '#F59256' }} />
+          {/* <UserIcon/> */}
+          <div className={css.userLink}>Account</div>
+        </NavLink>
         //   </Auth>
         // </Div>
       )}
