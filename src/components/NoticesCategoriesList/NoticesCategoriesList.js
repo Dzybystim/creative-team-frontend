@@ -1,8 +1,11 @@
 import { NoticeCategoryItem } from '../NoticeCategoryItem/NoticeCategoryItem';
 import { AddNoticeButton } from '../AddNoticeButton/AddNoticeButton';
+
 import css from './NoticesCategoriesList.module.css';
 
+
 export const NoticesCategoriesList = ({ notices }) => {
+
   return (
     <>
       <AddNoticeButton />
