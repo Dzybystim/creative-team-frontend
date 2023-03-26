@@ -19,6 +19,10 @@
   position: relative;
   height: 78px;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
   font-weight: 700;
   font-size: 24px;
   letter-spacing: -0.01em;
@@ -43,6 +47,10 @@
 .newsDescription {
   height: 154px;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
   color: #111321;
 }
 
@@ -88,6 +96,7 @@
 
   .newsDescription {
     height: 132px;
+    -webkit-line-clamp: 6;
   }
 
   .newsTitleList {
@@ -110,5 +119,6 @@
 
   .newsDescription {
     height: 110px;
+    -webkit-line-clamp: 5;
   }
 }

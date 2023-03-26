@@ -168,16 +168,17 @@
 @media screen and (min-width: 1280px) {
   .container_text {
     margin-left: 16px;
-    margin-right: 12px;
-    margin-bottom: 12px;
-    width: 252px;
+    margin-right: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 363px;
     border: 0;
-    border-spacing: 0;
+    border-spacing: 0 13px;
   }
 
   .text_user {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 1.4;
   }
 
@@ -201,31 +202,46 @@
     align-items: center;
     justify-content: center;
     padding: 0;
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background-color: var(--bg-color);
     border: 0;
   }
 
   .pencil {
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     fill: var(--accent-color);
     object-fit: fill;
   }
 
   .pencil_disabled {
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     fill: var(--black-color);
     object-fit: fill;
   }
 
   .check {
-    width: 14px;
-    height: 12px;
+    width: 25px;
+    height: 21px;
     fill: var(--accent-color);
     object-fit: fill;
+  }
+
+  .input {
+    width: 210px;
+
+    background-color: var(--bg-color);
+
+    border: 0;
+    border-radius: 40px;
+    font-size: 18px;
+    line-height: 1.4;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 12px;
   }
 }

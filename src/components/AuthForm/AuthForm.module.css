@@ -39,7 +39,7 @@
 
 @media screen and (min-width: 1200px) {
   .containers {
-    background-image: url('../../images/desctop/loginPageBg.png');
+    background-image: url('../../images/desktop/loginPageBg.png');
   }
   .form {
     width: 620px;
@@ -92,8 +92,7 @@
 
 .error {
   position: absolute;
-  top: 25%;
-  right: 6%;
+  top: 95%;
   font-family: 'Manrope';
   font-weight: 400;
   font-size: 14px;
@@ -106,8 +105,7 @@
 
 .error__password {
   position: absolute;
-  top: 25%;
-  right: 12%;
+  top: 95%;
   font-family: 'Manrope';
   font-weight: 400;
   font-size: 14px;

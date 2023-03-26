@@ -34,11 +34,11 @@
 
 @media screen and (min-width: 768px) {
   .conteiner_foto {
-    height: 257px;
+    height: 253px;
     width: 233px;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-bottom: 8px;
-    padding-top: 24px;
+    margin-left: 89px;
+    margin-right: 89px;
+    margin-bottom: 0;
+    padding-top: 20px;
   }
 }
