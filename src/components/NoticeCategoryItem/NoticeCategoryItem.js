@@ -4,6 +4,7 @@ import { NoticeModal } from 'components/NoticeModal/NoticeModal';
 import css from './NoticeCategoryItem.module.css';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { HiTrash } from 'react-icons/hi';
+import { ageCounter } from '../../utilities/ageCounter';
 
 import { getNoticesById } from '../../utilities/helpers';
 
@@ -26,10 +27,7 @@ export const NoticeCategoryItem = ({ item }) => {
       });
   };
 
-  //     return (
-  // <>
-  //         <li className={css.item} >
-
+  const age = ageCounter(item.birthdate);
   return (
     <>
       <li className={css.item}>
@@ -56,7 +54,7 @@ export const NoticeCategoryItem = ({ item }) => {
           </li>
           <li className={css.info_item}>
             <p className={css.text}>Age: </p>
-            <p className={css.text}>{item.age}</p>
+            <p className={css.text}>{age}</p>
           </li>
 
           {item.price ? (
