@@ -1,6 +1,7 @@
 .page {
-  padding-top: 60px;
-}
+  margin: 0;
+  padding: 0;}
+  
 @media screen and (min-width: 768px) {
   .page {
     display: flex;
@@ -21,8 +22,8 @@
   font-size: 32px;
   line-height: 44px;
   color: black;
-  padding-left: 20px;
-  -bottom: 58px;
+  padding-top: 50px;
+  /* bottom: 58px; */
 }
 @media screen and (min-width: 768px) {
   .h1 {
@@ -31,7 +32,17 @@
     font-weight: 700;
     font-size: 68px;
     line-height: 100px;
-    padding-left: 20px;
+    padding-top: 0px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .h1 {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 68px;
+    line-height: 100px;
+    padding-top: 22px;
   }
 }
 
@@ -39,6 +50,7 @@
   margin: 0;
   padding: 0;
 }
+
 
 /* .wavesDesk {
         position: absolute;
@@ -57,22 +69,15 @@
     left: 16px;
     top: 296px;
     z-index: -1;
-}}
-.union {
-    position: absolute;
-    right: 579px;
-    top: 295px;}
+}} */
 
-@media screen and (max-width: 1279px) {.union{
-    display: none;
-}
-} */
 
 .imageHeart {
   position: absolute;
-  right: 460 px;
-  bottom: 509 px;
-  object-fit: cover;
+  right: 479px;
+  top: 118px;
+  padding-left: 460 px;
+  /* object-fit: cover; */
 }
 @media screen and (max-width: 1279px) {
   .imageHeart {
@@ -91,7 +96,6 @@
     display: none;
   }
 }
-/* export const ImageWrapper = styled.div` */
 
 .imageDog {
   position: absolute;

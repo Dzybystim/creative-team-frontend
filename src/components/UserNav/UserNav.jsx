@@ -11,9 +11,9 @@ export const UserNav = ({ isMenuClicked }) => {
         <div className={css.div}>
           <ul className={css.auth}>
             <NavLink className={css.userButton} to="/user">
-              <AccountCircle sx={{ color: '#F59256' }} />
+              <AccountCircle sx={{ color: 'white' }} />
               {/* <UserIcon/> */}
-              <div className={css.userLink}>Account</div>
+              <div className={css.userLink}>Glory to Ukraine!</div>
             </NavLink>
           </ul>
         </div>
