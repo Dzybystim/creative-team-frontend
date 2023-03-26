@@ -1,6 +1,6 @@
 .conteiner_foto {
-  width: 233px;
   height: 233px;
+  width: 233px;
   margin-left: 23px;
   margin-right: 24px;
   margin-bottom: 12px;
@@ -8,23 +8,37 @@
 }
 
 .foto_img {
-  display: block;
-  height: 100%;
   width: 100%;
-  object-fit: fill;
+  height: 100%;
+  display: block;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .foto_svg_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 233px;
+  width: 233px;
+  margin-left: 23px;
+  margin-right: 24px;
+  margin-bottom: 12px;
+  padding-top: 20px;
 }
 
 .foto_svg {
-  height: 85%;
-  width: 85%;
-  object-fit: fill;
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
   border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .conteiner_foto {
+    height: 257px;
+    width: 233px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 8px;
+    padding-top: 24px;
+  }
 }

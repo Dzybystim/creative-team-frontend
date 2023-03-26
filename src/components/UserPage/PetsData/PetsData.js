@@ -1,10 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Text,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, Text, useDisclosure } from '@chakra-ui/react';
 import PetsList from '../PetsList/PetsList';
 import { Modal } from '../PetsData/Modal';
 import { ModalAddsPet } from 'components/UserPage/PetsData/ModalAddsPet';
@@ -15,25 +9,17 @@ const PetsData = ({ pets }) => {
   return (
     <Box ml={{ xl: '32px' }} w="100%">
       <Flex
-        direction="baseline"
+        direction="row"
         justifyContent="space-between"
         pt={{ base: '40px', md: '20px', xl: '0px' }}
         mb={{ base: '26px', md: '22px', xl: '24px' }}
       >
-        {/* <Heading
-          as="h2"
-          my="auto"
-          fontSize={{ base: '20px', md: '28px' }}
-          lineHeight={{ base: '1.35' }}
-          fontWeight={{ base: '500' }}
-        >
-          My pets:
-        </Heading> */}
+        {' '}
         <Button
           aria-label="add pet"
           onClick={onOpen}
           rightIcon={
-            <BsFillPlusCircleFill size="40px" fill="#F59256" m="0px" />
+            <BsFillPlusCircleFill size="20px" fill="#e08f64" m="0px" />
           }
           bg="transparent"
           fontSize={{ base: '20px', md: '28px' }}
@@ -42,12 +28,15 @@ const PetsData = ({ pets }) => {
           fontWeight={{ base: '500' }}
           type="button"
           px="0px"
-          _hover={{ color: 'accent.accentOrange' }}
-          transitionProperty={'color'}
+          border="none"
+          // _hover={{ color: 'accent.accentOrange' }}
+          // transitionProperty={'color'}
           transitionDuration={'250ms'}
           transitionTimingFunction={'cubic-bezier(0.4, 0, 0.2, 1)'}
         >
-          <Text mr="7px">Add pet</Text>
+          <Text mr="0.5px" ml="15px">
+            Add pet
+          </Text>
         </Button>
       </Flex>
       <PetsList pets={pets} />
@@ -74,7 +63,7 @@ export default PetsData;
       ) : (
         <div>
           {visibleContacts.map(({ id, photo, name, birthday, breed, comments}) => (
-            <Pet key={id} id={id} name={name} birthday={birthday} 
+            <Pet key={id} id={id} name={name} birthday={birthday}
             breed={breed} photo={photo} comments={comments}/>
           ))}
         </div>

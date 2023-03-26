@@ -4,7 +4,6 @@ import { useState } from 'react';
 import css from './AddNoticeButton.module.css';
 import { AiOutlinePlus } from 'react-icons/ai';
 
-
 export const AddNoticeButton = () => {
   const [showModal, setShowModal] = useState(false);
 
@@ -20,7 +19,7 @@ export const AddNoticeButton = () => {
       </button>
       {showModal && (
         <Modal onClose={toggleModal}>
-          <ModalAddNotice onClose={toggleModal}/>
+          <ModalAddNotice onClose={toggleModal} />
         </Modal>
       )}
     </>

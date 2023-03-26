@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://backend.petly.club';
+axios.defaults.baseURL = 'https://backend.petly.club';
 
 export const fetchOurFriends = async () => {
   return await axios
@@ -113,7 +113,7 @@ export const deleteFromSelectedNotices = async noticeId => {
   }
 };
 
-export const getNoticesById = async (noticeId) => {
+export const getNoticesById = async noticeId => {
   try {
     const response = await axios.get(`/notices/${noticeId}`);
     return response.data;
@@ -131,3 +131,12 @@ export const getNoticesById = async (noticeId) => {
 //   }
 // };
 
+export const postNewNotice = async data => {
+  try {
+    const response = await axios.post(`/notices/user`, data);
+    console.log('add new notice result', response);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

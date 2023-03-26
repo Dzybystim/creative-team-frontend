@@ -2,22 +2,21 @@ import { NavLink } from 'react-router-dom';
 // import Button from '@mui/material/Button';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import PropTypes from 'prop-types';
-import css from '../AuthNav/AuthNav.module.css';
-// import css from '../UserNav/UserNav.module.css';
+import css from '../UserNav/UserNav.module.css';
 
 export const UserNav = ({ isMenuClicked }) => {
   return (
     <>
       {!isMenuClicked && (
-        // <Div>
-        //   <Auth>
+        <div className={css.div}>
+          <ul className={css.auth}>
             <NavLink className={css.userButton} to="/user">
-              <AccountCircle sx={{ color: '#F59256' }} />
+              <AccountCircle sx={{ color: 'white' }} />
               {/* <UserIcon/> */}
-              <div className={css.userLink} >Account</div>
+              <div className={css.userLink}>Glory to Ukraine!</div>
             </NavLink>
-        //   </Auth>
-        // </Div>
+          </ul>
+        </div>
       )}
     </>
   );
