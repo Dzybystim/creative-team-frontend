@@ -155,19 +155,14 @@ export const PageOne = props => {
             />
           </label>
 
-          <ul>
-            <li className={css.btn_item}>
-              {' '}
-              <button type="submit" className={css.btn}>
-                Next
-              </button>
-            </li>
-            <li className={css.btn_item}>
-              <button type="button" onClick={props.onClose} className={css.btn}>
-                Cancel
-              </button>
-            </li>
-          </ul>
+          <div className={css.btn_list}>
+            <button type="submit" className={`${css.btn} ${css.accent_btn}`}>
+              Next
+            </button>
+            <button type="button" onClick={props.onClose} className={css.btn}>
+              Cancel
+            </button>
+          </div>
         </Form>
       </Formik>
     </div>
