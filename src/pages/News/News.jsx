@@ -3,7 +3,7 @@ import { Dna } from 'react-loader-spinner';
 import { fetchNews } from 'utilities/helpers';
 import css from './NewsPage.module.css';
 import NewsList from 'components/News/NewsList';
-import FormSearchNews from 'components/News/NewsFormSearch';
+import InputSearch from 'components/InputSearch/InputSearch';
 
 function NewsPage() {
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ function NewsPage() {
   return (
     <div className={css.container}>
       <h2 className={css.title}>News</h2>
-      <FormSearchNews onSubmit={onSubmitSearch} />
+      <InputSearch onSubmit={onSubmitSearch} />
       {loading ? (
         <div className={css.loading}>
           <Dna

@@ -1,10 +1,10 @@
-import css from '../NoticesSearch/NoticesSearch.module.css';
+import css from './InputSearch.module.css';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { ReactComponent as CloseSearch } from '../../Icon/CloseSearch.svg';
 
-const FormSearchNews = ({ onSubmit }) => {
+const InputFormSearch = ({ onSubmit }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const onClick = e => {
@@ -18,7 +18,7 @@ const FormSearchNews = ({ onSubmit }) => {
 
   const onClickClear = e => {
     if (searchQuery === '') {
-      return toast.warn('Request is empt');
+      return toast.warn('Request is empty');
     } else {
       onSubmit(e);
     }
@@ -51,4 +51,4 @@ const FormSearchNews = ({ onSubmit }) => {
   );
 };
 
-export default FormSearchNews;
+export default InputFormSearch;
