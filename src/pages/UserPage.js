@@ -9,15 +9,15 @@ import { fetchUserAndPets } from '../utilities/helpers';
 import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import { Dna } from 'react-loader-spinner';
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Text,
-  useDisclosure,
-} from '@chakra-ui/react';
-import { BsFillPlusCircleFill } from 'react-icons/bs';
+// import {
+//   Box,
+//   Button,
+//   Flex,
+//   Heading,
+//   Text,
+//   useDisclosure,
+// } from '@chakra-ui/react';
+// import { BsFillPlusCircleFill } from 'react-icons/bs';
 
 export default function UserPage() {
   const [loading, setLoading] = useState(false);

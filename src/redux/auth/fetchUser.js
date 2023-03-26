@@ -7,10 +7,17 @@ export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({
     baseUrl: `${HOST}`,
-    prepareHeaders: (headers, { getState }) => {
-      const accessToken = getState().users.token;
-      if (accessToken) {
-        headers.set('Authorization', `Bearer ${accessToken}`);
+    prepareHeaders: (headers, get) => {
+      const accessToken = get.getState().users.token;
+      const localToken = JSON.parse(
+        localStorage.getItem('persist:users')
+      ).token;
+      const tokenWithoutQuotes = localToken.replace(/"/g, '');
+      if (accessToken || tokenWithoutQuotes) {
+        headers.set(
+          'Authorization',
+          `Bearer ${accessToken || tokenWithoutQuotes}`
+        );
       }
       return headers;
     },
@@ -35,7 +42,6 @@ export const userApi = createApi({
     logOut: builder.mutation({
       query: () => ({
         url: '/users/logout',
-        method: 'GET',
       }),
     }),
   }),
