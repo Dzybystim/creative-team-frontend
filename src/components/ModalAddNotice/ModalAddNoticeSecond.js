@@ -11,7 +11,6 @@ const schemaPageTwo = yup.object().shape({
   sex: yup
     .mixed()
     .oneOf(['male', 'female'])
-    .defined()
     .required('Required field!'),
   location: yup
     .string()
@@ -23,7 +22,7 @@ const schemaPageTwo = yup.object().shape({
     .min(8, 'Minimum 8 characters!')
     .max(120, 'Maximum 120 characters!')
     .required('Required field!'),
-  price: yup.string().matches(/^[1-9]$/, 'Price must be a number'),
+  price: yup.string().matches(/^[1-9]\d*([,.]\d+)?$/, 'Price must be a number'),
 });
 
 export const PageTwo = props => {
@@ -62,7 +61,6 @@ export const PageTwo = props => {
 
   const handleSubmit = values => {
     const addData = { ...values, imageURL: imageURL };
-    console.log('values second', addData);
     props.next(addData, true);
     props.onClose();
   };

@@ -14,11 +14,12 @@ export const getNoticesByCategories = createAsyncThunk(
 }
 );
 
-export const addNotices = createAsyncThunk(
+export const addNotice = createAsyncThunk(
   "notices/addNotice",
-  async ({data}, thunkAPI) => {
+  async (data, thunkAPI) => {
     try {
-      const response = await axios.post('/notices/user', {data});
+      const response = await axios.post('/notices/user', data);
+      console.log('add new notice result', response);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -26,10 +27,11 @@ export const addNotices = createAsyncThunk(
   }
 );
 
-export const deleteNotices = createAsyncThunk(
+export const deleteNotice = createAsyncThunk(
   "notices/deleteNotice",
   async (noticeId, thunkAPI) => {
     try {
+      console.log('noticeId', noticeId);
       const response = await axios.delete(`/notices/user/${noticeId}`);
       return response.data;
     } catch (error) {

@@ -1,18 +1,12 @@
 import { useState } from 'react';
 import { PageOne } from './ModalAddNoticeFirst';
 import { PageTwo } from './ModalAddNoticeSecond';
-import { postNewNotice } from '../../utilities/helpers';
+import { useDispatch } from 'react-redux';
+import { addNotice } from "../../redux/notices/operations";
 
-//  category	обовʼязково обрано 1 з 3 категорій (sell, lost-found, for-free)
-
-//  birthdate	дата в форматі 22.10.2022
-
-//  sex	обовʼязково обрано 1 тип з 2 (male, female)
-//  location	строка в форматі Місто, Область. Наприклад: Brovary, Kyiv або Akhtyrka, Sumy
-
-//  price	число, не повинно починатися 0
 
 export const ModalAddNotice = ({ onClose }) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     category: '',
     title: '',
@@ -32,13 +26,40 @@ export const ModalAddNotice = ({ onClose }) => {
     setData(prev => ({ ...prev, ...newData }));
 
     if (final) {
-      console.log('finally', newData);
-      postNewNotice(newData);
-      return;
-    }
-
-    setCurrentPage(prev => prev + 1);
+   
+if(newData.price === ''){
+  const newNotices = {
+    category: newData.category,
+    title: newData.title,
+    name: newData.name,
+    birthdate: newData.birthdate,
+    breed: newData.breed,
+    sex: newData.sex,
+    location: newData.location,
+    imageURL: newData.imageURL,
+    comments: newData.comments,
   };
+  dispatch(addNotice(newNotices));
+  return;
+}
+  const newNotices = {
+    category: newData.category,
+    title: newData.title,
+    name: newData.name,
+    birthdate: newData.birthdate,
+    breed: newData.breed,
+    sex: newData.sex,
+    location: newData.location,
+    imageURL: newData.imageURL,
+    comments: newData.comments,
+    price: newData.price,
+  };
+  dispatch(addNotice(newNotices));
+  return;
+} 
+setCurrentPage(prev => prev + 1);
+  }
+
   const handlePrevPage = newData => {
     setData(prev => ({ ...prev, ...newData }));
     setCurrentPage(prev => prev - 1);
@@ -54,14 +75,6 @@ export const ModalAddNotice = ({ onClose }) => {
     />,
   ];
 
-  console.log('data', data);
-
   return <div>{pages[currentPage]}</div>;
 };
 
-// const handleSubmit = (values, { resetForm }) => {
-//   console.log('values ', values);
-//   resetForm();
-//   onClose();
-
-// };
