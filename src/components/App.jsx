@@ -7,13 +7,14 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 import SignUp from 'pages/SignUp/SignUp';
 import Login from 'pages/Login/Login';
-import PublicRoutes from 'RestrictedRoute';
+import PublicRoutes from './PublickRoute';
+import PrivateRoutes from './PrivetRoutes';
 // import NoticesPage from 'pages/NoticesPage';
 // import NoticesCategoriesList from './NoticesCategoriesList/NoticesCategoriesList';
 // import OurFriendsPage from 'pages/OurFriendsPage';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
-const NoticesPage = lazy(() => import('../pages/NoticesPage'));
+const NoticesPage = lazy(() => import('../pages/NoticesPage/NoticesPage'));
 const NewsPage = lazy(() => import('../pages/News'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 
@@ -27,11 +28,14 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="user" element={<UserPage />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="user" element={<UserPage />} />
+            </Route>
             <Route path="news" element={<NewsPage />} />
+
             <Route path="notices/:category" element={<NoticesPage />} />
             <Route path="friends" element={<OurFriendsPage />} />
-            <Route element={<PublicRoutes restricted />}>
+            <Route element={<PublicRoutes />}>
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<SignUp />} />
               <Route path="edit" element={<div>Edit</div>} />

@@ -4,7 +4,7 @@ import dogDesktop from '../../images/desctop/dogDesktop.png';
 
 import waveMobile from '../../images/mobile/waveMobile.png';
 import waveTablet from '../../images/tablet/waveTablet.png';
-import waveDesktop3 from '../../images/desctop/waveDesktop3.png';
+import loginPageBg from '../../images/desctop/loginPageBg.png';
 
 import unionDesk from '../../images/unionDesk.svg';
 
@@ -23,7 +23,7 @@ function HomePage() {
       </div>
       <div className={css.container}>
         <img className={css.imageHeart} src={unionDesk} alt="heart" />
-        <img className={css.frame} src={waveDesktop3} alt="frame" />
+        <img className={css.frame} src={loginPageBg} alt="frame" />
         <picture>
           <source srcSet={dogMobile} media="(max-width: 767px)" />
           <source

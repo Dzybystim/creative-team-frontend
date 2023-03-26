@@ -12,16 +12,22 @@
 .bg {
   width: 105%;
   height: 5em;
-  /* background-color: rgb(37, 39, 53); */
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  /* padding: 1em; */
 }
 @media screen and (max-width: 767px) {
   .bg {
     height: 3.5em;
   }
+}
+
+.menu_class {
+  display: none;
+  padding-top: 160px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
 }
 
 .linkSt {
@@ -32,7 +38,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .linkSt:hover {
@@ -43,13 +49,13 @@
 
 .linkSt:active {
   background-color: #f59256;
-  color: #ffffff;
+  /* color: #ffffff; */
   cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
   .linkSt {
-    margin-right: 12px;
+    margin-right: 14px;
     font-weight: 500;
     font-size: 20px;
     display: none;
@@ -64,6 +70,8 @@
   align-items: flex-start;
   justify-content: space-between;
   cursor: pointer;
+  /* padding-top: 26px;
+  padding-right: 30px; */
 }
 @media screen and (min-width: 320px) {
   .burgerMenu {
@@ -86,50 +94,7 @@
   }
 }
 
-/* .burger-bar {
-  width: 40px;
-  height: 6px;
-  background-color: #212121;
-  border-radius: 0.5em;
-}
-@media screen and (max-width: 767px) {
-  .burger-bar {
-    height: 5px;
-  }
-} */
-
-.menu {
-  width: 100%;
-  height: 444vh;
-  background-color: #fdf7f2;
-  position: absolute;
-  top: 72px;
-  left: 0;
-  z-index: 1;
-  padding-top: 45px;
-}
-
-@media screen and (min-width: 768px) {
-  .menu {
-    width: 103%;
-    height: 444vh;
-    background-color: #fdf7f2;
-    position: absolute;
-    top: 95px;
-    left: 0;
-    z-index: 1;
-  }
-}
-
 /* SlidingMenu */
-
-.visible {
-  display: inherit;
-}
-
-.hidden {
-  display: none;
-}
 
 .bgNews {
   display: flex;
@@ -158,7 +123,10 @@
 .div {
   display: flex;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 @media screen and (min-width: 1280px) {
   .div {
     display: none;
@@ -173,6 +141,7 @@
   line-height: 44px;
   color: #111111;
   margin-left: 20px;
+  text-decoration: none;
 }
 @media screen and (min-width: 768px) {
   .linkStyled {
@@ -182,15 +151,6 @@
     font-size: 48px;
     line-height: 66px;
     letter-spacing: 0.04em;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .linkStyled {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 27px;
   }
 }
 .linkStyled:hover {
@@ -203,28 +163,19 @@
 }
 .linkStyled:active {
   font-weight: 700;
+  color: #f59256;
+  cursor: pointer;
 }
 @media screen and (max-width: 1280px) {
   .linkStyled:active {
     text-decoration-line: underline;
   }
 }
-
-.linkStyled {
-  color: #111111;
-  text-decoration: none;
-  font-size: 20px;
-}
-
 .linkStyled:hover {
   color: #f59256;
   cursor: pointer;
 }
 
-.linkStyled:active {
-  color: #f59256;
-  cursor: pointer;
-}
 /* .find {
     margin-bottom: 40px;
   } */
@@ -289,7 +240,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-flex;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   justify-content: center;
   align-items: center;
@@ -315,6 +266,49 @@
 }
 
 /* clicked*/
+.visible {
+  display: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu {
+  width: 100%;
+  height: 444vh;
+  background-color: #fdf7f2;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  z-index: 1;
+  padding-top: 45px;
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    width: 103%;
+    height: 444vh;
+    background-color: #fdf7f2;
+    position: absolute;
+    top: 95px;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.burger-bar {
+  width: 40px;
+  height: 6px;
+  background-color: #212121;
+  border-radius: 0.5em;
+}
+@media screen and (max-width: 767px) {
+  .burger-bar {
+    height: 5px;
+  }
+}
+
 .burger-bar.clicked:nth-child(1) {
   transform: rotate(45deg) translate(0.75em, 1.15em);
   transition: ease-out 0.5s;

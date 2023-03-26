@@ -9,14 +9,14 @@ export const fetchOurFriends = async () => {
     .catch(err => console.log(err));
 };
 
-export const getNoticesByCategories = async category => {
-  try {
-    const response = await axios.get(`/notices/category?category=${category}`);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
+// export const getNoticesByCategories = async category => {
+//   try {
+//     const response = await axios.get(`/notices/category?category=${category}`);
+//     return response.data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 export const fetchNews = async () => {
   return await axios
@@ -68,14 +68,14 @@ export const passTokenToHeadersAxios = () => {
   }
 };
 
-export const getNoticesByTitle = async title => {
-  try {
-    const response = await axios.get(`/notices/title?title=${title}`);
-    return response.data;
-  } catch (error) {
-    console.error('error', error);
-  }
-};
+// export const getNoticesByTitle = async title => {
+//   try {
+//     const response = await axios.get(`/notices/title?title=${title}`);
+//     return response.data;
+//   } catch (error) {
+//     console.error("error", error);
+//   }
+// };
 
 export const userEdit = async fieldData => {
   try {
@@ -86,14 +86,14 @@ export const userEdit = async fieldData => {
   }
 };
 
-export const getAllSelectedNotices = async () => {
-  try {
-    const response = await axios.get(`/notices/selected/`);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
+// export const getAllSelectedNotices = async () => {
+//   try {
+//     const response = await axios.get(`/notices/selected/`);
+//     return response.data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 export const addToSelectedNotices = async noticeId => {
   try {
@@ -122,9 +122,19 @@ export const getNoticesById = async noticeId => {
   }
 };
 
-export const getAllOwnNotices = async () => {
+// export const getAllOwnNotices = async () => {
+//   try {
+//     const response = await axios.get(`/notices/user`);
+//     return response.data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
+export const postNewNotice = async data => {
   try {
-    const response = await axios.get(`/notices/user`);
+    const response = await axios.post(`/notices/user`, data);
+    console.log('add new notice result', response);
     return response.data;
   } catch (error) {
     console.error(error);

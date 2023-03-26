@@ -9,12 +9,16 @@ const initialState = {
     name: null,
     cityRegion: null,
     mobilePhone: null,
+    id: null,
+    selected: null,
   },
   token: null,
   isLogged: false,
   loadUser: false,
   errorServer: false,
   errorRegistration: false,
+  id: null,
+  selected: null,
 };
 
 export const authSlice = createSlice({
@@ -30,6 +34,10 @@ export const authSlice = createSlice({
         state.user.cityRegion = user.cityRegion;
         state.user.mobilePhone = user.mobilePhone;
         state.token = user.accessToken;
+        state.user.id = user.id;
+        state.user.selected = user.selected;
+        state.id = user.id;
+        state.selected = user.selected;
         state.isLogged = true;
         state.loadUser = false;
         state.errorServer = false;
@@ -57,6 +65,10 @@ export const authSlice = createSlice({
         state.user.cityRegion = user.cityRegion;
         state.user.mobilePhone = user.mobilePhone;
         state.token = user.accessToken;
+        state.user.id = user.id;
+        state.user.selected = user.selected;
+        state.id = user.id;
+        state.selected = user.selected;
         state.isLogged = true;
         state.loadUser = false;
       }

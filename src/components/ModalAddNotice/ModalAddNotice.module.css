@@ -65,8 +65,8 @@
   background-color: var(--accent-color);
 }
 
-.radio_btn {
-  /* position: absolute;
+.file_btn {
+  position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -76,7 +76,7 @@
   white-space: nowrap;
   clip-path: inset(50%);
   clip: rect(0 0 0 0);
-  overflow: hidden; */
+  overflow: hidden;
 }
 /* .radio_btn {
   display: none;
@@ -230,4 +230,10 @@
 } */
 .article {
   background: red;
+}
+
+.error_msg {
+  color: #e2001a;
+  font-size: 14px;
+  text-align: center;
 }
