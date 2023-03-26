@@ -116,6 +116,7 @@
   .container_desktop {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     width: 411px;
     height: 541px;
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
@@ -128,4 +129,14 @@
     flex-direction: row;
     width: 1248px;
   }
+
+  .container_tablet_tab {
+    display: flex;
+    flex-direction: column;
+    width: 411px;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-left: 0;
+  }
+
 }

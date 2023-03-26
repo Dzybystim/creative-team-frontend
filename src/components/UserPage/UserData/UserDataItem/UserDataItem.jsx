@@ -31,8 +31,7 @@ export default function UserDataItem({ user }) {
 
   const handleClick = event => {
     event.preventDefault();
-    console.log(event.currentTarget.name[0].name);
-    console.log(event.currentTarget.name);
+
     switch (event.currentTarget.name[0].name || event.currentTarget.name) {
       case 'name':
         setPencilButtonActivity(true);
