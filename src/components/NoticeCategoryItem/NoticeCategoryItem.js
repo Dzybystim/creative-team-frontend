@@ -1,5 +1,6 @@
 import { Modal } from '../../utilities/Modal/Modal';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NoticeModal } from 'components/NoticeModal/NoticeModal';
 import css from './NoticeCategoryItem.module.css';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -7,10 +8,34 @@ import { HiTrash } from 'react-icons/hi';
 import { ageCounter } from '../../utilities/ageCounter';
 
 import { getNoticesById } from '../../utilities/helpers';
+import { selectors } from '../../redux/auth/selectors'
+import { deleteNotice } from "../../redux/notices/operations";
 
 export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const [notice, setNotice] = useState(null);
+  const dispatch = useDispatch();
+  const isLogged = useSelector(selectors.isLogged);
+
+
+const passId = () => {
+const idFromLocalStorage = localStorage.getItem('id');
+//console.log('idFromLocalStorage', idFromLocalStorage);
+if (idFromLocalStorage !== null) {
+ // console.log('idFromLocalStorage !== null', idFromLocalStorage !== null);
+   const idParse = JSON.parse(idFromLocalStorage);
+ //  const userId = idParse.slice(1, idParse.length - 1);
+   return idParse;
+ // console.log('2', userId);
+} else {
+// console.log('3');
+}
+};
+const userId = passId();
+
+  const removeNotices =()=>{
+    dispatch(deleteNotice(item._id));
+  }
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -72,9 +97,11 @@ export const NoticeCategoryItem = ({ item }) => {
           >
             LearnMore
           </button>
-          <button className={css.btn} type="button">
+
+       {isLogged && (userId === item.owner) && (<button className={css.btn} type="button" onClick={removeNotices}>
             Delete <HiTrash size={20} />
-          </button>
+          </button>)}
+
         </div>
       </li>
 

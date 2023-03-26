@@ -66,8 +66,8 @@ const SignUp = () => {
       {steps[page]}
       {error && (
         <AuthError
-          error={error.data.message}
-          additionalInfo={error.data.additionalInfo}
+          error={error.message}
+          additionalInfo={error.additionalInfo}
         />
       )}
     </>

@@ -12,7 +12,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { persistSliceAuth } from './authslice';
-import {noticesReducer} from '../notices/noticesSlice';
+import { noticesReducer } from '../notices/noticesSlice';
 
 export const store = configureStore({
   reducer: {

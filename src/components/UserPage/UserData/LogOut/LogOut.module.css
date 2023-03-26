@@ -42,3 +42,9 @@
     width: 89px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .container_logOut {
+    margin-left: 16px;
+  }
+}
