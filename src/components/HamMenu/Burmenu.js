@@ -45,7 +45,7 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
               </NavLink>
             </li>
             <li className={css.navItem} onClick={updateMenu}>
-              <NavLink className={css.linkStyled} to="/notices/:category">
+              <NavLink className={css.linkStyled} to="/notices/sell">
                 Find pet
               </NavLink>
             </li>
