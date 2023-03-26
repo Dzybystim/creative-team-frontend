@@ -4,7 +4,6 @@ import { ReactComponent as CloseSearch } from '../../Icon/CloseSearch.svg';
 
 export const NoticesSearch = ({
   searchQuery,
-  setSearchQuery,
   onSubmit,
   onChange,
 }) => {
