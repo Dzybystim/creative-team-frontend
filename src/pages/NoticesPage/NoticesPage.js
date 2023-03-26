@@ -3,20 +3,14 @@ import { NoticesCategoriesList } from '../../components/NoticesCategoriesList/No
 import { NoticesSearch } from '../../components/NoticesSearch/NoticesSearch';
 import css from './NoticesPage.module.css';
 import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { selectIsLoading, selectError } from '../../redux/notices/selectors';
-import {
-  getNoticesByCategories,
-  getNoticesByTitle,
-  getAllSelectedNotices,
-  getAllOwnNotices,
-} from '../../redux/notices/operations';
-
-import { passTokenToHeadersAxios } from '../../utilities/helpers';
-
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsLoading, selectError } from '../../redux/notices/selectors';
+
+import { getNoticesByCategories, getNoticesByTitle, getAllSelectedNotices, getAllOwnNotices } from "../../redux/notices/operations";
+
+import { passTokenToHeadersAxios } from '../../utilities/helpers';
 import { Loader } from '../../components/Loader/Loader';
 
 const NoticesPage = () => {
@@ -24,50 +18,53 @@ const NoticesPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  // const user = useSelector(getUserName);
 
   passTokenToHeadersAxios();
 
   const [searchQuery, setSearchQuery] = useState('');
-  //console.log('notices', notices);
-  //console.log('user', user);
+
 
   const [searchParams, setSearchParams] = useSearchParams();
   let { pathname } = useLocation();
   let category = pathname.split('/').pop();
 
-  useEffect(() => {
-    const queryFromSearchParams = searchParams.get('query');
-    console.log('queryFromSearchParams', queryFromSearchParams);
+   useEffect(() => {
+     const queryFromSearchParams = searchParams.get('query');
+
     if (!category) {
       return;
     }
-    if (category === 'favorite') {
-      if (!queryFromSearchParams) {
-        console.log('1', !queryFromSearchParams);
+    if (category === 'favorite'){
+      if(!queryFromSearchParams){
         dispatch(getAllSelectedNotices());
         return;
       }
-      console.log('11');
-      // dispatch(getNoticesByTitle({category, queryFromSearchParams}));
+
     }
-    if (category === 'own') {
-      console.log('2');
-      dispatch(getAllOwnNotices());
+    if (category === 'own'){
+        dispatch(getAllOwnNotices());
+        return;
+
     }
     if (category === 'sell') {
       if (!queryFromSearchParams) {
         dispatch(getNoticesByCategories(category));
-        return;
-      }
-      dispatch(getNoticesByTitle({ category, queryFromSearchParams }));
+
+      return;
+    }
+   dispatch(getNoticesByTitle({category, queryFromSearchParams})); 
+   return; 
+
     }
     if (category === 'lost-found') {
       if (!queryFromSearchParams) {
         dispatch(getNoticesByCategories(category));
         return;
       }
-      dispatch(getNoticesByTitle({ category, queryFromSearchParams }));
+
+        dispatch(getNoticesByTitle({category, queryFromSearchParams}));
+        return;
+
     }
     if (category === 'for-free') {
       if (!queryFromSearchParams) {
@@ -76,6 +73,9 @@ const NoticesPage = () => {
       }
       dispatch(getNoticesByTitle({ category, queryFromSearchParams }));
     }
+
+  
+
   }, [category, dispatch, searchParams]);
 
   const handleQueryChange = e => {
@@ -93,6 +93,7 @@ const NoticesPage = () => {
 
     e.target.reset();
     setSearchQuery('');
+    setSearchParams('');
   };
 
   // if (category === 'favorite' && (searchQuery)) {

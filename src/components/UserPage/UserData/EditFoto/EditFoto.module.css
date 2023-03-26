@@ -44,9 +44,10 @@
 
 @media screen and (min-width: 768px) {
   .container_edit {
-    margin-right: 40px;
+    margin-top: -18px;
+    margin-right: 16px;
     margin-left: auto;
     width: 85px;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 }

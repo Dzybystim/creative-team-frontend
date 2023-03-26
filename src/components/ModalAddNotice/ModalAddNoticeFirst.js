@@ -34,7 +34,6 @@ const schemaPageOne = yup.object().shape({
 
 export const PageOne = props => {
   const handleSubmit = values => {
-    console.log('values first', values);
     props.next(values);
   };
 
