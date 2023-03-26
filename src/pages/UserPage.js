@@ -19,45 +19,39 @@ export default function UserPage() {
     const fetchData = async () => {
       const response = await fetchUserAndPets(token);
       setUserAndPets(response);
-      return ;
+      return;
     };
     fetchData().catch(console.error);
   }, [token]);
 
-
   return (
-
-      <div className={css.container}>
-
-        {userAndPets.user && (
-          <>   
-            
-            <div className={css.container__userdata}>
+    <div className={css.container}>
+      {userAndPets.user && (
+        <>
+          <div className={css.container__userdata}>
             <h2 className={css.title}>My information:</h2>
             <div className={css.container_desktop}>
-            <div className={css.container_tablet}>
-            <UserFoto userFoto={userFoto} user={userAndPets.user} />
-            <EditFoto setUserFoto={setUserFoto} />
-            </div>
-            <div className={css.container_tablet_tab}>
-            <UserData user={userAndPets.user} />
-            <Logout />
-            </div>
-            </div>
-            </div>
-          </>
-            
-            )}
-
-        {userAndPets.pets && (
-          <div className={css.container_pets}>
-            <h2 className={css.title}>My pets:</h2>
-            <div className={css.container__petsdata}>
-              <PetsData pets={userAndPets.pets} />
+              <div className={css.container_tablet}>
+                <UserFoto userFoto={userFoto} user={userAndPets.user} />
+                <EditFoto setUserFoto={setUserFoto} />
+              </div>
+              <div className={css.container_tablet_tab}>
+                <UserData user={userAndPets.user} />
+                <Logout />
+              </div>
             </div>
           </div>
+        </>
       )}
 
+      {userAndPets.pets && (
+        <div className={css.container_pets}>
+          <h2 className={css.title}>My pets:</h2>
+          <div className={css.container__petsdata}>
+            <PetsData pets={userAndPets.pets} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

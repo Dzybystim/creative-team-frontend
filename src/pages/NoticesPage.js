@@ -93,7 +93,7 @@ const NoticesPage = () => {
           console.log('Error', error);
         });
     }
-  }, [isLogged, selectedNotices]);
+  }, []);
 
   useEffect(() => {
     const queryFromSearchParams = searchParams.get('query');

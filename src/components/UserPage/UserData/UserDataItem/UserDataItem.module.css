@@ -118,9 +118,9 @@
 
   .input {
     width: 210px;
-  
+
     background-color: var(--bg-color);
-  
+
     border: 0;
     border-radius: 40px;
     font-size: 18px;
@@ -149,14 +149,14 @@
     fill: var(--accent-color);
     object-fit: fill;
   }
-  
+
   .pencil_disabled {
     width: 15px;
     height: 15px;
     fill: var(--black-color);
     object-fit: fill;
   }
-  
+
   .check {
     width: 25px;
     height: 21px;
@@ -183,9 +183,9 @@
 
   .input {
     width: 159px;
-  
+
     background-color: var(--bg-color);
-  
+
     border: 0;
     border-radius: 40px;
     font-size: 12px;
@@ -228,6 +228,4 @@
     fill: var(--accent-color);
     object-fit: fill;
   }
-
 }
-

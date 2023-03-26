@@ -130,3 +130,13 @@ export const getAllOwnNotices = async () => {
     console.error(error);
   }
 };
+
+export const postNewNotice = async data => {
+  try {
+    const response = await axios.post(`/notices/user`, data);
+    console.log('add new notice result', response);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
