@@ -1,36 +1,30 @@
 .navigation {
-  list-style: none;
+  margin: 0;
+  margin-left: 80px;
+  padding: 0;
   display: flex;
   gap: 80px;
+  list-style: none;
   white-space: nowrap;
 }
 
 @media screen and (max-width: 1279px) {
   .navigation {
-    margin: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
     padding: 0;
-    display: none;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
   }
 }
 
 .navItem {
   font-weight: 500;
-  /* font-size:  */
-}
-
-.ul {
-  list-style: none;
-  display: flex;
-  gap: 80px;
-  white-space: nowrap;
-}
-
-@media screen and (max-width: 1279px) {
-  .ul {
-    display: none;
-    margin: 0;
-    padding: 0;
-  }
 }
 
 .linkStyled {
@@ -39,11 +33,7 @@
   font-size: 20px;
 }
 
-.linkStyled:hover {
-  color: #f59256;
-  cursor: pointer;
-}
-
+.linkStyled:hover,
 .linkStyled:active {
   color: #f59256;
   cursor: pointer;
