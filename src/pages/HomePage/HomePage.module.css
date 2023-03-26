@@ -1,7 +1,8 @@
 .page {
   margin: 0;
-  padding: 0;}
-  
+  padding: 0;
+}
+
 @media screen and (min-width: 768px) {
   .page {
     display: flex;
@@ -51,7 +52,6 @@
   padding: 0;
 }
 
-
 /* .wavesDesk {
         position: absolute;
         width: 1338px;
@@ -70,7 +70,6 @@
     top: 296px;
     z-index: -1;
 }} */
-
 
 .imageHeart {
   position: absolute;

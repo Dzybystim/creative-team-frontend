@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import css from './Burmenu.module.css';
 import bgMenu from '../../images/bgMenu.svg';
-import close from '../../images/close.svg'
+import close from '../../images/close.svg';
 
 export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
   const isLoggedIn = useSelector(selectors.isLogged);
