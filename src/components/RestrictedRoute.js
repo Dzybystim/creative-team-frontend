@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { selectors } from 'redux/auth/selectors';
 
-export default function PrivateRoutes() {
+export default function RestrictedRoutes() {
   const { isLogged } = selectors;
   const isLoggedIn = useSelector(isLogged);
   const location = useLocation();
