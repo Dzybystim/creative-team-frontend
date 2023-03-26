@@ -18,23 +18,17 @@ const schemaPageTwo = yup.object().shape({
     .min(5, 'Minimum 5 characters!')
     .max(60, 'Maximum 60 characters!')
     .required('Required field!'),
-  imageURL: yup.string().required(),
   comments: yup
     .string()
     .min(8, 'Minimum 8 characters!')
     .max(120, 'Maximum 120 characters!')
     .required('Required field!'),
-  price: yup.string().when('category', {
-    is: category => category === 'sell',
-    then: yup
-      .string()
-      .matches(/^[1-9]$/)
-      .required('Required field!'),
-  }),
+  price: yup.string().matches(/^[1-9]$/, 'Price must be a number'),
 });
 
 export const PageTwo = props => {
   const [imageURL, setImageURL] = useState('');
+
   const textareaChange = () => {
     let textarea = document.querySelector('textarea');
     textarea.addEventListener('keyup', function () {
@@ -67,8 +61,9 @@ export const PageTwo = props => {
   };
 
   const handleSubmit = values => {
-    console.log('values second', values);
-    props.next(values, true);
+    const addData = { ...values, imageURL: imageURL };
+    console.log('values second', addData);
+    props.next(addData, true);
     props.onClose();
   };
 
@@ -78,7 +73,7 @@ export const PageTwo = props => {
       <Formik
         onSubmit={handleSubmit}
         initialValues={props.data}
-        // validationSchema={schemaPageTwo}
+        validationSchema={schemaPageTwo}
       >
         <Form autoComplete="on">
           <label className={css.label_other}> The sex: </label>
@@ -107,40 +102,54 @@ export const PageTwo = props => {
               />
               <span className={css.radio_icon_text}>Female</span>
             </label>
+            <ErrorMessage
+              name="sex"
+              component="div"
+              className={css.error_msg}
+            />
           </div>
 
           <label htmlFor="location" className={css.label}>
             Location:
+            <Field
+              className={css.field}
+              id="location"
+              type="text"
+              name="location"
+              placeholder="Brovary, Kyiv or Akhtyrka, Sumy"
+              required
+            />
+            <ErrorMessage
+              name="location"
+              component="div"
+              className={css.error_msg}
+            />
           </label>
-          <Field
-            className={css.field}
-            id="location"
-            type="text"
-            name="location"
-            placeholder="Brovary, Kyiv or Akhtyrka, Sumy"
-            required
-          />
-          <ErrorMessage name="location" component="div" />
 
-          <label htmlFor="price" className={css.label}>
-            Price:
-          </label>
-          <Field
-            className={css.field}
-            id="price"
-            type="text"
-            name="price"
-            placeholder="00$"
-            required
-          />
-          <ErrorMessage name="price" component="div" />
+          {props.data.category === 'sell' && (
+            <label htmlFor="price" className={css.label}>
+              Price:
+              <Field
+                className={css.field}
+                id="price"
+                type="text"
+                name="price"
+                placeholder="00$"
+              />
+              <ErrorMessage
+                name="price"
+                component="div"
+                className={css.error_msg}
+              />
+            </label>
+          )}
 
           <label htmlFor="imageURL" className={css.label}>
             Load the pet’s image
           </label>
           <label htmlFor="imageURL" className={css.field_photo}>
             <Field
-              className={css.radio_btn}
+              className={css.file_btn}
               id="imageURL"
               type="file"
               name="imageURL"
@@ -157,23 +166,26 @@ export const PageTwo = props => {
               />
             )}
           </label>
-          <ErrorMessage name="file" component="div" />
 
           <label htmlFor="comments" className={css.label}>
             Comments
+            <Field
+              as="textarea"
+              className={css.field_last}
+              id="comments"
+              type="text"
+              name="comments"
+              rows="1"
+              placeholder="Some comments"
+              onClick={textareaChange}
+              required
+            />
+            <ErrorMessage
+              name="comments"
+              component="div"
+              className={css.error_msg}
+            />
           </label>
-          <Field
-            as="textarea"
-            className={css.field_last}
-            id="comments"
-            type="text"
-            name="comments"
-            rows="1"
-            placeholder="Some comments"
-            onClick={textareaChange}
-            required
-          />
-          <ErrorMessage name="comments" component="div" />
 
           <ul>
             <li className={css.btn_item}>
