@@ -39,7 +39,7 @@
 
 @media screen and (min-width: 1200px) {
   .containers {
-    background-image: url('../../images/desctop/loginPageBg.png');
+    background-image: url('../../images/desktop/loginPageBg.png');
   }
   .form {
     width: 620px;
