@@ -34,8 +34,6 @@ export const App = () => {
             <Route element={<PublicRoutes restricted />}>
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<SignUp />} />
-              <Route path="edit" element={<div>Edit</div>} />
-              <Route path="logout" element={<div>Logout</div>} />
             </Route>
 
             <Route path="*" element={<NotFound />} />

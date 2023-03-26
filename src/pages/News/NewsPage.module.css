@@ -13,6 +13,10 @@
   color: var(--black-color);
 }
 
+.loading {
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   .title {
     margin-top: 88px;
