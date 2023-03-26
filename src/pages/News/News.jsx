@@ -8,6 +8,7 @@ import FormSearchNews from 'components/News/NewsFormSearch';
 function NewsPage() {
   const [loading, setLoading] = useState(false);
   const [news, setNews] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -18,13 +19,26 @@ function NewsPage() {
   }, []);
 
   const getVisibleNews = () => {
-    return news.filter(news => news.title.toLocaleLowerCase());
+    if (searchQuery === '') {
+      return news.filter(news => news.title.toLocaleLowerCase());
+    } else {
+      return news.filter(news =>
+        news.title.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())
+      );
+    }
+  };
+
+  const onSubmitSearch = e => {
+    e.preventDefault();
+    const searchText = e.target[0]?.value?.trim();
+    setSearchQuery(searchText ? searchText : '');
+    // e.target.reset();
   };
 
   return (
     <div className={css.container}>
       <h2 className={css.title}>News</h2>
-      <FormSearchNews />
+      <FormSearchNews onSubmit={onSubmitSearch} />
       {loading ? (
         <div className={css.loading}>
           <Dna
