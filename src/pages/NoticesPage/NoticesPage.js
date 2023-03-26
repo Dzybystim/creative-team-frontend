@@ -74,9 +74,7 @@ const NoticesPage = () => {
       dispatch(getNoticesByTitle({ category, queryFromSearchParams }));
     }
 
-   dispatch(getNoticesByTitle({category, queryFromSearchParams}));
-   return;
-    } 
+  
 
   }, [category, dispatch, searchParams]);
 
