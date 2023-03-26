@@ -1,21 +1,30 @@
 .auth {
   display: block;
 }
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .auth {
     display: none;
   }
-}
+} */
+
 @media screen and (min-width: 768px) {
-  .ul {
+  .auth {
     display: flex;
-  }
-  :hover {
-    background-color: #f59256;
-    color: #ffffff;
-    cursor: pointer;
+    gap: 12px;
   }
 }
+@media screen and (min-width: 1280px) {
+  .auth {
+    gap: 20px;
+  }
+}
+
+/* @media screen and (min-width: 768px) {
+  .auth:hover {
+  background-color: #f59256;
+  color: #ffffff;
+  cursor: pointer;
+}} */
 
 .linkStyled {
   padding: 8px 28px;
@@ -25,22 +34,27 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;}
+  font-size: 16px;
+}
 
-  .linkStyled:active {
-    /* background-color: ; */
-    /* color: ; */
-  }
+.linkStyled:hover {
+  background-color: #f59256;
+  color: #ffffff;
+}
 
-  .linkStyled:hover {
-    color: #ffffff;
-    background-color: #f59256;
-  }
+.linkStyled:active {
+  background-color: #f59256;
+}
 
-  @media screen and (min-width: 768px) {
-    .linkStyled {
-    margin-right: 12px;
+@media screen and (min-width: 768px) {
+  .linkStyled {
     font-weight: 500;
     font-size: 20px;
-    }
   }
+}
+
+@media screen and (max-width: 767px) {
+  .linkStyled {
+    display: none;
+  }
+}

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://backend.petly.club';
+axios.defaults.baseURL = 'https://backend.petly.club';
 
 export const fetchOurFriends = async () => {
   return await axios
@@ -9,23 +9,20 @@ export const fetchOurFriends = async () => {
     .catch(err => console.log(err));
 };
 
-export const getNoticesByCategories = async category => {
-  try {
-    const response = await axios.get(`/notices/category?category=${category}`);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
+// export const getNoticesByCategories = async category => {
+//   try {
+//     const response = await axios.get(`/notices/category?category=${category}`);
+//     return response.data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 export const fetchNews = async () => {
-  try {
-    const response = await axios.get(`/news`);
-
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+  return await axios
+    .get(`/news`)
+    .then(response => response.data)
+    .catch(err => console.error(err));
 };
 
 export const fetchUserAndPets = async token => {
@@ -71,18 +68,73 @@ export const passTokenToHeadersAxios = () => {
   }
 };
 
-export const getNoticesByTitle = async title => {
+// export const getNoticesByTitle = async title => {
+//   try {
+//     const response = await axios.get(`/notices/title?title=${title}`);
+//     return response.data;
+//   } catch (error) {
+//     console.error("error", error);
+//   }
+// };
+
+export const userEdit = async fieldData => {
   try {
-    const response = await axios.get(`/notices/title?title=${title}`);
+    const response = await axios.patch(`/users/edit`, fieldData);
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const userEdit = async fieldData => {
+// export const getAllSelectedNotices = async () => {
+//   try {
+//     const response = await axios.get(`/notices/selected/`);
+//     return response.data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
+export const addToSelectedNotices = async noticeId => {
   try {
-    const response = await axios.patch(`/users/edit`, fieldData);
+    const response = await axios.post(`/notices/selected/${noticeId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const deleteFromSelectedNotices = async noticeId => {
+  try {
+    const response = await axios.delete(`/notices/selected/${noticeId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getNoticesById = async noticeId => {
+  try {
+    const response = await axios.get(`/notices/${noticeId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// export const getAllOwnNotices = async () => {
+//   try {
+//     const response = await axios.get(`/notices/user`);
+//     return response.data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
+export const postNewNotice = async data => {
+  try {
+    const response = await axios.post(`/notices/user`, data);
+    console.log('add new notice result', response);
     return response.data;
   } catch (error) {
     console.error(error);

@@ -1,44 +1,30 @@
-import React from 'react';
-import { NewsItem } from './NewsItem';
+import moment from 'moment/moment';
 import css from './News.module.css';
-import { fetchNews } from 'utilities/helpers';
+import { NewsItem } from './NewsItem';
 
-export const NewsList = () => {
-  const { data } = fetchNews();
-
-  const getVisibleNews = () => {
-    return data.filter(news => news.title.toLocaleLowerCase());
-  };
-
+export const NewsList = ({ dataNewsList }) => {
   return (
     <>
-      {!data ? (
+      {dataNewsList.length === 0 ? (
         <div className={css.notNewsFound}>
-          <h3 className={css.notNewsFoundText}>Waiting please...</h3>
+          <h4 className={css.notNewsFoundText}>
+            Sorry, your search did not match any results.
+          </h4>
         </div>
       ) : (
         <ul className={css.newsList}>
-          {getVisibleNews().length === 0 ? (
-            <div className={css.notNewsFound}>
-              <h3 className={css.notNewsFoundText}>
-                Sorry, your search did not match any results.
-              </h3>
-            </div>
-          ) : (
-            getVisibleNews().map(
-              ({ url, title, description, date, linkNews }) => {
-                return (
-                  <NewsItem
-                    key={url}
-                    url={url}
-                    title={title}
-                    description={description}
-                    date={date}
-                  />
-                );
-              }
-            )
-          )}
+          {dataNewsList.map(({ _id, url, title, description, date }) => {
+            const formatDate = moment(date, 'YYYYY-MM-DD').format('DD/MM/YYYY');
+            return (
+              <NewsItem
+                key={_id}
+                url={url}
+                title={title}
+                description={description}
+                date={formatDate}
+              />
+            );
+          })}
         </ul>
       )}
     </>

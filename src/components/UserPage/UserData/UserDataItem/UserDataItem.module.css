@@ -34,6 +34,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.4;
+  color: var(--black-color);
 }
 
 .container_text {
@@ -41,6 +42,8 @@
   margin-right: 12px;
   margin-bottom: 12px;
   width: 252px;
+  border: 0;
+  border-spacing: 0;
 }
 
 .button_pencil {
@@ -62,6 +65,13 @@
   object-fit: fill;
 }
 
+.pencil_disabled {
+  width: 12px;
+  height: 12px;
+  fill: var(--black-color);
+  object-fit: fill;
+}
+
 .check {
   width: 14px;
   height: 12px;
@@ -70,8 +80,10 @@
 }
 
 .input {
-  size: 159px;
+  width: 159px;
+
   background-color: var(--bg-color);
+
   border: 0;
   border-radius: 40px;
   font-size: 12px;
@@ -80,4 +92,140 @@
   padding-bottom: 0;
   padding-right: 0;
   padding-left: 18px;
+}
+
+.input:focus-visible {
+  border: 0;
+  outline: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .container_text {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    width: 356px;
+    border: 0;
+    border-spacing: 0 10px;
+  }
+
+  .text_user {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .input {
+    width: 210px;
+
+    background-color: var(--bg-color);
+
+    border: 0;
+    border-radius: 40px;
+    font-size: 18px;
+    line-height: 1.4;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 12px;
+  }
+
+  .button_pencil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    border: 0;
+  }
+
+  .pencil {
+    width: 15px;
+    height: 15px;
+    fill: var(--accent-color);
+    object-fit: fill;
+  }
+
+  .pencil_disabled {
+    width: 15px;
+    height: 15px;
+    fill: var(--black-color);
+    object-fit: fill;
+  }
+
+  .check {
+    width: 25px;
+    height: 21px;
+    fill: var(--accent-color);
+    object-fit: fill;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container_text {
+    margin-left: 16px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    width: 252px;
+    border: 0;
+    border-spacing: 0;
+  }
+
+  .text_user {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .input {
+    width: 159px;
+
+    background-color: var(--bg-color);
+
+    border: 0;
+    border-radius: 40px;
+    font-size: 12px;
+    line-height: 1.4;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 18px;
+  }
+
+  .button_pencil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    border: 0;
+  }
+
+  .pencil {
+    width: 12px;
+    height: 12px;
+    fill: var(--accent-color);
+    object-fit: fill;
+  }
+
+  .pencil_disabled {
+    width: 12px;
+    height: 12px;
+    fill: var(--black-color);
+    object-fit: fill;
+  }
+
+  .check {
+    width: 14px;
+    height: 12px;
+    fill: var(--accent-color);
+    object-fit: fill;
+  }
 }

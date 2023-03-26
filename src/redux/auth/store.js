@@ -12,10 +12,12 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { persistSliceAuth } from './authslice';
+import {noticesReducer} from '../notices/noticesSlice';
 
 export const store = configureStore({
   reducer: {
     users: persistSliceAuth,
+    notices: noticesReducer,
     [userApi.reducerPath]: userApi.reducer,
   },
   middleware: getDefaultMiddleware =>

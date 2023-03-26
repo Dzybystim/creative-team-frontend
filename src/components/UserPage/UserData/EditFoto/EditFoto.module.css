@@ -10,6 +10,7 @@
   margin-right: 24px;
   margin-left: auto;
   width: 85px;
+  margin-bottom: 36px;
 }
 
 .field_photo {
@@ -18,6 +19,7 @@
   outline-color: var(--accent-color);
   cursor: pointer;
   font-size: 12px;
+  color: var(--black-color);
   /* background-image: url(../../../../images/camera.png); */
   /* background-repeat: no-repeat; */
 }
@@ -38,4 +40,13 @@
   clip-path: inset(50%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .container_edit {
+    margin-right: 40px;
+    margin-left: auto;
+    width: 85px;
+    margin-bottom: 24px;
+  }
 }

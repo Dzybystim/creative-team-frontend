@@ -8,19 +8,23 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 import SignUp from 'pages/SignUp/SignUp';
 import Login from 'pages/Login/Login';
 import PublicRoutes from 'RestrictedRoute';
+// import NoticesPage from 'pages/NoticesPage';
+// import NoticesCategoriesList from './NoticesCategoriesList/NoticesCategoriesList';
+// import OurFriendsPage from 'pages/OurFriendsPage';
 
-const NoticesPage = lazy(() => import('../pages/NoticesPage'));
+const HomePage = lazy(() => import('../pages/HomePage'));
+const NoticesPage = lazy(() => import('../pages/NoticesPage/NoticesPage'));
 const NewsPage = lazy(() => import('../pages/News'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 
 const UserPage = lazy(() => import('../pages/UserPage'));
-
 const NotFound = lazy(() => import('../utilities/NotFound/NotFound'));
 
 export const App = () => {
   return (
     <>
       <Layout>
+
 
           <Routes>
             <Route path="/" element={<SharedLayout />}>
@@ -37,7 +41,9 @@ export const App = () => {
 
               <Route path="*" element={<NotFound />} />
 
+
             </Route>
+            
         </Routes>
         <ToastContainer />
       </Layout>

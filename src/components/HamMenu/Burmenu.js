@@ -3,51 +3,58 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { selectors } from '../../redux/auth/selectors';
 import { useSelector } from 'react-redux';
-import css from './Burmenu.module.css';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import css from './Burmenu.module.css';
+import bgMenu from '../../images/bgMenu.svg';
+import close from '../../images/close.svg';
 
 export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
   const isLoggedIn = useSelector(selectors.isLogged);
 
   return (
-    <div className="Wrapper" style={{ width: '100%', height: '100 hv' }}>
-      <nav className="BG">
-        <div className="burger-menu" onClick={updateMenu}>
-          <div className={burger_class}></div>
-          <div className={burger_class}></div>
-          <div className={burger_class}></div>
+    <div className={css.wrapper} style={{ width: '100%', height: '100 hv' }}>
+      <nav className={css.bg}>
+        <div className={css.burgerMenu} onClick={updateMenu}>
+          <img className={burger_class} src={bgMenu} alt="touch" />
+          <img className={burger_class} src={close} alt="close" />
         </div>
       </nav>
       <div className={menu_class}>
-        <ul className="auth">
+        <ul className={css.auth}>
           {!isLoggedIn ? (
             <>
-              <NavLink className = {css.linkLogin} to="/login" onClick={updateMenu}>
+              <NavLink className={css.linkSt} to="/login" onClick={updateMenu}>
                 Login
               </NavLink>
-              <NavLink className = {css.linkRegister} to="/signup" onClick={updateMenu}>
+              <NavLink className={css.linkSt} to="/signup" onClick={updateMenu}>
                 Registration
               </NavLink>
             </>
           ) : (
             <li>
-              <NavLink className = {css.loginBg} to="/user" onClick={updateMenu}>
-                <AccountCircle sx={{ color: '#F59256' }} />
-                <div className = {css.linkUser}>Account</div>
+              <NavLink className={css.loginBg} to="/user" onClick={updateMenu}>
+                <AccountCircle sx={{ color: 'white' }} />
+                <div className={css.linkUser}>Account</div>
               </NavLink>
             </li>
           )}
         </ul>
-        <div className="div">
-          <ul className="bgNews">
-            <li className = {css.navItem} onClick={updateMenu}>
-              <NavLink className = {css.inkNews} to="/news">News</NavLink>
+        <div className={css.div}>
+          <ul className={css.bgNews}>
+            <li className={css.navItem} onClick={updateMenu}>
+              <NavLink className={css.linkStyled} to="/news">
+                News
+              </NavLink>
             </li>
-            <li className = {css.navItem} onClick={updateMenu}>
-              <NavLink className = {css.linkNotices} to="/notices">Find pet</NavLink>
+            <li className={css.navItem} onClick={updateMenu}>
+              <NavLink className={css.linkStyled} to="/notices/:category">
+                Find pet
+              </NavLink>
             </li>
-            <li className = {css.navItem} onClick={updateMenu}>
-              <NavLink className = {css.linkFriends} to="/friends">Our friends</NavLink>
+            <li className={css.navItem} onClick={updateMenu}>
+              <NavLink className={css.linkStyled} to="/friends">
+                Our friends
+              </NavLink>
             </li>
           </ul>
         </div>

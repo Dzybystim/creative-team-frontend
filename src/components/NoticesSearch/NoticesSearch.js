@@ -8,26 +8,25 @@ export const NoticesSearch = ({
   onSubmit,
   onChange,
 }) => {
-   const onClickClear = e => {
-    setSearchQuery('');
-  };
   return (
     <form className={css.SearchForm} onSubmit={onSubmit}>
-      <input
-        className={css.Input}
-        type="text"
-        autoComplete="off"
-        autoFocus
-        placeholder="Search"
-        onChange={onChange}
-      />
-      <button className={css.Icon} type="button" onClick={onClickClear}>
-        {searchQuery.length > 0 ? (
-          <CloseSearch  className={css.ClearIcon}/>
-        ) : (
-          <FaSearch className={css.SearchIcon}  />
-        )}
-      </button>
+      <div className={css.Search}>
+        <input
+          className={css.Input}
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search"
+          onChange={onChange}
+        />
+        <button className={css.Icon} type="submit">
+          {searchQuery.length > 0 ? (
+            <CloseSearch className={css.ClearIcon} />
+          ) : (
+            <FaSearch className={css.SearchIcon} />
+          )}
+        </button>
+      </div>
     </form>
   );
 };

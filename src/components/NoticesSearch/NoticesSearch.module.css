@@ -4,19 +4,26 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 608px;
-  height: 44px;
-  background-color: #fff;
+  max-width: 280px;
+  height: 40px;
+  background-color: var(--white-color);
   border-radius: 20px;
   overflow: hidden;
+  margin: auto;
+  box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+  margin-bottom: 28px;
 }
-
+.Search {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
 .Input {
   display: inline-block;
-  max-width: 608px;
-  height: 38px;
+  width: 238.5px;
+  height: 40px;
   font: inherit;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 0.04em;
   border: none;
   outline: none;
@@ -24,37 +31,64 @@
     padding-right: 4px;*/
   color: #535353;
   letter-spacing: 0.04em;
-  padding: 10px 64px 10px 20px;
-}
-
-.icon_container {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border: 0;
-  padding: 0;
-  margin: 0;
+  padding-left: 12px;
+  padding-top: 12.5px;
+  padding-bottom: 9px;
 }
 
 .SearchIcon {
-  width: 17.49px;
-  height: 17.49px;
-  /* padding-top: 13px;
-  padding-right: 15.51px;
-  padding-bottom: 13px; */
+  width: 14.57px;
+  height: 14.57px;
 }
 
 .ClearIcon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
 }
 
 .Icon {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
   padding-top: 3px;
-  padding-right: 13.57px;
+  padding-right: 13px;
   border: none;
   background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .SearchForm {
+    max-width: 608px;
+    height: 44px;
+    margin-bottom: 40px;
+  }
+
+  .Input {
+    width: 555px;
+    padding: 10px 10px 10px 20px;
+    font-size: 20px;
+  }
+  .Icon {
+    padding-right: 13.57px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .SearchIcon {
+    width: 17.49px;
+    height: 17.49px;
+    fill: inherit;
+  }
+
+  .ClearIcon {
+    width: 24px;
+    height: 24px;
+  }
+}
+.SearchIcon:hover {
+  fill: var(--accent-color);
+}
+.ClearIcon:hover {
+  stroke: var(--accent-color);
 }

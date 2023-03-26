@@ -1,0 +1,141 @@
+.page {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .page {
+    display: flex;
+    padding-top: 90px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .page {
+    display: flex;
+    padding-top: 103px;
+  }
+}
+
+.h1 {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: black;
+  padding-top: 50px;
+  /* bottom: 58px; */
+}
+@media screen and (min-width: 768px) {
+  .h1 {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 68px;
+    line-height: 100px;
+    padding-top: 0px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .h1 {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 68px;
+    line-height: 100px;
+    padding-top: 22px;
+  }
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+/* .wavesDesk {
+        position: absolute;
+        width: 1338px;
+        height: 700px;
+        left: 30px;
+        top: 295px;
+        z-index: -1;}
+@media screen and (max-width: 1279px) {.wavesDesk{
+    display: none;
+}
+@media screen and (min-width: 1280px) {.wavesDesk{
+    position: absolute;
+    width: 1378px;
+    height: 701px;
+    left: 16px;
+    top: 296px;
+    z-index: -1;
+}} */
+
+.imageHeart {
+  position: absolute;
+  right: 479px;
+  top: 118px;
+  padding-left: 460 px;
+  /* object-fit: cover; */
+}
+@media screen and (max-width: 1279px) {
+  .imageHeart {
+    display: none;
+  }
+}
+
+.frame {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -15;
+}
+@media screen and (max-width: 1280px) {
+  .frame {
+    display: none;
+  }
+}
+
+.imageDog {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -10;
+}
+@media screen and (max-width: 767px) {
+  .imageDog {
+    max-width: 100%;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 1279px) {
+  .imageDog {
+    max-width: 100%;
+
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.imageBG {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -20;
+}
+@media screen and (max-width: 759px) {
+  .imageBG {
+    max-height: 100%;
+    min-height: 500px;
+    bottom: 0px;
+  }
+}
+@media screen and (min-width: 761px) and (max-width: 1280px) {
+  .imageBG {
+    bottom: 0;
+
+    max-height: 1080px;
+  }
+}

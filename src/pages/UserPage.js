@@ -8,95 +8,51 @@ import { useState, useEffect } from 'react';
 import { fetchUserAndPets } from '../utilities/helpers';
 import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
-import { Dna } from 'react-loader-spinner';
-// import {
-//   Box,
-//   Button,
-//   Flex,
-//   Heading,
-//   Text,
-//   useDisclosure,
-// } from '@chakra-ui/react';
-// import { BsFillPlusCircleFill } from 'react-icons/bs';
+
 
 export default function UserPage() {
-  const [loading, setLoading] = useState(false);
-  const [userAndPets, setUserAndPets] = useState([]);
+  const [userAndPets, setUserAndPets] = useState({});
+  const [userFoto, setUserFoto] = useState(null);
 
   const token = useSelector(selectors.getToken);
 
   useEffect(() => {
-    setLoading(true);
     const fetchData = async () => {
       const response = await fetchUserAndPets(token);
       setUserAndPets(response);
       return;
     };
-    fetchData()
-      .catch(console.error)
-      .finally(() => setLoading(false));
+    fetchData().catch(console.error);
   }, [token]);
 
-  const { pets, user } = userAndPets;
-
   return (
-    <>
-      {loading ? (
-        <Dna
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper"
-        />
-      ) : (
-        <div className={css.container}>
-          {user && (
-            <>
-              <h2 className={css.title}>My information:</h2>
-              <div className={css.container__userdata}>
-                <UserFoto user={user} />
-                <EditFoto />
-                <UserData user={user} />
+    <div className={css.container}>
+      {userAndPets.user && (
+        <>
+          <div className={css.container__userdata}>
+            <h2 className={css.title}>My information:</h2>
+            <div className={css.container_desktop}>
+              <div className={css.container_tablet}>
+                <UserFoto userFoto={userFoto} user={userAndPets.user} />
+                <EditFoto setUserFoto={setUserFoto} />
+              </div>
+              <div className={css.container_tablet_tab}>
+                <UserData user={userAndPets.user} />
                 <Logout />
               </div>
-            </>
-          )}
+            </div>
+          </div>
+        </>
+      )}
 
-          {/* <h2 className={css.title}>My pets:</h2> */}
-          {pets && (
-            <>
-              <h2 className={css.title}>My pets:</h2>
-
-              {/* <Button
-                aria-label="add pet"
-                onClick={onOpen}
-                rightIcon={
-                  <BsFillPlusCircleFill size="40px" fill="#F59256" m="0px" />
-                }
-                bg="transparent"
-                fontSize={{ base: '20px', md: '28px' }}
-                color="black"
-                lineHeight={{ base: '1.35' }}
-                fontWeight={{ base: '500' }}
-                type="button"
-                px="0px"
-                _hover={{ color: 'accent.accentOrange' }}
-                transitionProperty={'color'}
-                transitionDuration={'250ms'}
-                transitionTimingFunction={'cubic-bezier(0.4, 0, 0.2, 1)'}
-              >
-                <Text mr="7px">Add pet</Text>
-              </Button> */}
-
-              <div className={css.container__petsdata}>
-                <PetsData pets={pets} />
-              </div>
-            </>
-          )}
+      {userAndPets.pets && (
+        <div className={css.container_pets}>
+          <h2 className={css.title}>My pets:</h2>
+          <div className={css.container__petsdata}>
+            <PetsData pets={userAndPets.pets} />
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

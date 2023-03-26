@@ -29,8 +29,8 @@ export function Modal({ children, onClose }) {
   return createPortal(
     <div className={css.overlay} onClick={handleBackdropClick}>
       <div className={css.container}>
-        <button class={css.icon} onClick={handleBackdropClick}>
-          <span class={css.close}>
+        <button className={css.icon} onClick={handleBackdropClick}>
+          <span className={css.close}>
             <RxCross1 size="16px" onClick={handleBackdropClick} />
           </span>
         </button>

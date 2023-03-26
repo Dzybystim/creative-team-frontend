@@ -1,0 +1,32 @@
+.container {
+  padding: 0;
+  margin: 0;
+}
+
+.title {
+  margin-top: 42px;
+  margin-bottom: 28px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.37;
+  text-align: center;
+  color: var(--black-color);
+}
+
+.loading {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    margin-top: 88px;
+    margin-bottom: 40px;
+    font-size: 48px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .title {
+    margin-top: 58px;
+  }
+}

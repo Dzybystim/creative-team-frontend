@@ -1,21 +1,19 @@
 import css from './News.module.css';
-import { useTranslation } from 'react-i18next';
 
 export const NewsItem = ({ url, title, description, date }) => {
-  const { t } = useTranslation();
   return (
-    <li className={css.item}>
-      <h3 className={css.titleList}>{title}</h3>
-      <p className={css.dataNews}>{description}</p>
-      <div className={css.dateAndLink}>
-        <p className={css.dateNews}>{date}</p>
+    <li className={css.newsItem}>
+      <h3 className={css.newsTitleList}>{title}</h3>
+      <p className={css.newsDescription}>{description}</p>
+      <div className={css.newsDateAndLink}>
+        <p className={css.newsDate}>{date}</p>
         <a
           href={url}
-          className={css.linkNews}
+          className={css.newsLink}
           target="_blank"
           rel="noreferrer noopener"
         >
-          {t('read more')}
+          Read more
         </a>
       </div>
     </li>
