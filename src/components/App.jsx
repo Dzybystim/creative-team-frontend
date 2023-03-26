@@ -5,8 +5,8 @@ import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
-import SignUp from 'pages/SignUp/SignUp';
-import Login from 'pages/Login/Login';
+// import SignUp from 'pages/SignUp/SignUp';
+// import Login from 'pages/Login/Login';
 import PublicRoutes from './PublickRoute';
 import RestrictedRoutes from './RestrictedRoute';
 // import NoticesPage from ./RestrictedRoutePage';
@@ -20,6 +20,8 @@ const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 
 const UserPage = lazy(() => import('../pages/UserPage'));
 const NotFound = lazy(() => import('../utilities/NotFound/NotFound'));
+const SignUp = lazy(() => import('pages/SignUp/SignUp'));
+const Login = lazy(() => import('pages/Login/Login'));
 
 export const App = () => {
   return (
