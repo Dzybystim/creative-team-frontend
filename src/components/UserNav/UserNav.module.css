@@ -1,9 +1,9 @@
-.div {
+.divTest {
   display: flex;
 }
 
 @media screen and (max-width: 767px) {
-  .div {
+  .divTest {
     display: none;
   }
 }
@@ -11,11 +11,13 @@
 .auth {
   display: block;
 }
+
 @media screen and (max-width: 767px) {
   .auth {
     display: none;
   }
 }
+
 @media screen and (min-width: 768px) {
   .auth {
     display: flex;
