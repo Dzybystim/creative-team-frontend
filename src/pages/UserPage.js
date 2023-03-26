@@ -9,7 +9,6 @@ import { fetchUserAndPets } from '../utilities/helpers';
 import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
-
 export default function UserPage() {
   const [userAndPets, setUserAndPets] = useState({});
   const [userFoto, setUserFoto] = useState(null);
@@ -24,7 +23,6 @@ export default function UserPage() {
     };
     fetchData().catch(console.error);
   }, [token]);
-
   return (
     <div className={css.container}>
       {userAndPets.user && (
