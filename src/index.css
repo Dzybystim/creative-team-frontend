@@ -15,6 +15,7 @@ body {
   background-color: rgba(253, 247, 242, 1);
   line-height: 1.4;
 }
+
 :root {
   --bg-color: #fdf7f2;
   --accent-color: #f59256;

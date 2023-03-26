@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import css from './Burmenu.module.css';
 import bgMenu from '../../images/bgMenu.svg';
+import close from '../../images/close.svg'
 
 export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
   const isLoggedIn = useSelector(selectors.isLogged);
@@ -14,7 +15,8 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
     <div className={css.wrapper} style={{ width: '100%', height: '100 hv' }}>
       <nav className={css.bg}>
         <div className={css.burgerMenu} onClick={updateMenu}>
-          <img className={{ burger_class }} src={bgMenu} alt="bgMenu" />
+          <img className={burger_class} src={bgMenu} alt="touch" />
+          <img className={burger_class} src={close} alt="close" />
         </div>
       </nav>
       <div className={menu_class}>
@@ -31,7 +33,7 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
           ) : (
             <li>
               <NavLink className={css.loginBg} to="/user" onClick={updateMenu}>
-                <AccountCircle sx={{ color: '#F59256' }} />
+                <AccountCircle sx={{ color: 'white' }} />
                 <div className={css.linkUser}>Account</div>
               </NavLink>
             </li>

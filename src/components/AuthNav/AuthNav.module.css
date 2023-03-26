@@ -1,5 +1,8 @@
 .auth {
   display: block;
+
+
+
 }
 /* @media screen and (max-width: 767px) {
   .auth {
@@ -10,6 +13,12 @@
 @media screen and (min-width: 768px) {
   .auth {
     display: flex;
+    gap: 12px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .auth {
+    gap: 20px;
   }
 }
 
@@ -38,12 +47,10 @@
 
 .linkStyled:active {
   background-color: #f59256;
-  color: #ffffff;
 }
 
 @media screen and (min-width: 768px) {
   .linkStyled {
-    margin-right: 12px;
     font-weight: 500;
     font-size: 20px;
   }
