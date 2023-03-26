@@ -10,7 +10,7 @@ import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
 export default function UserPage() {
-  const [userAndPets, setUserAndPets] = useState([]);
+  const [userAndPets, setUserAndPets] = useState({});
   const [userFoto, setUserFoto] = useState(null);
 
   const token = useSelector(selectors.getToken);
@@ -23,33 +23,32 @@ export default function UserPage() {
     };
     fetchData().catch(console.error);
   }, [token]);
-
   return (
-    <>
-      <div className={css.container}>
-        {userAndPets?.user && (
-          <div className={css.container_userInfo}>
-            <h2 className={css.title}>My information:</h2>
-            <div className={css.container__userdata}>
-              <div className={css.userPhoto}>
-                <UserFoto userFoto={userFoto} user={userAndPets.user} />
-                <EditFoto setUserFoto={setUserFoto} />
-              </div>
+    <div className={css.container}>
+      {userAndPets.user && (
+        <>
+          <h2 className={css.title}>My information:</h2>
+          <div className={css.container__userdata}>
+            <div className={css.container_tablet}>
+              <UserFoto userFoto={userFoto} user={userAndPets.user} />
+              <EditFoto setUserFoto={setUserFoto} />
+            </div>
+            <div className={css.container_tablet_tab}>
               <UserData user={userAndPets.user} />
+              <Logout />
             </div>
-            <Logout />
           </div>
-        )}
+        </>
+      )}
 
-        {userAndPets?.pets && (
-          <div className={css.container_pets}>
-            <h2 className={css.title}>My pets:</h2>
-            <div className={css.container__petsdata}>
-              <PetsData pets={userAndPets.pets} />
-            </div>
+      {userAndPets.pets && (
+        <div className={css.container_pets}>
+          <h2 className={css.title}>My pets:</h2>
+          <div className={css.container__petsdata}>
+            <PetsData pets={userAndPets.pets} />
           </div>
-        )}
-      </div>
-    </>
+        </div>
+      )}
+    </div>
   );
 }

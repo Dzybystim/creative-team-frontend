@@ -34,13 +34,11 @@
 .linkStyled:hover {
   background-color: #f59256;
   color: #ffffff;
-  cursor: pointer;
 }
 
 .linkStyled:active {
   background-color: #f59256;
   color: #ffffff;
-  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -48,5 +46,11 @@
     margin-right: 12px;
     font-weight: 500;
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .linkStyled {
+    display: none;
   }
 }

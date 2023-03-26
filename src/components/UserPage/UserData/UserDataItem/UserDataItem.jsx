@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { userEdit } from '../../../../utilities/helpers';
 
 import css from './UserDataItem.module.css';
+import { selectors } from 'redux/auth/selectors';
 
 export default function UserDataItem({ user }) {
   const { birthdate, cityRegion, email, mobilePhone, name } = user;
+  console.log(selectors.getUserInfo());
 
   // Стейти полів інпутів
 

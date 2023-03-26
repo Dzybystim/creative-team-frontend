@@ -5,6 +5,7 @@ import { selectors } from '../../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import css from './Burmenu.module.css';
+import bgMenu from '../../images/bgMenu.svg';
 
 export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
   const isLoggedIn = useSelector(selectors.isLogged);
@@ -13,27 +14,17 @@ export const BgMenu = ({ burger_class, menu_class, updateMenu }) => {
     <div className={css.wrapper} style={{ width: '100%', height: '100 hv' }}>
       <nav className={css.bg}>
         <div className={css.burgerMenu} onClick={updateMenu}>
-          <div className={css.burger_class}></div>
-          <div className={css.burger_class}></div>
-          <div className={css.burger_class}></div>
+          <img className={{ burger_class }} src={bgMenu} alt="bgMenu" />
         </div>
       </nav>
       <div className={menu_class}>
         <ul className={css.auth}>
           {!isLoggedIn ? (
             <>
-              <NavLink
-                className={css.linkLogin}
-                to="/login"
-                onClick={updateMenu}
-              >
+              <NavLink className={css.linkSt} to="/login" onClick={updateMenu}>
                 Login
               </NavLink>
-              <NavLink
-                className={css.linkRegister}
-                to="/signup"
-                onClick={updateMenu}
-              >
+              <NavLink className={css.linkSt} to="/signup" onClick={updateMenu}>
                 Registration
               </NavLink>
             </>
