@@ -1,5 +1,5 @@
 export const selectors = {
-  getUserInfo: state => state.users.user,
+  getUserInfo: state => state.users,
   getUserEmail: state => state.users.user.email,
   getUserCity: state => state.users.user.city,
   getUserPhone: state => state.users.user.phone,

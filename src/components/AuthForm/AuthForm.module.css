@@ -92,7 +92,7 @@
 
 .error {
   position: absolute;
-  top: 25%;
+  top: 95%;
   right: 6%;
   font-family: 'Manrope';
   font-weight: 400;
@@ -106,7 +106,7 @@
 
 .error__password {
   position: absolute;
-  top: 25%;
+  top: 95%;
   right: 12%;
   font-family: 'Manrope';
   font-weight: 400;

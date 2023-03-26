@@ -23,7 +23,6 @@ export default function UserPage() {
     };
     fetchData().catch(console.error);
   }, [token]);
-
   return (
     <div className={css.container}>
       {userAndPets.user && (

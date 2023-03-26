@@ -7,8 +7,9 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 import SignUp from 'pages/SignUp/SignUp';
 import Login from 'pages/Login/Login';
-import PublicRoutes from 'RestrictedRoute';
-// import NoticesPage from 'pages/NoticesPage';
+import PublicRoutes from './PublickRoute';
+import RestrictedRoutes from './RestrictedRoute';
+// import NoticesPage from ./RestrictedRoutePage';
 // import NoticesCategoriesList from './NoticesCategoriesList/NoticesCategoriesList';
 // import OurFriendsPage from 'pages/OurFriendsPage';
 
@@ -27,19 +28,21 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="user" element={<UserPage />} />
+            <Route element={<RestrictedRoutes />}>
+              <Route path="user" element={<UserPage />} />
+            </Route>
             <Route path="news" element={<NewsPage />} />
             <Route path="notices/:category" element={<NoticesPage />} />
             <Route path="friends" element={<OurFriendsPage />} />
-            <Route element={<PublicRoutes restricted />}>
+            <Route element={<PublicRoutes />}>
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<SignUp />} />
-              <Route path="edit" element={<div>Edit</div>} />
-              <Route path="logout" element={<div>Logout</div>} />
             </Route>
 
             <Route path="*" element={<NotFound />} />
           </Route>
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <ToastContainer />
       </Layout>

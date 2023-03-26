@@ -90,5 +90,5 @@
   fill: var(--accent-color);
 }
 .ClearIcon:hover {
-  fill: var(--accent-color);
+  stroke: var(--accent-color);
 }
