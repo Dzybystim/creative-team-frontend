@@ -27,15 +27,11 @@ export const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route index element={<HomePage />} />
-            <Route element={<PrivateRoutes />}>
-              <Route path="user" element={<UserPage />} />
-            </Route>
+            <Route path="user" element={<UserPage />} />
             <Route path="news" element={<NewsPage />} />
-
             <Route path="notices/:category" element={<NoticesPage />} />
             <Route path="friends" element={<OurFriendsPage />} />
-            <Route element={<PublicRoutes />}>
+            <Route element={<PublicRoutes restricted />}>
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<SignUp />} />
               <Route path="edit" element={<div>Edit</div>} />

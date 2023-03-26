@@ -1,45 +1,54 @@
-// import css from './News.module.css';
-// import { Input } from 'components/Input';
-// import css from 'components/Input/Input.module.css'
-// import { useDispatch } from 'react-redux';
+import css from '../NoticesSearch/NoticesSearch.module.css';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
+import { ReactComponent as CloseSearch } from '../../Icon/CloseSearch.svg';
 
-// import { useState } from "react";
-// import { useTranslation } from 'react-i18next';
+const FormSearchNews = ({ onSubmit }) => {
+  const [searchQuery, setSearchQuery] = useState('');
 
-// const FormSearchNews = () => {
-//    const [valueIn, setValueIn] = useState('');
+  const onClick = e => {
+    e.preventDefault();
+    onSubmit(e);
+  };
 
-//    const { t } = useTranslation();
-//    const dispatch = useDispatch();
+  const onChange = e => {
+    setSearchQuery(e.target.value);
+  };
 
-// const onClickNews = (e) => {
-//   e.preventDefault();
-//   setValueIn('')
+  const onClickClear = e => {
+    if (searchQuery === '') {
+      return toast.warn('Request is empt');
+    } else {
+      onSubmit(e);
+    }
+    setSearchQuery('');
+  };
 
-// }
+  return (
+    <>
+      <form className={css.SearchForm} onSubmit={onClick}>
+        <div className={css.Search}>
+          <input
+            className={css.Input}
+            type="text"
+            autoComplete="off"
+            autoFocus
+            placeholder="Search"
+            onChange={onChange}
+            value={searchQuery}
+          />
+          <button className={css.Icon} type="button" onClick={onClickClear}>
+            {searchQuery.length > 0 ? (
+              <CloseSearch className={css.ClearIcon} />
+            ) : (
+              <FaSearch className={css.SearchIcon} />
+            )}
+          </button>
+        </div>
+      </form>
+    </>
+  );
+};
 
-//   return (
-//     <div className={css.container}>
-//       <h2 className={css.title}>{t('news')}</h2>
-//       <div className={css.position}>
-//         <form onSubmit={onClickNews}>
-//           <Input
-//           customStyle={css.InputNews}
-//           placeholder={'Search'}
-//         //   value
-//           label={
-//             <button className={css.buttonSearch} type="submit"
-//             >
-//               <svg>
-//                 <use />
-//               </svg>
-//             </button>
-//         }/>
-//            </form>
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// export default FormSearchNews;
+export default FormSearchNews;
