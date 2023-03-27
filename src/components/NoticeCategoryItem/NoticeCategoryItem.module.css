@@ -12,7 +12,7 @@
   margin-bottom: 32px;
 }
 
-.img {
+.img_cover {
   position: relative;
   display: block;
   width: 280px;
@@ -23,10 +23,18 @@
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 20px;
-  background-image: url(../../components/white-cat-and-dog.jpg);
+  background-image: url(../../images/placeholder.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.img {
+  display: block;
+  width: 280px;
+  min-height: 288px;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .category {
