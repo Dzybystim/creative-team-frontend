@@ -29,8 +29,8 @@ const NoticesPage = () => {
   // setSelectedNotices
   // const isLogged = useSelector(selectors.isLogged);
 
- const [setSearchParams] = useSearchParams();
-//  searchParams
+  const [setSearchParams] = useSearchParams();
+  //  searchParams
   let { pathname } = useLocation();
   let category = pathname.split('/').pop();
 

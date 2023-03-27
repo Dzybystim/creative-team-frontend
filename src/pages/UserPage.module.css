@@ -58,27 +58,28 @@
 @media screen and (min-width: 768px) {
   .container__userdata {
     margin-bottom: 47px;
-    width: 704px;
     height: 311px;
+    width: 672px;
     box-shadow: 0px 0px 0px;
     background-color: var(--bg-color);
     border-radius: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-left: -32px;
   }
 
   .container_desktop {
     margin-bottom: 47px;
-    width: 704px;
     height: 311px;
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
     background-color: #fff;
     border-radius: 0 20px 20px 0;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-around;
-    margin-left: -32px;
+    justify-content: flex-end;
+    gap: 30px;
+    padding-left: 32px;
   }
 
   .container_tablet {
@@ -89,14 +90,29 @@
   .container_tablet_tab {
     display: flex;
     flex-direction: column;
-    width: 388px;
-    padding-left: 32px;
+    width: 370px;
+    padding-left: 0;
+    margin-left: 0;
+    gap: 35px;
   }
 
   .container {
     display: flex;
     flex-direction: column;
     width: 704px;
+  }
+
+  .title {
+    margin-bottom: 18px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    display: flex;
+    letter-spacing: 0.04em;
+    color: var(--black-color);
+    margin-left: 32px;
   }
 }
 
@@ -106,8 +122,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 5px;
-    margin-left: 0;
+    margin-bottom: 0;
+    margin-left: -16px;
     box-shadow: 0px 0px 0px;
     background-color: var(--bg-color);
     border-radius: 0;
@@ -122,6 +138,9 @@
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
     background-color: #fff;
     border-radius: 0 20px 20px 0;
+    padding-left: 0;
+    gap: 0;
+    margin-bottom: 0;
   }
 
   .container {
@@ -134,8 +153,22 @@
     display: flex;
     flex-direction: column;
     width: 411px;
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 0;
+    gap: 0;
+  }
+
+  .title {
+    margin-bottom: 18px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    display: flex;
+    letter-spacing: 0.04em;
+    color: var(--black-color);
+    margin-left: 16px;
   }
 }

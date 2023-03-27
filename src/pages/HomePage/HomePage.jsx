@@ -1,5 +1,5 @@
 import dogMobile from '../../images/mobile/dogMobile.png';
-import dogTablet from '../../images/tablet/dogTablet.png';
+// import dogTablet from '../../images/tablet/dogTablet.png';
 import dogDesktop from '../../images/desktop/dogDesktop.png';
 import unionDesk from '../../images/unionDesk.svg';
 import waveDesktop from '../../images/desktop/waveDesktop.png';
@@ -24,7 +24,7 @@ function HomePage() {
         <picture>
           <source srcSet={dogMobile} media="(max-width: 767px)" />
           <source
-            srcSet={dogTablet}
+            srcSet={dogMobile}
             media="(min-width: 768px) and (max-width: 1279px)"
           />
           <img className={css.imageDog} src={dogDesktop} alt="dog" />
@@ -38,6 +38,7 @@ function HomePage() {
           <img className={css.imageBG} src={waveDesktop} alt="background" />
         </picture>
       </div>
+
     </>
   );
 }

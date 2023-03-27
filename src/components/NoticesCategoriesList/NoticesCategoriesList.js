@@ -22,7 +22,7 @@ export const NoticesCategoriesList = () => {
           })}
         </ul>
       )}
-      
+
       {category !== 'favorite' && notices && (
         <ul className={css.list}>
           {notices.map(notice => {

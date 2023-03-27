@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 import {
   getNoticesByCategories,
@@ -7,8 +6,9 @@ import {
   getNoticesByTitle,
   getAllSelectedNotices,
   getAllOwnNotices,
+  // addToFavorite,
+  // deleteFromFavorite
 } from './operations';
-
 
 //import { logOut } from "../auth/operations";
 
@@ -20,7 +20,7 @@ const noticesSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  
+
   extraReducers: builder =>
     builder
 
@@ -115,7 +115,7 @@ const noticesSlice = createSlice({
     .addCase(getAllSelectedNotices.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-       //  state.items = action.payload;
+        //  state.items = action.payload;
         state.favorites = action.payload;
       })
 //    .addCase(addToFavorite.fulfilled, (state, action) => {

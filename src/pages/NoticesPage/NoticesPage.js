@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading, selectError } from '../../redux/notices/selectors';
+import { selectors } from '../../redux/auth/selectors';
 
 import {
   getNoticesByCategories,
@@ -22,6 +23,7 @@ const NoticesPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const isLogged = useSelector(selectors.isLogged);
 
   passTokenToHeadersAxios();
 
@@ -32,12 +34,14 @@ const NoticesPage = () => {
   let category = pathname.split('/').pop();
 
   useEffect(() => {
-
+    if(!isLogged){
+      return;
+    }
     dispatch(getAllSelectedNotices());
-  }, [dispatch]);
+    return;
+      }, [dispatch, isLogged]);
 
   useEffect(() => {
-
     const queryFromSearchParams = searchParams.get('query');
 
     if (!category) {
