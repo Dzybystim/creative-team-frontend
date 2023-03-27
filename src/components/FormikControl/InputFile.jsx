@@ -115,33 +115,33 @@ const CustomInputFile = ({
 
 export default CustomInputFile;
 
-CustomInputFile.propTypes = {
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  plusSize: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-  mb: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-  mx: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-  borderRadius: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-  size: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]).isRequired,
-  errPos: PropTypes.string,
-};
+// CustomInputFile.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   id: PropTypes.string.isRequired,
+//   plusSize: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     PropTypes.object,
+//   ]),
+//   mb: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     PropTypes.object,
+//   ]),
+//   mx: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     PropTypes.object,
+//   ]),
+//   borderRadius: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     PropTypes.object,
+//   ]),
+//   size: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     PropTypes.object,
+//   ]).isRequired,
+//   errPos: PropTypes.string,
+// };
