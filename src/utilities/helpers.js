@@ -19,9 +19,8 @@ export const fetchNews = async () => {
 export const fetchUserAndPets = async token => {
   try {
     const response = await axios.get(`/userAndPets`, {
-      headers: { Authorization: `Bearer ${token}, 'tut` },
+      headers: { Authorization: `Bearer ${token}` },
     });
-    console.log('tut error 401');
     return response.data;
   } catch (error) {
     console.log(error.response.status);
