@@ -8,8 +8,8 @@ import { HiTrash } from 'react-icons/hi';
 import { ageCounter } from '../../utilities/ageCounter';
 
 import { getNoticesById } from '../../utilities/helpers';
-import { selectors } from '../../redux/auth/selectors'
-import { deleteNotice } from "../../redux/notices/operations";
+import { selectors } from '../../redux/auth/selectors';
+import { deleteNotice } from '../../redux/notices/operations';
 
 export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
@@ -17,25 +17,24 @@ export const NoticeCategoryItem = ({ item }) => {
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
 
+  const passId = () => {
+    const idFromLocalStorage = localStorage.getItem('id');
+    //console.log('idFromLocalStorage', idFromLocalStorage);
+    if (idFromLocalStorage !== null) {
+      // console.log('idFromLocalStorage !== null', idFromLocalStorage !== null);
+      const idParse = JSON.parse(idFromLocalStorage);
+      //  const userId = idParse.slice(1, idParse.length - 1);
+      return idParse;
+      // console.log('2', userId);
+    } else {
+      // console.log('3');
+    }
+  };
+  const userId = passId();
 
-const passId = () => {
-const idFromLocalStorage = localStorage.getItem('id');
-//console.log('idFromLocalStorage', idFromLocalStorage);
-if (idFromLocalStorage !== null) {
- // console.log('idFromLocalStorage !== null', idFromLocalStorage !== null);
-   const idParse = JSON.parse(idFromLocalStorage);
- //  const userId = idParse.slice(1, idParse.length - 1);
-   return idParse;
- // console.log('2', userId);
-} else {
-// console.log('3');
-}
-};
-const userId = passId();
-
-  const removeNotices =()=>{
+  const removeNotices = () => {
     dispatch(deleteNotice(item._id));
-  }
+  };
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -98,10 +97,11 @@ const userId = passId();
             LearnMore
           </button>
 
-       {isLogged && (userId === item.owner) && (<button className={css.btn} type="button" onClick={removeNotices}>
-            Delete <HiTrash size={20} />
-          </button>)}
-
+          {isLogged && userId === item.owner && (
+            <button className={css.btn} type="button" onClick={removeNotices}>
+              Delete <HiTrash size={20} />
+            </button>
+          )}
         </div>
       </li>
 

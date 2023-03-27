@@ -15,9 +15,8 @@ export const getNoticesByCategories = createAsyncThunk(
   }
 );
 
-
 export const addNotice = createAsyncThunk(
-  "notices/addNotice",
+  'notices/addNotice',
   async (data, thunkAPI) => {
     try {
       const response = await axios.post('/notices/user', data);
@@ -30,9 +29,8 @@ export const addNotice = createAsyncThunk(
   }
 );
 
-
 export const deleteNotice = createAsyncThunk(
-  "notices/deleteNotice",
+  'notices/deleteNotice',
 
   async (noticeId, thunkAPI) => {
     try {

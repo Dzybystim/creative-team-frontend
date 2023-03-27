@@ -8,7 +8,12 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading, selectError } from '../../redux/notices/selectors';
 
-import { getNoticesByCategories, getNoticesByTitle, getAllSelectedNotices, getAllOwnNotices } from "../../redux/notices/operations";
+import {
+  getNoticesByCategories,
+  getNoticesByTitle,
+  getAllSelectedNotices,
+  getAllOwnNotices,
+} from '../../redux/notices/operations';
 
 import { passTokenToHeadersAxios } from '../../utilities/helpers';
 import { Loader } from '../../components/Loader/Loader';
@@ -18,43 +23,38 @@ const NoticesPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-
   passTokenToHeadersAxios();
 
   const [searchQuery, setSearchQuery] = useState('');
-
 
   const [searchParams, setSearchParams] = useSearchParams();
   let { pathname } = useLocation();
   let category = pathname.split('/').pop();
 
-   useEffect(() => {
-     const queryFromSearchParams = searchParams.get('query');
+  useEffect(() => {
+    const queryFromSearchParams = searchParams.get('query');
 
     if (!category) {
       return;
     }
-    if (category === 'favorite'){
-      if(!queryFromSearchParams){
+    if (category === 'favorite') {
+      if (!queryFromSearchParams) {
         dispatch(getAllSelectedNotices());
         return;
       }
-
     }
-    if (category === 'own'){
-        dispatch(getAllOwnNotices());
-        return;
-
+    if (category === 'own') {
+      dispatch(getAllOwnNotices());
+      return;
     }
     if (category === 'sell') {
       if (!queryFromSearchParams) {
         dispatch(getNoticesByCategories(category));
 
+        return;
+      }
+      dispatch(getNoticesByTitle({ category, queryFromSearchParams }));
       return;
-    }
-   dispatch(getNoticesByTitle({category, queryFromSearchParams})); 
-   return; 
-
     }
     if (category === 'lost-found') {
       if (!queryFromSearchParams) {
@@ -62,9 +62,8 @@ const NoticesPage = () => {
         return;
       }
 
-        dispatch(getNoticesByTitle({category, queryFromSearchParams}));
-        return;
-
+      dispatch(getNoticesByTitle({ category, queryFromSearchParams }));
+      return;
     }
     if (category === 'for-free') {
       if (!queryFromSearchParams) {
@@ -73,9 +72,6 @@ const NoticesPage = () => {
       }
       dispatch(getNoticesByTitle({ category, queryFromSearchParams }));
     }
-
-  
-
   }, [category, dispatch, searchParams]);
 
   const handleQueryChange = e => {
