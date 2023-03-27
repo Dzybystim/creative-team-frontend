@@ -44,14 +44,14 @@ export const Header = () => {
       </div>
       <div>
         {isMenuOpen ? (
-          <>
+          <div className={css.menuModal}>
             <div className={css.btnAuthNavMob} onClick={updateMenu}>
               {isLoggedIn ? <UserNav /> : <AuthNav />}
             </div>
             <div className={css.menuNavMobTab} onClick={updateMenu}>
               <Nav />
             </div>
-          </>
+          </div>
         ) : (
           <></>
         )}
