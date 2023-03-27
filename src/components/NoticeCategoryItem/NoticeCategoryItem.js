@@ -10,6 +10,7 @@ import { ageCounter } from '../../utilities/ageCounter';
 
 import { getNoticesById } from '../../utilities/helpers';
 import { selectors } from '../../redux/auth/selectors';
+
 import { selectFavorites } from '../../redux/notices/selectors';
 import { deleteNotice } from '../../redux/notices/operations';
 import { getUserIdFromLocalStorage } from '../../utilities/helpers';
@@ -18,6 +19,7 @@ import {
   deleteFromFavorite,
 } from '../../redux/notices/operations';
 
+
 export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const [notice, setNotice] = useState(null);
@@ -25,6 +27,7 @@ export const NoticeCategoryItem = ({ item }) => {
   const isLogged = useSelector(selectors.isLogged);
   const favorites = useSelector(selectFavorites);
   const [isFavorite, setIsFavorite] = useState(null);
+
 
   const userId = getUserIdFromLocalStorage();
 
@@ -54,6 +57,7 @@ export const NoticeCategoryItem = ({ item }) => {
     dispatch(addToFavorite(item._id));
     setIsFavorite(!isFavorite);
   };
+
 
   const removeNotices = () => {
     dispatch(deleteNotice(item._id));

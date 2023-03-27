@@ -3,9 +3,48 @@
   box-sizing: border-box;
 }
 
+/* перенести в основные стили */
+
+.hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 @media screen and (min-width: 1280px) {
-  .wrapper {
-    display: none;
+  .burgerWrapper {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .authBurgerMenu {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
   }
 }
 
@@ -16,6 +55,7 @@
   justify-content: flex-end;
   align-items: center;
 }
+
 @media screen and (max-width: 767px) {
   .bg {
     height: 3.5em;
@@ -49,7 +89,7 @@
 
 .linkSt:active {
   background-color: #f59256;
-  /* color: #ffffff; */
+  /* color: #ffffff; уже */
   cursor: pointer;
 }
 
@@ -71,23 +111,27 @@
   justify-content: space-between;
   cursor: pointer;
   /* padding-top: 26px;
-  padding-right: 30px; */
+  padding-right: 30px; уже */
 }
+
 @media screen and (min-width: 320px) {
   .burgerMenu {
     width: 3em;
   }
 }
+
 @media screen and (min-width: 500px) {
   .burgerMenu {
     width: 4em;
   }
 }
+
 @media screen and (min-width: 700px) {
   .burgerMenu {
     width: 3em;
   }
 }
+
 @media screen and (min-width: 1000px) {
   .burgerMenu {
     width: 4em;
@@ -100,27 +144,28 @@
   display: flex;
   flex-direction: column;
   list-style: none;
-
   padding-top: 70px;
 }
+
 @media screen and (min-width: 320px) {
   .bgNews {
     padding-top: 0;
   }
 }
 
-.auth {
+.authBurgerMenu {
   padding-bottom: 60px;
   display: flex;
   justify-content: space-evenly;
 }
+
 @media screen and (min-width: 768px) {
-  .auth {
+  .authBurgerMenu {
     display: none;
   }
 }
 
-.div {
+.divMenu {
   display: flex;
   justify-content: center;
   margin-left: auto;
@@ -128,7 +173,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .div {
+  .divMenu {
     display: none;
   }
 }
@@ -143,6 +188,7 @@
   margin-left: 20px;
   text-decoration: none;
 }
+
 @media screen and (min-width: 768px) {
   .linkStyled {
     font-family: 'Manrope';
@@ -153,24 +199,29 @@
     letter-spacing: 0.04em;
   }
 }
+
 .linkStyled:hover {
   font-weight: 700;
 }
+
 @media screen and (max-width: 1280px) {
   .linkStyled:hover {
     text-decoration-line: underline;
   }
 }
+
 .linkStyled:active {
   font-weight: 700;
   color: #f59256;
   cursor: pointer;
 }
+
 @media screen and (max-width: 1280px) {
   .linkStyled:active {
     text-decoration-line: underline;
   }
 }
+
 .linkStyled:hover {
   color: #f59256;
   cursor: pointer;
@@ -260,12 +311,12 @@
 
 .navItem {
   font-weight: 500;
-  /* font-size: ; */
+  /* font-size: ; уже */
   margin-bottom: 40px;
   text-align: center;
 }
 
-/* clicked*/
+/* clicked */
 .visible {
   display: inherit;
 }
@@ -303,6 +354,7 @@
   background-color: #212121;
   border-radius: 0.5em;
 }
+
 @media screen and (max-width: 767px) {
   .burger-bar {
     height: 5px;
@@ -333,6 +385,7 @@
   transition: ease-out 0.5s;
   width: 40px;
 }
+
 @media screen and (max-width: 767px) {
   .burger-bar.clicked:nth-child(3) {
     transform: rotate(135deg) translate(-0.15em, 0.89em);

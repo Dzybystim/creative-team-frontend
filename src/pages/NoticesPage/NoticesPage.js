@@ -32,10 +32,12 @@ const NoticesPage = () => {
   let category = pathname.split('/').pop();
 
   useEffect(() => {
+
     dispatch(getAllSelectedNotices());
   }, [dispatch]);
 
   useEffect(() => {
+
     const queryFromSearchParams = searchParams.get('query');
 
     if (!category) {

@@ -2,11 +2,7 @@ import { FaSearch } from 'react-icons/fa';
 import css from './NoticesSearch.module.css';
 import { ReactComponent as CloseSearch } from '../../Icon/CloseSearch.svg';
 
-export const NoticesSearch = ({
-  searchQuery,
-  onSubmit,
-  onChange,
-}) => {
+export const NoticesSearch = ({ searchQuery, onSubmit, onChange }) => {
   return (
     <form className={css.SearchForm} onSubmit={onSubmit}>
       <div className={css.Search}>

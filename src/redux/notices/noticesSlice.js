@@ -1,6 +1,14 @@
 
-import { createSlice } from "@reduxjs/toolkit";
-import {getNoticesByCategories, addNotice, deleteNotice, getNoticesByTitle, getAllSelectedNotices, getAllOwnNotices, addToFavorite, deleteFromFavorite} from "./operations";
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  getNoticesByCategories,
+  addNotice,
+  deleteNotice,
+  getNoticesByTitle,
+  getAllSelectedNotices,
+  getAllOwnNotices,
+} from './operations';
+
 
 //import { logOut } from "../auth/operations";
 
@@ -120,6 +128,7 @@ const noticesSlice = createSlice({
     state.error = null;
     state.favorites = state.items.filter(item => item._id !== action.meta.arg);
   })
+
 
   //  .addCase(logOut.fulfilled, (state, action) => {
   //      state.items = [];
