@@ -38,7 +38,6 @@ function HomePage() {
           <img className={css.imageBG} src={waveDesktop} alt="background" />
         </picture>
       </div>
-
     </>
   );
 }

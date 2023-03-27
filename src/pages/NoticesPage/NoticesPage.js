@@ -34,12 +34,12 @@ const NoticesPage = () => {
   let category = pathname.split('/').pop();
 
   useEffect(() => {
-    if(!isLogged){
+    if (!isLogged) {
       return;
     }
     dispatch(getAllSelectedNotices());
     return;
-      }, [dispatch, isLogged]);
+  }, [dispatch, isLogged]);
 
   useEffect(() => {
     const queryFromSearchParams = searchParams.get('query');

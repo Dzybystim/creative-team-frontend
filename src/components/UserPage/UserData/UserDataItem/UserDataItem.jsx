@@ -157,7 +157,12 @@ export default function UserDataItem({ user }) {
             ) : (
               <>
                 <td className={css.td_user}>
-                  <form id="sub_name" name="name" onSubmit={clickSubmit} className={css.form_user_input}>
+                  <form
+                    id="sub_name"
+                    name="name"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="text"
                       name="name"
@@ -212,7 +217,12 @@ export default function UserDataItem({ user }) {
             ) : (
               <>
                 <td className={css.td_user}>
-                  <form id="sub_email" name="email" onSubmit={clickSubmit} className={css.form_user_input}>
+                  <form
+                    id="sub_email"
+                    name="email"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="email"
                       name="email"
@@ -269,7 +279,12 @@ export default function UserDataItem({ user }) {
             ) : (
               <>
                 <td className={css.td_user}>
-                  <form id="sub_birt" name="birthday" onSubmit={clickSubmit} className={css.form_user_input}>
+                  <form
+                    id="sub_birt"
+                    name="birthday"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="text"
                       name="birthday"
@@ -326,7 +341,12 @@ export default function UserDataItem({ user }) {
             ) : (
               <>
                 <td className={css.td_user}>
-                  <form id="sub_phone" name="phone" onSubmit={clickSubmit} className={css.form_user_input}>
+                  <form
+                    id="sub_phone"
+                    name="phone"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="tel"
                       name="phone"
@@ -381,7 +401,12 @@ export default function UserDataItem({ user }) {
             ) : (
               <>
                 <td className={css.td_user}>
-                  <form id="sub_city" name="city" onSubmit={clickSubmit} className={css.form_user_input}>
+                  <form
+                    id="sub_city"
+                    name="city"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="text"
                       name="city"

@@ -87,10 +87,7 @@
   align-items: center;
   overflow: hidden;
   background-color: inherit;
-;
-
 }
-
 
 .menu_class {
   display: none;
@@ -141,7 +138,7 @@
   display: flex;
   flex-direction: column;
   list-style: none;
- 
+
   padding-top: 70px;
 }
 
@@ -165,7 +162,7 @@
 
 .divMenu {
   position: relative;
-  top:160px;
+  top: 160px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -200,14 +197,13 @@
   color: #f59256;
   text-decoration-line: underline;
 }
-@media screen and (min-width: 768px) and (max-width: 1279px){
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .linkStyled {
     font-size: 48px;
     line-height: 66px;
     letter-spacing: 0.04em;
   }
 }
-
 
 .loginBg {
   border-radius: 40px;

@@ -3,15 +3,19 @@
   z-index: 400;
 }
 
- @media screen and (max-width: 767px) {.logoImg {
-  position: relative;
-  max-width: 82px;
-  height: 42px;
-}}
+@media screen and (max-width: 767px) {
+  .logoImg {
+    position: relative;
+    max-width: 82px;
+    height: 42px;
+  }
+}
 
-@media screen and (min-width: 768px) {.logoImg {
-  position: relative;
-  max-width: 94px;
-  height: 48px;
-  margin-right: 246px;
-}}
+@media screen and (min-width: 768px) {
+  .logoImg {
+    position: relative;
+    max-width: 94px;
+    height: 48px;
+    margin-right: 246px;
+  }
+}
