@@ -1,13 +1,20 @@
 import css from './NoticeModal.module.css';
+import { ReactComponent as IconHeart} from '../../images/icon_heart.svg'
+
 
 export const NoticeModal = ({
-  item,
-  //onClick, selected
+  item,isFavorite, handleDeleteFromFavorite, handleAddToFavorite
 }) => {
+  console.log(item);
   return (
     <div className={css.container}>
       <div className={css.img}>
         <p className={css.category}>{item.category}</p>
+        <img
+        src={item.imageURL}
+        className={css.img}
+        alt="Pet"
+      />
       </div>
       <h3 className={css.title}>{item.title}</h3>
 
@@ -62,29 +69,29 @@ export const NoticeModal = ({
           </a>
         </li>
 
-        {/* {!selected ? ( */}
+        {!isFavorite ? (
         <li className={css.btn_item}>
           <button
             className={css.btn}
             type="button"
-            // onClick={onClick}
+          onClick={handleAddToFavorite}
           >
             {' '}
-            Add to
+            Add to  <IconHeart width={20} height={20}/> 
           </button>
         </li>
-        {/* ) : (  */}
+      ) : ( 
         <li className={css.btn_item}>
           <button
             className={css.btn}
             type="button"
-            //  onClick={onClick}
+              onClick={handleDeleteFromFavorite}
           >
             {' '}
-            Remove from
+            Remove from  <IconHeart width={20} height={20}/> 
           </button>
         </li>
-        {/* )}*/}
+        )}
       </ul>
     </div>
   );

@@ -2,14 +2,19 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 80vh;
+  max-height: 80vh;
   transform: translate(-50%, -50%);
-  /* min-height: 300px; */
   width: 280px;
   border-radius: 20px;
   background-color: #fff;
   transition: transform 250ms linear;
   overflow-y: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 608px;
+  }
 }
 
 .overlay {

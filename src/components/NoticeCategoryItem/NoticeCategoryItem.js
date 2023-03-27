@@ -1,41 +1,67 @@
 import { Modal } from '../../utilities/Modal/Modal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NoticeModal } from 'components/NoticeModal/NoticeModal';
 import css from './NoticeCategoryItem.module.css';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { HiTrash } from 'react-icons/hi';
+import { ReactComponent as IconHeart } from '../../images/icon_heart.svg';
 import { ageCounter } from '../../utilities/ageCounter';
 
 import { getNoticesById } from '../../utilities/helpers';
-import { selectors } from '../../redux/auth/selectors'
-import { deleteNotice } from "../../redux/notices/operations";
+import { selectors } from '../../redux/auth/selectors';
+
+import { selectFavorites } from '../../redux/notices/selectors';
+import { deleteNotice } from '../../redux/notices/operations';
+import { getUserIdFromLocalStorage } from '../../utilities/helpers';
+import {
+  addToFavorite,
+  deleteFromFavorite,
+} from '../../redux/notices/operations';
+
 
 export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const [notice, setNotice] = useState(null);
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
+  const favorites = useSelector(selectFavorites);
+  const [isFavorite, setIsFavorite] = useState(null);
 
 
-const passId = () => {
-const idFromLocalStorage = localStorage.getItem('id');
-//console.log('idFromLocalStorage', idFromLocalStorage);
-if (idFromLocalStorage !== null) {
- // console.log('idFromLocalStorage !== null', idFromLocalStorage !== null);
-   const idParse = JSON.parse(idFromLocalStorage);
- //  const userId = idParse.slice(1, idParse.length - 1);
-   return idParse;
- // console.log('2', userId);
-} else {
-// console.log('3');
-}
-};
-const userId = passId();
+  const userId = getUserIdFromLocalStorage();
 
-  const removeNotices =()=>{
+  let favoriteOrNot =
+    (favorites.find(favorite => favorite._id === item._id) && true) || false;
+  const firstFavorites = () => {
+    setIsFavorite(favoriteOrNot);
+  };
+
+  useEffect(() => {
+    firstFavorites();
+  });
+
+  useEffect(() => {
+    if (isFavorite === true) {
+      return;
+    }
+    return;
+  }, [isFavorite]);
+
+  const handleDeleteFromFavorite = () => {
+    dispatch(deleteFromFavorite(item._id));
+    setIsFavorite(!isFavorite);
+  };
+
+  const handleAddToFavorite = () => {
+    dispatch(addToFavorite(item._id));
+    setIsFavorite(!isFavorite);
+  };
+
+
+  const removeNotices = () => {
     dispatch(deleteNotice(item._id));
-  }
+  };
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -53,18 +79,31 @@ const userId = passId();
   };
 
   const age = ageCounter(item.birthdate);
+
   return (
     <>
       <li className={css.item}>
         <div className={css.img}>
+          <img src={item.imageURL} className={css.img} alt="Pet" />
           <p className={css.category}>{item.category}</p>
-          <button
-            className={css.icon}
-            type="button"
-            //onClick={()=>toggleSelected(item._id)}
-          >
-            <AiOutlineHeart size={28} />
-          </button>
+
+          {isFavorite ? (
+            <button
+              className={css.icon}
+              type="button"
+              onClick={handleDeleteFromFavorite}
+            >
+              <IconHeart width={26} height={26} />
+            </button>
+          ) : (
+            <button
+              className={css.icon}
+              type="button"
+              onClick={handleAddToFavorite}
+            >
+              <AiOutlineHeart size={28} />
+            </button>
+          )}
         </div>
         <h3 className={css.title}>{item.title}</h3>
 
@@ -98,18 +137,21 @@ const userId = passId();
             LearnMore
           </button>
 
-       {isLogged && (userId === item.owner) && (<button className={css.btn} type="button" onClick={removeNotices}>
-            Delete <HiTrash size={20} />
-          </button>)}
-
+          {isLogged && userId === item.owner && (
+            <button className={css.btn} type="button" onClick={removeNotices}>
+              Delete <HiTrash size={20} />
+            </button>
+          )}
         </div>
       </li>
 
       {showModal && (
         <Modal key={item.id} onClose={toggleModal}>
           <NoticeModal
+            isFavorite={isFavorite}
+            handleDeleteFromFavorite={handleDeleteFromFavorite}
+            handleAddToFavorite={handleAddToFavorite}
             item={notice}
-            //    onClick={()=>toggleSelected(item._id)} selected={selected}
           />
         </Modal>
       )}

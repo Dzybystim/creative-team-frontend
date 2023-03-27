@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { PageOne } from './ModalAddNoticeFirst';
 import { PageTwo } from './ModalAddNoticeSecond';
 import { useDispatch } from 'react-redux';
-import { addNotice } from "../../redux/notices/operations";
-
+import { addNotice } from '../../redux/notices/operations';
 
 export const ModalAddNotice = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -26,39 +25,38 @@ export const ModalAddNotice = ({ onClose }) => {
     setData(prev => ({ ...prev, ...newData }));
 
     if (final) {
-   
-if(newData.price === ''){
-  const newNotices = {
-    category: newData.category,
-    title: newData.title,
-    name: newData.name,
-    birthdate: newData.birthdate,
-    breed: newData.breed,
-    sex: newData.sex,
-    location: newData.location,
-    imageURL: newData.imageURL,
-    comments: newData.comments,
+      if (newData.price === '') {
+        const newNotices = {
+          category: newData.category,
+          title: newData.title,
+          name: newData.name,
+          birthdate: newData.birthdate,
+          breed: newData.breed,
+          sex: newData.sex,
+          location: newData.location,
+          imageURL: newData.imageURL,
+          comments: newData.comments,
+        };
+        dispatch(addNotice(newNotices));
+        return;
+      }
+      const newNotices = {
+        category: newData.category,
+        title: newData.title,
+        name: newData.name,
+        birthdate: newData.birthdate,
+        breed: newData.breed,
+        sex: newData.sex,
+        location: newData.location,
+        imageURL: newData.imageURL,
+        comments: newData.comments,
+        price: newData.price,
+      };
+      dispatch(addNotice(newNotices));
+      return;
+    }
+    setCurrentPage(prev => prev + 1);
   };
-  dispatch(addNotice(newNotices));
-  return;
-}
-  const newNotices = {
-    category: newData.category,
-    title: newData.title,
-    name: newData.name,
-    birthdate: newData.birthdate,
-    breed: newData.breed,
-    sex: newData.sex,
-    location: newData.location,
-    imageURL: newData.imageURL,
-    comments: newData.comments,
-    price: newData.price,
-  };
-  dispatch(addNotice(newNotices));
-  return;
-} 
-setCurrentPage(prev => prev + 1);
-  }
 
   const handlePrevPage = newData => {
     setData(prev => ({ ...prev, ...newData }));
@@ -77,4 +75,3 @@ setCurrentPage(prev => prev + 1);
 
   return <div>{pages[currentPage]}</div>;
 };
-
