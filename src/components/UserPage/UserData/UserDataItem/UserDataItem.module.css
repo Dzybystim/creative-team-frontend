@@ -7,6 +7,15 @@
   margin-top: 20px;
 }
 
+.form_user_input{
+  display: inline;
+}
+
+.td_user {
+  padding: 0;
+  text-align: left;
+}
+
 .foto_img {
   display: block;
   height: 100%;
@@ -43,7 +52,7 @@
   margin-bottom: 12px;
   width: 252px;
   border: 0;
-  border-spacing: 0;
+  border-spacing: 0 8px;
 }
 
 .button_pencil {
@@ -175,6 +184,16 @@
 }
 
 @media screen and (min-width: 1280px) {
+
+  .form_user_input{
+    display: inline;
+  }
+
+  .td_user {
+    padding: 0;
+    text-align: left;
+  }
+
   .container_text {
     margin-left: 16px;
     margin-right: 16px;
