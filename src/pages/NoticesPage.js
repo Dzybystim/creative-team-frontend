@@ -3,16 +3,17 @@ import { NoticesCategoriesList } from '../components/NoticesCategoriesList/Notic
 import { NoticesSearch } from '../components/NoticesSearch/NoticesSearch';
 import css from './NoticesPage.module.css';
 import { toast } from 'react-toastify';
-import { useSelector } from 'react-redux';
-import { selectors } from '../redux/auth/selectors';
+// import { useSelector } from 'react-redux';
+// import { selectors } from '../redux/auth/selectors';
+import { useState } from 'react';
 
-import { getAllSelectedNotices } from '../utilities/helpers';
+// import { getAllSelectedNotices } from '../utilities/helpers';
 // import { getNoticesByTitle } from '../utilities/helpers';
 import { passTokenToHeadersAxios } from '../utilities/helpers';
 
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { getNoticesByCategories } from '../utilities/helpers';
+// import { getNoticesByCategories } from '../utilities/helpers';
 // import {
 //   addToSelectedNotices,
 //   deleteFromSelectedNotices,
@@ -22,11 +23,14 @@ const NoticesPage = () => {
   passTokenToHeadersAxios();
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [notices, setNotices] = useState([]);
-  const [selectedNotices, setSelectedNotices] = useState([]);
-  const isLogged = useSelector(selectors.isLogged);
+  const [notices] = useState([]);
+  // setNotices
+  const [selectedNotices] = useState([]);
+  // setSelectedNotices
+  // const isLogged = useSelector(selectors.isLogged);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+ const [setSearchParams] = useSearchParams();
+//  searchParams
   let { pathname } = useLocation();
   let category = pathname.split('/').pop();
 
