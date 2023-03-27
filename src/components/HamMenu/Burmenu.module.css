@@ -227,61 +227,6 @@
   cursor: pointer;
 }
 
-/* .find {
-    margin-bottom: 40px;
-  } */
-
-/* .login {
-    border-radius: 40px;
-    border: 2px solid #f59256;
-    background: #fdf7f2;
-    color: #111111;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-  }
-  
-  .login:hover {
-    color: #ffffff;
-    background-color: #f59256;
-  } */
-
-/* .register {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-    border-radius: 40px;
-    border: 2px solid #f59256;
-    color: #111111;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
-  
-  .register:hover {
-    background-color: #f59256;
-    color: #ffffff;
-  } */
-
-/* .linkRegister {
-  padding: 8px 28px;
-  text-decoration: none;
-  color: #111111;
-}
-
-.linkRegister:hover {
-  color: #ffffff;
-} */
-
 .loginBg {
   border-radius: 40px;
   border: 2px solid #f59256;
