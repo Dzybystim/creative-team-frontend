@@ -1,27 +1,130 @@
+/* .headerContainer {
+
+} */
+
 .header {
-  /* display: block; */
   display: flex;
-  /* width: 100%; */
-  /* justify-content: space-between; */
   align-items: center;
   padding-top: 16px;
-  padding-bottom: 42px;
-}
-
-.btnAuthNav {
-  margin-left: auto;
+  /* padding-bottom: 46px; */
 }
 
 @media screen and (min-width: 768px) {
   .header {
     padding-top: 26px;
-    padding-bottom: 88px;
+    /* padding-bottom: 88px; */
   }
 }
 
 @media screen and (min-width: 1280px) {
   .header {
     padding-top: 22px;
-    padding-bottom: 58px;
+    /* padding-bottom: 58px; */
   }
+}
+
+.btnAuthNavTabDes {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .btnAuthNavTabDes {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+.btnBurMenuMobTab {
+  margin-left: 25px;
+}
+
+.menuNavMobTab {
+  margin-top: 60px;
+  margin-bottom: 2000px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .menuNavMobTab {
+    margin-top: 88px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .btnBurMenuMobTab {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .menuNavMobTab,
+  .btnBurMenuMobTab {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+.btnAuthNavMob {
+  margin-top: 46px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .btnAuthNavMob {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .menuNavDes {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+.btnBurMenu {
+  fill: var(--black-color);
+  stroke: var(--black-color);
+}
+
+.btnBurMenu:active,
+.btnBurMenu:hover {
+  cursor: pointer;
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
 }
