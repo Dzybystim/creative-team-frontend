@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 import {
   getNoticesByCategories,
@@ -21,7 +20,7 @@ const noticesSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  
+
   extraReducers: builder =>
     builder
 
@@ -44,12 +43,12 @@ const noticesSlice = createSlice({
    .addCase(getAllOwnNotices.pending, (state)=>{
      state.isLoading = true;
    })
-   .addCase(addToFavorite.pending, (state)=>{
-    state.isLoading = true;
-  })
-  .addCase(deleteFromFavorite.pending, (state)=>{
-    state.isLoading = true;
-  })
+  //  .addCase(addToFavorite.pending, (state)=>{
+  //   state.isLoading = true;
+  // })
+  // .addCase(deleteFromFavorite.pending, (state)=>{
+  //   state.isLoading = true;
+  // })
 
   
  //* статус "rejected"  
@@ -77,14 +76,14 @@ const noticesSlice = createSlice({
      state.isLoading = false;
      state.error = action.payload;
    })
-   .addCase(addToFavorite.rejected, (state, action) => {
-    state.isLoading = false;
-    state.error = action.payload;
-  })
-  .addCase(deleteFromFavorite.rejected, (state, action) => {
-    state.isLoading = false;
-    state.error = action.payload;
-  })
+  //  .addCase(addToFavorite.rejected, (state, action) => {
+  //   state.isLoading = false;
+  //   state.error = action.payload;
+  // })
+  // .addCase(deleteFromFavorite.rejected, (state, action) => {
+  //   state.isLoading = false;
+  //   state.error = action.payload;
+  // })
 
   
  //* статус "fulfilled"  
@@ -116,19 +115,19 @@ const noticesSlice = createSlice({
     .addCase(getAllSelectedNotices.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-       //  state.items = action.payload;
+        //  state.items = action.payload;
         state.favorites = action.payload;
       })
-   .addCase(addToFavorite.fulfilled, (state, action) => {
-    state.isLoading = false;
-    state.error = null;
-    state.favorites.push(action.payload);
-  })
-.addCase(deleteFromFavorite.fulfilled, (state, action) => {
-    state.isLoading = false;
-    state.error = null;
-    state.favorites = state.items.filter(item => item._id !== action.meta.arg);
-  })
+//    .addCase(addToFavorite.fulfilled, (state, action) => {
+//     state.isLoading = false;
+//     state.error = null;
+//     state.favorites.push(action.payload);
+//   })
+// .addCase(deleteFromFavorite.fulfilled, (state, action) => {
+//     state.isLoading = false;
+//     state.error = null;
+//     state.favorites = state.items.filter(item => item._id !== action.meta.arg);
+//   })
 
 
   //  .addCase(logOut.fulfilled, (state, action) => {

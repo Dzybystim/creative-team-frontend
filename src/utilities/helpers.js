@@ -109,7 +109,7 @@ export const getUserIdFromLocalStorage = () => {
       return;
     }
     const userId = idParse.slice(1, idParse.length - 1);
-     return userId;  
+    return userId;
   } else {
     return;
   }

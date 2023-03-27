@@ -28,7 +28,6 @@ export const NoticeCategoryItem = ({ item }) => {
   const favorites = useSelector(selectFavorites);
   const [isFavorite, setIsFavorite] = useState(null);
 
-
   const userId = getUserIdFromLocalStorage();
 
   // let favoriteOrNot =
@@ -76,7 +75,6 @@ export const NoticeCategoryItem = ({ item }) => {
     dispatch(addToFavorite(item._id));
     setIsFavorite(!isFavorite);
   };
-
 
   const removeNotices = () => {
     dispatch(deleteNotice(item._id));

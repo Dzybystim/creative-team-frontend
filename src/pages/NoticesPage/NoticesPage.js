@@ -42,7 +42,6 @@ const NoticesPage = () => {
       }, [dispatch, isLogged]);
 
   useEffect(() => {
-
     const queryFromSearchParams = searchParams.get('query');
 
     if (!category) {

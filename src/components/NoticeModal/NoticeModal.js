@@ -1,9 +1,11 @@
 import css from './NoticeModal.module.css';
-import { ReactComponent as IconHeart} from '../../images/icon_heart.svg'
-
+import { ReactComponent as IconHeart } from '../../images/icon_heart.svg';
 
 export const NoticeModal = ({
-  item,isFavorite, handleDeleteFromFavorite, handleAddToFavorite
+  item,
+  isFavorite,
+  handleDeleteFromFavorite,
+  handleAddToFavorite,
 }) => {
   console.log(item);
   return (
@@ -70,27 +72,27 @@ export const NoticeModal = ({
         </li>
 
         {!isFavorite ? (
-        <li className={css.btn_item}>
-          <button
-            className={css.btn}
-            type="button"
-          onClick={handleAddToFavorite}
-          >
-            {' '}
-            Add to  <IconHeart width={20} height={20}/> 
-          </button>
-        </li>
-      ) : ( 
-        <li className={css.btn_item}>
-          <button
-            className={css.btn}
-            type="button"
+          <li className={css.btn_item}>
+            <button
+              className={css.btn}
+              type="button"
+              onClick={handleAddToFavorite}
+            >
+              {' '}
+              Add to <IconHeart width={20} height={20} />
+            </button>
+          </li>
+        ) : (
+          <li className={css.btn_item}>
+            <button
+              className={css.btn}
+              type="button"
               onClick={handleDeleteFromFavorite}
-          >
-            {' '}
-            Remove from  <IconHeart width={20} height={20}/> 
-          </button>
-        </li>
+            >
+              {' '}
+              Remove from <IconHeart width={20} height={20} />
+            </button>
+          </li>
         )}
       </ul>
     </div>
