@@ -1,6 +1,22 @@
-/* .headerContainer {
+.headerContainer {
+  /* width: 100%; */
+  /* margin: 0; */
+}
 
-} */
+.menuModal {
+  position: absolute;
+  left: 0;
+  top: 20;
+  display: block;
+  justify-content: center;
+  /* padding-bottom: auto; */
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  background-color: rgba(253, 247, 242, 1);
+  /* overflow: hidden; */
+
+}
 
 .header {
   display: flex;
@@ -48,7 +64,6 @@
 
 .menuNavMobTab {
   margin-top: 60px;
-  margin-bottom: 2000px;
   display: flex;
   justify-content: center;
 }
@@ -66,6 +81,7 @@
 }
 
 @media screen and (min-width: 1280px) {
+
   .menuNavMobTab,
   .btnBurMenuMobTab {
     position: absolute;
