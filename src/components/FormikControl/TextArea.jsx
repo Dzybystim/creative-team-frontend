@@ -56,13 +56,13 @@ const CustomTextArea = ({ label, name, id, mb = '40px', ...rest }) => {
 
 export default CustomTextArea;
 
-CustomTextArea.propTypes = {
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  mb: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-};
+// CustomTextArea.propTypes = {
+//   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+//   name: PropTypes.string.isRequired,
+//   id: PropTypes.string.isRequired,
+//   mb: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     PropTypes.object,
+//   ]),
+// };

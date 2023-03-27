@@ -1,66 +1,57 @@
-import PropTypes from 'prop-types';
-import './ModalAddsPet.css';
-import { Formik, Form } from 'formik';
-import { useMemo, useState } from 'react';
-import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
-import { nanoid } from 'nanoid';
+import { Formik, Form, Field } from 'formik';
+import { useState } from 'react';
 import moment from 'moment/moment';
 import { Text, Box } from '@chakra-ui/react';
-// import { Spinner } from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
 import { addNewPet } from 'redux/auth/operations';
-// import { getIsRefreshing } from 'redux/auth/selectors';
 import { FormikControl } from '../../../FormikControl';
 import { Button } from 'components/UserPage/Button';
-import { errorToast, successToast } from 'components/Toast';
+import { toast } from 'react-toastify';
 import { addPetInitialState, addPetSchema } from './index';
+import { postImageToStorage } from '../../../../utilities/helpers';
 
 const ModalAddsPet = ({ onClose }) => {
-  const dispatch = useDispatch();
-  // const isLoading = useSelector(getIsRefreshing);
-  // const isLoading = false;
-  const nameId = useMemo(() => nanoid(), []);
-  const birthdayId = useMemo(() => nanoid(), []);
-  const breedId = useMemo(() => nanoid(), []);
-  const photoId = useMemo(() => nanoid(), []);
-  const commentsId = useMemo(() => nanoid(), []);
   const [firstStep, setFirstStep] = useState(true);
+  const [imageURL, setImageURL] = useState('');
+  const dispatch = useDispatch();
 
   function isDisabled(dirty, errors) {
-    const { name, birthday, breed } = errors;
+    const { name, date, breed } = errors;
     return (
-      !dirty ||
-      name !== undefined ||
-      birthday !== undefined ||
-      breed !== undefined
+      !dirty || name !== undefined || date !== undefined || breed !== undefined
     );
   }
 
-  const handleSubmit = (
-    { name, birthday, breed, photo, comments },
-    { resetForm }
-  ) => {
-    console.log('trigger');
-    const newPet = new FormData();
-    newPet.append('name', name.trim());
-    newPet.append(
-      'birthday',
-      moment(birthday, 'YYYYY-MM-DD').format('DD.MM.YYYY')
-    );
-    newPet.append('breed', breed.trim());
-    newPet.append('photo', photo);
-    newPet.append('comments', comments.trim());
-    dispatch(addNewPet(newPet))
-      .then(({ error }) => {
-        if (error) {
-          return errorToast(error.message);
-        }
+  const handleUpload = async e => {
+    if (!e.target.files[0]) {
+      toast.error('Please select a file');
+      return;
+    }
+    if (e.target.files[0].size > 375000) {
+      toast.error('You can not upload the file greater then 3 MB');
+      return;
+    }
 
-        successToast('Pet successfully added');
-        resetForm();
-        onClose();
+    const formData = new FormData();
+    formData.append('avatar', e.target.files[0]);
+    postImageToStorage(formData)
+      .then(data => {
+        setImageURL(data.urlAvatar);
       })
-      .catch(e => errorToast(e.message));
+      .catch(error => {
+        console.log('Error', error);
+      });
+  };
+
+  const handleSubmit = values => {
+    const imgUrl =
+      imageURL ||
+      'https://res.cloudinary.com/daud0cvhu/image/upload/v1679907667/placeholder.jpg.jpg';
+    const birthdate = moment(values.date, 'YYYYY-MM-DD').format('DD.MM.YYYY');
+    const addPet = { ...values, photoURL: imgUrl, date: birthdate };
+    dispatch(addNewPet(addPet));
+    onClose();
+    return;
   };
 
   return (
@@ -73,8 +64,6 @@ const ModalAddsPet = ({ onClose }) => {
       {({ errors, dirty }) => (
         <Form
           autoComplete="off"
-          encType="multipart/form-data"
-          onSubmit={handleSubmit}
           style={{
             display: 'flex',
             flexFlow: 'column',
@@ -97,13 +86,12 @@ const ModalAddsPet = ({ onClose }) => {
                   </>
                 }
                 placeholder={'Type name pet'}
-                id={nameId}
                 autoFocus
                 width={'60'}
               />
               <FormikControl
                 type="date"
-                name="birthday"
+                name="date"
                 label={
                   <>
                     Date of birthday
@@ -112,7 +100,6 @@ const ModalAddsPet = ({ onClose }) => {
                     </Text>
                   </>
                 }
-                id={birthdayId}
                 width={'60'}
               />
               <FormikControl
@@ -127,7 +114,6 @@ const ModalAddsPet = ({ onClose }) => {
                   </>
                 }
                 placeholder="Type breed"
-                id={breedId}
                 width={'60'}
                 mb={'40px'}
               />
@@ -180,7 +166,7 @@ const ModalAddsPet = ({ onClose }) => {
                   </Text>
                 }
               </Text>
-              <FormikControl
+              {/* <FormikControl
                 control="file"
                 id={photoId}
                 name="UPLOAD"
@@ -192,7 +178,20 @@ const ModalAddsPet = ({ onClose }) => {
                 borderRadius={{ base: '20px', md: '40px' }}
                 plusSize={{ base: '10%', md: '20%' }}
                 errPos={'center'}
-              />
+              /> */}
+              <label htmlFor="imageURL">Load the pet’s image</label>
+              <label htmlFor="imageURL">
+                <Field
+                  id="imageURL"
+                  type="file"
+                  name="imageURL"
+                  accept="image/*,.png,.jpg,.gif,.web,"
+                  onChange={handleUpload}
+                />
+                {imageURL && (
+                  <img src={imageURL} alt="Pet" height={116} width={116} />
+                )}
+              </label>
               <FormikControl
                 control="textarea"
                 name="comments"
@@ -205,7 +204,6 @@ const ModalAddsPet = ({ onClose }) => {
                   </>
                 }
                 placeholder="Type comments"
-                id={commentsId}
               />
               <Box
                 maxW={'none'}
@@ -216,25 +214,11 @@ const ModalAddsPet = ({ onClose }) => {
               >
                 <Button
                   type="submit"
-                  onClick={() => console.log('trigger on button')}
                   mb={{ base: '3', md: '0' }}
                   control="secondary"
                   width={{ md: '180px' }}
                   aria-label="add"
                 >
-                  {/* {isLoading ? (
-                    <>
-                      Adding{' '}
-                      <Spinner
-                        emptyColor="#FF6101"
-                        color="#F5F5F5"
-                        textAlign="center"
-                        size="xs"
-                      />
-                    </>
-                  ) : (
-                    'Done'
-                    )} */}
                   Done
                 </Button>
                 <Button
@@ -255,7 +239,3 @@ const ModalAddsPet = ({ onClose }) => {
 };
 
 export default ModalAddsPet;
-
-ModalAddsPet.propTypes = {
-  onClose: PropTypes.func.isRequired,
-};

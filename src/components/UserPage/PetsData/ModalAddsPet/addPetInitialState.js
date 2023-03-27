@@ -1,8 +1,9 @@
 const addPetInitialState = {
   name: '',
-  birthday: '',
+  date: '',
   breed: '',
-  photo: null,
+  photoURL:
+    'https://res.cloudinary.com/daud0cvhu/image/upload/v1679907667/placeholder.jpg.jpg',
   comments: '',
 };
 
