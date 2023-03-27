@@ -1,5 +1,5 @@
 import dogMobile from '../../images/mobile/dogMobile.png';
-import dogTablet from '../../images/tablet/dogTablet.png';
+// import dogTablet from '../../images/tablet/dogTablet.png';
 import dogDesktop from '../../images/desktop/dogDesktop.png';
 import unionDesk from '../../images/unionDesk.svg';
 import waveDesktop from '../../images/desktop/waveDesktop.png';

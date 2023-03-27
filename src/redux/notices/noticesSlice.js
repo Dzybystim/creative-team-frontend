@@ -6,8 +6,8 @@ import {
   getNoticesByTitle,
   getAllSelectedNotices,
   getAllOwnNotices,
-  addToFavorite,
-  deleteFromFavorite
+  // addToFavorite,
+  // deleteFromFavorite
 } from './operations';
 
 //import { logOut } from "../auth/operations";
