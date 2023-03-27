@@ -8,14 +8,16 @@ import { useState, useEffect } from 'react';
 import { fetchUserAndPets } from '../utilities/helpers';
 import { selectors } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useLogOutMutation } from 'redux/auth/fetchUser';
 
 export default function UserPage() {
   const [userAndPets, setUserAndPets] = useState({});
   const [userFoto, setUserFoto] = useState(null);
-  const tokena = useSelector(selectors.getUserInfo);
-  console.log('tokena:', tokena);
+  const [LogOut] = useLogOutMutation();
 
   const token = useSelector(selectors.getToken);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +27,10 @@ export default function UserPage() {
     };
     fetchData().catch(console.error);
   }, [token]);
+  if (userAndPets === undefined) {
+    LogOut();
+    return navigate('/login');
+  }
   return (
     <div className={css.container}>
       {userAndPets.user && (
