@@ -1,5 +1,5 @@
 import { Modal } from '../../utilities/Modal/Modal';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NoticeModal } from 'components/NoticeModal/NoticeModal';
 import css from './NoticeCategoryItem.module.css';
@@ -26,57 +26,45 @@ export const NoticeCategoryItem = ({ item }) => {
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
   const favorites = useSelector(selectFavorites);
-  const [isFavorite, setIsFavorite] = useState(null);
-
 
   const userId = getUserIdFromLocalStorage();
 
-  // let favoriteOrNot =
-  //   (favorites.find(favorite => favorite._id === item._id) && true) || false;
-  // const firstFavorites = () => {
-  //   setIsFavorite(favoriteOrNot);
-  // };
+  // console.log('1', (!favorites.find(favorite => favorite._id === item._id)));
+  // console.log('2', (!favorites.find(favorite => favorite._id !== item._id)));
 
-  useEffect(() => {
-    if(!isLogged){
-       return;
-    }
-    let favoriteOrNot =
-    (favorites.find(favorite => favorite._id === item._id) && true) || false;
-    setIsFavorite(favoriteOrNot);
-    return;
-  }, [isLogged, favorites, item._id]);
+  // useEffect(() => {
+  //   console.log(!favorites.find(favorite => favorite._id === item._id));
+  // });
 
-  useEffect(() => {
-    if(!isLogged){
-      return;
-   }
-    if (isFavorite === true) {
-      console.log('isFavorite === true', isFavorite === true);
-      return;
-    }
-    console.log('!isLogged2', isLogged);
-    console.log('isFavorite === true2', isFavorite === true);
-    return;
-  }, [isFavorite, isLogged]);
+  // const isLoggedIn = this.state.isLoggedIn;
+  // let button;
+  // if (isLoggedIn) {
+  //   button = <LogoutButton onClick={this.handleLogoutClick} />;
+  // } else {
+  //   button = <LoginButton onClick={this.handleLoginClick} />;
+  // }
 
   const handleDeleteFromFavorite = () => {
-    if(!isLogged){
-      return toast.warn('The user must be logged in to use this functionality!');
+    if (!isLogged) {
+      return toast.warn(
+        'The user must be logged in to use this functionality!'
+      );
     }
     dispatch(deleteFromFavorite(item._id));
-    setIsFavorite(!isFavorite);
+    toast.success(`This item was successfully removed from favorites!`);
     return;
   };
 
   const handleAddToFavorite = () => {
-    if(!isLogged){
-      return toast.warn('The user must be logged in to use this functionality!');
+    if (!isLogged) {
+      return toast.warn(
+        'The user must be logged in to use this functionality!'
+      );
     }
     dispatch(addToFavorite(item._id));
-    setIsFavorite(!isFavorite);
+    toast.success(`This item has been successfully added to favorites!`);
+    return;
   };
-
 
   const removeNotices = () => {
     dispatch(deleteNotice(item._id));
@@ -95,38 +83,36 @@ export const NoticeCategoryItem = ({ item }) => {
       .catch(error => {
         toast.error(
           `Oops, something went wrong! Reload the page or try again later!`
-        )
+        );
         console.log('Error', error);
       });
   };
-
-  const age = ageCounter(item.birthdate);
 
   return (
     <>
       <li className={css.item}>
         <div className={css.img_cover}>
-          {item.imageURL ? (<img src={item.imageURL} className={css.img} alt="Pet" />)
-            : null
-          }
-          
+          {item.imageURL ? (
+            <img src={item.imageURL} className={css.img} alt="Pet" />
+          ) : null}
+
           <p className={css.category}>{item.category}</p>
 
-          {isFavorite ? (
-            <button
-              className={css.icon}
-              type="button"
-              onClick={handleDeleteFromFavorite}
-            >
-              <IconHeart width={26} height={26} />
-            </button>
-          ) : (
+          {!favorites.find(favorite => favorite._id === item._id) ? (
             <button
               className={css.icon}
               type="button"
               onClick={handleAddToFavorite}
             >
               <AiOutlineHeart size={28} />
+            </button>
+          ) : (
+            <button
+              className={css.icon}
+              type="button"
+              onClick={handleDeleteFromFavorite}
+            >
+              <IconHeart width={26} height={26} />
             </button>
           )}
         </div>
@@ -143,7 +129,11 @@ export const NoticeCategoryItem = ({ item }) => {
           </li>
           <li className={css.info_item}>
             <p className={css.text}>Age: </p>
-            <p className={css.text}>{age}</p>
+            {item.birthdate ? (
+              <p className={css.text}>{ageCounter(item.birthdate)}</p>
+            ) : (
+              <p className={css.text}>Unknown</p>
+            )}
           </li>
 
           {item.price ? (
@@ -173,7 +163,6 @@ export const NoticeCategoryItem = ({ item }) => {
       {showModal && (
         <Modal key={item.id} onClose={toggleModal}>
           <NoticeModal
-            isFavorite={isFavorite}
             handleDeleteFromFavorite={handleDeleteFromFavorite}
             handleAddToFavorite={handleAddToFavorite}
             item={notice}

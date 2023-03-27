@@ -11,22 +11,42 @@ export const NoticesCategoriesList = () => {
   const notices = useSelector(selectNotices);
   const favorites = useSelector(selectFavorites);
 
+  // if(!isLogged){
+  //       return toast.warn('The user must be logged in to use this functionality!');
+  //         }
+  //         if(category === 'favorite'){
+  //           setItems(favorites);
+  //         }
+  //         if(category !== 'favorite'){
+  //           setItems(notices);
+  //         }
+
+  // useEffect(() => {
+  //   if(!isLogged){
+  //     return toast.warn('The user must be logged in to use this functionality!');
+  //       }
+  //       if(category === 'favorite'){
+  //         setItems(favorites);
+  //       }
+  //       if(category !== 'favorite'){
+  //         setItems(notices);
+  //       }
+  // },[category, notices, favorites, isLogged])
+
   return (
     <>
       <AddNoticeButton />
 
-      {category === 'favorite' && favorites && (
+      {category === 'favorite' ? (
         <ul className={css.list}>
-          {favorites.map(favorite => {
-            return <NoticeCategoryItem key={favorite._id} item={favorite} />;
+          {favorites.map(item => {
+            return <NoticeCategoryItem key={item._id} item={item} />;
           })}
         </ul>
-      )}
-      
-      {category !== 'favorite' && notices && (
+      ) : (
         <ul className={css.list}>
-          {notices.map(notice => {
-            return <NoticeCategoryItem key={notice._id} item={notice} />;
+          {notices.map(item => {
+            return <NoticeCategoryItem key={item._id} item={item} />;
           })}
         </ul>
       )}

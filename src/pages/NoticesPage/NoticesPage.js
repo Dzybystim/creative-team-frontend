@@ -15,6 +15,7 @@ import {
   getAllSelectedNotices,
   getAllOwnNotices,
 } from '../../redux/notices/operations';
+import { filterFavorites, filterOwn } from '../../redux/notices/noticesSlice';
 
 import { passTokenToHeadersAxios } from '../../utilities/helpers';
 import { Loader } from '../../components/Loader/Loader';
@@ -34,15 +35,14 @@ const NoticesPage = () => {
   let category = pathname.split('/').pop();
 
   useEffect(() => {
-    if(!isLogged){
+    if (!isLogged) {
       return;
     }
     dispatch(getAllSelectedNotices());
     return;
-      }, [dispatch, isLogged]);
+  }, [dispatch, isLogged]);
 
   useEffect(() => {
-
     const queryFromSearchParams = searchParams.get('query');
 
     if (!category) {
@@ -53,15 +53,20 @@ const NoticesPage = () => {
         dispatch(getAllSelectedNotices());
         return;
       }
+      dispatch(filterFavorites(queryFromSearchParams));
+      return;
     }
     if (category === 'own') {
-      dispatch(getAllOwnNotices());
+      if (!queryFromSearchParams) {
+        dispatch(getAllOwnNotices());
+        return;
+      }
+      dispatch(filterOwn(queryFromSearchParams));
       return;
     }
     if (category === 'sell') {
       if (!queryFromSearchParams) {
         dispatch(getNoticesByCategories(category));
-
         return;
       }
       dispatch(getNoticesByTitle({ category, queryFromSearchParams }));
