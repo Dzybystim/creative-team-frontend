@@ -3,11 +3,18 @@ import { ModalAddNotice } from '../ModalAddNotice/ModalAddNotice';
 import { useState } from 'react';
 import css from './AddNoticeButton.module.css';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { selectors } from '../../redux/auth/selectors';
+import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
 export const AddNoticeButton = () => {
   const [showModal, setShowModal] = useState(false);
+  const isLogged = useSelector(selectors.isLogged);
 
   const toggleModal = () => {
+    if(!isLogged){
+      return toast.warn('The user must be logged in to use this functionality!');
+    }
     setShowModal(!showModal);
   };
 
