@@ -39,7 +39,7 @@ export const NoticeCategoryItem = ({ item }) => {
 
   useEffect(() => {
     firstFavorites();
-  }, []);
+  });
 
   useEffect(() => {
     if (isFavorite === true) {
