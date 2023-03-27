@@ -78,7 +78,9 @@
 }
 
 .btn {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 240px;
   font-weight: 500;
   font-size: 16px;
@@ -93,8 +95,7 @@
   cursor: pointer;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:hover {
   color: var(--white-color);
   background-color: var(--accent-color);
   border-color: transparent;

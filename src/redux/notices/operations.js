@@ -80,3 +80,27 @@ export const getAllOwnNotices = createAsyncThunk(
     }
   }
 );
+
+export const addToFavorite = createAsyncThunk(
+  "favoriteNotices/addFavoriteNotice",
+  async (noticeId, thunkAPI) => {
+    try {
+      const response = await axios.post(`/notices/selected/${noticeId}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteFromFavorite = createAsyncThunk(
+  "favoriteNotices/deleteFavoriteNotice",
+  async (noticeId, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/notices/selected/${noticeId}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

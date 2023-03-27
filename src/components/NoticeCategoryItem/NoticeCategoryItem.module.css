@@ -62,11 +62,9 @@
   color: var(--accent-color);
 }
 
-.icon:hover,
-:focus {
+.icon:hover {
   color: var(--white-color);
   background-color: var(--accent-color);
-  border-color: transparent;
 }
 
 .title {

@@ -32,6 +32,12 @@ const NoticesPage = () => {
   let category = pathname.split('/').pop();
 
   useEffect(() => {
+
+    dispatch(getAllSelectedNotices());
+  }, [dispatch]);
+
+  useEffect(() => {
+
     const queryFromSearchParams = searchParams.get('query');
 
     if (!category) {
@@ -91,65 +97,6 @@ const NoticesPage = () => {
     setSearchQuery('');
     setSearchParams('');
   };
-
-  // if (category === 'favorite' && (searchQuery)) {
-  //   if (selectedNotices.length === 0) {
-  //     setSelectedNotices('');
-  //     return toast.error('Nothing found for your request!');
-  //    }
-  //   const findNotices = selectedNotices.filter(item => item.title.includes(searchQuery));
-  //   if (findNotices.length === 0) {
-  //     setSelectedNotices('');
-  //     return toast.error('Nothing found for your request!');
-  //    }
-  //    setSelectedNotices(findNotices);
-  // }
-  // if (category !== 'favorite' && (searchQuery)){
-  //   getNoticesByTitle(searchQuery)
-  //         .then(data => {
-  //           if (data.length === 0) {
-  //             setNotices('');
-  //             return toast.error('Nothing found for your request!');
-  //            }
-  //           const findNotices = data.filter(item => item.category === category);
-  //           if (findNotices.length === 0) {
-  //             setNotices('');
-  //             return toast.error('Nothing found for your request!');
-  //           }
-  //           setNotices(findNotices);
-  //         })
-  //         .catch(error => {
-  //           console.log('Error', error);
-  //         });
-  // }
-
-  // useEffect(() => {
-  //   const queryFromSearchParams = searchParams.get('query');
-  //   if (!category) {
-  //     return;
-  //   }
-
-  //   if (category === 'favorite' && isLogged) {
-  //     const findNotices = selectedNotices.filter(item => item.title.includes(queryFromSearchParams));
-  // //    console.log('findNotices', findNotices);
-
-  //     if (findNotices.length === 0) {
-  //       return toast.error('Nothing found for your request!');
-  //     }
-  //     setSelectedNotices(findNotices);
-  //   }
-
-  //   if (category !== 'favorite') {
-
-  //     getNoticesByCategories(category)
-  //       .then(data => {
-  //         setNotices(data);
-  //       })
-  //       .catch(error => {
-  //         console.log('Error', error);
-  //       });
-  //   }
-  // }, [category, searchParams, selectedNotices, isLogged]);
 
   return (
     <div className={css.container}>
