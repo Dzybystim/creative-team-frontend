@@ -1,5 +1,11 @@
 .container {
-  padding: 40px 20px;
+  padding: 40px 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 40px 80px;
+  }
 }
 
 .title {
@@ -8,6 +14,13 @@
   color: var(--black-color);
   margin-bottom: 20px;
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-weight: 600;
+    font-size: 36px;
+  }
 }
 
 .text {
@@ -19,10 +32,24 @@
   margin-bottom: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .text {
+    font-size: 20px;
+  }
+}
+
 .radio_category {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .radio_category {
+    margin-bottom: 12px;
+    gap: 12px;
+  }
 }
 
 .label {
@@ -31,7 +58,14 @@
   font-size: 18px;
   line-height: 1.44;
   color: var(--black-color);
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
 }
 
 .label_other {
@@ -42,13 +76,18 @@
   color: var(--black-color);
   margin-bottom: 16px;
 }
+@media screen and (min-width: 768px) {
+  .label_other {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+}
 
 .radio_label {
   padding: 8px 28px;
   font-weight: 500;
   font-size: 14px;
   align-items: center;
-  letter-spacing: 0.04em;
   display: inline-block;
   background-color: var(--white-color);
   border-radius: 40px;
@@ -58,11 +97,32 @@
   margin-bottom: 12px;
 }
 
+@media screen and (min-width: 768px) {
+  .radio_label {
+    padding: 10px 28px;
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+}
+
+.radio_label:has(input:checked) {
+  background-color: var(--accent-color);
+}
+
 .radio_label:hover,
 .radio_label:focus {
   outline-color: var(--accent-color);
   color: var(--white-color);
   background-color: var(--accent-color);
+}
+
+.label_photo {
+  margin-bottom: 8px;
+}
+@media screen and (min-width: 768px) {
+  .label_photo {
+    margin-bottom: 12px;
+  }
 }
 
 .file_btn {
@@ -89,17 +149,23 @@
 
 .field {
   display: block;
-  width: 90%;
-  margin-bottom: 16px;
+  margin-top: 8px;
+  width: 100%;
   background: var(--bg-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: 40px;
-
   font-weight: 400;
   font-size: 14px;
-  padding: 12px 14px 12px 14px;
+  padding: 11px 14px 12px 14px;
   color: rgba(27, 27, 27, 0.6);
   outline-color: var(--accent-color);
+}
+@media screen and (min-width: 768px) {
+  .field {
+    padding: 11px 16px 10px 16px;
+    margin-top: 12px;
+    font-size: 16px;
+  }
 }
 
 .field:hover,
@@ -112,22 +178,26 @@
 
 .field_last {
   display: block;
-  width: 90%;
-  margin-bottom: 16px;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 40px;
   background-color: var(--bg-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: 40px;
-
   font-weight: 400;
   font-size: 14px;
-  padding: 12px 14px 12px 14px;
+  padding: 11px 14px 12px 14px;
   color: rgba(27, 27, 27, 0.6);
   outline-color: var(--accent-color);
-  margin-bottom: 40px;
-
-  /* height: 16px; */
   resize: none;
   overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .field_last {
+    padding: 11px 16px 10px 16px;
+    margin-top: 12px;
+    font-size: 16px;
+  }
 }
 
 .field_last:hover,
@@ -136,10 +206,6 @@
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
   background-color: var(--white-color);
-}
-
-.btn_item:not(:last-child) {
-  margin-bottom: 12px;
 }
 
 .btn {
@@ -155,43 +221,64 @@
   font-size: 16px;
   letter-spacing: 0.04em;
 }
+@media screen and (min-width: 768px) {
+  .btn {
+    font-size: 20px;
+    width: 180px;
+  }
+}
 
 .btn:hover,
 .btn:focus {
   color: var(--white-color);
   background-color: var(--accent-color);
-  border-color: transparent;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.accent_btn {
+  color: var(--white-color);
+  background-color: var(--accent-color);
+}
+@media screen and (max-width: 767px) {
+  .accent_btn {
+    margin-bottom: 12px;
+  }
 }
 
 .radio_sex {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 40px;
   margin-bottom: 32px;
 }
-
-.radio_label_sex {
-  width: 50%;
+@media screen and (min-width: 768px) {
+  .radio_sex {
+    gap: 80px;
+    margin-bottom: 40px;
+  }
 }
 
 .radio_icon {
   display: block;
 }
+
+.svg {
+  width: 40px;
+  height: 40px;
+}
+@media screen and (min-width: 768px) {
+  .svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 .item {
   display: flex;
-  /*  align-items: center; */
-
   font-size: 14px;
 }
 .item:not(:last-child) {
   margin-bottom: 8px;
-}
-
-.radio_icon_text {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.44;
-  color: var(--black-color);
 }
 
 .field_photo {
@@ -200,15 +287,20 @@
   height: 116px;
   margin-bottom: 28px;
   border-radius: 20px;
-  border: 1px solid var(--form-input-border-color);
   outline-color: var(--accent-color);
   cursor: pointer;
   background-color: var(--bg-color);
   background-image: url(../../images/akar-icons_plus.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  /* background-size: cover; */
   overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .field_photo {
+    width: 140px;
+    height: 140px;
+  }
 }
 
 .field_photo:hover,
@@ -225,15 +317,63 @@
   object-fit: cover;
 }
 
-/* .checked{
-  background: red;
-} */
 .article {
   background: red;
 }
 
 .error_msg {
+  margin-top: 6px;
   color: #e2001a;
   font-size: 14px;
   text-align: center;
+}
+
+.radio_label_sex {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.44;
+  color: var(--black-color);
+  cursor: pointer;
+}
+
+.radio_label_sex:hover,
+.radio_label_sex:focus {
+  color: var(--accent-color);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.radio_label_sex:has(input:checked) {
+  color: var(--accent-color);
+}
+
+.radio_btn {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(50%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.btn_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+@media screen and (min-width: 768px) {
+  .btn_list {
+    flex-direction: row-reverse;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .field_comments {
+    min-height: 113px;
+    border-radius: 20px;
+  }
 }

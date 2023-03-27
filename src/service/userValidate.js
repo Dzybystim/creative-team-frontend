@@ -4,7 +4,7 @@ const stepOneValidationSchema = Yup.object({
   email: Yup.string()
     .required('Email is required')
     .matches(
-      /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
+      /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
       'The email cannot contain Latin letter'
     )
     .matches(
@@ -59,7 +59,7 @@ const loginValidationSchema = Yup.object({
   email: Yup.string()
     .required('Email is required')
     .matches(
-      /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
+      /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
       'The email cannot contain Latin letter'
     )
     .matches(
@@ -90,7 +90,7 @@ const emailValidationSchema = Yup.object({
   email: Yup.string()
     .required('Email is required')
     .matches(
-      /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
+      /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
       'The email cannot contain Latin letter'
     )
     .matches(

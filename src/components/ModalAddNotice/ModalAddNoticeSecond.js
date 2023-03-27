@@ -8,10 +8,7 @@ import { toast } from 'react-toastify';
 import * as yup from 'yup';
 
 const schemaPageTwo = yup.object().shape({
-  sex: yup
-    .mixed()
-    .oneOf(['male', 'female'])
-    .required('Required field!'),
+  sex: yup.mixed().oneOf(['male', 'female']).required('Required field!'),
   location: yup
     .string()
     .min(5, 'Minimum 5 characters!')
@@ -78,7 +75,7 @@ export const PageTwo = props => {
           <div className={css.radio_sex}>
             <label className={css.radio_label_sex}>
               <span className={css.radio_icon}>
-                <Male />{' '}
+                <Male className={css.svg} />{' '}
               </span>
               <Field
                 className={css.radio_btn}
@@ -86,11 +83,11 @@ export const PageTwo = props => {
                 name="sex"
                 value="male"
               />
-              <span className={css.radio_icon_text}>Male</span>
+              Male
             </label>
             <label className={css.radio_label_sex}>
               <span className={css.radio_icon}>
-                <Female />{' '}
+                <Female className={css.svg} />{' '}
               </span>
               <Field
                 className={css.radio_btn}
@@ -98,7 +95,7 @@ export const PageTwo = props => {
                 name="sex"
                 value="female"
               />
-              <span className={css.radio_icon_text}>Female</span>
+              Female
             </label>
             <ErrorMessage
               name="sex"
@@ -142,7 +139,10 @@ export const PageTwo = props => {
             </label>
           )}
 
-          <label htmlFor="imageURL" className={css.label}>
+          <label
+            htmlFor="imageURL"
+            className={`${css.label} ${css.label_photo}`}
+          >
             Load the pet’s image
           </label>
           <label htmlFor="imageURL" className={css.field_photo}>
@@ -169,7 +169,7 @@ export const PageTwo = props => {
             Comments
             <Field
               as="textarea"
-              className={css.field_last}
+              className={`${css.field_last} ${css.field_comments}`}
               id="comments"
               type="text"
               name="comments"
@@ -185,22 +185,19 @@ export const PageTwo = props => {
             />
           </label>
 
-          <ul>
-            <li className={css.btn_item}>
-              <button type="submit" className={css.btn}>
-                Done
-              </button>
-            </li>
-            <li className={css.btn_item}>
-              <button
-                onClick={() => props.prev()}
-                type="button"
-                className={css.btn}
-              >
-                Back
-              </button>
-            </li>
-          </ul>
+          <div className={css.btn_list}>
+            <button type="submit" className={`${css.btn} ${css.accent_btn}`}>
+              Done
+            </button>
+
+            <button
+              onClick={() => props.prev()}
+              type="button"
+              className={css.btn}
+            >
+              Back
+            </button>
+          </div>
         </Form>
       </Formik>
     </div>

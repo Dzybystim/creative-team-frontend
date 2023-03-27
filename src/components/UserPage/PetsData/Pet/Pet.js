@@ -1,10 +1,8 @@
 //import css from './Pet.module.css';
 
-export default function Pet(
-  {
-    /*photo, name, birthday, breed, comments*/
-  }
-) {
+export default function Pet() {
+  return <div>Pet Component</div>;
+  /*photo, name, birthday, breed, comments*/
   /*const navigate = useNavigate();
     const [deleteContact, { isLoading }] = useDeleteContactMutation();
     const RENDER_STORAGE_KEY = 'contact-for-render-state';
