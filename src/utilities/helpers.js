@@ -9,15 +9,6 @@ export const fetchOurFriends = async () => {
     .catch(err => console.log(err));
 };
 
-// export const getNoticesByCategories = async category => {
-//   try {
-//     const response = await axios.get(`/notices/category?category=${category}`);
-//     return response.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
 export const fetchNews = async () => {
   return await axios
     .get(`/news`)
@@ -39,9 +30,6 @@ export const fetchUserAndPets = async token => {
 export const postImageToStorage = async img => {
   try {
     const response = await axios.post(`/uploadAvatar`, img);
-    console.log('response', response);
-    console.log('response.data', response.data);
-
     return response.data;
   } catch (error) {
     console.error(error);
@@ -68,15 +56,6 @@ export const passTokenToHeadersAxios = () => {
   }
 };
 
-// export const getNoticesByTitle = async title => {
-//   try {
-//     const response = await axios.get(`/notices/title?title=${title}`);
-//     return response.data;
-//   } catch (error) {
-//     console.error("error", error);
-//   }
-// };
-
 export const userEdit = async fieldData => {
   try {
     const response = await axios.patch(`/users/edit`, fieldData);
@@ -86,32 +65,23 @@ export const userEdit = async fieldData => {
   }
 };
 
-// export const getAllSelectedNotices = async () => {
+// export const addToSelectedNotices = async noticeId => {
 //   try {
-//     const response = await axios.get(`/notices/selected/`);
+//     const response = await axios.post(`/notices/selected/${noticeId}`);
 //     return response.data;
 //   } catch (error) {
 //     console.error(error);
 //   }
 // };
 
-export const addToSelectedNotices = async noticeId => {
-  try {
-    const response = await axios.post(`/notices/selected/${noticeId}`);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export const deleteFromSelectedNotices = async noticeId => {
-  try {
-    const response = await axios.delete(`/notices/selected/${noticeId}`);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
+// export const deleteFromSelectedNotices = async noticeId => {
+//   try {
+//     const response = await axios.delete(`/notices/selected/${noticeId}`);
+//     return response.data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 export const getNoticesById = async noticeId => {
   try {
@@ -122,21 +92,25 @@ export const getNoticesById = async noticeId => {
   }
 };
 
-// export const getAllOwnNotices = async () => {
+// export const postNewNotice = async data => {
 //   try {
-//     const response = await axios.get(`/notices/user`);
+//     const response = await axios.post(`/notices/user`, data);
 //     return response.data;
 //   } catch (error) {
 //     console.error(error);
 //   }
 // };
 
-export const postNewNotice = async data => {
-  try {
-    const response = await axios.post(`/notices/user`, data);
-    console.log('add new notice result', response);
-    return response.data;
-  } catch (error) {
-    console.error(error);
+export const getUserIdFromLocalStorage = () => {
+  const idFromLocalStorage = localStorage.getItem('persist:users');
+  if (idFromLocalStorage !== 'null') {
+    const idParse = JSON.parse(idFromLocalStorage).id;
+    if (idParse === 'null') {
+      return;
+    }
+    const userId = idParse.slice(1, idParse.length - 1);
+     return userId;  
+  } else {
+    return;
   }
 };
