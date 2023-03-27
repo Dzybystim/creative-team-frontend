@@ -7,6 +7,15 @@
   margin-top: 20px;
 }
 
+.form_user_input {
+  display: inline;
+}
+
+.td_user {
+  padding: 0;
+  text-align: left;
+}
+
 .foto_img {
   display: block;
   height: 100%;
@@ -43,7 +52,7 @@
   margin-bottom: 12px;
   width: 252px;
   border: 0;
-  border-spacing: 0;
+  border-spacing: 0 8px;
 }
 
 .button_pencil {
@@ -100,14 +109,23 @@
 }
 
 @media screen and (min-width: 768px) {
+  .td_user {
+    padding: 0;
+    text-align: left;
+  }
+
+  .form_user_input {
+    display: inline;
+  }
+
   .container_text {
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: 20px;
-    margin-top: 15px;
+    margin-bottom: 0;
+    margin-top: 30px;
     width: 356px;
     border: 0;
-    border-spacing: 0 10px;
+    border-spacing: 0 4px;
   }
 
   .text_user {
@@ -166,6 +184,15 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .form_user_input {
+    display: inline;
+  }
+
+  .td_user {
+    padding: 0;
+    text-align: left;
+  }
+
   .container_text {
     margin-left: 16px;
     margin-right: 16px;

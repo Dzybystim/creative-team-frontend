@@ -82,7 +82,7 @@ export const getAllOwnNotices = createAsyncThunk(
 );
 
 export const addToFavorite = createAsyncThunk(
-  "favoriteNotices/addFavoriteNotice",
+  'favoriteNotices/addFavoriteNotice',
   async (noticeId, thunkAPI) => {
     try {
       const response = await axios.post(`/notices/selected/${noticeId}`);
@@ -94,7 +94,7 @@ export const addToFavorite = createAsyncThunk(
 );
 
 export const deleteFromFavorite = createAsyncThunk(
-  "favoriteNotices/deleteFavoriteNotice",
+  'favoriteNotices/deleteFavoriteNotice',
   async (noticeId, thunkAPI) => {
     try {
       const response = await axios.delete(`/notices/selected/${noticeId}`);

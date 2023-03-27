@@ -128,15 +128,15 @@ export default function UserDataItem({ user }) {
       <table className={css.container_text}>
         <tbody>
           <tr>
-            <td>
+            <td className={css.td_user}>
               <p className={css.text_user}>Name:</p>
             </td>
             {clickName === false ? (
               <>
-                <td>
+                <td className={css.td_user}>
                   <p className={css.text_user}>{nameField}</p>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="button"
                     className={css.button_pencil}
@@ -156,8 +156,13 @@ export default function UserDataItem({ user }) {
               </>
             ) : (
               <>
-                <td>
-                  <form id="sub_name" name="name" onSubmit={clickSubmit}>
+                <td className={css.td_user}>
+                  <form
+                    id="sub_name"
+                    name="name"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="text"
                       name="name"
@@ -169,7 +174,7 @@ export default function UserDataItem({ user }) {
                     ></input>
                   </form>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="submit"
                     form="sub_name"
@@ -183,15 +188,15 @@ export default function UserDataItem({ user }) {
             )}
           </tr>
           <tr>
-            <td>
+            <td className={css.td_user}>
               <p className={css.text_user}>Email:</p>
             </td>
             {clickEmail === false ? (
               <>
-                <td>
+                <td className={css.td_user}>
                   <p className={css.text_user}>{emailField}</p>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="button"
                     className={css.button_pencil}
@@ -211,8 +216,13 @@ export default function UserDataItem({ user }) {
               </>
             ) : (
               <>
-                <td>
-                  <form id="sub_email" name="email" onSubmit={clickSubmit}>
+                <td className={css.td_user}>
+                  <form
+                    id="sub_email"
+                    name="email"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="email"
                       name="email"
@@ -224,7 +234,7 @@ export default function UserDataItem({ user }) {
                     ></input>
                   </form>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="submit"
                     className={css.button_pencil}
@@ -238,17 +248,17 @@ export default function UserDataItem({ user }) {
             )}
           </tr>
           <tr>
-            <td>
+            <td className={css.td_user}>
               <p className={css.text_user}>Birthday:</p>
             </td>
             {clickBirthdate === false ? (
               <>
-                <td>
+                <td className={css.td_user}>
                   <p className={css.text_user}>
                     {birthdayField ? birthdayField : '01.01.2000'}
                   </p>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="button"
                     className={css.button_pencil}
@@ -268,8 +278,13 @@ export default function UserDataItem({ user }) {
               </>
             ) : (
               <>
-                <td>
-                  <form id="sub_birt" name="birthday" onSubmit={clickSubmit}>
+                <td className={css.td_user}>
+                  <form
+                    id="sub_birt"
+                    name="birthday"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="text"
                       name="birthday"
@@ -281,7 +296,7 @@ export default function UserDataItem({ user }) {
                     ></input>
                   </form>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="submit"
                     className={css.button_pencil}
@@ -295,17 +310,17 @@ export default function UserDataItem({ user }) {
             )}
           </tr>
           <tr>
-            <td>
+            <td className={css.td_user}>
               <p className={css.text_user}>Phone:</p>
             </td>
             {clickPhone === false ? (
               <>
-                <td>
+                <td className={css.td_user}>
                   <p className={css.text_user}>
                     {phoneField ? phoneField : '+38000000000'}
                   </p>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="button"
                     className={css.button_pencil}
@@ -325,8 +340,13 @@ export default function UserDataItem({ user }) {
               </>
             ) : (
               <>
-                <td>
-                  <form id="sub_phone" name="phone" onSubmit={clickSubmit}>
+                <td className={css.td_user}>
+                  <form
+                    id="sub_phone"
+                    name="phone"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="tel"
                       name="phone"
@@ -338,7 +358,7 @@ export default function UserDataItem({ user }) {
                     ></input>
                   </form>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="submit"
                     className={css.button_pencil}
@@ -352,15 +372,15 @@ export default function UserDataItem({ user }) {
             )}
           </tr>
           <tr>
-            <td>
+            <td className={css.td_user}>
               <p className={css.text_user}>City:</p>
             </td>
             {clickCity === false ? (
               <>
-                <td>
+                <td className={css.td_user}>
                   <p className={css.text_user}>{cityField}</p>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="button"
                     className={css.button_pencil}
@@ -380,8 +400,13 @@ export default function UserDataItem({ user }) {
               </>
             ) : (
               <>
-                <td>
-                  <form id="sub_city" name="city" onSubmit={clickSubmit}>
+                <td className={css.td_user}>
+                  <form
+                    id="sub_city"
+                    name="city"
+                    onSubmit={clickSubmit}
+                    className={css.form_user_input}
+                  >
                     <input
                       type="text"
                       name="city"
@@ -393,7 +418,7 @@ export default function UserDataItem({ user }) {
                     ></input>
                   </form>
                 </td>
-                <td>
+                <td className={css.td_user}>
                   <button
                     type="submit"
                     className={css.button_pencil}

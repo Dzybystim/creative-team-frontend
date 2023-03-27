@@ -18,7 +18,7 @@ export const store = configureStore({
   reducer: {
     users: persistSliceAuth,
     notices: noticesReducer,
- //   favoriteNotices: favoriteNoticesReducer,
+    //   favoriteNotices: favoriteNoticesReducer,
     [userApi.reducerPath]: userApi.reducer,
   },
   middleware: getDefaultMiddleware =>

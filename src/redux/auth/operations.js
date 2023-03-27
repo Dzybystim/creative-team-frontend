@@ -4,24 +4,15 @@ import { errorToast, successToast } from '../../components/Toast';
 
 export const addNewPet = createAsyncThunk(
   'auth/addPet',
-  async (newPet, { rejectWithValue, getState }) => {
+  async (newPet, thunkAPI) => {
+    console.log('operations new pet', newPet);
     try {
-      const { auth } = getState();
-      const persistedToken = auth.token;
-
-      if (!persistedToken) {
-        rejectWithValue('Unable add new pet');
-      }
-
       const data = await api.addPet(newPet);
+      console.log('add new pet', data);
       return data;
-    } catch ({ response }) {
+    } catch (error) {
       errorToast('Something went wrong, try to reload the page');
-      const error = {
-        status: response.status,
-        message: response.data.message,
-      };
-      return rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -42,7 +33,7 @@ export const deletePet = createAsyncThunk(
     } catch ({ response }) {
       errorToast('Something went wrong, try to reload the page');
       const error = {
-        status: response.status,
+        // status: response.status,
         message: response.data.message,
       };
       return rejectWithValue(error);

@@ -18,7 +18,7 @@ import {
   addToFavorite,
   deleteFromFavorite,
 } from '../../redux/notices/operations';
-
+import { toast } from 'react-toastify';
 
 export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
@@ -28,36 +28,57 @@ export const NoticeCategoryItem = ({ item }) => {
   const favorites = useSelector(selectFavorites);
   const [isFavorite, setIsFavorite] = useState(null);
 
-
   const userId = getUserIdFromLocalStorage();
 
-  let favoriteOrNot =
-    (favorites.find(favorite => favorite._id === item._id) && true) || false;
-  const firstFavorites = () => {
-    setIsFavorite(favoriteOrNot);
-  };
+  // let favoriteOrNot =
+  //   (favorites.find(favorite => favorite._id === item._id) && true) || false;
+  // const firstFavorites = () => {
+  //   setIsFavorite(favoriteOrNot);
+  // };
 
   useEffect(() => {
-    firstFavorites();
-  });
-
-  useEffect(() => {
-    if (isFavorite === true) {
+    if (!isLogged) {
       return;
     }
+    let favoriteOrNot =
+      (favorites.find(favorite => favorite._id === item._id) && true) || false;
+    setIsFavorite(favoriteOrNot);
     return;
-  }, [isFavorite]);
+  }, [isLogged, favorites, item._id]);
+
+  useEffect(() => {
+    if (!isLogged) {
+      return;
+    }
+    if (isFavorite === true) {
+      console.log('isFavorite === true', isFavorite === true);
+      return;
+    }
+    console.log('!isLogged2', isLogged);
+    console.log('isFavorite === true2', isFavorite === true);
+    return;
+  }, [isFavorite, isLogged]);
 
   const handleDeleteFromFavorite = () => {
+    if (!isLogged) {
+      return toast.warn(
+        'The user must be logged in to use this functionality!'
+      );
+    }
     dispatch(deleteFromFavorite(item._id));
     setIsFavorite(!isFavorite);
+    return;
   };
 
   const handleAddToFavorite = () => {
+    if (!isLogged) {
+      return toast.warn(
+        'The user must be logged in to use this functionality!'
+      );
+    }
     dispatch(addToFavorite(item._id));
     setIsFavorite(!isFavorite);
   };
-
 
   const removeNotices = () => {
     dispatch(deleteNotice(item._id));
@@ -74,6 +95,9 @@ export const NoticeCategoryItem = ({ item }) => {
         setShowModal(!showModal);
       })
       .catch(error => {
+        toast.error(
+          `Oops, something went wrong! Reload the page or try again later!`
+        );
         console.log('Error', error);
       });
   };
@@ -83,8 +107,11 @@ export const NoticeCategoryItem = ({ item }) => {
   return (
     <>
       <li className={css.item}>
-        <div className={css.img}>
-          <img src={item.imageURL} className={css.img} alt="Pet" />
+        <div className={css.img_cover}>
+          {item.imageURL ? (
+            <img src={item.imageURL} className={css.img} alt="Pet" />
+          ) : null}
+
           <p className={css.category}>{item.category}</p>
 
           {isFavorite ? (
