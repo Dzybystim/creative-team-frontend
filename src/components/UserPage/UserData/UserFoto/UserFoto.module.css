@@ -18,10 +18,10 @@
 .foto_svg_container {
   height: 233px;
   width: 233px;
-  margin-left: 23px;
-  margin-right: 24px;
-  margin-bottom: 12px;
-  padding-top: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  padding-top: 0;
 }
 
 .foto_svg {
@@ -41,8 +41,6 @@
     margin-bottom: 0;
     padding-top: 20px;
   }
-
-  
 }
 
 @media screen and (min-width: 1280px) {

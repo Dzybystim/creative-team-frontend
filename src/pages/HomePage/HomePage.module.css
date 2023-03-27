@@ -102,21 +102,21 @@
 
 .imageDog {
   position: absolute;
-  bottom:0;
-  right:0;
-  z-index:-10;
+  bottom: 0;
+  right: 0;
+  z-index: -10;
 }
 @media screen and (max-width: 767px) {
   .imageDog {
-    max-width:100%;
-    right:50%;
+    max-width: 100%;
+    right: 50%;
     transform: translateX(50%);
   }
 }
 @media screen and (min-width: 767px) and (max-width: 1279px) {
   .imageDog {
-    max-width:100%;
-    right:50%;
+    max-width: 100%;
+    right: 50%;
     transform: translateX(50%);
   }
 }

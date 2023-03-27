@@ -23,7 +23,7 @@ export const fetchUserAndPets = async token => {
     });
     return response.data;
   } catch (error) {
-    console.error(error);
+    console.log(error.response.status);
   }
 };
 
