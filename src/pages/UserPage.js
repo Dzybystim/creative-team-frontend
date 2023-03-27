@@ -12,6 +12,8 @@ import { useSelector } from 'react-redux';
 export default function UserPage() {
   const [userAndPets, setUserAndPets] = useState({});
   const [userFoto, setUserFoto] = useState(null);
+  const tokena = useSelector(selectors.getUserInfo);
+  console.log('tokena:', tokena);
 
   const token = useSelector(selectors.getToken);
 
