@@ -58,7 +58,6 @@
 @media screen and (min-width: 768px) {
   .container__userdata {
     margin-bottom: 47px;
-    width: 704px;
     height: 311px;
     box-shadow: 0px 0px 0px;
     background-color: var(--bg-color);
@@ -70,14 +69,14 @@
 
   .container_desktop {
     margin-bottom: 47px;
-    width: 704px;
     height: 311px;
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
     background-color: #fff;
     border-radius: 0 20px 20px 0;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-around;
+    justify-content: flex-end;
+    gap: 30px;
     margin-left: -32px;
   }
 
@@ -89,8 +88,8 @@
   .container_tablet_tab {
     display: flex;
     flex-direction: column;
-    width: 388px;
-    padding-left: 32px;
+    width: 370px;
+    padding-left: 20px;
   }
 
   .container {

@@ -36,6 +36,19 @@
   .conteiner_foto {
     height: 253px;
     width: 233px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding-top: 20px;
+  }
+
+  
+}
+
+@media screen and (min-width: 1280px) {
+  .conteiner_foto {
+    height: 253px;
+    width: 233px;
     margin-left: 89px;
     margin-right: 89px;
     margin-bottom: 0;
