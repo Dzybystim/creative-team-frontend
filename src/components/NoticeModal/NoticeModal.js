@@ -10,11 +10,11 @@ export const NoticeModal = ({
     <div className={css.container}>
       <div className={css.img}>
         <p className={css.category}>{item.category}</p>
-        <img
+        {item.imageURL ? (<img
         src={item.imageURL}
         className={css.img}
         alt="Pet"
-      />
+      />) : null}
       </div>
       <h3 className={css.title}>{item.title}</h3>
 
