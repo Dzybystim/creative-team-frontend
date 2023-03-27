@@ -1,4 +1,4 @@
-import { Box, useDisclosure } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import PetsList from '../PetsList/PetsList';
 import { Modal } from '../../../utilities/Modal/Modal';
 import { ModalAddsPet } from 'components/UserPage/PetsData/ModalAddsPet';
