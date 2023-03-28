@@ -39,7 +39,7 @@ export const postImageToStorage = async img => {
 export const passTokenToHeadersAxios = () => {
   const setAuthHeader = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    console.log('token', token);
+ //   console.log('token', token);
   };
   const clearAuthHeader = () => {
     axios.defaults.headers.common.Authorization = '';

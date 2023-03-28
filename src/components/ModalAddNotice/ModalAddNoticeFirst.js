@@ -130,7 +130,7 @@ export const PageOne = props => {
             <Field
               className={css.field}
               id="birthdate"
-              type="date"
+              type="text"
               name="birthdate"
               placeholder="DD.MM.YYYY"
               required

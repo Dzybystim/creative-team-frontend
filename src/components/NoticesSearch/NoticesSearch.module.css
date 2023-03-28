@@ -9,7 +9,6 @@
   background-color: var(--white-color);
   border-radius: 20px;
   overflow: hidden;
-  margin: auto;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
   margin-bottom: 28px;
 }
@@ -20,30 +19,25 @@
 }
 .Input {
   display: inline-block;
-  width: 238.5px;
+  width: 280px;
   height: 40px;
-  font: inherit;
   font-size: 16px;
   letter-spacing: 0.04em;
   border: none;
   outline: none;
-  /*padding-left: 4px;
-    padding-right: 4px;*/
   color: #535353;
   letter-spacing: 0.04em;
-  padding-left: 12px;
-  padding-top: 12.5px;
-  padding-bottom: 9px;
+  padding: 9px 12px 9px 12px;
 }
 
 .SearchIcon {
-  width: 14.57px;
-  height: 14.57px;
+  width: 20px;
+  height: 20px;
 }
 
 .ClearIcon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 .Icon {
@@ -76,8 +70,8 @@
     align-items: center;
   }
   .SearchIcon {
-    width: 17.49px;
-    height: 17.49px;
+    width: 24px;
+    height: 24px;
     fill: inherit;
   }
 
@@ -92,3 +86,4 @@
 .ClearIcon:hover {
   stroke: var(--accent-color);
 }
+
