@@ -1,6 +1,12 @@
+.logoLink {
+  box-sizing: border-box;
+}
+
 .logoImg {
-  display: block;
-  z-index: 400;
+  /* width: 82px;
+  height: 42px; */
+  display: inline;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 767px) {
@@ -13,9 +19,9 @@
 
 @media screen and (min-width: 768px) {
   .logoImg {
-    position: relative;
+    /* position: relative; */
     max-width: 94px;
     height: 48px;
-    margin-right: 246px;
+    /* margin-right: 246px; */
   }
 }

@@ -1,40 +1,57 @@
 .navigation {
   margin: 0;
-  margin-left: 80px;
   padding: 0;
-  display: flex;
-  gap: 80px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
   list-style: none;
   white-space: nowrap;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (min-width: 1280px) {
   .navigation {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+    margin-left: 80px;
+    gap: 80px;
+    flex-direction: row;
   }
 }
 
-.navItem {
-  font-weight: 500;
-}
-
 .linkStyled {
-  color: #111111;
-  text-decoration: none;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  color: #181C27;
 }
 
 .linkStyled:hover,
 .linkStyled:active {
-  color: #f59256;
+  text-decoration-line: underline;
   cursor: pointer;
+  color: var(--accent-color);
 }
+
+@media screen and (max-width: 767px) {
+  .linkStyled:hover,
+  .linkStyled:active {
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .linkStyled {
+    font-size: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .linkStyled {
+    /* text-decoration: none; */
+    font-size: 20px;
+  }
+  /* .linkStyled:hover,
+  .linkStyled:active {
+    font-weight: 700;
+  } */
+}
+
+

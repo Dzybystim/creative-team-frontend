@@ -4,7 +4,6 @@
 }
 
 .title {
-  /* margin-top: 42px; */
   margin-bottom: 28px;
   font-weight: 700;
   font-size: 24px;
@@ -19,14 +18,23 @@
 
 @media screen and (min-width: 768px) {
   .title {
-    /* margin-top: 88px; */
     margin-bottom: 40px;
     font-size: 48px;
   }
 }
 
-/* @media screen and (min-width: 1280px) {
-  .title {
+.container {
+  margin-top: 42px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin-top: 88px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
     margin-top: 58px;
   }
-} */
+}
