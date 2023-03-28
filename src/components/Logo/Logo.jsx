@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Logo = () => {
   return (
-    <NavLink to="/">
+    <NavLink className={css.logoLink} to="/">
       <img className={css.logoImg} src={logo} alt="Logo"></img>
     </NavLink>
   );

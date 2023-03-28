@@ -1,14 +1,12 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
 import moment from 'moment/moment';
-import { Text, Box } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { addNewPet } from 'redux/auth/operations';
-import { FormikControl } from '../../../FormikControl';
-import { Button } from 'components/UserPage/Button';
 import { toast } from 'react-toastify';
 import { addPetInitialState, addPetSchema } from './index';
 import { postImageToStorage } from '../../../../utilities/helpers';
+import css from './ModalAddsPet.module.css';
 
 const ModalAddsPet = ({ onClose }) => {
   const [firstStep, setFirstStep] = useState(true);
@@ -43,6 +41,16 @@ const ModalAddsPet = ({ onClose }) => {
       });
   };
 
+  const textareaChange = () => {
+    let textarea = document.querySelector('textarea');
+    textarea.addEventListener('keyup', function () {
+      if (this.scrollTop > 0) {
+        this.style.height = this.scrollHeight + 'px';
+        this.style.borderRadius = '20px';
+      }
+    });
+  };
+
   const handleSubmit = values => {
     const imgUrl =
       imageURL ||
@@ -55,186 +63,160 @@ const ModalAddsPet = ({ onClose }) => {
   };
 
   return (
-    <Formik
-      initialValues={addPetInitialState}
-      validationSchema={addPetSchema}
-      onSubmit={handleSubmit}
-      validateOnChange={true}
-    >
-      {({ errors, dirty }) => (
-        <Form
-          autoComplete="off"
-          style={{
-            display: 'flex',
-            flexFlow: 'column',
-            width: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          {firstStep ? (
-            <>
-              <FormikControl
-                type="text"
-                name="name"
-                label={
-                  <>
-                    Name pet
-                    <Text as={'span'} color={'accent.accentOrange'}>
-                      *
-                    </Text>
-                  </>
-                }
-                placeholder={'Type name pet'}
-                autoFocus
-                width={'60'}
-              />
-              <FormikControl
-                type="date"
-                name="date"
-                label={
-                  <>
-                    Date of birthday
-                    <Text as={'span'} color={'accent.accentOrange'}>
-                      *
-                    </Text>
-                  </>
-                }
-                width={'60'}
-              />
-              <FormikControl
-                type="text"
-                name="breed"
-                label={
-                  <>
-                    Breed
-                    <Text as={'span'} color={'accent.accentOrange'}>
-                      *
-                    </Text>
-                  </>
-                }
-                placeholder="Type breed"
-                width={'60'}
-                mb={'40px'}
-              />
-              <Box
-                maxW={'none'}
-                display={'flex'}
-                flexDirection={{ base: 'column', md: 'row-reverse' }}
-                justifyContent={{ base: 'center', md: 'center' }}
-                gap="5px"
-              >
-                <Button
-                  control="secondary"
-                  onClick={() => setFirstStep(false)}
-                  mb={{ base: '3', md: '0' }}
-                  width={{ md: '180px' }}
-                  isDisabled={isDisabled(dirty, errors)}
-                  aria-label="next"
-                >
-                  Next
-                </Button>
-                <Button
-                  onClick={onClose}
-                  mr={{ md: '5' }}
-                  width={{ md: '180px' }}
-                  aria-label="cancel"
-                >
-                  Cancel
-                </Button>
-              </Box>
-            </>
-          ) : (
-            <Box
-              display={'flex'}
-              flexDirection={'column'}
-              alignItems={'center'}
-              maxW={'none'}
-            >
-              <Text
-                display={'inline-flex'}
-                fontSize={{ base: 'md', md: 'xl' }}
-                fontWeight={'medium'}
-                lineHeight={{ base: 'short', md: '1.2' }}
-                letterSpacing={'-0.01em'}
-                mb={'5'}
-              >
-                Add photo and some comments
-                {
-                  <Text as={'span'} color={'accent.accentOrange'}>
-                    *
-                  </Text>
-                }
-              </Text>
-              {/* <FormikControl
-                control="file"
-                id={photoId}
-                name="UPLOAD"
-                label="UPLOAD"
-                width="250px"
-                height="50px"
-                clip="unset"
-                size={{ base: '108px', md: '100px' }}
-                borderRadius={{ base: '20px', md: '40px' }}
-                plusSize={{ base: '10%', md: '20%' }}
-                errPos={'center'}
-              /> */}
-              <label htmlFor="imageURL">Load the pet’s image</label>
-              <label htmlFor="imageURL">
-                <Field
-                  id="imageURL"
-                  type="file"
-                  name="imageURL"
-                  accept="image/*,.png,.jpg,.gif,.web,"
-                  onChange={handleUpload}
+    <div className={css.container}>
+      <h1 className={css.title}>Add pet</h1>
+      <Formik
+        initialValues={addPetInitialState}
+        validationSchema={addPetSchema}
+        onSubmit={handleSubmit}
+        validateOnChange={true}
+      >
+        {({ errors, dirty }) => (
+          <Form autoComplete="off">
+            {firstStep ? (
+              <>
+                <label htmlFor="name" className={css.label}>
+                  Name pet
+                  <Field
+                    className={css.field}
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Type name pet"
+                    required
+                  />
+                </label>
+                <ErrorMessage
+                  name="name"
+                  component="div"
+                  className={css.error_msg}
                 />
-                {imageURL && (
-                  <img src={imageURL} alt="Pet" height={116} width={116} />
-                )}
-              </label>
-              <FormikControl
-                control="textarea"
-                name="comments"
-                label={
-                  <>
-                    Comments
-                    <Text as={'span'} color={'accent.accentOrange'}>
-                      *
-                    </Text>
-                  </>
-                }
-                placeholder="Type comments"
-              />
-              <Box
-                maxW={'none'}
-                width={'full'}
-                display={'flex'}
-                flexDirection={{ base: 'column', md: 'row-reverse' }}
-                justifyContent={{ base: 'center', md: 'center' }}
-              >
-                <Button
-                  type="submit"
-                  mb={{ base: '3', md: '0' }}
-                  control="secondary"
-                  width={{ md: '180px' }}
-                  aria-label="add"
+
+                <label className={css.label} htmlFor="birthdate">
+                  Date of birth
+                  <Field
+                    className={css.field}
+                    id="date"
+                    type="date"
+                    name="date"
+                    placeholder="DD.MM.YYYY"
+                    required
+                  />
+                  <ErrorMessage
+                    name="date"
+                    component="div"
+                    className={css.error_msg}
+                  />
+                </label>
+
+                <label className={css.label} htmlFor="breed">
+                  Breed
+                  <Field
+                    className={css.field_last}
+                    id="breed"
+                    type="text"
+                    name="breed"
+                    placeholder="Type breed"
+                    required
+                  />
+                  <ErrorMessage
+                    name="breed"
+                    component="div"
+                    className={css.error_msg}
+                  />
+                </label>
+
+                <div className={css.btn_list}>
+                  <button
+                    className={`${css.btn} ${css.accent_btn}`}
+                    onClick={() => setFirstStep(false)}
+                    disabled={isDisabled(dirty, errors)}
+                    aria-label="next"
+                  >
+                    Next
+                  </button>
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className={css.btn}
+                    aria-label="cancel"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <label
+                  htmlFor="imageURL"
+                  className={`${css.label} ${css.label_photo}`}
                 >
-                  Done
-                </Button>
-                <Button
-                  onClick={() => setFirstStep(true)}
-                  mr={{ md: '5' }}
-                  width={{ md: '180px' }}
-                  aria-label="back"
-                >
-                  Back
-                </Button>
-              </Box>
-            </Box>
-          )}
-        </Form>
-      )}
-    </Formik>
+                  Load the pet’s image
+                </label>
+                <label htmlFor="imageURL" className={css.field_photo}>
+                  <Field
+                    className={css.file_btn}
+                    id="imageURL"
+                    type="file"
+                    name="imageURL"
+                    accept="image/*,.png,.jpg,.gif,.web,"
+                    onChange={handleUpload}
+                  />
+                  {imageURL && (
+                    <img
+                      src={imageURL}
+                      className={css.img_photo}
+                      alt="Pet"
+                      height={116}
+                      width={116}
+                    />
+                  )}
+                </label>
+
+                <label htmlFor="comments" className={css.label}>
+                  Comments
+                  <Field
+                    as="textarea"
+                    className={`${css.field_last} ${css.field_comments}`}
+                    id="comments"
+                    type="text"
+                    name="comments"
+                    rows="1"
+                    placeholder="Some comments"
+                    onClick={textareaChange}
+                    required
+                  />
+                  <ErrorMessage
+                    name="comments"
+                    component="div"
+                    className={css.error_msg}
+                  />
+                </label>
+
+                <div className={css.btn_list}>
+                  <button
+                    type="submit"
+                    aria-label="add"
+                    className={`${css.btn} ${css.accent_btn}`}
+                  >
+                    Done
+                  </button>
+
+                  <button
+                    onClick={() => setFirstStep(true)}
+                    type="button"
+                    className={css.btn}
+                    aria-label="back"
+                  >
+                    Back
+                  </button>
+                </div>
+              </>
+            )}
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
 };
 

@@ -1,91 +1,87 @@
-
 .container_pets_list {
-    background-color: var(--white-color);
-    border-radius: 20px;
-    box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
-    margin-bottom: 20px;
+  background-color: var(--white-color);
+  border-radius: 20px;
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  margin-bottom: 20px;
 }
 
 .container_pets_list:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-
 .container_pets_img {
-    width: 280px;
-    height: 256px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 16px;
-    margin-bottom: 20px;
+  width: 280px;
+  height: 256px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 16px;
+  margin-bottom: 20px;
 }
 
 .pets_img {
-    display: block;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 20px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .title_info {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.4;
-    letter-spacing: 0.04em;
-    color: var(--black-color);
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: var(--black-color);
 }
 
 .text_info_pets {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.4;
-    letter-spacing: 0.04em;
-    color: var(--black-color);  
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: var(--black-color);
 }
 
 .ul_pets_info {
-    margin-left: 20px;
-    margin-right: 25px;
-    padding-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 25px;
+  padding-bottom: 40px;
 }
 
 .li_pets_info {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .li_pets_info:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .container_button_ul_pets {
-    position: relative;
+  position: relative;
 }
 
 .button_delete_pet {
-    position: absolute;
-    right: 22px;
-    top: -2px;
+  position: absolute;
+  right: 22px;
+  top: -2px;
 
-    background-color: var(--white-color);
-    border:0;
-    margin: 0;
-    padding: 0;
-
+  background-color: var(--white-color);
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .icon_delete {
-    width: 17px;
-    height: 17px;
+  width: 17px;
+  height: 17px;
 }
 
 @media screen and (min-width: 768px) {
-  
-.container_pets_list {
+  .container_pets_list {
     position: relative;
     display: flex;
     background-color: var(--white-color);
@@ -93,31 +89,30 @@
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
     margin-bottom: 20px;
     gap: 32px;
-}
+  }
 
-.container_pets_list:last-child {
+  .container_pets_list:last-child {
     margin-bottom: 0;
-}
+  }
 
-
-.container_pets_img {
+  .container_pets_img {
     width: 181px;
     height: 181px;
     padding-left: 20px;
     padding-right: 0;
     padding-top: 20px;
     margin-bottom: 20px;
-}
+  }
 
-.pets_img {
+  .pets_img {
     display: block;
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 20px;
-}
+  }
 
-.title_info {
+  .title_info {
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 500;
@@ -125,56 +120,55 @@
     line-height: 1.4;
     letter-spacing: 0.04em;
     color: var(--black-color);
-}
+  }
 
-.text_info_pets {
+  .text_info_pets {
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.4;
     letter-spacing: 0.04em;
-    color: var(--black-color);  
-}
+    color: var(--black-color);
+  }
 
-.ul_pets_info {
-    margin-left:0;
+  .ul_pets_info {
+    margin-left: 0;
     margin-right: 20px;
     padding-bottom: 20px;
-}
+  }
 
-.li_pets_info {
+  .li_pets_info {
     margin-bottom: 12px;
-}
+  }
 
-.li_pets_info:last-child {
+  .li_pets_info:last-child {
     margin-bottom: 0;
-}
+  }
 
-.container_button_ul_pets {
+  .container_button_ul_pets {
     position: static;
     margin-top: 20px;
     width: 471px;
-}
+  }
 
-.button_delete_pet {
+  .button_delete_pet {
     position: absolute;
     right: 20px;
     top: 20px;
 
     background-color: var(--white-color);
-    border:0;
+    border: 0;
     margin: 0;
     padding: 0;
+  }
 
-}
-
-.icon_delete {
+  .icon_delete {
     width: 17px;
     height: 17px;
-} 
+  }
 
-.fon_delete_icon {
+  .fon_delete_icon {
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -182,5 +176,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
 }

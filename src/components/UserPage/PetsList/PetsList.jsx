@@ -1,4 +1,4 @@
-import { Text, Flex} from '@chakra-ui/react';
+import { Text, Flex } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import petDefaultAvatar from '../../../images/petDefaultAvatar.svg';
 import { useDispatch } from 'react-redux';
@@ -47,18 +47,29 @@ const PetsList = ({ pets }) => {
     e.preventDefault();
   };
 
-
   return pets.length > 0 ? (
     <div>
       {pets.map(({ _id, name, date, breed, photoURL, comments }) => (
         <div key={_id} className={css.container_pets_list}>
           <div className={css.container_pets_img}>
-            <img src={photoURL ?? petDefaultAvatar} alt="pet" className={css.pets_img}></img>
+            <img
+              src={photoURL ?? petDefaultAvatar}
+              alt="pet"
+              className={css.pets_img}
+            ></img>
           </div>
           <div className={css.container_button_ul_pets}>
-            <button onClick={e => onDeleteBtnClick(e, _id)} type="button" className={css.button_delete_pet}>
+            <button
+              onClick={e => onDeleteBtnClick(e, _id)}
+              type="button"
+              className={css.button_delete_pet}
+            >
               <div className={css.fon_delete_icon}>
-              <DeleteIcon color="blackAlpha.500" border="none" className={css.icon_delete}/>
+                <DeleteIcon
+                  color="blackAlpha.500"
+                  border="none"
+                  className={css.icon_delete}
+                />
               </div>
             </button>
             <ul className={css.ul_pets_info}>

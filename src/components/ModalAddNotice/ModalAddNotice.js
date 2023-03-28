@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { PageOne } from './ModalAddNoticeFirst';
 import { PageTwo } from './ModalAddNoticeSecond';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addNotice } from '../../redux/notices/operations';
 
 export const ModalAddNotice = ({ onClose }) => {
+  const navigete = useNavigate();
   const dispatch = useDispatch();
   const [data, setData] = useState({
     category: '',
@@ -38,6 +40,7 @@ export const ModalAddNotice = ({ onClose }) => {
           comments: newData.comments,
         };
         dispatch(addNotice(newNotices));
+        navigete('/notices/own');
         return;
       }
       const newNotices = {
