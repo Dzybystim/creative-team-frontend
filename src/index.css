@@ -71,7 +71,9 @@ p > a.active {
   border-color: transparent;
 }
 
-input,
-form {
+
+* {
+  margin: 0;
+
   box-sizing: border-box;
 }
