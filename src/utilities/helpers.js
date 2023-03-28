@@ -39,11 +39,9 @@ export const postImageToStorage = async img => {
 export const passTokenToHeadersAxios = () => {
   const setAuthHeader = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    console.log('token', token);
   };
   const clearAuthHeader = () => {
     axios.defaults.headers.common.Authorization = '';
-    //   console.log('clear')
   };
 
   const tokenFromLocalStorage = localStorage.getItem('persist:users');
@@ -65,24 +63,6 @@ export const userEdit = async fieldData => {
   }
 };
 
-// export const addToSelectedNotices = async noticeId => {
-//   try {
-//     const response = await axios.post(`/notices/selected/${noticeId}`);
-//     return response.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// export const deleteFromSelectedNotices = async noticeId => {
-//   try {
-//     const response = await axios.delete(`/notices/selected/${noticeId}`);
-//     return response.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
 export const getNoticesById = async noticeId => {
   try {
     const response = await axios.get(`/notices/${noticeId}`);
@@ -91,15 +71,6 @@ export const getNoticesById = async noticeId => {
     console.error(error);
   }
 };
-
-// export const postNewNotice = async data => {
-//   try {
-//     const response = await axios.post(`/notices/user`, data);
-//     return response.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
 
 export const getUserIdFromLocalStorage = () => {
   const idFromLocalStorage = localStorage.getItem('persist:users');

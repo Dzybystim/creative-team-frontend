@@ -7,7 +7,6 @@ import css from './PetsData.module.css';
 import { useState } from 'react';
 
 const PetsData = ({ pets }) => {
-  // const { onOpen, onClose, isOpen } = useDisclosure();
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {

@@ -151,7 +151,7 @@ const ModalAddsPet = ({ onClose }) => {
                   htmlFor="imageURL"
                   className={`${css.label} ${css.label_photo}`}
                 >
-                  Load the pet’s image
+                  Add photo and some comments
                 </label>
                 <label htmlFor="imageURL" className={css.field_photo}>
                   <Field
