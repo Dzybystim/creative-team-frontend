@@ -8,7 +8,7 @@ import { addPetInitialState, addPetSchema } from './index';
 import { postImageToStorage } from '../../../../utilities/helpers';
 import css from './ModalAddsPet.module.css';
 
-const ModalAddsPet = ({ onClose }) => {
+const ModalAddsPet = ({ onClose , setAddPet, addPet}) => {
   const [firstStep, setFirstStep] = useState(true);
   const [imageURL, setImageURL] = useState('');
   const dispatch = useDispatch();
@@ -198,6 +198,7 @@ const ModalAddsPet = ({ onClose }) => {
                     type="submit"
                     aria-label="add"
                     className={`${css.btn} ${css.accent_btn}`}
+                    onClick={() => setAddPet(!addPet)}
                   >
                     Done
                   </button>

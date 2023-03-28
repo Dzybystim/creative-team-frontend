@@ -38,7 +38,7 @@ import css from './PetsList.module.css';
 //     },
 // ];
 
-const PetsList = ({ pets }) => {
+const PetsList = ({ pets, setAddPet, addPet}) => {
   // const { pets = [] } = useSelector(getUser);
 
   const dispatch = useDispatch();
@@ -64,7 +64,7 @@ const PetsList = ({ pets }) => {
               type="button"
               className={css.button_delete_pet}
             >
-              <div className={css.fon_delete_icon}>
+              <div className={css.fon_delete_icon} onClick={() => setAddPet(!addPet)}>
                 <DeleteIcon
                   color="blackAlpha.500"
                   border="none"
