@@ -38,7 +38,7 @@
     position: absolute;
     top: 280px;
     right: 20px;
-    z-index: 100;
+    z-index: 10;
     width: 32px;
     height: 32px;
   }
@@ -49,7 +49,7 @@
     position: absolute;
     top: 0;
     right: 110%;
-    z-index: 11;
+    z-index: 10;
     font-weight: 500;
     font-size: 20px;
     line-height: 1.35;
