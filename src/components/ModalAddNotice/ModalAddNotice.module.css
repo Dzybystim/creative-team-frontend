@@ -49,11 +49,10 @@
 @media screen and (min-width: 768px) {
   .radio_category {
     margin-bottom: 12px;
-
   }
 }
 
-.label {
+. {
   display: block;
   max-width: 90%;
   font-weight: 500;
@@ -66,7 +65,7 @@
 @media screen and (min-width: 768px) {
   .label {
     font-size: 24px;
-    line-height:1.08;
+    line-height: 1.08;
     margin-bottom: 28px;
   }
 }
@@ -82,7 +81,7 @@
 @media screen and (min-width: 768px) {
   .label_other {
     font-size: 24px;
-    line-height:1.08;
+    line-height: 1.08;
     margin-bottom: 28px;
   }
 }
@@ -109,13 +108,11 @@
     margin-bottom: 16px;
     margin-right: 12px;
   }
-
-  
 }
 
-.radio_label:has(input:checked) {
+/* .radio_label:has(input:checked) {
   background-color: var(--accent-color);
-}
+} */
 
 .radio_label:hover,
 .radio_label:focus {
