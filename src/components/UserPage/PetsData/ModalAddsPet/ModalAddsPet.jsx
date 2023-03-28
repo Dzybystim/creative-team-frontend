@@ -8,7 +8,7 @@ import { addPetInitialState, addPetSchema } from './index';
 import { postImageToStorage } from '../../../../utilities/helpers';
 import css from './ModalAddsPet.module.css';
 
-const ModalAddsPet = ({ onClose , setAddPet, addPet}) => {
+const ModalAddsPet = ({ onClose, setAddPet, addPet }) => {
   const [firstStep, setFirstStep] = useState(true);
   const [imageURL, setImageURL] = useState('');
   const dispatch = useDispatch();
@@ -66,10 +66,9 @@ const ModalAddsPet = ({ onClose , setAddPet, addPet}) => {
     <div className={css.container}>
       <h1 className={css.title}>Add pet</h1>
       <Formik
+        onSubmit={handleSubmit}
         initialValues={addPetInitialState}
         validationSchema={addPetSchema}
-        onSubmit={handleSubmit}
-        validateOnChange={true}
       >
         {({ errors, dirty }) => (
           <Form autoComplete="off">
@@ -85,12 +84,12 @@ const ModalAddsPet = ({ onClose , setAddPet, addPet}) => {
                     placeholder="Type name pet"
                     required
                   />
+                  <ErrorMessage
+                    name="name"
+                    component="div"
+                    className={css.error_msg}
+                  />
                 </label>
-                <ErrorMessage
-                  name="name"
-                  component="div"
-                  className={css.error_msg}
-                />
 
                 <label className={css.label} htmlFor="birthdate">
                   Date of birth
@@ -109,10 +108,13 @@ const ModalAddsPet = ({ onClose , setAddPet, addPet}) => {
                   />
                 </label>
 
-                <label className={css.label} htmlFor="breed">
+                <label
+                  className={`${css.label} ${css.label_last}`}
+                  htmlFor="breed"
+                >
                   Breed
                   <Field
-                    className={css.field_last}
+                    className={css.field}
                     id="breed"
                     type="text"
                     name="breed"
@@ -173,11 +175,14 @@ const ModalAddsPet = ({ onClose , setAddPet, addPet}) => {
                   )}
                 </label>
 
-                <label htmlFor="comments" className={css.label}>
+                <label
+                  htmlFor="comments"
+                  className={`${css.label} ${css.label_last}`}
+                >
                   Comments
                   <Field
                     as="textarea"
-                    className={`${css.field_last} ${css.field_comments}`}
+                    className={`${css.field} ${css.field_comments}`}
                     id="comments"
                     type="text"
                     name="comments"
