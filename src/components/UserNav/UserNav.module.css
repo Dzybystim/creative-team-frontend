@@ -1,59 +1,44 @@
-.divTest {
-  display: flex;
+.userButton {
+  display: inline-flex;
+  justify-content: center;
+  height: 35px;
+  width: 164px;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 40px;
+  background-color: var(--accent-color);
+}
+.userButton:hover {
+  background-color: var(--accent-color);
 }
 
-@media screen and (max-width: 767px) {
-  .divTest {
-    display: none;
-  }
+.userButton:active {
+  background-color: var(--accent-color);
 }
 
-.auth {
-  display: block;
-}
-
-@media screen and (max-width: 767px) {
-  .auth {
-    display: none;
-  }
+.userButton:focus {
+  background-color: var(--accent-color);
 }
 
 @media screen and (min-width: 768px) {
-  .auth {
-    display: flex;
+  .userButton {
+    height: 44px;
   }
 }
 
-.userButton {
-  border-radius: 40px;
-  border: 2px solid #f59256;
-  color: #ffffff;
-  background: #f59256;
-  padding: 5px 28px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-flex;
-  font-size: 16px;
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 27px;
-  text-decoration: none;
-  margin-right: 20px;
-}
-
 .userLink {
-  font-family: 'Manrope';
-  font-style: normal;
+  margin-left: 13px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 19px;
+  line-height: 1.36;
   letter-spacing: 0.04em;
-  color: #ffffff;
-  margin-left: 10px;
+  color: var(--white-color);
+}
+
+@media screen and (min-width: 768px) {
+  .userLink {
+    margin-left: 14px;
+    font-size: 16px;
+    line-height: 1.37;
+  }
 }

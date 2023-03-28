@@ -1,5 +1,7 @@
 import { Modal } from '../../utilities/Modal/Modal';
-import { useState, useEffect } from 'react';
+import { useState, 
+ // useEffect
+ } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NoticeModal } from 'components/NoticeModal/NoticeModal';
 import css from './NoticeCategoryItem.module.css';
@@ -15,10 +17,12 @@ import { selectFavorites } from '../../redux/notices/selectors';
 import { deleteNotice } from '../../redux/notices/operations';
 import { getUserIdFromLocalStorage } from '../../utilities/helpers';
 import {
+//  getAllSelectedNotices,
   addToFavorite,
   deleteFromFavorite,
 } from '../../redux/notices/operations';
 import { toast } from 'react-toastify';
+
 
 export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
@@ -26,59 +30,34 @@ export const NoticeCategoryItem = ({ item }) => {
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
   const favorites = useSelector(selectFavorites);
-  const [isFavorite, setIsFavorite] = useState(null);
+
 
   const userId = getUserIdFromLocalStorage();
 
-  // let favoriteOrNot =
-  //   (favorites.find(favorite => favorite._id === item._id) && true) || false;
-  // const firstFavorites = () => {
-  //   setIsFavorite(favoriteOrNot);
-  // };
+  // useEffect(() => {
+  //   if (!isLogged) {
+  //     return;
+  //   }
+  //   dispatch(getAllSelectedNotices());
+  //   return;
+  // }, [dispatch, isLogged]);
 
-  useEffect(() => {
-    if (!isLogged) {
-      return;
-    }
-    let favoriteOrNot =
-      (favorites.find(favorite => favorite._id === item._id) && true) || false;
-    setIsFavorite(favoriteOrNot);
-    return;
-  }, [isLogged, favorites, item._id]);
-
-  useEffect(() => {
-    if (!isLogged) {
-      return;
-    }
-    if (isFavorite === true) {
-      console.log('isFavorite === true', isFavorite === true);
-      return;
-    }
-    console.log('!isLogged2', isLogged);
-    console.log('isFavorite === true2', isFavorite === true);
-    return;
-  }, [isFavorite, isLogged]);
-
-  const handleDeleteFromFavorite = () => {
+  const handleAddOrDeleteFavorite = () => {
     if (!isLogged) {
       return toast.warn(
         'The user must be logged in to use this functionality!'
       );
+    }
+    if(!favorites.find(favorite => favorite._id === item._id)){
+    dispatch(addToFavorite(item._id));
+    toast.success(`This item has been successfully added to favorites!`);
+    return;
     }
     dispatch(deleteFromFavorite(item._id));
-    setIsFavorite(!isFavorite);
+    toast.success(`This item was successfully removed from favorites!`);
     return;
   };
 
-  const handleAddToFavorite = () => {
-    if (!isLogged) {
-      return toast.warn(
-        'The user must be logged in to use this functionality!'
-      );
-    }
-    dispatch(addToFavorite(item._id));
-    setIsFavorite(!isFavorite);
-  };
 
   const removeNotices = () => {
     dispatch(deleteNotice(item._id));
@@ -102,10 +81,9 @@ export const NoticeCategoryItem = ({ item }) => {
       });
   };
 
-  const age = ageCounter(item.birthdate);
-
   return (
     <>
+
       <li className={css.item}>
         <div className={css.img_cover}>
           {item.imageURL ? (
@@ -114,23 +92,14 @@ export const NoticeCategoryItem = ({ item }) => {
 
           <p className={css.category}>{item.category}</p>
 
-          {isFavorite ? (
             <button
               className={css.icon}
               type="button"
-              onClick={handleDeleteFromFavorite}
+              onClick={handleAddOrDeleteFavorite}
             >
-              <IconHeart width={26} height={26} />
+              {(!favorites.find(favorite => favorite._id === item._id)) ? (<AiOutlineHeart size={28} />) :(<IconHeart width={26} height={26} />) }
             </button>
-          ) : (
-            <button
-              className={css.icon}
-              type="button"
-              onClick={handleAddToFavorite}
-            >
-              <AiOutlineHeart size={28} />
-            </button>
-          )}
+          
         </div>
         <h3 className={css.title}>{item.title}</h3>
 
@@ -145,7 +114,11 @@ export const NoticeCategoryItem = ({ item }) => {
           </li>
           <li className={css.info_item}>
             <p className={css.text}>Age: </p>
-            <p className={css.text}>{age}</p>
+            {item.birthdate ? (
+              <p className={css.text}>{ageCounter(item.birthdate)}</p>
+            ) : (
+              <p className={css.text}>Unknown</p>
+            )}
           </li>
 
           {item.price ? (
@@ -175,9 +148,7 @@ export const NoticeCategoryItem = ({ item }) => {
       {showModal && (
         <Modal key={item.id} onClose={toggleModal}>
           <NoticeModal
-            isFavorite={isFavorite}
-            handleDeleteFromFavorite={handleDeleteFromFavorite}
-            handleAddToFavorite={handleAddToFavorite}
+           handleAddOrDeleteFavorite={handleAddOrDeleteFavorite}
             item={notice}
           />
         </Modal>

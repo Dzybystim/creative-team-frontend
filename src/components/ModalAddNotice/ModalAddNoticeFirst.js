@@ -2,6 +2,7 @@ import { ErrorMessage, Field } from 'formik';
 import css from './ModalAddNotice.module.css';
 import * as yup from 'yup';
 import { Formik, Form } from 'formik';
+import moment from 'moment/moment';
 
 const schemaPageOne = yup.object().shape({
   category: yup
@@ -22,8 +23,12 @@ const schemaPageOne = yup.object().shape({
     .max(16, 'Maximum 16 characters!')
     .required('Required field!'),
   birthdate: yup
-    .string()
-    .matches(/^(\d{2})\.(\d{2})\.(\d{4})$/, 'Date must be in DD.MM.YYYY format')
+    .date()
+    .min(moment('06021995', 'DDMMYYYY'), 'Must be at later than 06.02.1995')
+    .max(
+      moment(),
+      `Must be at earlier than ${moment().add(1, 'days').format('DD.MM.YYYY')}`
+    )
     .required('Date is required'),
   breed: yup
     .string()
@@ -45,7 +50,7 @@ export const PageOne = props => {
         initialValues={props.data}
         validationSchema={schemaPageOne}
       >
-        <Form autoComplete="on">
+        <Form autoComplete="off">
           <p className={css.text}>
             Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
             consectetur{' '}

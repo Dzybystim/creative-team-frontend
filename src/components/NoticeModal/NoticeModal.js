@@ -1,21 +1,42 @@
 import css from './NoticeModal.module.css';
 import { ReactComponent as IconHeart } from '../../images/icon_heart.svg';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectors } from '../../redux/auth/selectors';
+import { selectFavorites } from '../../redux/notices/selectors';
+import {
+  getAllSelectedNotices,
+} from '../../redux/notices/operations';
+
+
 
 export const NoticeModal = ({
-  item,
-  isFavorite,
-  handleDeleteFromFavorite,
-  handleAddToFavorite,
+  item, handleAddOrDeleteFavorite
 }) => {
-  console.log(item);
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+  const isLogged = useSelector(selectors.isLogged);
+ 
+
+  useEffect(() => {
+    if (!isLogged) {
+      return;
+    }
+    dispatch(getAllSelectedNotices());
+    return;
+  }, [dispatch, isLogged]);
+
+
   return (
     <div className={css.container}>
-      <div className={css.img}>
+      <div className={css.cover}>
+      <div className={css.img_cover}>
         <p className={css.category}>{item.category}</p>
         {item.imageURL ? (
           <img src={item.imageURL} className={css.img} alt="Pet" />
         ) : null}
       </div>
+      <div>
       <h3 className={css.title}>{item.title}</h3>
 
       <ul className={css.list}>
@@ -59,39 +80,29 @@ export const NoticeModal = ({
           </li>
         ) : null}
       </ul>
-
+      </div>
+      </div>
       <p className={css.comments}>Comments: {item.comments}</p>
 
-      <ul>
+      <ul className={css.btn_list}>
         <li className={css.btn_item}>
-          <a className={css.btn} href={`tel:${item.mobilePhone}`}>
+          <a className={css.btn_tel} href={`tel:${item.mobilePhone}`}>
             Contact
           </a>
         </li>
-
-        {!isFavorite ? (
+ 
           <li className={css.btn_item}>
             <button
               className={css.btn}
               type="button"
-              onClick={handleAddToFavorite}
+              onClick={handleAddOrDeleteFavorite}
             >
-              {' '}
-              Add to <IconHeart width={20} height={20} />
+            {(!favorites.find(favorite => favorite._id === item._id)) ?  
+            ("Add to" ) : ( "Remove from" )} 
+              <IconHeart width={20} height={20} />
             </button>
           </li>
-        ) : (
-          <li className={css.btn_item}>
-            <button
-              className={css.btn}
-              type="button"
-              onClick={handleDeleteFromFavorite}
-            >
-              {' '}
-              Remove from <IconHeart width={20} height={20} />
-            </button>
-          </li>
-        )}
+        
       </ul>
     </div>
   );

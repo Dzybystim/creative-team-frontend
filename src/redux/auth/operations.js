@@ -19,24 +19,14 @@ export const addNewPet = createAsyncThunk(
 
 export const deletePet = createAsyncThunk(
   'auth/deletePet',
-  async (id, { rejectWithValue, getState }) => {
+  async (id, thunkAPI) => {
     try {
-      const { auth } = getState();
-      const persistedToken = auth.token;
-
-      if (!persistedToken) {
-        rejectWithValue('Unable delete pet');
-      }
-      successToast('Pet was successfully deleted');
       await api.deletePet(id);
+      successToast('Pet was successfully deleted');
       return id;
-    } catch ({ response }) {
+    } catch (error) {
       errorToast('Something went wrong, try to reload the page');
-      const error = {
-        // status: response.status,
-        message: response.data.message,
-      };
-      return rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );

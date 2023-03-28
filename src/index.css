@@ -70,3 +70,10 @@ p > a.active {
   background-color: var(--accent-color);
   border-color: transparent;
 }
+
+
+* {
+  margin: 0;
+
+  box-sizing: border-box;
+}

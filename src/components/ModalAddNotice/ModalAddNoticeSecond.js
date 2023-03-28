@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { postImageToStorage } from '../../utilities/helpers';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
+import moment from 'moment/moment';
 
 const schemaPageTwo = yup.object().shape({
   sex: yup.mixed().oneOf(['male', 'female']).required('Required field!'),
@@ -57,10 +58,11 @@ export const PageTwo = props => {
   };
 
   const handleSubmit = values => {
+    const date = moment(values.birthdate, 'YYYYY-MM-DD').format('DD.MM.YYYY');
     const imgUrl =
       imageURL ||
       'https://res.cloudinary.com/daud0cvhu/image/upload/v1679907667/placeholder.jpg.jpg';
-    const addData = { ...values, imageURL: imgUrl };
+    const addData = { ...values, imageURL: imgUrl, birthdate: date };
     props.next(addData, true);
     props.onClose();
   };
@@ -73,7 +75,7 @@ export const PageTwo = props => {
         initialValues={props.data}
         validationSchema={schemaPageTwo}
       >
-        <Form autoComplete="on">
+        <Form autoComplete="off">
           <label className={css.label_other}> The sex: </label>
           <div className={css.radio_sex}>
             <label className={css.radio_label_sex}>
@@ -189,13 +191,18 @@ export const PageTwo = props => {
           </label>
 
           <div className={css.btn_list}>
-            <button type="submit" className={`${css.btn} ${css.accent_btn}`}>
+            <button
+              type="submit"
+              aria-label="add"
+              className={`${css.btn} ${css.accent_btn}`}
+            >
               Done
             </button>
 
             <button
               onClick={() => props.prev()}
               type="button"
+              aria-label="back"
               className={css.btn}
             >
               Back

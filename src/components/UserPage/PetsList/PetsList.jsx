@@ -1,22 +1,43 @@
-import { List, ListItem, Box, Text, Flex, Image } from '@chakra-ui/react';
+import { Text, Flex } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import petDefaultAvatar from '../../../images/petDefaultAvatar.svg';
 import { useDispatch } from 'react-redux';
 import { deletePet } from 'redux/auth/operations';
+import css from './PetsList.module.css';
+// import { ImageListItemBar } from '@mui/material';
 
 // import { getUser } from 'redux/auth/selectors';
 
-let test = [
-  {
-    _id: '1',
-    name: 'Rex',
-    birthday: '',
-    breed: 'breed',
-    photo:
-      'https://images.unsplash.com/photo-1586796314073-c9b40efb3d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hbGwlMjBkb2d8ZW58MHx8MHx8&w=1000&q=80',
-    comments: 'Cool',
-  },
-];
+// let test = [
+//  {
+//    _id: '1',
+//     name: 'Rex',
+//      birthday: '',
+//      breed: 'breed',
+//     photo:
+//        'https://images.unsplash.com/photo-1586796314073-c9b40efb3d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hbGwlMjBkb2d8ZW58MHx8MHx8&w=1000&q=80',
+//      comments: 'ndustry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lo',
+//    },
+//    {
+//      _id: '2',
+//      name: 'Rex',
+//      birthday: '',
+//      breed: 'breed',
+//      photo:
+//       'https://images.unsplash.com/photo-1586796314073-c9b40efb3d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hbGwlMjBkb2d8ZW58MHx8MHx8&w=1000&q=80',
+//      comments: 'Cool',
+//    },
+//    {
+//     _id: '3',
+//      name: 'Rex',
+//       birthday: '',
+//       breed: 'breed',
+//      photo:
+//         'https://images.unsplash.com/photo-1586796314073-c9b40efb3d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hbGwlMjBkb2d8ZW58MHx8MHx8&w=1000&q=80',
+//       comments: 'ndustry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lo',
+//     },
+// ];
+
 const PetsList = ({ pets }) => {
   // const { pets = [] } = useSelector(getUser);
 
@@ -25,149 +46,58 @@ const PetsList = ({ pets }) => {
     dispatch(deletePet(id));
     e.preventDefault();
   };
-  return test.length > 0 ? (
-    <Box>
-      {test.map(({ _id, name, birthday, breed, photo, comments }) => (
-        <Flex
-          key={_id}
-          bgColor="accent.white"
-          box-shadow="7px 4px 14px rgba(0, 0, 0, 0.11)"
-          borderRadius="40px"
-          direction={{ base: 'column', md: 'row', xl: 'row' }}
-          mb={{ base: '20px', xl: '22px' }}
-          px={{ base: '20px', md: '20px', xl: '28px' }}
-          py={{ base: '40px', md: '20px', xl: '20px' }}
-        >
-          <Box
-            w={{ base: '240px', md: '161px' }}
-            h={{ base: '240px', md: '161px' }}
-            mr={{ base: '0px', md: '32px' }}
-            bgColor="accent.background"
-            borderRadius={{ base: '40px', md: '20px' }}
-          >
-            <Image
-              display="block"
-              maxW="initial"
-              width="150px"
-              height="150px"
-              boxSize={{ base: '30px', md: '50px' }}
-              borderRadius="25px"
-              m="2px 15px 15px 15px"
-              src={photo ?? petDefaultAvatar}
-              alt="pet photo"
-            />
-          </Box>
-          <Box
-            position="relative"
-            w="100%"
-            maxW={{ base: '235px', md: '471px', xl: '580px' }}
-            mt={{ base: '20px', md: '0px' }}
-          >
-            <Box
-              onClick={e => onDeleteBtnClick(e, _id)}
-              as="button"
-              type="button"
-              position="absolute"
-              top={{ base: '-4px', md: '0px' }}
-              right="0px"
-              mr="3px"
-              bg={{ base: 'transparent', md: 'accent.background' }}
-              w={{ base: '20px', md: '44px' }}
-              h={{ base: '20px', md: '44px' }}
-              borderRadius="50%"
-              size="44px"
-              color="rgba(17, 17, 17, 0.6)"
-              _hover={{
-                filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-                // color: 'accent.white',
-              }}
-              _focus={{
-                filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-                // color: 'accent.white',
-              }}
-              transitionProperty={'color, filter'}
-              transitionDuration={'250ms'}
-              transitionTimingFunction={'cubic-bezier(0.4, 0, 0.2, 1)'}
-            >
-              <DeleteIcon
-                color="blackAlpha.500"
-                border="none"
 
-                // h={{ base: '20px', md: '24px' }}
-                // w={{ base: '20px', md: '24px' }}
-              />
-            </Box>
-            <List spacing="6" mt="2px">
-              <ListItem
-                display="flex"
-                alignItems="center"
-                mb={{ base: '20px', xl: '22px' }}
-              >
-                <Text
-                  fontSize={{ base: '14px', md: '16px' }}
-                  lineHeight={{ base: '1.35' }}
-                  fontWeight="600"
-                  display="block"
-                  mr="5px"
-                >
-                  Name:
-                </Text>
-                <Text fontWeight="400">{name}</Text>
-              </ListItem>
-              <ListItem
-                display="flex"
-                alignItems="center"
-                mb={{ base: '20px', xl: '22px' }}
-              >
-                <Text
-                  fontSize={{ base: '14px', md: '16px' }}
-                  lineHeight={{ base: '1.35' }}
-                  fontWeight="600"
-                  display="block"
-                  mr="5px"
-                >
-                  Date of birth:
-                </Text>
-                <Text fontWeight="400">{birthday}</Text>
-              </ListItem>
-              <ListItem
-                display="flex"
-                alignItems="center"
-                mb={{ base: '20px', xl: '22px' }}
-              >
-                <Text
-                  fontSize={{ base: '18px', md: '16px' }}
-                  lineHeight={{ base: '1.35' }}
-                  fontWeight="600"
-                  display="block"
-                  mr="5px"
-                >
-                  Breed:
-                </Text>
-                <Text fontWeight="400">{breed}</Text>
-              </ListItem>
-              <ListItem display="flex" alignItems="center">
-                <Text
-                  fontSize={{ base: '18px', md: '16px' }}
-                  lineHeight={{ base: '1.35' }}
-                  fontWeight="600"
-                  display="block"
-                  mr="5px"
-                >
-                  Comments:
-                </Text>
-                <Text
-                  fontWeight="400"
-                  lineHeight={{ base: '1.57', md: '1.35' }}
-                >
-                  {comments}
-                </Text>
-              </ListItem>
-            </List>
-          </Box>
-        </Flex>
+  return pets.length > 0 ? (
+    <div>
+      {pets.map(({ _id, name, date, breed, photoURL, comments }) => (
+        <div key={_id} className={css.container_pets_list}>
+          <div className={css.container_pets_img}>
+            <img
+              src={photoURL ?? petDefaultAvatar}
+              alt="pet"
+              className={css.pets_img}
+            ></img>
+          </div>
+          <div className={css.container_button_ul_pets}>
+            <button
+              onClick={e => onDeleteBtnClick(e, _id)}
+              type="button"
+              className={css.button_delete_pet}
+            >
+              <div className={css.fon_delete_icon}>
+                <DeleteIcon
+                  color="blackAlpha.500"
+                  border="none"
+                  className={css.icon_delete}
+                />
+              </div>
+            </button>
+            <ul className={css.ul_pets_info}>
+              <li className={css.li_pets_info}>
+                <p className={css.text_info_pets}>
+                  <span className={css.title_info}>Name:</span> {name}
+                </p>
+              </li>
+              <li className={css.li_pets_info}>
+                <p className={css.text_info_pets}>
+                  <span className={css.title_info}>Date of birth:</span> {date}
+                </p>
+              </li>
+              <li className={css.li_pets_info}>
+                <p className={css.text_info_pets}>
+                  <span className={css.title_info}>Breed:</span> {breed}
+                </p>
+              </li>
+              <li className={css.li_pets_info}>
+                <p className={css.text_info_pets}>
+                  <span className={css.title_info}>Comments:</span> {comments}
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
       ))}
-    </Box>
+    </div>
   ) : (
     <Flex
       bgColor="accent.white"

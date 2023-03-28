@@ -1,6 +1,4 @@
 .item {
-  margin-right: auto;
-  margin-left: auto;
   padding-bottom: 12px;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
   border-radius: 0px 0px 20px 20px;
@@ -16,7 +14,7 @@
   position: relative;
   display: block;
   width: 280px;
-  min-height: 288px;
+  height: 288px;
   object-fit: cover;
   overflow: hidden;
   background: var(--white-transparent-color);
@@ -36,6 +34,30 @@
   object-fit: cover;
   overflow: hidden;
 }
+
+@media screen and (min-width: 768px) {
+   .item {
+  width: 336px;
+  }
+  
+  .img_cover {
+    width: 100%;
+  }
+  .img {
+    width: 100%;
+  }
+ 
+}
+
+@media screen and (min-width: 1280px) {
+  .item {
+    width: 288px;
+    }
+} 
+
+
+
+
 
 .category {
   z-index: 10;

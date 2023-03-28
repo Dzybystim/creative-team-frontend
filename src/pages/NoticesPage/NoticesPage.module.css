@@ -1,7 +1,4 @@
-.container {
-  padding: 0;
-  margin: 0;
-}
+
 
 .title {
   font-weight: 700;
@@ -10,4 +7,27 @@
   text-align: center;
   color: var(--black-color);
   margin-bottom: 28px;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+font-size: 48px;
+margin-bottom: 40px;
+  }
+}
+
+.container {
+  margin-top: 42px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin-top: 88px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    margin-top: 58px;
+  }
 }

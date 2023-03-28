@@ -20,42 +20,11 @@
   .title {
     font-weight: 600;
     font-size: 36px;
-    line-height: 1.36;
-  }
-}
-
-.text {
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: -0.01em;
-  color: var(--black-color);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .text {
-    font-size: 20px;
-    line-height: 1.35;
-  }
-}
-
-.radio_category {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .radio_category {
-    margin-bottom: 12px;
-
   }
 }
 
 .label {
   display: block;
-  max-width: 90%;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.44;
@@ -66,66 +35,14 @@
 @media screen and (min-width: 768px) {
   .label {
     font-size: 24px;
-    line-height:1.08;
     margin-bottom: 28px;
   }
-}
-
-.label_other {
-  display: block;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.44;
-  color: var(--black-color);
-  margin-bottom: 16px;
-}
-@media screen and (min-width: 768px) {
-  .label_other {
-    font-size: 24px;
-    line-height:1.08;
-    margin-bottom: 28px;
-  }
-}
-
-.radio_label {
-  padding: 8px 28px;
-  font-weight: 500;
-  font-size: 14px;
-  align-items: center;
-  display: inline-block;
-  background-color: var(--white-color);
-  border-radius: 40px;
-  border: 2px solid var(--accent-color);
-  color: var(--black-color);
-  cursor: pointer;
-  margin-bottom: 12px;
-  margin-right: 8px;
-}
-
-@media screen and (min-width: 768px) {
-  .radio_label {
-    padding: 10px 28px;
-    font-size: 20px;
-    margin-bottom: 16px;
-    margin-right: 12px;
-  }
-
-  
-}
-
-.radio_label:has(input:checked) {
-  background-color: var(--accent-color);
-}
-
-.radio_label:hover,
-.radio_label:focus {
-  outline-color: var(--accent-color);
-  color: var(--white-color);
-  background-color: var(--accent-color);
 }
 
 .label_photo {
   margin-bottom: 8px;
+  text-align: center;
+  font-size: 16px;
 }
 @media screen and (min-width: 768px) {
   .label_photo {
@@ -150,8 +67,7 @@
 .field {
   display: block;
   margin-top: 8px;
-  width: 95%;
-
+  width: 240px;
   background: var(--bg-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: 40px;
@@ -167,8 +83,6 @@
     margin-top: 12px;
     width: 448px;
     font-size: 16px;
-    line-height: 1.63;
-    width: 100%;
   }
 }
 
@@ -182,10 +96,12 @@
 
 .field_last {
   display: block;
-  width: 95%;
-
+  box-sizing: border-box;
+  width: 240px;
   margin-top: 8px;
   margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: var(--bg-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: 40px;
@@ -251,60 +167,28 @@
   }
 }
 
-.radio_sex {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 32px;
-}
-@media screen and (min-width: 768px) {
-  .radio_sex {
-    gap: 80px;
-    margin-bottom: 40px;
-  }
-}
-
-.radio_icon {
-  display: block;
-}
-
-.svg {
-  width: 40px;
-  height: 40px;
-}
-@media screen and (min-width: 768px) {
-  .svg {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-.item {
-  display: flex;
-  font-size: 14px;
-}
-.item:not(:last-child) {
-  margin-bottom: 8px;
-}
-
 .field_photo {
   display: block;
-  width: 116px;
-  height: 116px;
+  width: 208px;
+  height: 208px;
   margin-bottom: 28px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 20px;
   outline-color: var(--accent-color);
   cursor: pointer;
   background-color: var(--bg-color);
-  background-image: url(../../images/akar-icons_plus.png);
+  background-image: url(../../../../images/akar-icons_plus.png);
   background-repeat: no-repeat;
   background-position: center;
+  /* background-size: cover; */
   overflow: hidden;
 }
 @media screen and (min-width: 768px) {
   .field_photo {
-    width: 140px;
-    height: 140px;
+    width: 182px;
+    height: 182px;
+    margin-bottom: 40px;
   }
 }
 
@@ -322,47 +206,11 @@
   object-fit: cover;
 }
 
-.article {
-  background: red;
-}
-
 .error_msg {
   margin-top: 6px;
   color: #e2001a;
   font-size: 14px;
   text-align: center;
-}
-
-.radio_label_sex {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.44;
-  color: var(--black-color);
-  cursor: pointer;
-}
-
-.radio_label_sex:hover,
-.radio_label_sex:focus {
-  color: var(--accent-color);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-}
-
-.radio_label_sex:has(input:checked) {
-  color: var(--accent-color);
-}
-
-.radio_btn {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(50%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
 }
 
 .btn_list {
@@ -378,8 +226,8 @@
 
 @media screen and (min-width: 768px) {
   .field_comments {
-    box-sizing: border-box;
-    min-height: 113px;
+    width: 394px;
+    min-height: 116px;
     border-radius: 20px;
   }
 }

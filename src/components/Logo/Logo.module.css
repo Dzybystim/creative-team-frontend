@@ -1,8 +1,19 @@
-.logoImg {
-  display: block;
-  z-index: 400;
+.logoLink {
+  box-sizing: border-box;
+  z-index: 12;
+  background-color: var(--bg-color);
+}
+.logoLink:hover {
+  background-color: var(--bg-color);
+}
+.logoLink:active {
+  background-color: var(--bg-color);
 }
 
+.logoImg {
+  display: inline;
+  box-sizing: border-box;
+}
 @media screen and (max-width: 767px) {
   .logoImg {
     position: relative;
@@ -10,12 +21,11 @@
     height: 42px;
   }
 }
-
 @media screen and (min-width: 768px) {
   .logoImg {
-    position: relative;
+    /* position: relative; */
     max-width: 94px;
     height: 48px;
-    margin-right: 246px;
+    /* margin-right: 246px; */
   }
 }

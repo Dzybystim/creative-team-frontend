@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading, selectError } from '../../redux/notices/selectors';
-import { selectors } from '../../redux/auth/selectors';
+//import { selectors } from '../../redux/auth/selectors';
 
 import {
   getNoticesByCategories,
@@ -15,6 +15,7 @@ import {
   getAllSelectedNotices,
   getAllOwnNotices,
 } from '../../redux/notices/operations';
+import { filterFavorites, filterOwn } from '../../redux/notices/noticesSlice';
 
 import { passTokenToHeadersAxios } from '../../utilities/helpers';
 import { Loader } from '../../components/Loader/Loader';
@@ -23,7 +24,7 @@ const NoticesPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  const isLogged = useSelector(selectors.isLogged);
+ // const isLogged = useSelector(selectors.isLogged);
 
   passTokenToHeadersAxios();
 
@@ -33,13 +34,13 @@ const NoticesPage = () => {
   let { pathname } = useLocation();
   let category = pathname.split('/').pop();
 
-  useEffect(() => {
-    if (!isLogged) {
-      return;
-    }
-    dispatch(getAllSelectedNotices());
-    return;
-  }, [dispatch, isLogged]);
+  // useEffect(() => {
+  //   if (!isLogged) {
+  //     return;
+  //   }
+  //   dispatch(getAllSelectedNotices());
+  //   return;
+  // }, [dispatch, isLogged]);
 
   useEffect(() => {
     const queryFromSearchParams = searchParams.get('query');
@@ -52,15 +53,20 @@ const NoticesPage = () => {
         dispatch(getAllSelectedNotices());
         return;
       }
+      dispatch(filterFavorites(queryFromSearchParams));
+      return;
     }
     if (category === 'own') {
-      dispatch(getAllOwnNotices());
+      if (!queryFromSearchParams) {
+        dispatch(getAllOwnNotices());
+        return;
+      }
+      dispatch(filterOwn(queryFromSearchParams));
       return;
     }
     if (category === 'sell') {
       if (!queryFromSearchParams) {
         dispatch(getNoticesByCategories(category));
-
         return;
       }
       dispatch(getNoticesByTitle({ category, queryFromSearchParams }));
@@ -104,7 +110,7 @@ const NoticesPage = () => {
 
   return (
     <div className={css.container}>
-      <h2 className={css.title}>Find your favorite pet</h2>
+      <h1 className={css.title}>Find your favorite pet</h1>
       <NoticesSearch
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
