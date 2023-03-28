@@ -59,7 +59,6 @@ const noticesSlice = createSlice({
       .addCase(getAllOwnNotices.pending, state => {
         state.isLoading = true;
       })
-
       .addCase(addToFavorite.pending, state => {
         state.isLoading = true;
       })

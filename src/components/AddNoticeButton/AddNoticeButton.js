@@ -22,10 +22,11 @@ export const AddNoticeButton = () => {
 
   return (
     <>
-      <button className={css.add_btn} type="button" onClick={toggleModal}>
-        <AiOutlinePlus size={32} />
-        Add pet
+  <button className={css.add_btn} type="button" onClick={toggleModal}>
+        <AiOutlinePlus size={32} />  <span className={css.add_btn_text}>Add pet</span>
       </button>
+      
+     
       {showModal && (
         <Modal onClose={toggleModal}>
           <ModalAddNotice onClose={toggleModal} />

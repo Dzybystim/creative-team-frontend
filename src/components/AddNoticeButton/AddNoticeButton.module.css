@@ -1,10 +1,8 @@
 .add_btn {
-  top: 290px;
-
-  right: 32px;
+  bottom: 50px;
+  right: 40px;
   z-index: 10;
   position: fixed;
-
   width: 80px;
   height: 80px;
   display: flex;
@@ -15,15 +13,46 @@
   border-radius: 50%;
   border: 2px solid transparent;
   color: var(--white-color);
+}
 
+.add_btn_text {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
 }
 
 .add_btn:hover,
-:focus {
+.add_btn:focus {
   color: var(--accent-color);
   background-color: var(--white-color);
   border-color: var(--accent-color);
+}
+
+.add_btn_text:hover,
+.add_btn_text:focus {
+  color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .add_btn {
+    position: absolute;
+    top: 280px;
+    right: 20px;
+    z-index: 100;
+    width: 32px;
+    height: 32px;
+  }
+
+  .add_btn_text {
+    display: block;
+    width: 80px;
+    position: absolute;
+    top: 0;
+    right: 110%;
+    z-index: 11;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.35;
+    color: var(--black-color);
+  }
 }
