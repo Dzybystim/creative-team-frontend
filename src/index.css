@@ -70,3 +70,8 @@ p > a.active {
   background-color: var(--accent-color);
   border-color: transparent;
 }
+
+input,
+form {
+  box-sizing: border-box;
+}
