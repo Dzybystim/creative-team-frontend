@@ -8,6 +8,17 @@
   border-radius: 40px;
   background-color: var(--accent-color);
 }
+.userButton:hover {
+  background-color: var(--accent-color);
+}
+
+.userButton:active {
+  background-color: var(--accent-color);
+}
+
+.userButton:focus {
+  background-color: var(--accent-color);
+}
 
 @media screen and (min-width: 768px) {
   .userButton {
