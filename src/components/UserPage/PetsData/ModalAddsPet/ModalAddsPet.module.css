@@ -1,6 +1,5 @@
 .container {
   padding: 40px 18px;
-  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -42,6 +41,8 @@
 
 .label_photo {
   margin-bottom: 8px;
+  text-align: center;
+  font-size: 16px;
 }
 @media screen and (min-width: 768px) {
   .label_photo {
@@ -66,7 +67,7 @@
 .field {
   display: block;
   margin-top: 8px;
-  width: 100%;
+  width: 240px;
   background: var(--bg-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: 40px;
@@ -80,6 +81,7 @@
   .field {
     padding: 11px 16px 10px 16px;
     margin-top: 12px;
+    width: 448px;
     font-size: 16px;
   }
 }
@@ -94,9 +96,12 @@
 
 .field_last {
   display: block;
-  width: 100%;
+  box-sizing: border-box;
+  width: 240px;
   margin-top: 8px;
   margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: var(--bg-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: 40px;
@@ -112,6 +117,7 @@
   .field_last {
     padding: 11px 16px 10px 16px;
     margin-top: 12px;
+    width: 448px;
     font-size: 16px;
   }
 }
@@ -163,9 +169,11 @@
 
 .field_photo {
   display: block;
-  width: 116px;
-  height: 116px;
+  width: 208px;
+  height: 208px;
   margin-bottom: 28px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 20px;
   outline-color: var(--accent-color);
   cursor: pointer;
@@ -178,8 +186,9 @@
 }
 @media screen and (min-width: 768px) {
   .field_photo {
-    width: 140px;
-    height: 140px;
+    width: 182px;
+    height: 182px;
+    margin-bottom: 40px;
   }
 }
 
@@ -217,7 +226,8 @@
 
 @media screen and (min-width: 768px) {
   .field_comments {
-    min-height: 113px;
+    width: 394px;
+    min-height: 116px;
     border-radius: 20px;
   }
 }

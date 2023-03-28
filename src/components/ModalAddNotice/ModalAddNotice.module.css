@@ -151,6 +151,7 @@
   display: block;
   margin-top: 8px;
   width: 95%;
+
   background: var(--bg-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: 40px;
@@ -164,6 +165,7 @@
   .field {
     padding: 11px 16px 10px 16px;
     margin-top: 12px;
+    width: 448px;
     font-size: 16px;
     line-height: 1.63;
     width: 100%;
@@ -181,6 +183,7 @@
 .field_last {
   display: block;
   width: 95%;
+
   margin-top: 8px;
   margin-bottom: 40px;
   background-color: var(--bg-color);
@@ -198,6 +201,7 @@
   .field_last {
     padding: 11px 16px 10px 16px;
     margin-top: 12px;
+    width: 448px;
     font-size: 16px;
   }
 }
@@ -295,7 +299,6 @@
   background-image: url(../../images/akar-icons_plus.png);
   background-repeat: no-repeat;
   background-position: center;
-  /* background-size: cover; */
   overflow: hidden;
 }
 @media screen and (min-width: 768px) {
@@ -375,6 +378,7 @@
 
 @media screen and (min-width: 768px) {
   .field_comments {
+    box-sizing: border-box;
     min-height: 113px;
     border-radius: 20px;
   }
