@@ -46,7 +46,7 @@
 }
 
 .icon:hover,
-:focus {
+.icon:focus {
   color: var(--white-color);
   background-color: var(--accent-color);
   border-color: transparent;
