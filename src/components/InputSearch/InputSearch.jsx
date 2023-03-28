@@ -1,8 +1,8 @@
 import css from './InputSearch.module.css';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
 import { ReactComponent as CloseSearch } from '../../Icon/CloseSearch.svg';
+import { ReactComponent as Search } from '../../Icon/Search.svg';
 
 const InputFormSearch = ({ onSubmit }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -42,7 +42,7 @@ const InputFormSearch = ({ onSubmit }) => {
             {searchQuery.length > 0 ? (
               <CloseSearch className={css.ClearIcon} />
             ) : (
-              <FaSearch className={css.SearchIcon} />
+              <Search className={css.SearchIcon} />
             )}
           </button>
         </div>

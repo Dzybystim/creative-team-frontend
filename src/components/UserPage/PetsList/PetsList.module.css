@@ -52,6 +52,10 @@
   padding-bottom: 40px;
 }
 
+.button_delete_pet:focus {
+  background-color: var(--white-color)
+}
+
 .li_pets_info {
   margin-bottom: 12px;
 }
@@ -75,9 +79,22 @@
   padding: 0;
 }
 
+.button_delete_pet {
+  background-color: var(--white-color)
+}
+
 .icon_delete {
   width: 17px;
   height: 17px;
+}
+
+.icon_delete:focus {
+  stroke: var(--black-color);
+}
+
+.icon_delete {
+  color: var(--black-color);
+  background-color: var(--white-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -89,6 +106,19 @@
     box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
     margin-bottom: 20px;
     gap: 32px;
+  }
+
+  .icon_delete {
+    color: var(--black-color);
+    background-color: var(--white-color);
+  }
+
+  .button_delete_pet {
+    background-color: var(--white-color)
+  }
+
+  .button_delete_pet:focus {
+    background-color: var(--white-color)
   }
 
   .container_pets_list:last-child {
@@ -168,6 +198,10 @@
     height: 17px;
   }
 
+  .icon_delete:focus {
+    stroke: var(--black-color)
+  }
+
   .fon_delete_icon {
     width: 44px;
     height: 44px;
@@ -176,5 +210,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .fon_delete_icon:focus {
+    background-color: var(--bg-color);
   }
 }
