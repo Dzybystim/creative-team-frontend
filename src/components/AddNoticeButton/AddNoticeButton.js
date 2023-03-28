@@ -12,8 +12,10 @@ export const AddNoticeButton = () => {
   const isLogged = useSelector(selectors.isLogged);
 
   const toggleModal = () => {
-    if(!isLogged){
-      return toast.warn('The user must be logged in to use this functionality!');
+    if (!isLogged) {
+      return toast.warn(
+        'The user must be logged in to use this functionality!'
+      );
     }
     setShowModal(!showModal);
   };

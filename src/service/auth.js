@@ -1,23 +1,15 @@
 import axios from 'axios';
+import { passTokenToHeadersAxios } from '../utilities/helpers';
 
-const BASE_URL = 'http://backend.petly.club//';
-
-const instance = axios.create({
-  baseURL: BASE_URL,
-});
+axios.defaults.baseURL = 'https://backend.petly.club';
+passTokenToHeadersAxios();
 
 export const addPet = async newPet => {
-  const { data } = await instance.post('/api/pets', newPet, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  const { data } = await axios.post('/pets', newPet);
   return data;
 };
 
 export const deletePet = async id => {
-  const { data } = await instance.delete(`/api/pets/${id}`);
+  const { data } = await axios.delete(`/pets/${id}`);
   return data;
 };
-
-export default instance;

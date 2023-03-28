@@ -4,12 +4,12 @@ const stepOneValidationSchema = Yup.object({
   email: Yup.string()
     .required('Email is required')
     .matches(
-      /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
-      'The email cannot contain Latin letter'
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      'Correct format: mail@ukr.net or mail@gmail.com'
     )
     .matches(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      'Correct format: mail@ukr.net'
+      /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
+      'The e-mail cannot contain Cyrillic'
     )
     .test(
       'is-valid',
@@ -26,13 +26,13 @@ const stepOneValidationSchema = Yup.object({
       }
     ),
   password: Yup.string()
-    .matches(/^[^\s]*$/, 'Password must not contain spaces')
+    .matches(/^[^\s]*$/, 'Must not contain spaces')
     .required('Password is required')
-    .min(7)
+    .min(7, 'Minimum 7 characters')
     .max(32, 'Password must contain no more than 32 characters'),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    .matches(/^[^\s]*$/, 'Password must not contain spaces')
+    .matches(/^[^\s]*$/, 'Must not contain spaces')
     .required('Confirm password is required')
     .max(32, 'Password must contain no more than 32 characters'),
 });
@@ -59,12 +59,12 @@ const loginValidationSchema = Yup.object({
   email: Yup.string()
     .required('Email is required')
     .matches(
-      /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
-      'The email cannot contain Latin letter'
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      'Correct format: mail@ukr.net or mail@gmail.com'
     )
     .matches(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      'Correct format: mail@ukr.net'
+      /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
+      'The e-mail cannot contain Cyrillic'
     )
     .test(
       'is-valid',
@@ -81,8 +81,9 @@ const loginValidationSchema = Yup.object({
       }
     ),
   password: Yup.string()
-    .matches(/^[^\s]*$/, 'Password must not contain spaces')
+    .matches(/^[^\s]*$/, 'Must not contain spaces')
     .required('Password is required')
+    .min(7, 'Minimum 7 characters')
     .max(32, 'Password must contain no more than 32 characters'),
 });
 
@@ -90,12 +91,12 @@ const emailValidationSchema = Yup.object({
   email: Yup.string()
     .required('Email is required')
     .matches(
-      /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
-      'The email cannot contain Latin letter'
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      'Correct format: mail@ukr.net or mail@gmail.com'
     )
     .matches(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      'Correct format: mail@ukr.net'
+      /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z]{2,6}$/,
+      'The e-mail cannot contain Cyrillic'
     )
     .test(
       'is-valid',

@@ -57,7 +57,10 @@ export const PageTwo = props => {
   };
 
   const handleSubmit = values => {
-    const addData = { ...values, imageURL: imageURL };
+    const imgUrl =
+      imageURL ||
+      'https://res.cloudinary.com/daud0cvhu/image/upload/v1679907667/placeholder.jpg.jpg';
+    const addData = { ...values, imageURL: imgUrl };
     props.next(addData, true);
     props.onClose();
   };

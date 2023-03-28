@@ -6,8 +6,10 @@ import {
   getNoticesByTitle,
   getAllSelectedNotices,
   getAllOwnNotices,
+
   addToFavorite,
   deleteFromFavorite,
+
 } from './operations';
 
 //import { logOut } from "../auth/operations";
@@ -20,6 +22,7 @@ const noticesSlice = createSlice({
     isLoading: false,
     error: null,
   },
+
   reducers: {
     filterFavorites: (state, action) => {
       state.favorites = state.favorites.filter(favorite =>
@@ -32,6 +35,7 @@ const noticesSlice = createSlice({
       );
     },
   },
+
 
   extraReducers: builder =>
     builder
@@ -55,12 +59,14 @@ const noticesSlice = createSlice({
       .addCase(getAllOwnNotices.pending, state => {
         state.isLoading = true;
       })
+
       .addCase(addToFavorite.pending, state => {
         state.isLoading = true;
       })
       .addCase(deleteFromFavorite.pending, state => {
         state.isLoading = true;
       })
+
 
       //* статус "rejected"
       .addCase(getNoticesByCategories.rejected, (state, action) => {
@@ -87,6 +93,7 @@ const noticesSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
+
       .addCase(addToFavorite.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
@@ -140,6 +147,7 @@ const noticesSlice = createSlice({
           favorite => favorite._id !== action.meta.arg
         );
       }),
+
 
   //  .addCase(logOut.fulfilled, (state, action) => {
   //      state.items = [];

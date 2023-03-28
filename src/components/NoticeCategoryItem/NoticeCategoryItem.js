@@ -27,6 +27,7 @@ export const NoticeCategoryItem = ({ item }) => {
   const isLogged = useSelector(selectors.isLogged);
   const favorites = useSelector(selectFavorites);
 
+
   const userId = getUserIdFromLocalStorage();
 
   // console.log('1', (!favorites.find(favorite => favorite._id === item._id)));
@@ -43,6 +44,7 @@ export const NoticeCategoryItem = ({ item }) => {
   // } else {
   //   button = <LoginButton onClick={this.handleLoginClick} />;
   // }
+
 
   const handleDeleteFromFavorite = () => {
     if (!isLogged) {

@@ -10,7 +10,7 @@
   margin-right: 24px;
   margin-left: auto;
   width: 85px;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
 .field_photo {
@@ -43,6 +43,16 @@
 }
 
 @media screen and (min-width: 768px) {
+  .container_edit {
+    margin-top: 8px;
+    margin-right: 40px;
+    margin-left: auto;
+    width: 85px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
   .container_edit {
     margin-top: -18px;
     margin-right: 16px;

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {
   FormControl,
   FormLabel,
@@ -100,21 +100,21 @@ const CustomInput = ({
 
 export default CustomInput;
 
-CustomInput.propTypes = {
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  mb: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-  width: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-  type: PropTypes.string.isRequired,
-  show: PropTypes.bool,
-  handleClick: PropTypes.func,
-};
+// CustomInput.propTypes = {
+//   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+//   name: PropTypes.string.isRequired,
+//   id: PropTypes.string.isRequired,
+//   mb: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     PropTypes.object,
+//   ]),
+//   width: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     PropTypes.object,
+//   ]),
+//   type: PropTypes.string.isRequired,
+//   show: PropTypes.bool,
+//   handleClick: PropTypes.func,
+// };

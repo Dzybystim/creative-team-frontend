@@ -43,7 +43,9 @@ export const NoticesCategoriesList = () => {
             return <NoticeCategoryItem key={item._id} item={item} />;
           })}
         </ul>
+
       ) : (
+
         <ul className={css.list}>
           {notices.map(item => {
             return <NoticeCategoryItem key={item._id} item={item} />;
