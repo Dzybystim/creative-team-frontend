@@ -52,7 +52,7 @@
   }
 }
 
-. {
+.label {
   display: block;
   max-width: 90%;
   font-weight: 500;
@@ -110,9 +110,9 @@
   }
 }
 
-/* .radio_label:has(input:checked) {
+.radio_label:has(input:checked) {
   background-color: var(--accent-color);
-} */
+}
 
 .radio_label:hover,
 .radio_label:focus {

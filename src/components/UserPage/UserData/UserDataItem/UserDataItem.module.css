@@ -91,7 +91,7 @@
 .input {
   width: 159px;
 
-  background-color: red;
+  background-color: var(--bg-color);
 
   border: 0;
   border-radius: 40px;
