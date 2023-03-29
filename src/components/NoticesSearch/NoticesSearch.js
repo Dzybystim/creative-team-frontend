@@ -1,8 +1,13 @@
+import PropTypes from 'prop-types'; 
 import css from './NoticesSearch.module.css';
 import { ReactComponent as CloseSearch } from '../../Icon/CloseSearch.svg';
 import { ReactComponent as Search } from '../../Icon/Search.svg';
+import  debounce  from 'lodash.debounce';
+
 
 export const NoticesSearch = ({ searchQuery, onSubmit, onChange }) => {
+const debounceF = debounce(onChange, 1000);
+
   return (
     <form className={css.SearchForm} onSubmit={onSubmit}>
       <div className={css.Search}>
@@ -12,7 +17,7 @@ export const NoticesSearch = ({ searchQuery, onSubmit, onChange }) => {
           autoComplete="off"
           autoFocus
           placeholder="Search"
-          onChange={onChange}
+          onChange={debounceF}
         />
         <button className={css.Icon} type="submit">
           {searchQuery.length > 0 ? (
@@ -24,4 +29,11 @@ export const NoticesSearch = ({ searchQuery, onSubmit, onChange }) => {
       </div>
     </form>
   );
+};
+
+
+NoticesSearch.propTypes = {
+  searchQuery: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
