@@ -1,7 +1,5 @@
 import { Modal } from '../../utilities/Modal/Modal';
-import { useState, 
- // useEffect
- } from 'react';
+import { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NoticeModal } from 'components/NoticeModal/NoticeModal';
 import css from './NoticeCategoryItem.module.css';
@@ -16,7 +14,6 @@ import { selectFavorites } from '../../redux/notices/selectors';
 import { deleteNotice } from '../../redux/notices/operations';
 import { getUserIdFromLocalStorage } from '../../utilities/helpers';
 import {
-//  getAllSelectedNotices,
   addToFavorite,
   deleteFromFavorite,
 } from '../../redux/notices/operations';

@@ -5,13 +5,9 @@ import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
-// import SignUp from 'pages/SignUp/SignUp';
-// import Login from 'pages/Login/Login';
 import PublicRoutes from './PublickRoute';
 import RestrictedRoutes from './RestrictedRoute';
-// import NoticesPage from ./RestrictedRoutePage';
-// import NoticesCategoriesList from './NoticesCategoriesList/NoticesCategoriesList';
-// import OurFriendsPage from 'pages/OurFriendsPage';
+
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage/NoticesPage'));
