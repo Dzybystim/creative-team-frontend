@@ -53,7 +53,7 @@
 }
 
 .button_delete_pet:focus {
-  background-color: var(--white-color)
+  background-color: var(--white-color);
 }
 
 .li_pets_info {
@@ -80,7 +80,7 @@
 }
 
 .button_delete_pet {
-  background-color: var(--white-color)
+  background-color: var(--white-color);
 }
 
 .icon_delete {
@@ -114,11 +114,11 @@
   }
 
   .button_delete_pet {
-    background-color: var(--white-color)
+    background-color: var(--white-color);
   }
 
   .button_delete_pet:focus {
-    background-color: var(--white-color)
+    background-color: var(--white-color);
   }
 
   .container_pets_list:last-child {
@@ -199,7 +199,7 @@
   }
 
   .icon_delete:focus {
-    stroke: var(--black-color)
+    stroke: var(--black-color);
   }
 
   .fon_delete_icon {

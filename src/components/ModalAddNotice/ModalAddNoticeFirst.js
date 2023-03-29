@@ -21,6 +21,7 @@ const schemaPageOne = yup.object().shape({
     .string()
     .min(2, 'Minimum 2 characters!')
     .max(16, 'Maximum 16 characters!')
+    .matches(/^[A-Za-zА-Яа-яёЁЇїІіЄєҐґ\s\-']+$/, 'Can only contain letters')
     .required('Required field!'),
   birthdate: yup
     .date()
@@ -34,6 +35,7 @@ const schemaPageOne = yup.object().shape({
     .string()
     .min(2, 'Minimum 2 characters!')
     .max(24, 'Maximum 24 characters!')
+    .matches(/^[A-Za-zА-Яа-яёЁЇїІіЄєҐґ\s\-']+$/, 'Can only contain letters')
     .required('Required field!'),
 });
 
@@ -130,7 +132,7 @@ export const PageOne = props => {
             <Field
               className={css.field}
               id="birthdate"
-              type="text"
+              type="date"
               name="birthdate"
               placeholder="DD.MM.YYYY"
               required
@@ -142,10 +144,10 @@ export const PageOne = props => {
             />
           </label>
 
-          <label className={css.label} htmlFor="breed">
+          <label className={`${css.label} ${css.label_last}`} htmlFor="breed">
             Breed
             <Field
-              className={css.field_last}
+              className={css.field}
               id="breed"
               type="text"
               name="breed"

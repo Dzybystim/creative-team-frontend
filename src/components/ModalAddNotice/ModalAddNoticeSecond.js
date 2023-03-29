@@ -170,11 +170,14 @@ export const PageTwo = props => {
             )}
           </label>
 
-          <label htmlFor="comments" className={css.label}>
+          <label
+            htmlFor="comments"
+            className={`${css.label} ${css.label_last}`}
+          >
             Comments
             <Field
               as="textarea"
-              className={`${css.field_last} ${css.field_comments}`}
+              className={`${css.field} ${css.field_comments}`}
               id="comments"
               type="text"
               name="comments"
