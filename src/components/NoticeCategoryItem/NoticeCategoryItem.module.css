@@ -4,9 +4,6 @@
   border-radius: 0px 0px 20px 20px;
   background-color: var(--white-color);
   width: 280px;
-}
-
-.item:not(:last-child) {
   margin-bottom: 32px;
 }
 
@@ -54,10 +51,6 @@
     width: 288px;
     }
 } 
-
-
-
-
 
 .category {
   z-index: 10;

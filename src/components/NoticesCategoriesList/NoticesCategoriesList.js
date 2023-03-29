@@ -1,15 +1,15 @@
 import { NoticeCategoryItem } from '../NoticeCategoryItem/NoticeCategoryItem';
 import { AddNoticeButton } from '../AddNoticeButton/AddNoticeButton';
-//import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { 
-  //useDispatch, 
+  useDispatch, 
   useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-//import { selectors } from '../../redux/auth/selectors';
+import { selectors } from '../../redux/auth/selectors';
 import { selectNotices, selectFavorites } from '../../redux/notices/selectors';
-// import {
-//   getAllSelectedNotices,
-// } from '../../redux/notices/operations';
+import {
+  getAllSelectedNotices,
+} from '../../redux/notices/operations';
 import css from './NoticesCategoriesList.module.css';
 
 export const NoticesCategoriesList = () => {
@@ -18,16 +18,17 @@ export const NoticesCategoriesList = () => {
   const notices = useSelector(selectNotices);
   const favorites = useSelector(selectFavorites);
 
-  //const dispatch = useDispatch();
-  //const isLogged = useSelector(selectors.isLogged);
+  const dispatch = useDispatch();
+  const isLogged = useSelector(selectors.isLogged);
 
-  // useEffect(() => {
-  //   if (!isLogged) {
-  //     return;
-  //   }
-  //   dispatch(getAllSelectedNotices());
-  //   return;
-  // }, [dispatch, isLogged]);
+  useEffect(() => {
+    if (!isLogged) {
+      return;
+    }
+    dispatch(getAllSelectedNotices());
+    return;
+  }, [dispatch, isLogged]);
+
 
   return (
     <>
