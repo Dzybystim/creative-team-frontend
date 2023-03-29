@@ -12,7 +12,7 @@ import { ageCounter } from '../../utilities/ageCounter';
 
 import { getNoticesById } from '../../utilities/helpers';
 import { selectors } from '../../redux/auth/selectors';
-
+import {useRef} from 'react';
 import { selectFavorites } from '../../redux/notices/selectors';
 import { deleteNotice } from '../../redux/notices/operations';
 import { getUserIdFromLocalStorage } from '../../utilities/helpers';
@@ -24,15 +24,39 @@ import {
 import { toast } from 'react-toastify';
 
 
-export const NoticeCategoryItem = ({ item }) => {
+export const NoticeCategoryItem = ({ item,  }) => {
   const [showModal, setShowModal] = useState(false);
   const [notice, setNotice] = useState(null);
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
   const favorites = useSelector(selectFavorites);
+const checkRef= useRef();
+const getUserInfo = useSelector(selectors.getUserInfo);
+
+const userId = getUserIdFromLocalStorage();
+const selected = getUserIdFromLocalStorage();
+console.log('selected', selected);
+
+let categoryName;
+switch (item.category) {
+  case "lost-found":
+    categoryName = 'lost/found';
+    break;
+
+  case "sell":
+    categoryName = 'sell';
+    break;
+
+  case "for-free":
+    categoryName = 'in good hands';
+    break;
+
+  default:
+    console.log("Invalid subscription type");
+}
 
 
-  const userId = getUserIdFromLocalStorage();
+  //console.log('favorites', favorites);
 
   // useEffect(() => {
   //   if (!isLogged) {
@@ -81,8 +105,32 @@ export const NoticeCategoryItem = ({ item }) => {
       });
   };
 
+  // const [checked, setChecked] = useState(false);
+
+  const handleChange = () =>{
+    console.log('checkRef', checkRef.current);
+    console.log('checked');
+  }
+
+  
+  // console.log('item', passports.includes(item._id));
+  // setChecked(passports.includes(item._id));
+  // console.log('checked', checked);
+
   return (
     <>
+
+
+
+
+
+        
+
+
+
+
+
+
 
       <li className={css.item}>
         <div className={css.img_cover}>
@@ -90,15 +138,34 @@ export const NoticeCategoryItem = ({ item }) => {
             <img src={item.imageURL} className={css.img} alt="Pet" />
           ) : null}
 
-          <p className={css.category}>{item.category}</p>
+{categoryName ? <p className={css.category}>{categoryName}</p>
+        :  <p className={css.category}>{item.category}</p>}
+          
+          {/* <AiOutlineHeart size={28} /> : <IconHeart width={26} height={26} /> */}
+          <label className={css.checkbox}>
+  {/* <span className={css.checkbox_icon}> */}
+           
+              {/* </span> */}
+            <input
+            ref={checkRef}
+              className={css.checkbox_hidden}
+              type="checkbox"
+              name="favorite"defaultChecked={false}
+              //  {(!favorites.find(favorite => favorite._id === item._id)) && }
+             // checked={checked}
+              onChange={handleChange}
+            />
+            
+          </label>
 
-            <button
+
+            {/* <button
               className={css.icon}
               type="button"
               onClick={handleAddOrDeleteFavorite}
             >
               {(!favorites.find(favorite => favorite._id === item._id)) ? (<AiOutlineHeart size={28} />) :(<IconHeart width={26} height={26} />) }
-            </button>
+            </button> */}
           
         </div>
         <h3 className={css.title}>{item.title}</h3>
@@ -149,10 +216,39 @@ export const NoticeCategoryItem = ({ item }) => {
         <Modal key={item.id} onClose={toggleModal}>
           <NoticeModal
            handleAddOrDeleteFavorite={handleAddOrDeleteFavorite}
-            item={notice}
+            item={notice} categoryName={categoryName}
           />
         </Modal>
       )}
     </>
   );
 };
+
+
+
+
+// NoticesSearch.propTypes = {
+//   searchQuery: PropTypes.string.isRequired,
+//   onSubmit: PropTypes.func.isRequired,
+//   onChange: PropTypes.func.isRequired,
+// };
+// ImageGallery.propTypes = {
+//   items: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//       webformatURL: PropTypes.string.isRequired,
+//       largeImageURL: PropTypes.string.isRequired,
+//       tags: PropTypes.string.isRequired,
+//     })
+//   ),
+// };
+
+// ImageGalleryItem.propTypes = {
+//   webformatURL: PropTypes.string.isRequired,
+//   tags: PropTypes.string.isRequired,
+//   largeImageURL: PropTypes.string.isRequired,
+// };
+// Modal.propTypes = {
+//   tags: PropTypes.string.isRequired,
+//   largeImageURL: PropTypes.string.isRequired,
+// };
