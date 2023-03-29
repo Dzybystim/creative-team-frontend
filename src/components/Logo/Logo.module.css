@@ -13,7 +13,7 @@
 .logoImg {
   display: inline;
   box-sizing: border-box;
-  max-width: 82px;
+  width: 82px;
   height: 42px;
 }
 @media screen and (max-width: 767px) {
