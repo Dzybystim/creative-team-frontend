@@ -2,12 +2,10 @@ import css from './Header.module.css';
 import React, { useState } from 'react';
 import { Logo } from '../Logo/Logo';
 import { Nav } from 'components/Nav/Nav';
-// import { BgMenu } from '../HamMenu/Burmenu';
 import { AuthNav } from 'components/AuthNav/AuthNav';
 import { UserNav } from 'components/UserNav/UserNav';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../redux/auth/selectors';
-// import { getIsRefreshing } from '../../redux/auth/selectors'
 import { ReactComponent as BgMenu } from '../../images/bgMenu.svg';
 import { ReactComponent as Close } from '../../images/close.svg';
 
@@ -59,4 +57,3 @@ export const Header = () => {
     </div>
   );
 };
-//<BgMenu />
