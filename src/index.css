@@ -71,9 +71,7 @@ p > a.active {
   border-color: transparent;
 }
 
-
 * {
   margin: 0;
-
   box-sizing: border-box;
 }

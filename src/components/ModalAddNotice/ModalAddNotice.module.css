@@ -43,19 +43,22 @@
 .radio_category {
   display: flex;
   flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 12px;
   margin-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .radio_category {
     margin-bottom: 12px;
+    column-gap: 8px;
+    row-gap: 16px;
 
   }
 }
 
 .label {
   display: block;
-  max-width: 90%;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.44;
@@ -66,9 +69,13 @@
 @media screen and (min-width: 768px) {
   .label {
     font-size: 24px;
-    line-height:1.08;
+    line-height: 1.08;
     margin-bottom: 28px;
   }
+}
+
+.label_last {
+  margin-bottom: 40px;
 }
 
 .label_other {
@@ -82,7 +89,7 @@
 @media screen and (min-width: 768px) {
   .label_other {
     font-size: 24px;
-    line-height:1.08;
+    line-height: 1.08;
     margin-bottom: 28px;
   }
 }
@@ -98,19 +105,13 @@
   border: 2px solid var(--accent-color);
   color: var(--black-color);
   cursor: pointer;
-  margin-bottom: 12px;
-  margin-right: 8px;
 }
 
 @media screen and (min-width: 768px) {
   .radio_label {
     padding: 10px 28px;
     font-size: 20px;
-    margin-bottom: 16px;
-    margin-right: 12px;
   }
-
-  
 }
 
 .radio_label:has(input:checked) {
@@ -150,8 +151,8 @@
 .field {
   display: block;
   margin-top: 8px;
-  width: 95%;
-
+  width: 240px;
+  max-width: 100%;
   background: var(--bg-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: 40px;
@@ -168,7 +169,6 @@
     width: 448px;
     font-size: 16px;
     line-height: 1.63;
-    width: 100%;
   }
 }
 
@@ -182,8 +182,7 @@
 
 .field_last {
   display: block;
-  width: 95%;
-
+  width: 240px;
   margin-top: 8px;
   margin-bottom: 40px;
   background-color: var(--bg-color);
