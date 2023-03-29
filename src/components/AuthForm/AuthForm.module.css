@@ -49,7 +49,7 @@
   .containers {
     padding-right: 20px;
     padding-left: 20px;
-    background-image: url('../../images/mobile/loginBg.png');
+    background-image: url('../../images/mobile/loginBg.webp');
   }
   .error {
     position: inherit;
@@ -93,7 +93,7 @@
 
 @media screen and (min-width: 768px) {
   .containers {
-    background-image: url('../../images/tablet/loginBg.png');
+    background-image: url('../../images/tablet/loginBg.webp');
   }
   .form {
     padding: 60px 80px 40px;
@@ -106,7 +106,7 @@
 
 @media screen and (min-width: 1200px) {
   .containers {
-    background-image: url('../../images/desktop/loginPageBg.png');
+    background-image: url('../../images/desktop/loginPageBg.webp');
   }
   .form {
     width: 620px;
