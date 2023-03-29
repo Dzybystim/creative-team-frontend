@@ -131,7 +131,6 @@ const noticesSlice = createSlice({
       .addCase(getAllSelectedNotices.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        //  state.items = action.payload;
         state.favorites = action.payload;
       })
       .addCase(addToFavorite.fulfilled, (state, action) => {
@@ -150,6 +149,7 @@ const noticesSlice = createSlice({
 
   //  .addCase(logOut.fulfilled, (state, action) => {
   //      state.items = [];
+  //      state.favorites = [];
   //      state.error = null;
   //      state.isLoading = false;
   //     }),

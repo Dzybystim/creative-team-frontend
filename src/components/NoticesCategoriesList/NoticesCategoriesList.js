@@ -26,11 +26,9 @@ export const NoticesCategoriesList = () => {
       return;
     }
     dispatch(getAllSelectedNotices());
-    console.log('!!!!!!!!!');
     return;
   }, [dispatch, isLogged]);
 
-  
 
   return (
     <>

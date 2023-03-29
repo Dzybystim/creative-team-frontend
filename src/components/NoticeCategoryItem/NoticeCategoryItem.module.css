@@ -69,7 +69,7 @@
   background-color: var(--white-transparent-color);
 }
 
-/* .icon {
+.icon {
   z-index: 10;
   position: absolute;
   top: 12px;
@@ -88,7 +88,7 @@
 .icon:hover {
   color: var(--white-color);
   background-color: var(--accent-color);
-} */
+}
 
 .title {
   padding: 0 20px;
@@ -146,58 +146,3 @@
   background-color: var(--accent-color);
   border-color: transparent;
 }
-
-.checkbox {
-  z-index: 10;
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  background-color: var(--white-transparent-color);
-  border-radius: 50%;
-  border: 1px solid transparent;
-  color: var(--accent-color);
-}
-
-.checkbox:hover {
-  color: var(--white-color);
-  background-color: var(--accent-color);
-}
-
-.checkbox:has(input:checked) {
-
-  background-image: url(../../images/icon_heart.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-/* .checkbox:has(input:checked):hover {
-  color: var(--white-color);
-  background-color: var(--accent-color);
-} */
-
-.radio_label_sex:has(input:checked) {
-  color: var(--accent-color);
-}
-
-
-
-.checkbox_hidden {
-/* position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(50%);
-  clip: rect(0 0 0 0);
-  overflow: hidden; */
-}
-/*  */
