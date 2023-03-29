@@ -22,11 +22,15 @@ const PetsData = ({ pets, setAddPet, addPet }) => {
           <BsFillPlusCircleFill className={css.icon_plus} />
         </button>
       </div>
-      <PetsList pets={pets} setAddPet={setAddPet} addPet={addPet}/>
+      <PetsList pets={pets} setAddPet={setAddPet} addPet={addPet} />
 
       {showModal && (
         <Modal onClose={toggleModal}>
-          <ModalAddsPet onClose={toggleModal} setAddPet={setAddPet} addPet={addPet}/>
+          <ModalAddsPet
+            onClose={toggleModal}
+            setAddPet={setAddPet}
+            addPet={addPet}
+          />
         </Modal>
       )}
     </Box>
