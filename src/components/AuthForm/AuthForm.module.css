@@ -11,11 +11,78 @@
   background-position: bottom;
 }
 
+.error__password {
+  position: absolute;
+  bottom: 95%;
+  left: 1%;
+  font-family: 'Manrope';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: red;
+}
+
+.IconPassword {
+  position: absolute;
+  right: 4%;
+  top: 22%;
+  color: #f59256;
+}
+.error {
+  position: absolute;
+  bottom: 95%;
+  left: 1%;
+  font-family: 'Manrope';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: red;
+}
+
 @media screen and (max-width: 767px) {
   .containers {
     padding-right: 20px;
     padding-left: 20px;
     background-image: url('../../images/mobile/loginBg.png');
+  }
+  .error {
+    position: inherit;
+    bottom: 95%;
+    left: 1%;
+    font-family: 'Manrope';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    color: red;
+  }
+  .error__password {
+    position: inherit;
+    bottom: 95%;
+    left: 1%;
+    font-family: 'Manrope';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    color: red;
+  }
+
+  .IconPassword {
+    position: absolute;
+    right: 4%;
+    top: 10%;
+    color: #f59256;
   }
 }
 
@@ -81,41 +148,6 @@
 .input__wrapper_last {
   position: relative;
   margin-bottom: 40px;
-}
-
-.IconPassword {
-  position: absolute;
-  right: 4%;
-  top: 22%;
-  color: #f59256;
-}
-
-.error {
-  position: absolute;
-  bottom: 95%;
-  left: 1%;
-  font-family: 'Manrope';
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.04em;
-  color: red;
-}
-
-.error__password {
-  position: absolute;
-  bottom: 95%;
-  left: 1%;
-  font-family: 'Manrope';
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.04em;
-  color: red;
 }
 
 .error__login {
