@@ -9,14 +9,23 @@
   background-color: var(--white-color);
   border-radius: 20px;
   overflow: hidden;
+  margin: auto;
+  border: 1px solid var(--white-color);
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
   margin-bottom: 28px;
 }
+
+.SearchForm:hover {
+  border: 1px solid var(--form-input-border-color);
+}
+
 .Search {
   position: relative;
   display: inline-block;
   width: 100%;
+  height: 100%;
 }
+
 .Input {
   display: inline-block;
   width: 280px;
@@ -51,6 +60,12 @@
   background-color: transparent;
 }
 
+.SearchIcon {
+  width: 18px;
+  height: 18px;
+  fill: inherit;
+}
+
 @media screen and (min-width: 768px) {
   .SearchForm {
     max-width: 608px;
@@ -60,15 +75,17 @@
 
   .Input {
     width: 555px;
-    padding: 10px 10px 10px 20px;
+    padding: 14px 10px 10px 20px;
     font-size: 20px;
   }
+
   .Icon {
     padding-right: 13.57px;
     padding-left: 15px;
     display: flex;
     align-items: center;
   }
+
   .SearchIcon {
     width: 24px;
     height: 24px;
@@ -80,10 +97,11 @@
     height: 24px;
   }
 }
+
 .SearchIcon:hover {
   fill: var(--accent-color);
 }
+
 .ClearIcon:hover {
   stroke: var(--accent-color);
 }
-

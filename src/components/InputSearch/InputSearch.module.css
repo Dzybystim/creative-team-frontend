@@ -56,6 +56,12 @@
   background-color: transparent;
 }
 
+.SearchIcon {
+  width: 18px;
+  height: 18px;
+  fill: inherit;
+}
+
 @media screen and (min-width: 768px) {
   .SearchForm {
     max-width: 608px;
@@ -76,8 +82,8 @@
   }
 
   .SearchIcon {
-    width: 17.49px;
-    height: 17.49px;
+    width: 24px;
+    height: 24px;
     fill: inherit;
   }
 

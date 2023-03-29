@@ -1,6 +1,6 @@
-import { FaSearch } from 'react-icons/fa';
 import css from './NoticesSearch.module.css';
 import { ReactComponent as CloseSearch } from '../../Icon/CloseSearch.svg';
+import { ReactComponent as Search } from '../../Icon/Search.svg';
 
 export const NoticesSearch = ({ searchQuery, onSubmit, onChange }) => {
   return (
@@ -18,7 +18,7 @@ export const NoticesSearch = ({ searchQuery, onSubmit, onChange }) => {
           {searchQuery.length > 0 ? (
             <CloseSearch className={css.ClearIcon} />
           ) : (
-            <FaSearch className={css.SearchIcon} />
+            <Search className={css.SearchIcon} />
           )}
         </button>
       </div>

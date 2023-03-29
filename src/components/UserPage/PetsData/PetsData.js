@@ -6,7 +6,7 @@ import { BsFillPlusCircleFill } from 'react-icons/bs';
 import css from './PetsData.module.css';
 import { useState } from 'react';
 
-const PetsData = ({ pets }) => {
+const PetsData = ({ pets, setAddPet, addPet }) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -22,11 +22,15 @@ const PetsData = ({ pets }) => {
           <BsFillPlusCircleFill className={css.icon_plus} />
         </button>
       </div>
-      <PetsList pets={pets} />
+      <PetsList pets={pets} setAddPet={setAddPet} addPet={addPet} />
 
       {showModal && (
         <Modal onClose={toggleModal}>
-          <ModalAddsPet onClose={toggleModal} />
+          <ModalAddsPet
+            onClose={toggleModal}
+            setAddPet={setAddPet}
+            addPet={addPet}
+          />
         </Modal>
       )}
     </Box>
