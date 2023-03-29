@@ -22,10 +22,9 @@ const addPetSchema = yup.object().shape({
   breed: yup
     .string()
     .min(2)
-    .max(24)
+    .max(16)
     .matches(regexBreed, 'Can only contain letters')
     .required('Required'),
-  photoURL: yup.string(),
   comments: yup.string().min(8).max(120).required('Required'),
 });
 
