@@ -8,6 +8,7 @@
   line-height: 44px;
   color: black;
   top: 118px;
+  margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
   .h1 {
@@ -15,6 +16,7 @@
     line-height: 100px;
     padding-top: 0px;
     top: 160px;
+    margin-left: 32px;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -22,6 +24,7 @@
     font-size: 68px;
     line-height: 100px;
     top: 160px;
+    margin-left: 15px;
   }
 }
 
@@ -33,6 +36,10 @@
   .page {
     height: 601px;
 
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -16px;
+
     background-image: url('../../images/mobile/dogMobile.webp'),
       url('../../images/mobile/waveMobile.webp');
     background-repeat: no-repeat;
@@ -43,7 +50,9 @@
   .page {
     height: 1193px;
     /* padding-top: 1121px; */
-
+    margin-left: -32px;
+    margin-right: -32px;
+    margin-bottom: -24px;
 
     background-image: url('../../images/tablet/dogTablet.webp'),
       url('../../images/tablet/waveTablet.webp');
@@ -54,6 +63,9 @@
 @media screen and (min-width: 1280px) {
   .page {
     height: 768px;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: -20px;
     /* padding-top: 700px; */
     background-image: url('../../images/unionDesk.svg'),
       url('../../images/desktop/dogDesktop.webp'),
