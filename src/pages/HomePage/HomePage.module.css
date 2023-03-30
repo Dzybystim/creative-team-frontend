@@ -1,6 +1,3 @@
-
-
-
 .h1 {
   position: absolute;
   font-family: 'Manrope';
@@ -43,6 +40,7 @@
     background-image: url('../../images/mobile/dogMobile.webp'),
       url('../../images/mobile/waveMobile.webp');
     background-repeat: no-repeat;
+    background-size: 100% auto;
     background-position: top 235px right -10px, top 151px right 0px;
     background-size: auto, 100%;
   }
@@ -57,7 +55,7 @@
       url('../../images/tablet/waveTablet.webp');
     background-repeat: no-repeat;
     background-position: top 440px right 52px, top 115px right 0px;
-    background-size:auto, 100%;
+    background-size: auto, 100%;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -71,7 +69,8 @@
       url('../../images/desktop/waveDesktop.webp'),
       url('../../images/desktop/waveDesktop2.webp');
     background-repeat: no-repeat;
-    background-position: top 118px right 480px, top 160px right 18px, top 359px right 170px, top 375px right 0px;
+    background-position: top 118px right 480px, top 160px right 18px,
+      top 359px right 170px, top 375px right 0px;
     /* background-size:cover, cover, cover, cover; */
   }
 }

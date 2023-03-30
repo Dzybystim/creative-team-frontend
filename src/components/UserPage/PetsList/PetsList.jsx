@@ -5,19 +5,19 @@ import { useDispatch } from 'react-redux';
 import { deletePet } from 'redux/auth/operations';
 import css from './PetsList.module.css';
 
-
 const PetsList = ({ pets, setAddPet, addPet }) => {
-
-
+  let reversedPets = pets.reduce((accumulator, currentValue) => {
+    return [currentValue, ...accumulator];
+  }, []);
   const dispatch = useDispatch();
   const onDeleteBtnClick = (e, id) => {
     dispatch(deletePet(id));
     e.preventDefault();
   };
 
-  return pets.length > 0 ? (
+  return reversedPets.length > 0 ? (
     <div>
-      {pets.map(({ _id, name, date, breed, photoURL, comments }) => (
+      {reversedPets.map(({ _id, name, date, breed, photoURL, comments }) => (
         <div key={_id} className={css.container_pets_list}>
           <div className={css.container_pets_img}>
             <img
@@ -36,11 +36,7 @@ const PetsList = ({ pets, setAddPet, addPet }) => {
                 className={css.fon_delete_icon}
                 onClick={() => setAddPet(!addPet)}
               >
-                <DeleteIcon
-                  
-                  border="none"
-                  className={css.icon_delete}
-                />
+                <DeleteIcon border="none" className={css.icon_delete} />
               </div>
             </button>
             <ul className={css.ul_pets_info}>

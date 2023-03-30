@@ -12,7 +12,9 @@ export const NoticesCategoriesList = () => {
   let { pathname } = useLocation();
   let category = pathname.split('/').pop();
   const notices = useSelector(selectNotices);
+  console.log('notices:', notices);
   const favorites = useSelector(selectFavorites);
+  console.log('favorites:', favorites);
 
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
@@ -24,6 +26,12 @@ export const NoticesCategoriesList = () => {
     dispatch(getAllSelectedNotices());
     return;
   }, [dispatch, isLogged]);
+  let reversedNotices = notices.reduce((accumulator, currentValue) => {
+    return [currentValue, ...accumulator];
+  }, []);
+  let reversedFavorites = favorites.reduce((accumulator, currentValue) => {
+    return [currentValue, ...accumulator];
+  }, []);
 
   return (
     <>
@@ -31,7 +39,7 @@ export const NoticesCategoriesList = () => {
 
       {category === 'favorite' ? (
         <>
-          {favorites.length === 0 && (
+          {reversedFavorites.length === 0 && (
             <h2 className={css.header_not_found}>Pets not found 😔</h2>
           )}
           <ul className={css.list}>
@@ -42,7 +50,7 @@ export const NoticesCategoriesList = () => {
         </>
       ) : (
         <>
-          {notices.length === 0 && (
+          {reversedNotices.length === 0 && (
             <h2 className={css.header_not_found}>Pets not found 😔</h2>
           )}
           <ul className={css.list}>
