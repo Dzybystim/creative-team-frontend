@@ -18,6 +18,9 @@ export const NoticesCategoriesList = () => {
   const notices = useSelector(selectNotices);
   const favorites = useSelector(selectFavorites);
 
+  console.log(notices)
+  console.log(favorites)
+
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
 
@@ -35,19 +38,24 @@ export const NoticesCategoriesList = () => {
       <AddNoticeButton />   
       
       {category === 'favorite' ? 
+      <>
+      {favorites.length === 0 && <h2 className={css.header_not_found}>Pets not found 😔</h2>}
       <ul className={css.list}>
         {favorites.map(item => {
           return <NoticeCategoryItem key={item._id} item={item} />;
         })}
       </ul>
+      </>
      : 
+     <>
+     {notices.length === 0 && <h2 className={css.header_not_found}>Pets not found 😔</h2>}
       <ul className={css.list}>
         {notices.map(item => {
           return <NoticeCategoryItem key={item._id} item={item} />;
         })}
       </ul>
+      </>
     }
-     {notices.length === 0 && favorites.length === 0 && <h2 className={css.header_not_found}>Pets not found 😔</h2>} 
     </>
   );
 };
