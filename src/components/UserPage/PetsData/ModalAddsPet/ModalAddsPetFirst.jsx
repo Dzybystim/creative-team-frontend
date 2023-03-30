@@ -120,3 +120,5 @@ export const FirstPage = ({ data, next, onClose }) => {
     </div>
   );
 };
+
+export default FirstPage;

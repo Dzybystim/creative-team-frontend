@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addNewPet } from 'redux/auth/operations';
-import { FirstPage } from './ModalAddsPetFirst';
-import { SecondPage } from './ModalAddsPetSecond';
+import { FirstPage, SecondPage } from './index';
 import moment from 'moment/moment';
 
 const ModalAddsPet = ({ onClose, setAddPet, addPet }) => {

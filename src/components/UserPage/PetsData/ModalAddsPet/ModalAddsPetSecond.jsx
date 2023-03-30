@@ -9,7 +9,7 @@ const addPetSchemaSecond = yup.object().shape({
   comments: yup.string().min(8).max(120).required('Required'),
 });
 
-export const SecondPage = ({ data, next, prev, onClose }) => {
+const SecondPage = ({ data, next, prev, onClose }) => {
   const [imgURL, setImgURL] = useState('');
 
   const handleUpload = async e => {
@@ -131,3 +131,5 @@ export const SecondPage = ({ data, next, prev, onClose }) => {
     </div>
   );
 };
+
+export default SecondPage;
