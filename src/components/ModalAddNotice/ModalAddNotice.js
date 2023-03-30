@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { PageOne } from './ModalAddNoticeFirst';
 import { PageTwo } from './ModalAddNoticeSecond';
@@ -10,11 +10,11 @@ export const ModalAddNotice = ({ onClose }) => {
   const navigete = useNavigate();
   const dispatch = useDispatch();
   const [data, setData] = useState({
+    breed: 'Dog',
     category: '',
     title: '',
     name: '',
     birthdate: '',
-    breed: '',
     sex: '',
     location: '',
     imageURL: '',
@@ -79,7 +79,6 @@ export const ModalAddNotice = ({ onClose }) => {
 
   return <div>{pages[currentPage]}</div>;
 };
-
 
 ModalAddNotice.propTypes = {
   onClose: PropTypes.func.isRequired,

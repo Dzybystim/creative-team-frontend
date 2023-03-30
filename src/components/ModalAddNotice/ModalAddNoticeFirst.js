@@ -36,7 +36,8 @@ const schemaPageOne = yup.object().shape({
     .min(2, 'Minimum 2 characters!')
     .max(24, 'Maximum 24 characters!')
     .matches(/^[A-Za-zА-Яа-яёЁЇїІіЄєҐґ\s\-']+$/, 'Can only contain letters')
-    .required('Required field!'),
+    .required('Required field!')
+    .default('Dog'),
 });
 
 export const PageOne = props => {
@@ -53,9 +54,7 @@ export const PageOne = props => {
         validationSchema={schemaPageOne}
       >
         <Form autoComplete="off">
-          <p className={css.text}>
-            {' '}
-          </p>
+          <p className={css.text}> </p>
 
           <div className={css.radio_category}>
             <label className={css.radio_label}>
@@ -153,17 +152,17 @@ export const PageOne = props => {
               component="select"
               placeholder="Type breed"
               required
-            > 
+            >
               <option value="Dog">Dog</option>
               <option value="Cat">Cat</option>
-              <option value="Hamster" >Hamster</option>
+              <option value="Hamster">Hamster</option>
               <option value="Parrot">Parrot</option>
               <option value="Guinea pig">Guinea pig</option>
-              <option value="Wookiee" >Wookiee</option>
-              <option value="Ewoks" >Ewoks</option>
-              <option value="The Dark Lord" >The Dark Lord</option>
-              <option value="Grud" >Grud</option>
-              <option value="Other" >Other</option> 
+              <option value="Wookiee">Wookiee</option>
+              <option value="Ewoks">Ewoks</option>
+              <option value="The Dark Lord">The Dark Lord</option>
+              <option value="Grud">Grud</option>
+              <option value="Other">Other</option>
             </Field>
             <ErrorMessage
               name="breed"
