@@ -1,5 +1,5 @@
 import { Modal } from '../../utilities/Modal/Modal';
-import { useState} from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NoticeModal } from 'components/NoticeModal/NoticeModal';
 import css from './NoticeCategoryItem.module.css';
@@ -19,34 +19,32 @@ import {
 } from '../../redux/notices/operations';
 import { toast } from 'react-toastify';
 
-
-export const NoticeCategoryItem = ({ item,  }) => {
+export const NoticeCategoryItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const [notice, setNotice] = useState(null);
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
   const favorites = useSelector(selectFavorites);
 
-const userId = getUserIdFromLocalStorage();
+  const userId = getUserIdFromLocalStorage();
 
-let categoryName;
-switch (item.category) {
-  case "lost-found":
-    categoryName = 'lost/found';
-    break;
+  let categoryName;
+  switch (item.category) {
+    case 'lost-found':
+      categoryName = 'lost/found';
+      break;
 
-  case "sell":
-    categoryName = 'sell';
-    break;
+    case 'sell':
+      categoryName = 'sell';
+      break;
 
-  case "for-free":
-    categoryName = 'in good hands';
-    break;
+    case 'for-free':
+      categoryName = 'in good hands';
+      break;
 
-  default:
-    console.log("Invalid subscription type");
-}
-
+    default:
+      console.log('Invalid subscription type');
+  }
 
   const handleAddOrDeleteFavorite = () => {
     if (!isLogged) {
@@ -54,16 +52,15 @@ switch (item.category) {
         'The user must be logged in to use this functionality!'
       );
     }
-    if(!favorites.find(favorite => favorite._id === item._id)){
-    dispatch(addToFavorite(item._id));
-    toast.success(`This item has been successfully added to favorites!`);
-    return;
+    if (!favorites.find(favorite => favorite._id === item._id)) {
+      dispatch(addToFavorite(item._id));
+      toast.success(`This item has been successfully added to favorites!`);
+      return;
     }
     dispatch(deleteFromFavorite(item._id));
     toast.success(`This item was successfully removed from favorites!`);
     return;
   };
-
 
   const removeNotices = () => {
     dispatch(deleteNotice(item._id));
@@ -87,27 +84,31 @@ switch (item.category) {
       });
   };
 
-
   return (
     <>
-
       <li className={css.item}>
         <div className={css.img_cover}>
           {item.imageURL ? (
             <img src={item.imageURL} className={css.img} alt="Pet" />
           ) : null}
 
-{categoryName ? <p className={css.category}>{categoryName}</p>
-        :  <p className={css.category}>{item.category}</p>}
-          
-            <button
-              className={css.icon}
-              type="button"
-              onClick={handleAddOrDeleteFavorite}
-            >
-              {(!favorites.find(favorite => favorite._id === item._id)) ? (<AiOutlineHeart size={28} />) :(<IconHeart width={26} height={26} />) }
-            </button>
-          
+          {categoryName ? (
+            <p className={css.category}>{categoryName}</p>
+          ) : (
+            <p className={css.category}>{item.category}</p>
+          )}
+
+          <button
+            className={css.icon}
+            type="button"
+            onClick={handleAddOrDeleteFavorite}
+          >
+            {!favorites.find(favorite => favorite._id === item._id) ? (
+              <AiOutlineHeart size={28} />
+            ) : (
+              <IconHeart width={26} height={26} />
+            )}
+          </button>
         </div>
         <h3 className={css.title}>{item.title}</h3>
 
@@ -156,14 +157,12 @@ switch (item.category) {
       {showModal && (
         <Modal key={item.id} onClose={toggleModal}>
           <NoticeModal
-           handleAddOrDeleteFavorite={handleAddOrDeleteFavorite}
-            item={notice} categoryName={categoryName}
+            handleAddOrDeleteFavorite={handleAddOrDeleteFavorite}
+            item={notice}
+            categoryName={categoryName}
           />
         </Modal>
       )}
     </>
   );
 };
-
-
-

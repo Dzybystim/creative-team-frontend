@@ -39,17 +39,22 @@ import css from './PetsList.module.css';
 // ];
 
 const PetsList = ({ pets, setAddPet, addPet }) => {
+  console.log('pets:', pets);
   // const { pets = [] } = useSelector(getUser);
 
+  let reversedPets = pets.reduce((accumulator, currentValue) => {
+    return [currentValue, ...accumulator];
+  }, []);
+  console.log(reversedPets);
   const dispatch = useDispatch();
   const onDeleteBtnClick = (e, id) => {
     dispatch(deletePet(id));
     e.preventDefault();
   };
 
-  return pets.length > 0 ? (
+  return reversedPets.length > 0 ? (
     <div>
-      {pets.map(({ _id, name, date, breed, photoURL, comments }) => (
+      {reversedPets.map(({ _id, name, date, breed, photoURL, comments }) => (
         <div key={_id} className={css.container_pets_list}>
           <div className={css.container_pets_img}>
             <img

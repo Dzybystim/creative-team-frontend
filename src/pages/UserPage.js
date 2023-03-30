@@ -28,7 +28,7 @@ export default function UserPage() {
     };
     fetchData().catch(console.error);
   }, [token, addPet]);
-
+  console.log(userAndPets);
   if (userAndPets === undefined) {
     LogOut();
     return navigate('/login');
