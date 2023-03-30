@@ -26,7 +26,6 @@ export const NoticesCategoriesList = () => {
     dispatch(getAllSelectedNotices());
     return;
   }, [dispatch, isLogged]);
-
   let reversedNotices = notices.reduce((accumulator, currentValue) => {
     return [currentValue, ...accumulator];
   }, []);
@@ -37,18 +36,29 @@ export const NoticesCategoriesList = () => {
   return (
     <>
       <AddNoticeButton />
+
       {category === 'favorite' ? (
-        <ul className={css.list}>
-          {reversedFavorites.map(item => {
-            return <NoticeCategoryItem key={item._id} item={item} />;
-          })}
-        </ul>
+        <>
+          {reversedFavorites.length === 0 && (
+            <h2 className={css.header_not_found}>Pets not found 😔</h2>
+          )}
+          <ul className={css.list}>
+            {favorites.map(item => {
+              return <NoticeCategoryItem key={item._id} item={item} />;
+            })}
+          </ul>
+        </>
       ) : (
-        <ul className={css.list}>
-          {reversedNotices.map(item => {
-            return <NoticeCategoryItem key={item._id} item={item} />;
-          })}
-        </ul>
+        <>
+          {reversedNotices.length === 0 && (
+            <h2 className={css.header_not_found}>Pets not found 😔</h2>
+          )}
+          <ul className={css.list}>
+            {notices.map(item => {
+              return <NoticeCategoryItem key={item._id} item={item} />;
+            })}
+          </ul>
+        </>
       )}
     </>
   );

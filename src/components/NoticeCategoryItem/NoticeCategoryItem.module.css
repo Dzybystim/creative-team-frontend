@@ -33,24 +33,23 @@
 }
 
 @media screen and (min-width: 768px) {
-   .item {
-  width: 336px;
+  .item {
+    width: 336px;
   }
-  
+
   .img_cover {
     width: 100%;
   }
   .img {
     width: 100%;
   }
- 
 }
 
 @media screen and (min-width: 1280px) {
   .item {
     width: 288px;
-    }
-} 
+  }
+}
 
 .category {
   z-index: 10;
@@ -97,6 +96,9 @@
   line-height: 1.4;
   letter-spacing: -0.01em;
   margin-bottom: 20px;
+  max-height: 39px;
+  overflow: auto;
+  text-overflow: ellipsis;
 }
 
 .info {
