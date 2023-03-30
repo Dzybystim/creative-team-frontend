@@ -53,10 +53,7 @@ export const PageOne = props => {
         validationSchema={schemaPageOne}
       >
         <Form autoComplete="off">
-          <p className={css.text}>
-            Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
-            consectetur{' '}
-          </p>
+          <p className={css.text}> </p>
 
           <div className={css.radio_category}>
             <label className={css.radio_label}>
@@ -151,9 +148,21 @@ export const PageOne = props => {
               id="breed"
               type="text"
               name="breed"
+              component="select"
               placeholder="Type breed"
               required
-            />
+            >
+              <option value="Dog">Dog</option>
+              <option value="Cat">Cat</option>
+              <option value="Hamster">Hamster</option>
+              <option value="Parrot">Parrot</option>
+              <option value="Guinea pig">Guinea pig</option>
+              <option value="Wookiee">Wookiee</option>
+              <option value="Ewoks">Ewoks</option>
+              <option value="The Dark Lord">The Dark Lord</option>
+              <option value="Grud">Grud</option>
+              <option value="Other">Other</option>
+            </Field>
             <ErrorMessage
               name="breed"
               component="div"

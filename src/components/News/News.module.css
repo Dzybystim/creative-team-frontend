@@ -69,6 +69,10 @@
   color: var(--accent-color);
 }
 
+.newsLink:hover {
+  color: var(--form-input-border-color);
+}
+
 .notNewsFound {
   text-align: center;
   font-style: normal;
