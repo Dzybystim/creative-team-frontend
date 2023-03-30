@@ -47,7 +47,7 @@ export const NoticesCategoriesList = () => {
         })}
       </ul>
     }
-     {notices.length === 0 && notices.length === 0 && <h2 className={css.header_not_found}>Pets not found 😔</h2>} 
+     {notices.length === 0 && favorites.length === 0 && <h2 className={css.header_not_found}>Pets not found 😔</h2>} 
     </>
   );
 };
