@@ -139,3 +139,8 @@
   fill: var(--accent-color);
   stroke: var(--accent-color);
 }
+.active {
+  cursor: pointer;
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+}

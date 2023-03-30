@@ -75,3 +75,12 @@ p > a.active {
   margin: 0;
   box-sizing: border-box;
 }
+li > a.active {
+  text-decoration-line: underline;
+  cursor: pointer;
+  color: var(--accent-color);
+}
+span > a.active {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}

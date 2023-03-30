@@ -26,6 +26,7 @@ export const NoticesCategoriesList = () => {
   }, [dispatch, isLogged]);
 
 
+
   return (
     <>
       <AddNoticeButton />
