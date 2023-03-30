@@ -31,20 +31,18 @@
 }
 @media screen and (max-width: 767px) {
   .page {
-    height: 601px;
-
+    width:100%;
+    background-size: 100%;
+    min-height: 601px;
     background-image: url('../../images/mobile/dogMobile.webp'),
       url('../../images/mobile/waveMobile.webp');
-    background-repeat: no-repeat;
-    background-position: top 235px right -10px, top 151px right 0px;
+      background-repeat: no-repeat;
+    /* background-position: top 235px right -10px, top 151px right 0px; */
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .page {
     height: 1193px;
-    /* padding-top: 1121px; */
-
-
     background-image: url('../../images/tablet/dogTablet.webp'),
       url('../../images/tablet/waveTablet.webp');
     background-repeat: no-repeat;
@@ -54,7 +52,6 @@
 @media screen and (min-width: 1280px) {
   .page {
     height: 768px;
-    /* padding-top: 700px; */
     background-image: url('../../images/unionDesk.svg'),
       url('../../images/desktop/dogDesktop.webp'),
       url('../../images/desktop/waveDesktop.webp'),
