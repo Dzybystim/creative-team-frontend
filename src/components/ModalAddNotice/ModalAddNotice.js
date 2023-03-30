@@ -57,6 +57,7 @@ export const ModalAddNotice = ({ onClose }) => {
         price: newData.price,
       };
       dispatch(addNotice(newNotices));
+      navigete('/notices/own');
       return;
     }
     setCurrentPage(prev => prev + 1);

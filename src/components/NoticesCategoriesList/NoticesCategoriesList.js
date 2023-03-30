@@ -12,9 +12,7 @@ export const NoticesCategoriesList = () => {
   let { pathname } = useLocation();
   let category = pathname.split('/').pop();
   const notices = useSelector(selectNotices);
-  console.log('notices:', notices);
   const favorites = useSelector(selectFavorites);
-  console.log('favorites:', favorites);
 
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
@@ -26,12 +24,14 @@ export const NoticesCategoriesList = () => {
     dispatch(getAllSelectedNotices());
     return;
   }, [dispatch, isLogged]);
+
   let reversedNotices = notices.reduce((accumulator, currentValue) => {
     return [currentValue, ...accumulator];
   }, []);
   let reversedFavorites = favorites.reduce((accumulator, currentValue) => {
     return [currentValue, ...accumulator];
   }, []);
+
 
   return (
     <>
