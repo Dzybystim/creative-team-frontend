@@ -32,9 +32,8 @@ export const NoticesCategoriesList = () => {
 
   return (
     <>
-      <AddNoticeButton />
-      {notices.length === 0 || favorites.length === 0 ? <h2 className={css.header_not_found}>Pets not found😔</h2> : 
-      <>
+      <AddNoticeButton />   
+      
       {category === 'favorite' ? 
       <ul className={css.list}>
         {favorites.map(item => {
@@ -48,8 +47,7 @@ export const NoticesCategoriesList = () => {
         })}
       </ul>
     }
-    </>}
-      
+     {notices.length === 0 && notices.length === 0 && <h2 className={css.header_not_found}>Pets not found 😔</h2>} 
     </>
   );
 };
