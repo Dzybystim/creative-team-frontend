@@ -25,13 +25,6 @@ export const NoticesCategoriesList = () => {
     return;
   }, [dispatch, isLogged]);
 
-  let reversedNotices = notices.reduce((accumulator, currentValue) => {
-    return [currentValue, ...accumulator];
-  }, []);
-  let reversedFavorites = favorites.reduce((accumulator, currentValue) => {
-    return [currentValue, ...accumulator];
-  }, []);
-
 
   return (
     <>
@@ -43,7 +36,7 @@ export const NoticesCategoriesList = () => {
             <h2 className={css.header_not_found}>Pets not found 😔</h2>
           )}
           <ul className={css.list}>
-            {reversedFavorites.map(item => {
+            {favorites.map(item => {
               return <NoticeCategoryItem key={item._id} item={item} />;
             })}
           </ul>
@@ -54,7 +47,7 @@ export const NoticesCategoriesList = () => {
             <h2 className={css.header_not_found}>Pets not found 😔</h2>
           )}
           <ul className={css.list}>
-            {reversedNotices.map(item => {
+            {notices.map(item => {
               return <NoticeCategoryItem key={item._id} item={item} />;
             })}
           </ul>
