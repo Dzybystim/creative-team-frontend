@@ -152,7 +152,7 @@ export const PageOne = props => {
               placeholder="Type breed"
               required
             >
-              <option value="Dog">Dog</option>
+              <option selected value="Dog">Dog</option>
               <option value="Cat">Cat</option>
               <option value="Hamster">Hamster</option>
               <option value="Parrot">Parrot</option>

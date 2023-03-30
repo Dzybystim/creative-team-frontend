@@ -31,6 +31,8 @@ export const NoticesCategoriesList = () => {
     return [currentValue, ...accumulator];
   }, []);
 
+
+
   return (
     <>
       <AddNoticeButton />
