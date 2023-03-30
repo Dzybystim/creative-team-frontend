@@ -36,7 +36,8 @@ const schemaPageOne = yup.object().shape({
     .min(2, 'Minimum 2 characters!')
     .max(24, 'Maximum 24 characters!')
     .matches(/^[A-Za-zА-Яа-яёЁЇїІіЄєҐґ\s\-']+$/, 'Can only contain letters')
-    .required('Required field!'),
+    .required('Required field!')
+    .default('Dog'),
 });
 
 export const PageOne = props => {
@@ -152,7 +153,7 @@ export const PageOne = props => {
               placeholder="Type breed"
               required
             >
-              <option selected value="Dog">Dog</option>
+              <option value="Dog">Dog</option>
               <option value="Cat">Cat</option>
               <option value="Hamster">Hamster</option>
               <option value="Parrot">Parrot</option>
