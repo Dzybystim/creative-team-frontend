@@ -12,9 +12,7 @@ export const NoticesCategoriesList = () => {
   let { pathname } = useLocation();
   let category = pathname.split('/').pop();
   const notices = useSelector(selectNotices);
-  console.log('notices:', notices);
   const favorites = useSelector(selectFavorites);
-  console.log('favorites:', favorites);
 
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
@@ -39,22 +37,22 @@ export const NoticesCategoriesList = () => {
 
       {category === 'favorite' ? (
         <>
-          {reversedFavorites.length === 0 && (
+          {favorites.length === 0 && (
             <h2 className={css.header_not_found}>Pets not found 😔</h2>
           )}
           <ul className={css.list}>
-            {favorites.map(item => {
+            {reversedFavorites.map(item => {
               return <NoticeCategoryItem key={item._id} item={item} />;
             })}
           </ul>
         </>
       ) : (
         <>
-          {reversedNotices.length === 0 && (
+          {notices.length === 0 && (
             <h2 className={css.header_not_found}>Pets not found 😔</h2>
           )}
           <ul className={css.list}>
-            {notices.map(item => {
+            {reversedNotices.map(item => {
               return <NoticeCategoryItem key={item._id} item={item} />;
             })}
           </ul>
