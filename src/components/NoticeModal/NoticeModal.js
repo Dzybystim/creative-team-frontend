@@ -63,14 +63,14 @@ export const NoticeModal = ({
             </li>
             <li className={css.item}>
               <p className={css.main_text}>Email: </p>
-              <a href={'mailto:' + item.email} className={css.text}>
+              <a href={`mailto:${item.email}`} className={css.text_mail}>
                 {item.email}
               </a>
             </li>
             <li className={css.item}>
               <p className={css.main_text}>Phone: </p>
               {item.mobilePhone ? (
-                <a href={'tel:' + item.mobilePhone} className={css.text}>
+                <a href={`tel:${item.mobilePhone}`} className={css.text}>
                   {item.mobilePhone}
                 </a>
               ) : (

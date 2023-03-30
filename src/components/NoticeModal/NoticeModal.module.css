@@ -191,7 +191,29 @@
 .text {
   width: 50%;
   font-weight: 500;
+  color: var(--black-color);
 }
+
+a.text:hover {
+  color: var(--accent-color);
+}
+
+.text_mail {
+  width: 50%;
+  font-weight: 500;
+  color: var(--black-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform 200ms ease;
+}
+
+.text_mail:hover,
+.text_mail:focus {
+  color: var(--accent-color);
+  overflow: visible;
+  transform: translate(-40px, 0);
+}
+
 .main_text {
   width: 50%;
   font-weight: 600;

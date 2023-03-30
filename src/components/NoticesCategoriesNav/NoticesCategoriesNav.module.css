@@ -1,6 +1,8 @@
 .list {
   display: flex;
   flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 30px;
   max-width: 280px;
 }
@@ -27,6 +29,8 @@
   .list {
     display: flex;
     max-width: 70%;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 60px;
   }
 

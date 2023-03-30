@@ -27,7 +27,6 @@ export const NoticesCategoriesList = () => {
 
 
 
-
   return (
     <>
       <AddNoticeButton />
