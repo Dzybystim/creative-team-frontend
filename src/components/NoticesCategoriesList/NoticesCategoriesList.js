@@ -14,9 +14,6 @@ export const NoticesCategoriesList = () => {
   const notices = useSelector(selectNotices);
   const favorites = useSelector(selectFavorites);
 
-  console.log(notices);
-  console.log(favorites);
-
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
 

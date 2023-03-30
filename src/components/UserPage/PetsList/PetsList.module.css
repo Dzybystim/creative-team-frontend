@@ -92,10 +92,17 @@
   stroke: var(--black-color);
 }
 
+
 .icon_delete {
   color: var(--black-color);
   background-color: var(--white-color);
 }
+
+.icon_delete:hover,
+.icon_delete:focus{
+  color: var(--accent-color)
+}
+
 
 @media screen and (min-width: 768px) {
   .container_pets_list {
@@ -110,7 +117,7 @@
 
   .icon_delete {
     color: var(--black-color);
-    background-color: var(--white-color);
+    background-color: var(--bg-color);
   }
 
   .button_delete_pet {
@@ -202,6 +209,7 @@
     stroke: var(--black-color);
   }
 
+
   .fon_delete_icon {
     width: 44px;
     height: 44px;
@@ -212,7 +220,16 @@
     justify-content: center;
   }
 
-  .fon_delete_icon:focus {
-    background-color: var(--bg-color);
-  }
+
+.fon_delete_icon:hover,
+.fon_delete_icon:focus {
+  background-color: var(--accent-color);
+}
+.fon_delete_icon:hover .icon_delete,
+.fon_delete_icon:focus .icon_delete {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+
 }

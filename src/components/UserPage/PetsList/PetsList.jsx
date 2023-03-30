@@ -4,42 +4,10 @@ import petDefaultAvatar from '../../../images/petDefaultAvatar.svg';
 import { useDispatch } from 'react-redux';
 import { deletePet } from 'redux/auth/operations';
 import css from './PetsList.module.css';
-// import { ImageListItemBar } from '@mui/material';
 
-// import { getUser } from 'redux/auth/selectors';
-
-// let test = [
-//  {
-//    _id: '1',
-//     name: 'Rex',
-//      birthday: '',
-//      breed: 'breed',
-//     photo:
-//        'https://images.unsplash.com/photo-1586796314073-c9b40efb3d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hbGwlMjBkb2d8ZW58MHx8MHx8&w=1000&q=80',
-//      comments: 'ndustry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lo',
-//    },
-//    {
-//      _id: '2',
-//      name: 'Rex',
-//      birthday: '',
-//      breed: 'breed',
-//      photo:
-//       'https://images.unsplash.com/photo-1586796314073-c9b40efb3d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hbGwlMjBkb2d8ZW58MHx8MHx8&w=1000&q=80',
-//      comments: 'Cool',
-//    },
-//    {
-//     _id: '3',
-//      name: 'Rex',
-//       birthday: '',
-//       breed: 'breed',
-//      photo:
-//         'https://images.unsplash.com/photo-1586796314073-c9b40efb3d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hbGwlMjBkb2d8ZW58MHx8MHx8&w=1000&q=80',
-//       comments: 'ndustry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lo',
-//     },
-// ];
 
 const PetsList = ({ pets, setAddPet, addPet }) => {
-  // const { pets = [] } = useSelector(getUser);
+
 
   const dispatch = useDispatch();
   const onDeleteBtnClick = (e, id) => {
@@ -69,7 +37,7 @@ const PetsList = ({ pets, setAddPet, addPet }) => {
                 onClick={() => setAddPet(!addPet)}
               >
                 <DeleteIcon
-                  color="blackAlpha.500"
+                  
                   border="none"
                   className={css.icon_delete}
                 />
