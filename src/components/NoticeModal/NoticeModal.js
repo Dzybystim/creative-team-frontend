@@ -62,12 +62,12 @@ export const NoticeModal = ({
         </li>
         <li className={css.item}>
           <p className={css.main_text}>Email: </p>
-          <p className={css.text}>{item.email}</p>{' '}
+          <a href={'mailto:'+item.email} className={css.text} >{item.email}</a>
         </li>
         <li className={css.item}>
           <p className={css.main_text}>Phone: </p>
           {item.mobilePhone ? (
-            <p className={css.text}>{item.mobilePhone}</p>
+            <a href={'tel:'+item.mobilePhone}className={css.text}>{item.mobilePhone}</a>
           ) : (
             <p className={css.text}>Not provided</p>
           )}
