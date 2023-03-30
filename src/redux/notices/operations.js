@@ -20,8 +20,6 @@ export const addNotice = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await axios.post('/notices/user', data);
-      console.log('add new notice result', response);
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -34,7 +32,6 @@ export const deleteNotice = createAsyncThunk(
 
   async (noticeId, thunkAPI) => {
     try {
-      console.log('noticeId', noticeId);
       const response = await axios.delete(`/notices/user/${noticeId}`);
       return response.data;
     } catch (error) {
