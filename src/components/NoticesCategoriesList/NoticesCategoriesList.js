@@ -33,28 +33,30 @@ export const NoticesCategoriesList = () => {
     return [currentValue, ...accumulator];
   }, []);
 
+
+
   return (
     <>
       <AddNoticeButton />
 
       {category === 'favorite' ? (
         <>
-          {reversedFavorites.length === 0 && (
+          {favorites.length === 0 && (
             <h2 className={css.header_not_found}>Pets not found 😔</h2>
           )}
           <ul className={css.list}>
-            {favorites.map(item => {
+            {reversedFavorites.map(item => {
               return <NoticeCategoryItem key={item._id} item={item} />;
             })}
           </ul>
         </>
       ) : (
         <>
-          {reversedNotices.length === 0 && (
+          {notices.length === 0 && (
             <h2 className={css.header_not_found}>Pets not found 😔</h2>
           )}
           <ul className={css.list}>
-            {notices.map(item => {
+            {reversedNotices.map(item => {
               return <NoticeCategoryItem key={item._id} item={item} />;
             })}
           </ul>
