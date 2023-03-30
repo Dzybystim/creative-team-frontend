@@ -1,7 +1,7 @@
 .add_btn {
   bottom: 50px;
   right: 40px;
-  z-index: 10;
+  z-index: 12;
   position: fixed;
   width: 80px;
   height: 80px;
@@ -36,8 +36,8 @@
 @media screen and (min-width: 768px) {
   .add_btn {
     position: absolute;
-    top: 280px;
-    right: 20px;
+    top: 370px;
+    right: 30px;
     z-index: 10;
     width: 32px;
     height: 32px;
@@ -54,5 +54,12 @@
     font-size: 20px;
     line-height: 1.35;
     color: var(--black-color);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .add_btn {
+    top: 330px;
+    right: 50px;
   }
 }

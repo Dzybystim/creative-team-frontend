@@ -14,12 +14,12 @@ import { useLogOutMutation } from 'redux/auth/fetchUser';
 export default function UserPage() {
   const [userAndPets, setUserAndPets] = useState({});
   const [userFoto, setUserFoto] = useState(null);
-  const [addPet, setAddPet] = useState(false)
+  const [addPet, setAddPet] = useState(false);
   const [LogOut] = useLogOutMutation();
 
   const token = useSelector(selectors.getToken);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetchUserAndPets(token);
@@ -56,7 +56,11 @@ export default function UserPage() {
       {userAndPets.pets && (
         <div className={css.container_pets}>
           <div className={css.container__petsdata}>
-            <PetsData pets={userAndPets.pets} setAddPet={setAddPet} addPet={addPet}/>
+            <PetsData
+              pets={userAndPets.pets}
+              setAddPet={setAddPet}
+              addPet={addPet}
+            />
           </div>
         </div>
       )}

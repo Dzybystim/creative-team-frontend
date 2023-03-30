@@ -1,7 +1,5 @@
 import { Modal } from '../../utilities/Modal/Modal';
-import { useState, 
- // useEffect
- } from 'react';
+import { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NoticeModal } from 'components/NoticeModal/NoticeModal';
 import css from './NoticeCategoryItem.module.css';
@@ -12,35 +10,43 @@ import { ageCounter } from '../../utilities/ageCounter';
 
 import { getNoticesById } from '../../utilities/helpers';
 import { selectors } from '../../redux/auth/selectors';
-
 import { selectFavorites } from '../../redux/notices/selectors';
 import { deleteNotice } from '../../redux/notices/operations';
 import { getUserIdFromLocalStorage } from '../../utilities/helpers';
 import {
-//  getAllSelectedNotices,
   addToFavorite,
   deleteFromFavorite,
 } from '../../redux/notices/operations';
 import { toast } from 'react-toastify';
 
 
-export const NoticeCategoryItem = ({ item }) => {
+export const NoticeCategoryItem = ({ item,  }) => {
   const [showModal, setShowModal] = useState(false);
   const [notice, setNotice] = useState(null);
   const dispatch = useDispatch();
   const isLogged = useSelector(selectors.isLogged);
   const favorites = useSelector(selectFavorites);
 
+const userId = getUserIdFromLocalStorage();
 
-  const userId = getUserIdFromLocalStorage();
+let categoryName;
+switch (item.category) {
+  case "lost-found":
+    categoryName = 'lost/found';
+    break;
 
-  // useEffect(() => {
-  //   if (!isLogged) {
-  //     return;
-  //   }
-  //   dispatch(getAllSelectedNotices());
-  //   return;
-  // }, [dispatch, isLogged]);
+  case "sell":
+    categoryName = 'sell';
+    break;
+
+  case "for-free":
+    categoryName = 'in good hands';
+    break;
+
+  default:
+    console.log("Invalid subscription type");
+}
+
 
   const handleAddOrDeleteFavorite = () => {
     if (!isLogged) {
@@ -81,6 +87,7 @@ export const NoticeCategoryItem = ({ item }) => {
       });
   };
 
+
   return (
     <>
 
@@ -90,8 +97,9 @@ export const NoticeCategoryItem = ({ item }) => {
             <img src={item.imageURL} className={css.img} alt="Pet" />
           ) : null}
 
-          <p className={css.category}>{item.category}</p>
-
+{categoryName ? <p className={css.category}>{categoryName}</p>
+        :  <p className={css.category}>{item.category}</p>}
+          
             <button
               className={css.icon}
               type="button"
@@ -149,10 +157,13 @@ export const NoticeCategoryItem = ({ item }) => {
         <Modal key={item.id} onClose={toggleModal}>
           <NoticeModal
            handleAddOrDeleteFavorite={handleAddOrDeleteFavorite}
-            item={notice}
+            item={notice} categoryName={categoryName}
           />
         </Modal>
       )}
     </>
   );
 };
+
+
+

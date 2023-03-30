@@ -9,14 +9,12 @@ import {
 } from '../../redux/notices/operations';
 
 
-
 export const NoticeModal = ({
-  item, handleAddOrDeleteFavorite
+  item, categoryName, handleAddOrDeleteFavorite
 }) => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
   const isLogged = useSelector(selectors.isLogged);
- 
 
   useEffect(() => {
     if (!isLogged) {
@@ -31,7 +29,9 @@ export const NoticeModal = ({
     <div className={css.container}>
       <div className={css.cover}>
       <div className={css.img_cover}>
-        <p className={css.category}>{item.category}</p>
+        {categoryName ? <p className={css.category}>{categoryName}</p>
+       : <p className={css.category}>{item.category}</p>}
+        
         {item.imageURL ? (
           <img src={item.imageURL} className={css.img} alt="Pet" />
         ) : null}
@@ -62,12 +62,12 @@ export const NoticeModal = ({
         </li>
         <li className={css.item}>
           <p className={css.main_text}>Email: </p>
-          <p className={css.text}>{item.email}</p>{' '}
+          <a href={'mailto:'+item.email} className={css.text} >{item.email}</a>
         </li>
         <li className={css.item}>
           <p className={css.main_text}>Phone: </p>
           {item.mobilePhone ? (
-            <p className={css.text}>{item.mobilePhone}</p>
+            <a href={'tel:'+item.mobilePhone}className={css.text}>{item.mobilePhone}</a>
           ) : (
             <p className={css.text}>Not provided</p>
           )}
