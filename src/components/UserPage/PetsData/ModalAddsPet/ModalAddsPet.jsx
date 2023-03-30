@@ -130,6 +130,7 @@ const ModalAddsPet = ({ onClose, setAddPet, addPet }) => {
 
                 <div className={css.btn_list}>
                   <button
+                    type="button"
                     className={`${css.btn} ${css.accent_btn}`}
                     onClick={() => setFirstStep(false)}
                     disabled={isDisabled(dirty, errors)}
