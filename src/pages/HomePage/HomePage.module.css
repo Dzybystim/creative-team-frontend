@@ -47,8 +47,8 @@
       url('../../images/desktop/waveDesktop.webp'),
       url('../../images/desktop/waveDesktop2.webp');
     background-repeat: no-repeat;
-    background-position: top 59px right 505px, top 92px right 18px,
-      top 291px right 170px, top 327px right -49px;
+    background-position: top 59px right 505px, top 118px right 18px,
+      top 291px right 170px, top 365px right -49px;
     background-size: 91px auto, 524px auto, 1178px auto, 425px auto;
   }
 }
