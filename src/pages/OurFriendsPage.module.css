@@ -1,5 +1,7 @@
 .container {
   position: relative;
+  margin-top: 42px;
+  padding: 0 20px 100px 20px;
   align-items: center;
   text-align: center;
   width: auto;
@@ -29,18 +31,16 @@
   }
 }
 
-.container {
-  margin-top: 42px;
-}
-
 @media screen and (min-width: 768px) {
   .container {
     margin-top: 88px;
+    padding: 0 32px 100px 32px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
     margin-top: 58px;
+    padding: 0 16px 100px 16px;
   }
 }

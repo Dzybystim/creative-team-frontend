@@ -1,73 +1,54 @@
 .h1 {
-  position: absolute;
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  line-height: 44px;
   color: black;
-  top: 118px;
-  margin-left: 20px;
+  padding-top: 60px;
 }
 @media screen and (min-width: 768px) {
   .h1 {
     font-size: 68px;
     line-height: 100px;
-    padding-top: 0px;
-    top: 160px;
-    margin-left: 32px;
+    padding-top: 88px;
   }
 }
 @media screen and (min-width: 1280px) {
   .h1 {
-    font-size: 68px;
-    line-height: 100px;
-    top: 160px;
-    margin-left: 15px;
+    padding-top: 92px;
   }
 }
 
-
-@media screen and (max-width: 767px) {
-  .page {
-    height: 100vh;
-    margin-left: -20px;
-    margin-right: -20px;
-    margin-bottom: -16px;
-    background-image: url('../../images/mobile/dogMobile.webp'),
-      url('../../images/mobile/waveMobile.webp');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: top 235px right -10px, top 151px right 0px;
-    background-size: auto, 100%;
-  }
+.page {
+  height: calc(100vh - 64px);
+  padding: 0 20px;
+  background-image: url('../../images/mobile/dogMobile.webp'),
+    url('../../images/mobile/waveMobile.webp');
+  background-repeat: no-repeat;
+  background-position: bottom 0 right 20px, top 115px right 0px;
+  background-size: 280px auto, cover;
 }
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+
+@media screen and (min-width: 768px) {
   .page {
-    height: 100vh;
-    margin-left: -32px;
-    margin-right: -32px;
-    margin-bottom: -24px;
+    height: 1115px;
     background-image: url('../../images/tablet/dogTablet.webp'),
       url('../../images/tablet/waveTablet.webp');
     background-repeat: no-repeat;
-    background-position: top 440px right 52px, top 115px right 0px;
-    background-size: auto, 100%;
+    background-position: top 368px right 52px, top 15px right 0px;
+    background-size: 736px auto, cover;
   }
 }
 @media screen and (min-width: 1280px) {
   .page {
-    height: 100vh;
-    margin-left: -15px;
-    margin-right: -15px;
-    margin-bottom: -20px;
+    max-height: calc(100vh - 74px);
     background-image: url('../../images/unionDesk.svg'),
       url('../../images/desktop/dogDesktop.webp'),
       url('../../images/desktop/waveDesktop.webp'),
       url('../../images/desktop/waveDesktop2.webp');
     background-repeat: no-repeat;
-    background-position: top 118px right 480px, top 160px right 18px,
-      top 359px right 170px, top 375px right 0px;
-    /* background-size:cover, cover, cover, cover; */
+    background-position: top 59px right 505px, top 92px right 18px,
+      top 291px right 170px, top 327px right -49px;
+    background-size: 91px auto, 524px auto, 1178px auto, 425px auto;
   }
 }

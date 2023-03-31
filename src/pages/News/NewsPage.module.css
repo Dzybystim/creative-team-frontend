@@ -1,6 +1,20 @@
 .container {
-  padding: 0;
-  margin: 0;
+  padding: 0 20px;
+  margin-top: 42px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding-top: 32px;
+    margin-top: 88px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    padding-top: 16px;
+    margin-top: 58px;
+  }
 }
 
 .title {
@@ -20,21 +34,5 @@
   .title {
     margin-bottom: 40px;
     font-size: 48px;
-  }
-}
-
-.container {
-  margin-top: 42px;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    margin-top: 88px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .container {
-    margin-top: 58px;
   }
 }
